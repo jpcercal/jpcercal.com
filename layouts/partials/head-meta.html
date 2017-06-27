@@ -1,0 +1,31 @@
+<!-- BEGIN meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<!-- END meta -->
+
+<!-- BEGIN seo -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@jpcercal"/>
+<meta name="twitter:domain" content="{{ .Site.BaseURL }}"/>
+<meta name="twitter:creator" content="@jpcercal"/>
+<meta property="og:locale" content="{{ .Site.Params.locale }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+
+{{ if .IsHome }}
+<title>{{ .Site.Title }}</title>
+<meta property="og:title" content="{{ .Site.Title }}" />
+<meta property="og:url" content="{{ .Site.BaseURL }}" />
+<meta name="description" content="{{ .Site.Params.description }}"/>
+<meta property="og:description" content="{{ .Site.Params.description }}" />
+<link rel="canonical" href="{{ .Site.BaseURL }}" />
+{{ else }}
+<title>{{ .Title }}</title>
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta name="description" content="{{ .Description }}"/>
+<meta property="og:description" content="{{ .Description }}" />
+<link rel="canonical" href="{{ .Permalink }}" />
+{{ end }} 
+
+<meta property="og:type" content="website" />

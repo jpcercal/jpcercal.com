@@ -1,0 +1,37 @@
+{
+    "customers": {
+        "srj": {
+            "title": "SRJ",
+            "abstract": "SRJ é uma clinica bla bla bla",
+            "tags": [
+                "website",
+                "hosting"
+            ],
+            "projects": [
+                {
+                    "title": "Criação e Hospedagem do Site",
+                    "abstract": "Bla bla bla",
+                    "images": [
+                        {
+                            "title": "Title Image",
+                            "url": "http://yourdomain.com/images/your-image.png"
+                        }
+                    ]
+                }
+            ]
+        },
+        "labs": {
+            "title": "Labs",
+            "abstract": "Labs são projetos abertos",
+            "tags": [
+                "labs"
+            ],
+            "projects": [
+                {
+                    "title": "Criação e Hospedagem do Site",
+                    "abstract": "Bla bla bla"
+                }
+            ]
+        }
+    }
+}

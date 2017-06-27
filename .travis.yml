@@ -1,0 +1,13 @@
+language: go
+install: go get -v github.com/spf13/hugo
+before_script:
+  - git clone -b master https://github.com/cercal/cercal.github.io.git public/
+script:
+  - travis_wait 1440 hugo --baseURL https://cercal.io/
+after_script:
+  - git config --global user.name "${GIT_DISPLAYNAME}"
+  - git config --global user.email "${GIT_EMAIL}"
+  - cd public/
+  - git add . --all
+  - git commit --amend --message "${GIT_COMMIT_MESSAGE}"
+  - git push --force --quiet "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/cercal/cercal.github.io.git" master

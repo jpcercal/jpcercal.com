@@ -1,0 +1,40 @@
+zf:
+  title: Zend Framework
+sf:
+  title: Symfony
+laravel:
+  title: Laravel
+cakephp:
+  title: Cake PHP
+wp:
+  title: Wordpress
+mysql:
+  title: MySQL
+delphi:
+  title: Delphi
+git:
+  title: Git
+cpp:
+  title: C++
+node:
+  title: NodeJS
+jquery:
+  title: jQuery
+angular:
+  title: AngularJS
+es2015:
+  title: EcmaScript 2015
+osx:
+  title: OSX
+linux:
+  title: Linux
+windows:
+  title: Windows
+android:
+  title: Android
+apple:
+  title: Apple
+microsoft:
+  title: Microsoft
+seo:
+  title: SEO

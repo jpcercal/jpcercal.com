@@ -1,0 +1,28 @@
+<div class="mdl-card mdl-cell mdl-cell--12-col" style="background-image: url('./images/content/default.jpg');">
+    <div class="mdl-card__media mdl-color-text--grey-50">
+        <h3><a href="{{ .Post.Permalink }}">{{ .Post.Title }}</a></h3>
+    </div>
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+        {{ .Post.Description }}
+    </div>
+    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <div class="meta__item">
+            <div class="material-icons mdl-badge mdl-badge--overlap">alarm</div>
+            <div class="meta__item--time">
+                <strong>
+                    {{ range .Params.topics }}
+                        <a href="{{ .Site.BaseURL }}/topics/{{ . | urlize }}">{{ . }}</a>
+                    {{ end }}
+                </strong>
+                <span>2 days ago</span>
+            </div>
+        </div>
+        <div class="meta__item">
+            <div class="material-icons mdl-badge mdl-badge--overlap">image</div>
+            <div class="meta__item--author">
+                <strong>Lucas Cercal</strong>
+                <span>@lcercal</span>
+            </div>
+        </div>
+    </div>
+</div>
