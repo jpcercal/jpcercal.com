@@ -6,19 +6,19 @@
 
 <!-- BEGIN seo -->
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="@jpcercal"/>
 <meta name="twitter:domain" content="{{ .Site.BaseURL }}"/>
-<meta name="twitter:creator" content="@jpcercal"/>
-<meta property="og:locale" content="{{ .Site.Params.locale }}" />
+<meta property="og:locale" content="{{ .Site.Params.Locale }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 
 {{ if .IsHome }}
 <title>{{ .Site.Title }}</title>
 <meta property="og:title" content="{{ .Site.Title }}" />
 <meta property="og:url" content="{{ .Site.BaseURL }}" />
-<meta name="description" content="{{ .Site.Params.description }}"/>
-<meta property="og:description" content="{{ .Site.Params.description }}" />
+<meta name="description" content="{{ .Site.Params.Description }}"/>
+<meta property="og:description" content="{{ .Site.Params.Description }}" />
 <link rel="canonical" href="{{ .Site.BaseURL }}" />
+<meta name="twitter:site" content="@jpcercal"/>
+<meta name="twitter:creator" content="@jpcercal"/>
 {{ else }}
 <title>{{ .Title }}</title>
 <meta property="og:title" content="{{ .Title }}" />
@@ -26,6 +26,9 @@
 <meta name="description" content="{{ .Description }}"/>
 <meta property="og:description" content="{{ .Description }}" />
 <link rel="canonical" href="{{ .Permalink }}" />
+{{ $author := index .Site.Data.authors .Params.author }}
+<meta name="twitter:site" content="{{ $author.twitter }}"/>
+<meta name="twitter:creator" content="{{ $author.twitter }}"/>
 {{ end }} 
 
 <meta property="og:type" content="website" />

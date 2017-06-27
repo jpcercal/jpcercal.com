@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Params.locale }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<html lang="{{ .Site.Params.Locale }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
     <head>
         {{ partial "head-favicon.html" . }}
         {{ partial "head-support-ie.html" . }}
@@ -14,6 +14,9 @@
                 {{ partial "banner.html" . }}
                 <div class="blog__posts mdl-grid">
                     <h4>Últimos posts</h4>
+
+                    {{ i18n "home" }}
+
                     {{ range $index, $post := (.Paginate ( first 10 .Data.Pages.ByDate )).Pages }}
                         {{ partial "post-card.html" (dict "Site" .Site "LoopIndex" $index "Post" $post) }}
                     {{ end }}

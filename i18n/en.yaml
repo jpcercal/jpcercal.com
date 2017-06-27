@@ -1,0 +1,4 @@
+home: 
+  other: Homepage
+wordCount:
+  other: This article has {{ .WordCount }} words.

@@ -1,0 +1,78 @@
+archetypeDir: "archetypes"
+contentDir:   "content"
+layoutDir:    "layouts"
+publishDir:   "public"
+dataDir:      "data"
+staticDir:    "static"
+themesDir:    "themes"
+theme:        ""
+baseURL:      "https://cercal.io/"
+
+disqusShortname:  "Cercal.IO"
+defaultLayout:    "post"
+defaultExtension: "html"
+metaDataFormat:   "yaml"
+googleAnalytics:  ""
+
+pygmentsUseClasses:             false
+pygmentsCodeFencesGuessSyntax:  false
+pygmentsStyle:                  "monokai"
+languageCode:                   "pt-br"
+defaultContentLanguage:         "pt"
+defaultContentLanguageInSubdir: false
+enableMissingTranslationPlaceholders: false
+
+languages:
+  en:
+    title: "Cercal.IO"
+    locale: "en"
+    description: "English"
+  pt:
+    title: "Cercal.IO"
+    locale: "pt-br"
+    description: "Português"
+
+rssLimit:     15
+paginate:     10
+paginatePath: "page"
+permalinks:   
+  post: /:slug/
+
+stepAnalysis: true
+noChmod:      false
+noTimes:      false
+buildDrafts:  false
+buildFuture:  false
+buildExpired: false
+relativeURLs: false
+canonifyURLs: false
+
+logFile:      "hugo.log"
+log:          true
+verbose:      false
+verboseLog:   true
+
+disablePathToLower:         false
+watch:                      true
+disableLiveReload:          false
+disableRSS:                 false
+disableSitemap:             false
+enableGitInfo:              false
+enableRobotsTXT:            true
+disable404:                 false
+disableHugoGeneratorInject: true
+enableEmoji:                false
+
+footnoteAnchorPrefix:       ""
+footnoteReturnLinkContents: ""
+
+disableKinds: 
+  - "section"
+  - "taxonomy"
+
+ignoreFiles: 
+  - "Thumbs\\.db$"
+  - "\\.DS_Store$"
+  - "\\.log$"
+  - "\\.lock$"
+  - "\\.sw?$"

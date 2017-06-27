@@ -1,25 +1,52 @@
 jpcercal@gmail.com:
   name: João Paulo Cercal
-  about:
-  facebook: https://www.facebook.com/jpcercal
-  twitter: https://twitter.com/jpcercal
-  googleplus: https://plus.google.com/+JoãoPauloCercal
-  linkedin: https://www.linkedin.com/in/jpcercal
-  github: https://github.com/jpcercal
+  picture: 
+    thumbnail: authors/picture/jpcercal@gmail.com.thumbnail.jpg
+    original: authors/picture/jpcercal@gmail.com.jpg
+  biography:
+    en: 
+    pt: 
+  resume:
+    en: authors/resume/jpcercal@gmail.com.en.pdf
+    pt: authors/resume/jpcercal@gmail.com.pt.pdf
+  socialNetworks:
+    facebook: jpcercal
+    twitter: jpcercal
+    linkedin: jpcercal
+    github: jpcercal
+  links:
+    - https://about.me/jpcercal
 elisetecercal@gmail.com:
   name: Elisete dos Santos Cercal
-  about:
-  facebook: https://www.facebook.com/elisete.dossantoscercal
-  twitter:
-  googleplus:
-  linkedin: https://br.linkedin.com/in/elisete-santos-cercal-861a4755
-  github:
-  github: https://github.com/jpcercal
+  picture: 
+    thumbnail: authors/picture/elisetecercal@gmail.com.thumbnail.jpg
+    original: authors/picture/elisetecercal@gmail.com.jpg
+  biography:
+    en: 
+    pt: 
+  resume:
+    en: authors/resume/elisetecercal@gmail.com.en.pdf
+    pt: authors/resume/elisetecercal@gmail.com.pt.pdf
+  socialNetworks:
+    facebook: elisete.dossantoscercal
+    twitter: 
+    linkedin: elisete-santos-cercal-861a4755
+    github: 
+  links:
 lukas.cercal@gmail.com:
-  name: Lucas Alfredo Cercal
-  about:
-  facebook: 
-  twitter:
-  googleplus:
-  linkedin: 
-  github:
+  name: João Paulo Cercal
+  picture: 
+    thumbnail: authors/picture/lukas.cercal@gmail.com.thumbnail.jpg
+    original: authors/picture/lukas.cercal@gmail.com.jpg
+  biography:
+    en: 
+    pt: 
+  resume:
+    en: authors/resume/lukas.cercal@gmail.com.en.pdf
+    pt: authors/resume/lukas.cercal@gmail.com.pt.pdf
+  socialNetworks:
+    facebook: jpcercal
+    twitter: jpcercal
+    linkedin: jpcercal
+    github: jpcercal
+  links:

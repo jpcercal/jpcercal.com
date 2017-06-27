@@ -1,0 +1,4 @@
+home: 
+  other: Página Inicial
+wordCount:
+  other: Este artigo tem {{ .WordCount }} palavras.
