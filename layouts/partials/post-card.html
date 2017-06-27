@@ -9,7 +9,7 @@
         <h3><a href="{{ .Post.Permalink }}">{{ .Post.Title }}</a></h3>
     </div>
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-        {{ .Post.Description }}
+        <p>{{ .Post.Description }}</p>
     </div>
     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
         <div class="meta__item">
@@ -24,10 +24,12 @@
             </div>
         </div>
         <div class="meta__item">
-            <div class="material-icons mdl-badge mdl-badge--overlap">image</div>
+            <div class="lc-author lc-author__img"></div>
             <div class="meta__item--author">
                 <strong>{{ $author.name }}</strong>
-                <span>{{ $author.twitter }}</span>
+                <a href="{{ $author.twitter }}">
+                    <span>{{ $author.twitter }}</span>
+                </a>
             </div>
         </div>
     </div>

@@ -340,6 +340,8 @@ body .blog
 .blog .mdl-card h3 a
 {
     text-decoration: none;
+    background: #333;
+    padding: 5px 20px;
 }
 .blog .mdl-card h3.quote:before,
 .blog .mdl-card h3.quote:after
