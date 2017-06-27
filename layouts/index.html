@@ -19,7 +19,7 @@
                 <div class="blog__posts mdl-grid">
                     <h4>Últimos posts</h4>
                     {{ range $index, $post := (.Paginate ( first 10 .Data.Pages.ByDate )).Pages }}
-                        {{ partial "post-card.html" (dict "LoopIndex" $index "Post" $post) }}
+                        {{ partial "post-card.html" (dict "Site" .Site "LoopIndex" $index "Post" $post) }}
                     {{ end }}
                 </div>
                 {{ partial "footer.html" . }}

@@ -1,3 +1,8 @@
+{{ $baseURL   := .Site.BaseURL }}
+{{ $author    := index .Site.Data.authors .Post.Params.author }}
+{{ $directory := "static/images/content/" }}
+{{ $filename  := "default.jpg" }}
+
 <div class="mdl-card mdl-cell mdl-cell--12-col" style="background-image: url('./images/content/default.jpg');">
     <div class="mdl-card__media mdl-color-text--grey-50">
         <h3><a href="{{ .Post.Permalink }}">{{ .Post.Title }}</a></h3>
@@ -10,18 +15,18 @@
             <div class="material-icons mdl-badge mdl-badge--overlap">alarm</div>
             <div class="meta__item--time">
                 <strong>
-                    {{ range .Params.topics }}
-                        <a href="{{ .Site.BaseURL }}/topics/{{ . | urlize }}">{{ . }}</a>
+                    {{ range .Post.Params.topics }}
+                        <a href="{{ $baseURL }}/topics/{{ . | urlize }}">{{ . }}</a>
                     {{ end }}
                 </strong>
-                <span>2 days ago</span>
+                <span>{{ .Post.Date.Format "Mon Jan 2, 2006" }}</span>
             </div>
         </div>
         <div class="meta__item">
             <div class="material-icons mdl-badge mdl-badge--overlap">image</div>
             <div class="meta__item--author">
-                <strong>Lucas Cercal</strong>
-                <span>@lcercal</span>
+                <strong>{{ $author.name }}</strong>
+                <span>{{ $author.twitter }}</span>
             </div>
         </div>
     </div>
