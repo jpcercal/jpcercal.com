@@ -7,6 +7,16 @@
         {{ partial "head-assets.html" . }}
     </head>
     <body role="document">
-        404
+        <div class="blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+            {{ partial "navbar.html" . }}
+            <main class="mdl-layout__content">
+                {{ partial "banner.html" . }}
+                <div class="blog__posts mdl-grid">
+                    <h4>{{ i18n "error404" }}</h4>
+                </div>
+                {{ partial "footer.html" . }}
+            </main>
+            <div class="mdl-layout__obfuscator"></div>
+        </div>
     </body>
 </html>

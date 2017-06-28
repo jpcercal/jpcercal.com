@@ -1,11 +1,15 @@
 jpcercal@gmail.com:
   name: João Paulo Cercal
+  position: 
+    en: Senior PHP Developer
+    pt: Desenvolvedor PHP Sênior
+  cover: authors/picture/jpcercal@gmail.com.cover.jpg
   picture: 
     thumbnail: authors/picture/jpcercal@gmail.com.thumbnail.jpg
     original: authors/picture/jpcercal@gmail.com.jpg
   biography:
-    en: 
-    pt: 
+    en: I'm a ZCPE (Zend Certified PHP Engineer) and I've worked with PHP since 2009, I'm passionate for open-source, patterns, tests and source code well written. Always looking for best practices, new technologies and methodologies to improve my workflow and bring great results to the project and to my customer.
+    pt: Sou ZCPE (Zend Certified PHP Engineer) e trabalho com PHP desde 2009, apaixonado por open-source, padrões, testes e código bem escrito. Sempre buscando melhores práticas, novas tecnologias e metodologias para melhorar meu fluxo de trabalho e trazer retorno além do esperado para o projeto e para o meu cliente.
   resume:
     en: authors/resume/jpcercal@gmail.com.en.pdf
     pt: authors/resume/jpcercal@gmail.com.pt.pdf
@@ -15,9 +19,22 @@ jpcercal@gmail.com:
     linkedin: jpcercal
     github: jpcercal
   links:
-    - https://about.me/jpcercal
+    - 
+      name: 
+        en: About me
+        pt: About me
+      url: https://about.me/jpcercal
+    - 
+      name: 
+        en: Portfolio
+        pt: Portfólio
+      url: https://jpcercal.github.io/projects
 elisetecercal@gmail.com:
   name: Elisete dos Santos Cercal
+  position: 
+    en: Recruiter
+    pt: Recrutadora de Talentos
+  cover: authors/picture/elisetecercal@gmail.com.cover.jpg
   picture: 
     thumbnail: authors/picture/elisetecercal@gmail.com.thumbnail.jpg
     original: authors/picture/elisetecercal@gmail.com.jpg
@@ -32,21 +49,30 @@ elisetecercal@gmail.com:
     twitter: 
     linkedin: elisete-santos-cercal-861a4755
     github: 
-  links:
+  links: []
 lukas.cercal@gmail.com:
-  name: João Paulo Cercal
+  name: Lucas Alfredo Cercal
+  position: 
+    en: Front-end Developer
+    pt: Desenvolvedor Front-end
+  cover: authors/picture/lukas.cercal@gmail.com.cover.jpg
   picture: 
     thumbnail: authors/picture/lukas.cercal@gmail.com.thumbnail.jpg
     original: authors/picture/lukas.cercal@gmail.com.jpg
   biography:
     en: 
-    pt: 
+    pt: Desenvolvedor Front-End desde 2012. Sempre buscando melhores práticas, novas tecnologias, e metodologias para melhorar o fluxo de trabalho e trazer retorno além do esperado para seus projetos e para seus clientes.
   resume:
     en: authors/resume/lukas.cercal@gmail.com.en.pdf
     pt: authors/resume/lukas.cercal@gmail.com.pt.pdf
   socialNetworks:
-    facebook: jpcercal
-    twitter: jpcercal
-    linkedin: jpcercal
-    github: jpcercal
+    facebook: lucasalfredo.cercal
+    twitter: lucascercal
+    linkedin: lucascercalW
+    github: LucasCercal
   links:
+    - 
+      name: 
+        en: Portfolio
+        pt: Portfólio
+      url: https://lucascercal.github.io

@@ -7,18 +7,15 @@
         {{ partial "head-assets.html" . }}
     </head>
     <body role="document">
-        
         <div class="blog mdl-layout mdl-js-layout has-drawer is-upgraded">
             {{ partial "navbar.html" . }}
             <main class="mdl-layout__content">
                 {{ partial "banner.html" . }}
                 <div class="blog__posts mdl-grid">
-                    <h4>Últimos posts</h4>
-
-                    {{ i18n "home" }}
+                    <h4>{{ i18n "latestPosts" }}</h4>
 
                     {{ range $index, $post := (.Paginate ( first 10 .Data.Pages.ByDate )).Pages }}
-                        {{ partial "post-card.html" (dict "Site" .Site "LoopIndex" $index "Post" $post) }}
+                        {{ partial "post-card" . }}
                     {{ end }}
                 </div>
                 {{ partial "footer.html" . }}

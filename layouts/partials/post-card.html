@@ -1,36 +1,35 @@
 {{ $baseURL   := .Site.BaseURL }}
-{{ $author    := index .Site.Data.authors .Post.Params.author }}
+{{ $author    := index .Site.Data.authors .Params.author }}
 {{ $directory := "images/content/" }}
-{{ $slug      := printf "%s/covers.jpg" (.Post.Title | urlize) }}
+{{ $slug      := printf "%s/covers.jpg" (.Title | urlize) }}
 {{ $filename  := or (where (readDir (printf "static/%s" $directory)) "Name" $slug) "default.jpg"  }}
 
 <div class="mdl-card mdl-cell mdl-cell--12-col" style="background-image: url('./{{ printf "%s%s" $directory $filename }}');">
     <div class="mdl-card__media mdl-color-text--grey-50">
-        <h3><a href="{{ .Post.Permalink }}">{{ .Post.Title }}</a></h3>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
     </div>
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-        <p>{{ i18n "wordCount" .Post }}</p>
-        <p>{{ i18n "readingTime" .Post.ReadingTime }}</p>
-        <p>{{ .Post.Description }}</p>
+        <p>{{ i18n "wordCount"  }}</p>
+        <p>{{ .Description }}</p>
     </div>
     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
         <div class="meta__item">
             <div class="material-icons mdl-badge mdl-badge--overlap">alarm</div>
             <div class="meta__item--time">
                 <strong>
-                    {{ range .Post.Params.topics }}
+                    {{ range .Params.topics }}
                         <a href="{{ $baseURL }}/topics/{{ . | urlize }}">{{ . }}</a>
                     {{ end }}
                 </strong>
-                <span>{{ .Post.Date.Format "Mon Jan 2, 2006" }}</span>
+                <span>{{ .Date.Format "Mon Jan 2, 2006" }}</span>
             </div>
         </div>
         <div class="meta__item">
-            <div class="lc-author lc-author__img"></div>
+            <div class="lc-author lc-author__img" style="background-image: url('./{{ $author.picture.thumbnail }}');"></div>
             <div class="meta__item--author">
                 <strong>{{ $author.name }}</strong>
-                <a href="{{ $author.twitter }}">
-                    <span>{{ $author.twitter }}</span>
+                <a href="{{ $author.socialNetworks.twitter }}">
+                    <span>@{{ $author.socialNetworks.twitter }}</span>
                 </a>
             </div>
         </div>

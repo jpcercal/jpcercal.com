@@ -1,4 +1,13 @@
-home: 
-  other: Homepage
+latestPosts: 
+  other: Latest Posts
+error404: 
+  other: Error 404 - Page not found
 wordCount:
-  other: This article has {{ .WordCount }} words.
+  other: This article has {{ .WordCount }} words
+resume:
+  other: Resumé
+terms:
+  other: Categories and Tags
+readingTime:
+  one: Aproximatelly 1 minute to read
+  other: Aproximatelly {{ .Count }} minutes to read
