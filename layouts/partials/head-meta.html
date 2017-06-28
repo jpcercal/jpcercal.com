@@ -26,9 +26,11 @@
 <meta name="description" content="{{ .Description }}"/>
 <meta property="og:description" content="{{ .Description }}" />
 <link rel="canonical" href="{{ .Permalink }}" />
+{{ if isset .Params "author" }}
 {{ $author := index .Site.Data.authors .Params.author }}
 <meta name="twitter:site" content="{{ $author.twitter }}"/>
 <meta name="twitter:creator" content="{{ $author.twitter }}"/>
+{{ end }}
 {{ end }} 
 
 <meta property="og:type" content="website" />

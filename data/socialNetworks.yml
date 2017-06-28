@@ -1,0 +1,16 @@
+facebook: 
+  icon: 
+  title: Facebook
+  baseUrl: https://facebook.com/
+twitter: 
+  icon: 
+  title: Twitter
+  baseUrl: https://twitter.com/
+linkedin: 
+  icon: 
+  title: LinkedIn
+  baseUrl: https://www.linkedin.com/in/
+github: 
+  icon: 
+  title: GitHub
+  baseUrl: https://github.com/

@@ -15,9 +15,10 @@ metaDataFormat:   "yaml"
 googleAnalytics:  ""
 
 pygmentsUseClasses:             false
+pygmentsCodeFences:             true
 pygmentsCodeFencesGuessSyntax:  false
 pygmentsStyle:                  "monokai"
-languageCode:                   "pt-br"
+languageCode:                   "pt"
 defaultContentLanguage:         "pt"
 defaultContentLanguageInSubdir: false
 enableMissingTranslationPlaceholders: false
@@ -29,13 +30,13 @@ languages:
     description: "English"
   pt:
     title: "Cercal.IO"
-    locale: "pt-br"
+    locale: "pt"
     description: "Português"
 
 rssLimit:     15
 paginate:     10
 paginatePath: "page"
-permalinks:   
+permalinks:
   post: /:slug/
 
 stepAnalysis: true

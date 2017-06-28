@@ -1,4 +1,13 @@
-home: 
-  other: Página Inicial
+latestPosts: 
+  other: Últimos Posts
+error404: 
+  other: Erro 404 - Página não encontrada
 wordCount:
-  other: Este artigo tem {{ .WordCount }} palavras.
+  other: Este artigo tem {{ .WordCount }} palavras
+resume:
+  other: Currículo
+terms:
+  other: Categorias e Tags
+readingTime:
+  one: Aproximadamente 1 minuto de leitura
+  other: Aproximadamente {{ .Count }} minutos de leitura

@@ -1,4 +1,5 @@
-<div class="lc-banner">
+{{ if not (isset .Params "author") }}
+<div class="lc-banner" style="background-image: url({{ .Site.BaseURL }}images/bg-1.jpg);">
     <div class="mdl-grid wrapper">
         <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
             <div class="mdl-grid container">
@@ -11,3 +12,66 @@
         </div>
     </div>
 </div>
+{{ else }}
+{{ $locale         := .Site.Params.locale }}
+{{ $author         := index .Site.Data.authors .Params.author }}
+{{ $socialNetworks := .Site.Data.socialNetworks }}
+
+<div class="lc-banner" style="background-image: url({{ .Site.BaseURL }}{{ $author.cover }});">
+    <div class="mdl-grid wrapper">
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+            <div class="mdl-grid container">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone item-1">
+                    <div class="lc-banner__content">
+                        <h1 class="lc-banner__content--title">{{ $author.name }}</h1>
+                        <p class="lc-banner__content--subtitle">{{ index $author.position $locale }}</p>
+                        <p>{{ index $author.biography $locale }}</p>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone item-2">
+                    <div class="lc-banner__content">
+                        <img class="lc-banner__content--img lc-banner__content--img-size lc-banner__content--img-circle" src="{{ .Site.BaseURL }}{{ $author.picture.original }}" alt="{{ $author.name }}">
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-grid container">
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+                    <div class="lc-banner__content">
+                        <p class="lc-banner__content--info">
+                            <a href="{{ index $author.resume $locale }}">
+                                {{ i18n "resume" }}
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                {{ range $index, $profile := $author.socialNetworks }}
+                    {{ $socialNetwork := index $socialNetworks $index }}
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+                        <div class="lc-banner__content">
+                            <p class="lc-banner__content--info">
+                                <a href="{{ $socialNetwork.baseUrl }}{{ $profile }}">
+                                    <i class="{{ $socialNetwork.icon }}"></i>
+                                    {{ $socialNetwork.title }}
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                {{ end }}
+
+                {{ range $author.links }}
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+                        <div class="lc-banner__content">
+                            <p class="lc-banner__content--info">
+                                <a href="{{ .url }}">
+                                    {{ index .name $locale }}
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
