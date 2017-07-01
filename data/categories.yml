@@ -1,10 +1,15 @@
 php:
-  title: PHP
+  en: PHP
+  pt: PHP
 js:
-  title: Javascript
+  en: Javascript
+  pt: Javascript
 html:
-  title: HTML
+  en: HTML
+  pt: HTML
 news:
-  title: News
+  en: News
+  pt: News
 technology:
-  title: Technology
+  en: Technology
+  pt: Technology

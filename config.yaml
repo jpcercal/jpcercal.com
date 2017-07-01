@@ -56,11 +56,8 @@ verboseLog:   true
 disablePathToLower:         false
 watch:                      true
 disableLiveReload:          false
-disableRSS:                 false
-disableSitemap:             false
 enableGitInfo:              false
 enableRobotsTXT:            true
-disable404:                 false
 disableHugoGeneratorInject: true
 enableEmoji:                false
 

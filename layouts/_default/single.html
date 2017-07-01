@@ -68,7 +68,9 @@
 
                                 <ul id="tags">
                                     {{ range .Params.tags }}
-                                        <li> <a href="{{ $baseURL }}/tags/{{ . | urlize }}">{{ . }}</a> </li>
+                                        <li>
+                                            <a href="{{ $baseURL }}/tags/{{ . | urlize }}">{{ . }}</a>
+                                        </li>
                                     {{ end }}
                                 </ul>
                             </div>
@@ -77,19 +79,19 @@
 
                         <nav class="nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
                             {{ if .Prev }}
-                            <a href="{{ .Prev.Permalink }}" class="nav__button">
-                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                                    <i class="material-icons">arrow_back</i>
-                                </button>
-                            </a>
+                                <a href="{{ .Prev.Permalink }}" class="nav__button">
+                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                                        <i class="material-icons">arrow_back</i>
+                                    </button>
+                                </a>
                             {{ end }}
                             <div class="section-spacer"></div>
                             {{ if .Next }}
-                            <a href="{{ .Next.Permalink }}" class="nav__button">
-                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                                    <i class="material-icons">arrow_forward</i>
-                                </button>
-                            </a>
+                                <a href="{{ .Next.Permalink }}" class="nav__button">
+                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                                        <i class="material-icons">arrow_forward</i>
+                                    </button>
+                                </a>
                             {{ end }}
                         </nav>
                     </div>
