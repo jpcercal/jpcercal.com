@@ -14,10 +14,9 @@ defaultExtension: "html"
 metaDataFormat:   "yaml"
 googleAnalytics:  ""
 
-pygmentsUseClasses:             false
+pygmentsUseClasses:             true
 pygmentsCodeFences:             true
-pygmentsCodeFencesGuessSyntax:  false
-pygmentsStyle:                  "monokai"
+pygmentsOptions:                "linenos=true"
 languageCode:                   "pt"
 defaultContentLanguage:         "pt"
 defaultContentLanguageInSubdir: false

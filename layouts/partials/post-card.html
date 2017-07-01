@@ -2,7 +2,7 @@
 {{ $author    := index .Site.Data.authors .Params.author }}
 {{ $directory := "images/content/" }}
 {{ $slug      := printf "%s/covers.jpg" (.Title | urlize) }}
-{{ $filename  := or (where (readDir (printf "static/%s" $directory)) "Name" $slug) "default.jpg"  }}
+{{ $filename  := or (where (readDir (printf "assets/%s" $directory)) "Name" $slug) "default.jpg"  }}
 
 <div class="mdl-card mdl-cell mdl-cell--12-col" style="background-image: url('./{{ printf "%s%s" $directory $filename }}');">
     <div class="mdl-card__media mdl-color-text--grey-50">

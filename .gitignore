@@ -1,2 +1,3 @@
-public
+public/
+node_modules/
 hugo.log
