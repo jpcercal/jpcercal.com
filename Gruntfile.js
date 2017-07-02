@@ -3,6 +3,9 @@ module.exports = function (grunt) {
 
     require('time-grunt')(grunt);
 
+    var yaml = require("js-yaml");
+    var S = require("string");
+
     grunt.initConfig({
 
         pkg:             grunt.file.readJSON('package.json'),
@@ -158,11 +161,75 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-notify');
 
+    grunt.registerTask("hugo_lunr", function() {
+        grunt.log.writeln("Build pages index");
+
+        var contentDir = grunt.file.readYAML('config.yaml').contentDir;
+
+        grunt.log.writeln('Reading files from "./' + contentDir + '/"...');
+
+        var indexPages = function() {
+            var pagesIndex = [];
+
+            grunt.file.recurse(contentDir, function(abspath, rootdir, subdir, filename) {
+                if (S(filename).endsWith(".md")) {
+                    var frontMatter = readContentFile(abspath, filename);
+
+                    if (frontMatter != null && frontMatter.draft == false) {
+                        pagesIndex.push(processMDFile(frontMatter, abspath, filename));
+                    }
+                }
+            });
+
+            return pagesIndex;
+        };
+
+        var readContentFile = function (abspath, filename) {
+            grunt.verbose.ok('Reading "' + abspath + '"...');
+
+            var content = grunt.file.read(abspath);
+            
+            // First separate the Front Matter from the content and parse it
+            content = content.split("---");
+
+            var frontMatter = null;
+
+            try {
+                frontMatter = yaml.safeLoad(content[1].trim());
+                frontMatter.content = content[2];
+            } catch (e) {
+                conzole.failed(e.message);
+            }
+
+            return frontMatter;
+        };
+
+        var processMDFile = function(frontMatter, abspath, filename) {
+            // Build Lunr index for this page
+            return {
+                title: frontMatter.title,
+                description: frontMatter.description,
+                slug: frontMatter.slug,
+                language: S(filename).endsWith('.en.md') ? 'en' : 'pt',
+                tags: frontMatter.tags,
+                topics: frontMatter.topics,
+                content: S(frontMatter.content).trim().stripTags().stripPunctuation().s
+            };
+        };
+
+        var pages = indexPages();
+
+        grunt.file.write('public/posts.json', JSON.stringify(pages));
+
+        grunt.log.ok("Index built (" + pages.length + ' was processed)');
+    });
+
     grunt.registerTask('main', [
         'jshint',
         'clean',
         'concat',
         'less',
+        'hugo_lunr'
     ]);
 
     grunt.registerTask('default', [

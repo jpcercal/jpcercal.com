@@ -23,6 +23,17 @@
 
             pre {
                 background: transparent;
+                display: block;
+
+                span[id^="line-"] {
+                    &:nth-child(even) {
+                        background-color: red;
+                    }
+
+                    &:nth-child(odd) {
+                        background-color: green;
+                    }
+                }
             }
         }
     }

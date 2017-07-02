@@ -16,7 +16,7 @@ googleAnalytics:  ""
 
 pygmentsUseClasses:             true
 pygmentsCodeFences:             true
-pygmentsOptions:                "linenos=true"
+pygmentsOptions:                "linenos=true,linespans=line"
 languageCode:                   "pt"
 defaultContentLanguage:         "pt"
 defaultContentLanguageInSubdir: false
