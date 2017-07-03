@@ -44,11 +44,7 @@ module.exports = function (grunt) {
                 files: [{
                     dot: true,
                     src: [
-                        '.tmp',
-                        '<%= dist_path %>/<%= js_path %>/',
-                        '<%= dist_path %>/<%= css_path %>/',
-                        '<%= dist_path %>/<%= img_path %>/',
-                        '<%= dist_path %>/<%= author_path %>/'
+                        '<%= dist_path %>/**/*'
                     ]
                 }]
             }
@@ -192,6 +188,36 @@ module.exports = function (grunt) {
             }
         },
 
+        shell: {
+            options: {
+                stderr: true,
+                stdout: true
+            },
+            development: {
+                command: 'hugo --buildDrafts --baseURL http://127.0.0.1:1313/'
+            },
+            production: {
+                command: 'hugo'
+            }
+        },
+
+        watch: {
+            dist: {
+                files: [
+                    '<%= src_path %>/**/*',
+                    'content/**/*',
+                    'data/**/*',
+                    'i18n/**/*',
+                    'layouts/**/*',
+                    'static/**/*',
+                ],
+                tasks: ['default'],
+                options: {
+                    livereload: true,
+                }
+            }
+        },
+
         notify_hooks: {
             options: {
                 enabled: true,
@@ -212,8 +238,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-shell');
 
     grunt.registerTask("hugo_lunr", function() {
         grunt.log.writeln("Build pages index");
@@ -278,6 +306,10 @@ module.exports = function (grunt) {
         grunt.log.ok("Index built (" + pages.length + ' processed)');
     });
 
+    grunt.registerTask('w', [
+        'watch'
+    ]);
+
     grunt.registerTask('main', [
         'jshint',
         'clean',
@@ -289,6 +321,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', [
         'main',
+        'shell:development',
         'processhtml:development',
         'copy:development',
         'notify_hooks'
@@ -296,6 +329,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('production', [
         'main',
+        'shell:production',
         'processhtml:production',
         'imagemin',
         'htmlmin',
