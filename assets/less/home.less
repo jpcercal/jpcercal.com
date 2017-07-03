@@ -1,3 +1,31 @@
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 320px){
+  .lc-banner__social,
+  .lc-banner__more--links{
+    justify-content: center;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
 .mdl-grid.center-items {
     justify-content: center;
 }
@@ -5,7 +33,7 @@
 .lc-banner {
     position: relative;
     display: flex;
-    height: 320px;
+    min-height: 320px;
     margin-bottom: 10px;
     background: transparent no-repeat center/cover;
 }
@@ -45,6 +73,7 @@
 }
 
 .lc-banner__content--subtitle {
+    margin-bottom: 10px;
     font-size: 16px;
     font-weight: 100;
 }
@@ -55,23 +84,35 @@
 }
 
 .lc-banner__content--img-size {
-    width: 100px;
+    width: 150px;
 }
 
 .lc-banner__content--img-circle {
     border-radius: 50%;
 }
 
-.lc-banner__content--info {
-    padding: 5px 20px;
-    color: #1bbc9b;
-    border: 1px solid #1bbc9b;
-}
 
 .lc-banner__content--social-icon {
     font-size: 40px;
     color: #fff;
 }
+
+.lc-banner__social,
+.lc-banner__more--links {
+    display: flex;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.lc-banner__social a,
+.lc-banner__more--links button{
+    margin-right: 20px;
+}
+
+.lc-banner__more--links button{
+    background-color: #CCCCCC;
+}
+
 
 .mdl-layout__header {
     background: #fff;
@@ -115,9 +156,6 @@ main {
     .lc-banner__content--title {
         font-size: 20px;
     }
-    .container {
-        width: auto;
-    }
     .lc-banner__content {
         text-align: center;
     }
@@ -133,17 +171,18 @@ main {
 }
 
 @media (min-width: 840px) {
-    .container {
-        width: 700px;
-    }
     .blog__posts h4 {
         margin: 0px;
+    }
+    .lc-banner__social,
+    .lc-banner__more--links{
+        justify-content: flex-start;
     }
     .lc-banner__content--title {
         font-size: 32px;
     }
     .lc-banner__content {
-        text-align: center;
+        text-align: left;
     }
     .lc-banner__content--img {
         display: block;
