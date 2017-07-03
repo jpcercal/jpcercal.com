@@ -70,6 +70,32 @@ module.exports = function (grunt) {
                         dest: '<%= dist_author_path %>/'
                     }
                 ]
+            },
+            development: {
+                files: [
+                    {
+                        src: 'node_modules/font-awesome/css/font-awesome.css',
+                        dest: '<%= dist_path %>/vendor/css/font-awesome.css'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'node_modules/font-awesome/fonts/',
+                        src: ['**/*'],
+                        dest: '<%= dist_path %>/vendor/fonts/'
+                    },
+                    {
+                        src: 'node_modules/material-design-lite/dist/material.indigo-pink.min.css',
+                        dest: '<%= dist_path %>/vendor/css/material.indigo-pink.min.css'
+                    },
+                    {
+                        src: 'node_modules/material-design-lite/dist/material.js',
+                        dest: '<%= dist_path %>/vendor/js/material.js'
+                    },
+                    {
+                        src: 'node_modules/lunr/lunr.js',
+                        dest: '<%= dist_path %>/vendor/js/lunr.js'
+                    }
+                ]
             }
         },
 
@@ -99,6 +125,33 @@ module.exports = function (grunt) {
                 files: {
                     '<%= dist_css_path %>/<%= pkg.name %>.css': '<%= src_less_path %>/<%= pkg.name %>.less'
                 }
+            }
+        },
+
+        processhtml: {
+            development: {
+                options: {
+                    process: true
+                },
+                files: [{
+                    expand: true,     
+                    cwd: 'public/',   
+                    src: ['**/*.html'],
+                    dest: 'public/',  
+                    ext: '.html'
+                }]
+            },
+            production: {
+                options: {
+                    process: true
+                },
+                files: [{
+                    expand: true,     
+                    cwd: 'public/',   
+                    src: ['**/*.html'],
+                    dest: 'public/',  
+                    ext: '.html'
+                }]
             }
         },
 
@@ -160,6 +213,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-processhtml');
 
     grunt.registerTask("hugo_lunr", function() {
         grunt.log.writeln("Build pages index");
@@ -219,9 +273,9 @@ module.exports = function (grunt) {
 
         var pages = indexPages();
 
-        grunt.file.write('public/posts.json', JSON.stringify(pages));
+        grunt.file.write('public/search.json', JSON.stringify(pages));
 
-        grunt.log.ok("Index built (" + pages.length + ' was processed)');
+        grunt.log.ok("Index built (" + pages.length + ' processed)');
     });
 
     grunt.registerTask('main', [
@@ -229,17 +283,20 @@ module.exports = function (grunt) {
         'clean',
         'concat',
         'less',
+        'copy:dist',
         'hugo_lunr'
     ]);
 
     grunt.registerTask('default', [
         'main',
-        'copy',
+        'processhtml:development',
+        'copy:development',
         'notify_hooks'
     ]);
 
     grunt.registerTask('production', [
         'main',
+        'processhtml:production',
         'imagemin',
         'htmlmin',
         'cssmin',
