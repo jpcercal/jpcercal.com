@@ -4,6 +4,12 @@
   margin-right: auto;
   margin-left: auto;
 }
+@media (min-width: 320px){
+  .lc-banner__social,
+  .lc-banner__more--links{
+    justify-content: center;
+  }
+}
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -94,7 +100,6 @@
 .lc-banner__social,
 .lc-banner__more--links {
     display: flex;
-    justify-content: flex-start;
     font-size: 20px;
     margin-bottom: 30px;
 }
@@ -168,6 +173,10 @@ main {
 @media (min-width: 840px) {
     .blog__posts h4 {
         margin: 0px;
+    }
+    .lc-banner__social,
+    .lc-banner__more--links{
+        justify-content: flex-start;
     }
     .lc-banner__content--title {
         font-size: 32px;
