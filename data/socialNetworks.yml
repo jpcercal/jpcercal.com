@@ -1,16 +1,16 @@
 facebook: 
-  icon: 
+  icon: fa-facebook-square
   title: Facebook
   baseUrl: https://facebook.com/
 twitter: 
-  icon: 
+  icon: fa-twitter
   title: Twitter
   baseUrl: https://twitter.com/
 linkedin: 
-  icon: 
+  icon: fa-linkedin
   title: LinkedIn
   baseUrl: https://www.linkedin.com/in/
 github: 
-  icon: 
+  icon: fa-github
   title: GitHub
   baseUrl: https://github.com/

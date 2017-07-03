@@ -18,7 +18,7 @@
 {{ $socialNetworks := .Site.Data.socialNetworks }}
 
 <div class="lc-banner" style="background-image: url({{ .Site.BaseURL }}{{ $author.cover }});">
-    <div class="mdl-grid wrapper">
+    <div class="mdl-grid wrapper container">
         <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
             <div class="mdl-grid container">
                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone item-1">
@@ -34,42 +34,34 @@
                     </div>
                 </div>
             </div>
-            <div class="mdl-grid container">
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+            <div class="mdl-grid container">            
+                <div class="mdl-cell mdl-cell--12-col">
                     <div class="lc-banner__content">
-                        <p class="lc-banner__content--info">
-                            <a href="{{ index $author.resume $locale }}">
-                                {{ i18n "resume" }}
-                            </a>
+                        <p class="lc-banner__social">
+                            {{ range $index, $profile := $author.socialNetworks }}
+                                {{ $socialNetwork := index $socialNetworks $index }}
+                                <a href="{{ $socialNetwork.baseUrl }}{{ $profile }}" target="blank" class="linkedin">
+                                    <i class="fa {{ $socialNetwork.icon }} fa-2x"></i>                                
+                                </a>
+                            {{ end }}
                         </p>
                     </div>
                 </div>
-
-                {{ range $index, $profile := $author.socialNetworks }}
-                    {{ $socialNetwork := index $socialNetworks $index }}
-                    <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone mdl-cell--hide-tablet">
-                        <div class="lc-banner__content">
-                            <p class="lc-banner__content--info">
-                                <a href="{{ $socialNetwork.baseUrl }}{{ $profile }}">
-                                    <i class="{{ $socialNetwork.icon }}"></i>
-                                    {{ $socialNetwork.title }}
-                                </a>
-                            </p>
-                        </div>
+                
+                <div class="mdl-cell mdl-cell--12-col">
+                    <div class="lc-banner__content">
+                        <p class="lc-banner__content--info lc-banner__more--links">
+                            <button  data-href="{{ index $author.resume $locale }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                                {{ i18n "resume" }}
+                            </button>
+                            {{ range $author.links }}
+                            <button  data-href="{{ .url }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                                {{ index .name $locale }}
+                            </button>
+                            {{ end }}
+                        </p>
                     </div>
-                {{ end }}
-
-                {{ range $author.links }}
-                    <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone mdl-cell--hide-tablet">
-                        <div class="lc-banner__content">
-                            <p class="lc-banner__content--info">
-                                <a href="{{ .url }}">
-                                    {{ index .name $locale }}
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                {{ end }}
+                </div>                
             </div>
         </div>
     </div>

@@ -7,15 +7,9 @@
         {{ partial "head-assets.html" . }}
     </head>
     <body role="document">
-        {{ partial "navbar.html" . }}
-
         {{ $baseURL := .Site.BaseURL }}
-
-        <div class="blog blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
-            <header class="lc-header mdl-layout__header">
-                <div class="mdl-layout__header-row">
-                </div>
-            </header>
+        <div class="blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+            {{ partial "navbar.html" . }}
             <main class="mdl-layout__content">
                 {{ partial "banner.html" . }}
                 <div class="blog__posts mdl-grid">
