@@ -4,7 +4,8 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     var yaml = require("js-yaml");
-    var S = require("string");
+    var md5  = require('md5');
+    var S    = require("string");
 
     grunt.initConfig({
 
@@ -51,7 +52,7 @@ module.exports = function (grunt) {
         },
 
         copy: {
-            dist: {
+            production: {
                 files: [
                     {
                         expand: true,
@@ -64,11 +65,31 @@ module.exports = function (grunt) {
                         cwd: '<%= src_app_path %>/<%= author_path %>/',
                         src: ['**/*.{png,jpg,gif}'],
                         dest: '<%= dist_author_path %>/'
+                    },
+                    {
+                        src: 'node_modules/javascript-autocomplete/auto-complete.min.js',
+                        dest: '<%= dist_path %>/vendor/js/javascript-autocomplete.min.js'
                     }
                 ]
             },
             development: {
                 files: [
+                    {
+                        expand: true,
+                        cwd: '<%= src_app_path %>/<%= img_path %>/',
+                        src: ['**/*.{png,jpg,gif}'],
+                        dest: '<%= dist_img_path %>/'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= src_app_path %>/<%= author_path %>/',
+                        src: ['**/*.{png,jpg,gif}'],
+                        dest: '<%= dist_author_path %>/'
+                    },
+                    {
+                        src: 'node_modules/javascript-autocomplete/auto-complete.js',
+                        dest: '<%= dist_path %>/vendor/js/javascript-autocomplete.js'
+                    },
                     {
                         src: 'node_modules/font-awesome/css/font-awesome.css',
                         dest: '<%= dist_path %>/vendor/css/font-awesome.css'
@@ -90,6 +111,10 @@ module.exports = function (grunt) {
                     {
                         src: 'node_modules/lunr/lunr.js',
                         dest: '<%= dist_path %>/vendor/js/lunr.js'
+                    },
+                    {
+                        src: 'node_modules/axios/dist/axios.js',
+                        dest: '<%= dist_path %>/vendor/js/axios.js'
                     }
                 ]
             }
@@ -97,7 +122,7 @@ module.exports = function (grunt) {
 
         imagemin: {
             production: {
-                files: '<%= copy.dist.files %>'
+                files: '<%= copy.production.files %>'
             }
         },
 
@@ -107,7 +132,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                    '<%= src_app_path %>/<%= js_path %>/<%= pkg.name %>.js'
+                    '<%= src_app_path %>/<%= js_path %>/<%= pkg.name %>.js',
+                    '<%= src_app_path %>/<%= js_path %>/search.js'
                 ],
                 dest: '<%= dist_js_path %>/<%= pkg.name %>.js'
             }
@@ -168,6 +194,22 @@ module.exports = function (grunt) {
             }
         },
 
+        xmlmin: {
+            dist: {
+                options: {
+                    preserveComments: false
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= dist_path %>/',
+                        src: ['**/*.xml'],
+                        dest: '<%= dist_path %>/'
+                    }
+                ]
+            }
+        },
+
         cssmin: {
             dist: {
                 files: {
@@ -188,16 +230,25 @@ module.exports = function (grunt) {
             }
         },
 
+        env: {
+            development: {
+                BASE_URL: 'http://localhost:1313/'
+            },
+            production: {
+                BASE_URL: 'https://cercal.io/'
+            }
+        },
+
         shell: {
             options: {
                 stderr: true,
                 stdout: true
             },
             development: {
-                command: 'hugo --buildDrafts --baseURL http://127.0.0.1:1313/'
+                command: 'hugo --buildDrafts --baseURL ' + process.env.BASE_URL
             },
             production: {
-                command: 'hugo'
+                command: 'hugo --baseURL ' + process.env.BASE_URL
             }
         },
 
@@ -214,6 +265,19 @@ module.exports = function (grunt) {
                 tasks: ['default'],
                 options: {
                     livereload: true,
+                }
+            }
+        },
+
+        hugo_lunr: {
+            development: {
+                options: {
+                    buildDraft: true
+                }
+            },
+            production: {
+                options: {
+                    buildDraft: false
                 }
             }
         },
@@ -239,13 +303,18 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-xmlmin');
 
-    grunt.registerTask("hugo_lunr", function() {
+    grunt.registerTask("hugo_lunr", function(env) {
+        grunt.config.requires('hugo_lunr.' + env + '.options.buildDraft');
+
         grunt.log.writeln("Build pages index");
 
+        var buildDraft = grunt.config.get('hugo_lunr.' + env + '.options.buildDraft');
         var contentDir = grunt.file.readYAML('config.yaml').contentDir;
 
         grunt.log.writeln('Reading files from "./' + contentDir + '/"...');
@@ -257,8 +326,10 @@ module.exports = function (grunt) {
                 if (S(filename).endsWith(".md")) {
                     var frontMatter = readContentFile(abspath, filename);
 
-                    if (frontMatter != null && frontMatter.draft == false) {
-                        pagesIndex.push(processMDFile(frontMatter, abspath, filename));
+                    if (frontMatter != null) {
+                        if (buildDraft == true || frontMatter.draft == false) {
+                            pagesIndex.push(processMDFile(frontMatter, abspath, filename));
+                        }
                     }
                 }
             });
@@ -289,6 +360,7 @@ module.exports = function (grunt) {
         var processMDFile = function(frontMatter, abspath, filename) {
             // Build Lunr index for this page
             return {
+                id: md5(frontMatter.title + frontMatter.language + frontMatter.description),
                 title: frontMatter.title,
                 description: frontMatter.description,
                 slug: frontMatter.slug,
@@ -314,25 +386,29 @@ module.exports = function (grunt) {
         'jshint',
         'clean',
         'concat',
-        'less',
-        'copy:dist',
-        'hugo_lunr'
+        'less'
     ]);
 
     grunt.registerTask('default', [
         'main',
+        'hugo_lunr:development',
+        'env:development',
         'shell:development',
-        'processhtml:development',
         'copy:development',
+        'processhtml:development',
         'notify_hooks'
     ]);
 
     grunt.registerTask('production', [
         'main',
+        'hugo_lunr:production',
+        'env:production',
         'shell:production',
+        'copy:production',
         'processhtml:production',
         'imagemin',
         'htmlmin',
+        'xmlmin',
         'cssmin',
         'uglify',
         'notify_hooks'

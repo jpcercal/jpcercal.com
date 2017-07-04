@@ -1,3 +1,5 @@
 public/
 node_modules/
-hugo.log
+package-lock.*
+*.log
+*.lock

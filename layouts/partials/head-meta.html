@@ -10,6 +10,10 @@
 <meta property="og:locale" content="{{ .Site.Params.Locale }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 
+{{ if .RSSLink }}
+<link href="{{ .RSSLink }}" rel="alternate feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ end }}
+
 {{ if .IsHome }}
 <title>{{ .Site.Title }}</title>
 <meta property="og:title" content="{{ .Site.Title }}" />

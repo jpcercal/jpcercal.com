@@ -1,103 +1,73 @@
-var lunrIndex,
-    $results,
-    pagesIndex;
+axios.all([
+    axios.get(window.baseUrl + 'search.html'),
+    axios.get(window.baseUrl + 'search.json')
+]).then(axios.spread(function (template, source) {
+    var lunrIndex;
 
-// Initialize lunrjs using our generated index file
-function initLunr() {
-    // First retrieve the index file
-    $.getJSON("search.json")
-        .done(function (index) {
-            pagesIndex = index;
-    
-            console.log("index:", pagesIndex);
-
-            // Set up lunrjs by declaring the fields we use
-            // Also provide their boost level for the ranking
+    new autoComplete({
+        selector: '#search',
+        minChars: 2,
+        delay: 500,
+        source: function(term, suggest) {
             lunrIndex = lunr(function () {
                 this.field("title", {
                     boost: 10
                 });
+    
+                this.field("description", {
+                    boost: 10
+                });
+
+                this.field("topics", {
+                    boost: 5
+                });
+
                 this.field("tags", {
                     boost: 5
                 });
+
                 this.field("content");
 
-                // ref is the result item identifier (I chose the page URL)
-                this.ref("slug");
+                this.field("language");
+
+                this.field("slug");
+
+                this.ref("id");
+
+                source.data.forEach(function (doc) {
+                    this.add(doc);
+                }, this);
             });
 
-            // Feed lunr with each file and let lunr actually index them
-            pagesIndex.forEach(function (page) {
-                lunrIndex.add(page);
+            var suggestions = [];
+
+            lunrIndex.search(term + '*').map(function(result) {
+                source.data.filter(function (current) {
+                    if (current.id == result.ref) {
+                        suggestions.push(current);
+                    }
+                });
             });
-        })
-        .fail(function (jqxhr, textStatus, error) {
-            var err = textStatus + ", " + error;
-            console.error("Error getting Hugo index flie:", err);
-        });
-}
 
-// Nothing crazy here, just hook up a listener on the input field
-function initUI() {
-    $results = $("#results");
-    $("#search").keyup(function () {
-        $results.empty();
-
-        // Only trigger a search when 2 chars. at least have been provided
-        var query = $(this).val();
-        if (query.length < 2) {
-            return;
+            suggest(suggestions);
+        },
+        renderItem: function (item, search) {
+            return template.data.trim()
+                .replace('__ID__', item.id)
+                .replace('__SLUG__', item.slug)
+                .replace('__TITLE__', item.title)
+                .replace('__LANGUAGE__', item.language)
+                .replace('__DESCRIPTION__', item.description)
+                .replace('__TOPICS__', item.topics)
+                .replace('__TAGS__', item.tags)
+                .replace('__HREF__', window.baseUrl + (item.language == 'en' ? 'en' : '') + item.slug)
+            ;
+        },
+        onSelect: function(event, term, item) {
+            window.location.href = item.getAttribute('data-href');
         }
-
-        var results = search(query);
-
-        renderResults(results);
     });
-}
 
-/**
- * Trigger a search in lunr and transform the result
- *
- * @param  {String} query
- * @return {Array}  results
- */
-function search(query) {
-    // Find the item in our index corresponding to the lunr one to have more info
-    // Lunr result: 
-    //  {ref: "/section/page1", score: 0.2725657778206127}
-    // Our result:
-    //  {title:"Page1", href:"/section/page1", ...}
-    return lunrIndex.search(query).map(function (result) {
-        return pagesIndex.filter(function (page) {
-            return page.href === result.ref;
-        })[0];
-    });
-}
-
-/**
- * Display the 10 first results
- *
- * @param  {Array} results to display
- */
-function renderResults(results) {
-    if (!results.length) {
-        return;
-    }
-
-    // Only show the ten first results
-    results.slice(0, 10).forEach(function (result) {
-        var $result = $("<li>");
-        $result.append($("<a>", {
-            href: result.href,
-            text: "» " + result.title
-        }));
-        $results.append($result);
-    });
-}
-
-// Let's get started
-initLunr();
-
-$(document).ready(function () {
-    initUI();
+})).catch(function (error) {
+    console.log(error);
 });

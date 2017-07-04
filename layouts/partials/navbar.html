@@ -1,9 +1,19 @@
 <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
         <!-- Title -->
-        <span class="mdl-layout-title">Cercal.io</span>
-        <!-- Add spacer, to align navigation to the right -->
+        <a href="{{ .Site.BaseURL }}" class="mdl-layout-title">Cercal.io</a>
+
         <div class="mdl-layout-spacer"></div>
+        
+        <form onsubmit="return false;">
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="search" name="search" />
+                <label class="mdl-textfield__label" for="sample1">{{ i18n "searchFor" }} ...</label>
+            </div>
+        </form>
+
+        <div class="mdl-layout-spacer"></div>
+
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
             <a class="mdl-navigation__link" href="">Link</a>
