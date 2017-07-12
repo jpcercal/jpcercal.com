@@ -230,6 +230,32 @@ module.exports = function (grunt) {
             }
         },
 
+        rcs: {
+            css: {
+                options: {
+                    replaceCss: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= dist_path %>/',
+                        src: ['**/*.css'],
+                        dest: '<%= dist_path %>/'
+                    }
+                ]
+            },
+            all: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= dist_path %>/',
+                        src: ['**/*.{js,html}'],
+                        dest: '<%= dist_path %>/'
+                    }
+                ]
+            }
+        },
+
         env: {
             development: {
                 BASE_URL: 'http://localhost:1313/'
@@ -306,9 +332,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-rcs');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-xmlmin');
-
+    
     grunt.registerTask("hugo_lunr", function(env) {
         grunt.config.requires('hugo_lunr.' + env + '.options.buildDraft');
 
@@ -411,6 +438,7 @@ module.exports = function (grunt) {
         'xmlmin',
         'cssmin',
         'uglify',
+        'rcs',
         'notify_hooks'
     ]);
 };

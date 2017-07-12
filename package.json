@@ -27,6 +27,7 @@
     "axios": "^0.16.2",
     "font-awesome": "^4.7.0",
     "grunt-env": "^0.4.4",
+    "grunt-rcs": "0.0.3",
     "lunr": "^2.1.0",
     "material-design-lite": "^1.3.0"
   },
