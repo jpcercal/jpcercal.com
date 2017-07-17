@@ -5,7 +5,7 @@ slug: baixando-e-instalando-a-biblioteca-libxml
 title: Baixando e Instalando a biblioteca libxml
 date: 2011-12-22T19:13:10+00:00
 description: Neste guia você aprenderá a realizar a instalação da biblioteca libxml em sistemas operacionais Linux. Baixe o código fonte e o compile para a sua distro.
-topics:
+categories:
   - Artigos
 tags: []
 ---

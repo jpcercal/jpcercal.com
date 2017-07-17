@@ -5,7 +5,7 @@ slug: resumo-em-paginas-do-wordpress-3-0
 title: Resumo em páginas do WordPress 3.0+
 date: 2012-12-09T03:12:27+00:00
 description: Adicione funcionalidades aos tipos de posts (Post Types) no Wordpress 3.0+ utilizando a API com a seguinte função add_post_type_support();
-topics:
+categories:
   - Wordpress
 tags: []
 ---

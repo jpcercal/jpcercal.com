@@ -8,6 +8,11 @@ themesDir:    "themes"
 theme:        ""
 baseURL:      "https://cercal.io/"
 
+taxonomies:
+  tag: "tags"
+  category: "categories"
+  author: "authors"
+
 disqusShortname:  "Cercal.IO"
 defaultLayout:    "post"
 defaultExtension: "html"
@@ -65,7 +70,6 @@ footnoteReturnLinkContents: ""
 
 disableKinds: 
   - "section"
-  - "taxonomy"
 
 ignoreFiles: 
   - "Thumbs\\.db$"

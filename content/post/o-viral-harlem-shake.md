@@ -5,7 +5,7 @@ slug: o-viral-harlem-shake
 title: O viral Harlem Shake
 date: 2013-04-05T17:21:56+00:00
 description: Epidemia Harlem Shake já alcançou 1 bilhão de acessos em apenas quarenta dias, metade do tempo que o Gangam Style
-topics:
+categories:
   - Notícias
 tags: []
 ---

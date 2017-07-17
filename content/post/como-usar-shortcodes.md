@@ -5,7 +5,7 @@ slug: como-usar-shortcodes
 title: "WordPress Dica: Como usar Shortcodes"
 date: 2013-10-22T12:05:38+00:00
 description: Os shortcodes são extremamente úteis e fáceis de usar, sendo que, eles permitem que desenvolvedores criem conteúdos personalizados para os usuários.
-topics:
+categories:
   - Artigos
   - Dicas
   - PHP

@@ -5,7 +5,7 @@ slug: instalando-pear-no-osx-10-8-mountain-lion
 title: Instalando PEAR no OSX 10.8 Mountain Lion
 date: 2013-04-04T22:28:01+00:00
 description: Aprenda a realizar a instalação do PEAR no sistema operacional da Apple, o Mac OSX 10.8 Mountain Lion com este passo a passo.
-topics:
+categories:
   - Apple
   - Artigos
 tags: []

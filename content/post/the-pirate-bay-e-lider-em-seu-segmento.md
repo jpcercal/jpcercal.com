@@ -5,7 +5,7 @@ slug: the-pirate-bay-e-lider-em-seu-segmento
 title: The Pirate Bay é líder em seu segmento
 date: 2013-04-03T14:59:35+00:00
 description: Mudanças após a antipirataria levam The Pirate Bay a primeiro lugar no ranking de sites de compartilhamento de arquivos.
-topics:
+categories:
   - Artigos
   - Notícias
 tags: []

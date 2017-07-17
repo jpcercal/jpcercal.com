@@ -5,7 +5,7 @@ slug: mysqldump-backup-de-base-de-dados-mysql
 title: MySQLDump - Backup de base de dados MySQL
 date: 2013-10-21T12:10:18+00:00
 description: A ferramenta mysqldump realiza backups de bancos MySQL, criando um arquivo *.sql com as declarações necessárias para criar uma cópia da base de dados alvo.
-topics:
+categories:
   - Artigos
   - MySQL
   - Programação

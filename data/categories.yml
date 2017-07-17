@@ -1,15 +1,30 @@
 php:
-  en: PHP
-  pt: PHP
+  title:
+    en: PHP
+    pt: PHP
+  icon: 
 js:
-  en: Javascript
-  pt: Javascript
+  title:
+    en: Javascript
+    pt: Javascript
+  icon: 
+css:
+  title:
+    en: CSS
+    pt: CSS
+  icon: 
 html:
-  en: HTML
-  pt: HTML
-news:
-  en: News
-  pt: News
-technology:
-  en: Technology
-  pt: Technology
+  title:
+    en: HTML
+    pt: HTML
+  icon: 
+devops:
+  title:
+    en: DevOps
+    pt: DevOps
+  icon: 
+other:
+  title:
+    en: Others
+    pt: Outros
+  icon: 

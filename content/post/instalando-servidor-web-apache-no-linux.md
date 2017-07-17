@@ -5,7 +5,7 @@ slug: instalando-servidor-web-apache-no-linux
 title: Instalando o servidor web Apache no Linux
 date: 2011-12-22T09:38:01+00:00
 description: Neste guia você aprenderá a realizar a instalação do servidor web apache em sistemas operacionais Linux. Baixe o código fonte e o compile para a sua distro.
-topics:
+categories:
   - Artigos
   - HTML
   - Linux

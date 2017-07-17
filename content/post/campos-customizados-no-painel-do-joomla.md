@@ -5,7 +5,7 @@ slug: campos-customizados-no-painel-do-joomla
 title: Campos Customizados no painel do Joomla
 date: 2011-10-10T17:32:40+00:00
 description: Aprenda a criar campos customizados para o painel do Joomla 1.6, para isto você deve extender uma classe do Joomla que seja descendente de JFormField.
-topics:
+categories:
   - Joomla
   - PHP
   - Programação

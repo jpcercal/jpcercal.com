@@ -5,7 +5,7 @@ slug: como-instalar-o-driver-de-video-nvidia-no-sistema-operacional-ubuntu-10-04
 title: Como instalar o driver de vídeo nVidia no sistema operacional Ubuntu 10.04
 date: 2011-04-23T17:13:08+00:00
 description: Aprenda a resolver os problemas de desempenho gráfico no Linux instalando o driver de vídeo binário fornecido pela própria nVidia! Vale a pena conferir.
-topics:
+categories:
   - Artigos
 tags: []
 ---

@@ -5,7 +5,7 @@ slug: baixando-e-instalando-a-biblioteca-zlib
 title: Baixando e Instalando a biblioteca Zlib
 date: 2011-12-22T17:43:30+00:00
 description: Neste guia você aprenderá a realizar a instalação da biblioteca zlib em sistemas operacionais Linux. Baixe o código fonte e o compile para a sua distro.
-topics:
+categories:
   - Artigos
 tags: []
 ---

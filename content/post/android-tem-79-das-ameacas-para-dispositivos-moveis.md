@@ -5,7 +5,7 @@ slug: android-tem-79-das-ameacas-para-dispositivos-moveis
 title: Android tem 79% das ameaças para dispositivos móveis
 date: 2013-08-25T15:00:25+00:00
 description: F-Secure identificou 301 ameaças voltadas aos smartphones e tablets. Em 2011, o Android atingiu 66% e neste ano 79% dos vírus criados para aparelhos móveis.
-topics:
+categories:
   - Android
   - Apple
   - Notícias

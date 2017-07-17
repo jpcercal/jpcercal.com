@@ -5,7 +5,7 @@ slug: empresas-e-redes-sociais
 title: Empresas e Redes Sociais
 date: 2013-04-23T16:51:56+00:00
 description: O impacto que as redes sociais causaram as empresas brasileiras com relação à fiscalização do consumidor.
-topics:
+categories:
   - Notícias
 tags: []
 ---

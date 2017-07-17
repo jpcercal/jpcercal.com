@@ -5,7 +5,7 @@ slug: praga-virtual
 title: Praga virtual
 date: 2013-04-16T17:04:09+00:00
 description: Praga virtual causa insegurança aos brasileiros que utilizam "internet banking" como ferramenta facilitadora.
-topics:
+categories:
   - Notícias
 tags: []
 ---

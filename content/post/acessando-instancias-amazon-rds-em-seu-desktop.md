@@ -5,7 +5,7 @@ slug: acessando-instancias-amazon-rds-em-seu-desktop
 title: Acessando Instâncias Amazon RDS em seu Desktop
 date: 2014-08-15T10:48:28+00:00
 description: Aprenda a conectar no serviço RDS da Amazon através de um cliente Desktop utilizando uma conexão SSH que reencaminha os pacotes para a sua máquina local.
-topics:
+categories:
   - Artigos
 tags: []
 ---

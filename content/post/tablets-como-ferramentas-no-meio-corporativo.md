@@ -5,7 +5,7 @@ slug: tablets-como-ferramentas-no-meio-corporativo
 title: Tablets como Ferramentas no meio Corporativo
 date: 2013-03-26T15:07:18+00:00
 description: A utilização dos tablets continua crescendo, sendo assim, sua visibilidade e utilidade no meio corporativo se tornam atrativos para empresas.
-topics:
+categories:
   - Notícias
 tags: []
 ---

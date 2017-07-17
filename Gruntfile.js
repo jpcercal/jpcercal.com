@@ -7,6 +7,19 @@ module.exports = function (grunt) {
     var md5  = require('md5');
     var S    = require("string");
 
+    var EnvironmentVariable = {
+        has: function (key) {
+            return typeof process.env[key] !== 'undefined';
+        },
+        get: function (key) {
+            return process.env[key];
+        }
+    };
+
+    var baseUrl = function (defaultValue) {
+        return EnvironmentVariable.has('BASE_URL') ? EnvironmentVariable.get('BASE_URL') : defaultValue;
+    };
+
     grunt.initConfig({
 
         pkg:             grunt.file.readJSON('package.json'),
@@ -230,38 +243,16 @@ module.exports = function (grunt) {
             }
         },
 
-        rcs: {
-            css: {
-                options: {
-                    replaceCss: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= dist_path %>/',
-                        src: ['**/*.css'],
-                        dest: '<%= dist_path %>/'
-                    }
-                ]
-            },
-            all: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= dist_path %>/',
-                        src: ['**/*.{js,html}'],
-                        dest: '<%= dist_path %>/'
-                    }
-                ]
-            }
-        },
-
         env: {
             development: {
-                BASE_URL: 'http://localhost:1313/'
+                BASE_URL: function () {
+                    return baseUrl('http://localhost:1313/');
+                }
             },
             production: {
-                BASE_URL: 'https://cercal.io/'
+                BASE_URL: function () {
+                    return baseUrl('https://cercal.io/');
+                }
             }
         },
 
@@ -271,10 +262,22 @@ module.exports = function (grunt) {
                 stdout: true
             },
             development: {
-                command: 'hugo --buildDrafts --baseURL ' + process.env.BASE_URL
+                command: function () {
+                    var cmd = 'hugo --buildDrafts --baseURL ' + EnvironmentVariable.get('BASE_URL');
+
+                    grunt.log.ok(cmd);
+
+                    return cmd;
+                }
             },
             production: {
-                command: 'hugo --baseURL ' + process.env.BASE_URL
+                command: function () {
+                    var cmd = 'hugo --baseURL ' + EnvironmentVariable.get('BASE_URL');
+
+                    grunt.log.ok(cmd);
+
+                    return cmd;
+                }
             }
         },
 
@@ -332,7 +335,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-processhtml');
-    grunt.loadNpmTasks('grunt-rcs');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-xmlmin');
     
@@ -438,7 +440,6 @@ module.exports = function (grunt) {
         'xmlmin',
         'cssmin',
         'uglify',
-        'rcs',
         'notify_hooks'
     ]);
 };

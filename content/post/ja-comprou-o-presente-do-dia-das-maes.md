@@ -5,7 +5,7 @@ slug: ja-comprou-o-presente-do-dia-das-maes
 title: Já comprou o Presente do dia das Mães?
 date: 2013-05-10T17:20:43+00:00
 description: Dicas para prevenir os consumidores nesta data tão especial, "Dia das Mães", onde sites e links maliciosos transformam seu presente em um pesadelo.
-topics:
+categories:
   - Blog
 tags: []
 ---

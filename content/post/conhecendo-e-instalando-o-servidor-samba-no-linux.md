@@ -5,7 +5,7 @@ slug: conhecendo-e-instalando-o-servidor-samba-no-linux
 title: Conhecendo e Instalando o servidor SAMBA no LINUX
 date: 2012-11-22T02:36:32+00:00
 description: O SAMBA é um servidor e um conjunto de ferramentas que permite que máquinas Linux e Windows se comuniquem entre si, compartilhando serviços e arquivos.
-topics:
+categories:
   - Artigos
   - Linux
 tags: []

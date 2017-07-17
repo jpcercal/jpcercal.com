@@ -5,7 +5,7 @@ slug: consumidores-preferem-comprar-em-lojas-virtuais
 title: Consumidores preferem comprar em lojas virtuais
 date: 2013-03-28T15:33:02+00:00
 description: As lojas virtuais trazem mais segurança aos consumidores tornando o e-commerce  uma ferramenta indispensável para o seu negócio.
-topics:
+categories:
   - Artigos
 tags: []
 ---

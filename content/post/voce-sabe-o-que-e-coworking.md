@@ -5,7 +5,7 @@ slug: voce-sabe-o-que-e-coworking
 title: Você sabe o que é Coworking?
 date: 2013-04-04T12:53:31+00:00
 description: Coworking modalidade de compartilhamento de escritório, oferece aos profissionais um novo formato de trabalho.
-topics:
+categories:
   - Artigos
   - Notícias
 tags: []

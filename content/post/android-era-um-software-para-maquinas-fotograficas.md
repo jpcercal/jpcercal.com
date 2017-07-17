@@ -5,7 +5,7 @@ slug: android-era-um-software-para-maquinas-fotograficas
 title: Android era um software para máquinas fotográficas
 date: 2013-04-17T14:55:08+00:00
 description: O Sistema Operacional Android inicialmente foi criado para ser utilizado em câmeras digitais.
-topics:
+categories:
   - Notícias
 tags: []
 ---

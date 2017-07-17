@@ -5,7 +5,7 @@ slug: deficit-de-profissionais-de-ti-no-brasil
 title: Déficit de profissionais de TI no Brasil
 date: 2013-04-01T14:39:17+00:00
 description: A tecnologia da informação está em constante crescimento, por conta disso, está causando um grande problema, a falta de profissionais qualificados.
-topics:
+categories:
   - Artigos
   - Notícias
 tags: []

@@ -5,7 +5,7 @@ slug: navegadores-ou-browsers
 title: Navegadores ou Browsers
 date: 2011-05-08T23:31:07+00:00
 description: Um Navegador ou Browser é um programa que realiza a interpretação de arquivos HTML, CSS, Javascript, dentre outros.
-topics:
+categories:
   - Artigos
   - HTML
 tags: []

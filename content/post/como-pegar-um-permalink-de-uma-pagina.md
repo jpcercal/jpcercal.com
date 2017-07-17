@@ -5,7 +5,7 @@ slug: como-pegar-um-permalink-de-uma-pagina
 title: Como pegar um Permalink de uma Página
 date: 2013-02-09T10:17:18+00:00
 description: Aprenda como obter um permalink de uma página no Wordpress, cujo post_type é "page". Combinando as funções get_permalink() e get_page_by_path().
-topics:
+categories:
   - Artigos
   - PHP
   - Programação

@@ -5,7 +5,7 @@ slug: introducao-a-linguagem-php
 title: Introdução a linguagem PHP
 date: 2010-10-07T14:09:50+00:00
 description: PHP ou Pré processador de hypertexto é a linguagem do lado servidor mais utilizada na web. Conheça um pouco mais sobre essa excelente tecnologia.
-topics:
+categories:
   - Curso
   - PHP
   - Programação

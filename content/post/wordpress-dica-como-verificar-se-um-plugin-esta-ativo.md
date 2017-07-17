@@ -5,7 +5,7 @@ slug: wordpress-dica-como-verificar-se-um-plugin-esta-ativo
 title: "WordPress Dica: Como verificar se um plugin está ativo?"
 date: 2013-08-28T17:40:54+00:00
 description: Se durante o desenvolvimento de um Plugin ou de um Tema para Wordpress você precisar saber se um Plugin de terceiro está Ativo, então, confira esta dica.
-topics:
+categories:
   - Artigos
   - Dicas
   - PHP

@@ -5,7 +5,7 @@ slug: aumente-as-suas-vendas-com-o-e-mail-marketing
 title: Aumente as suas vendas com o E-mail Marketing
 date: 2013-04-12T14:47:47+00:00
 description: Combine a sua loja virtual com o e-mail marketing e aumente as chances dos seus clientes efetivarem suas compras.
-topics:
+categories:
   - Notícias
 tags: []
 ---

@@ -5,7 +5,7 @@ slug: como-e-porque-voce-deve-incluir-o-jquery-do-google-cdn-no-wordpress
 title: Como e Porque você deve incluir o jQuery do Google CDN no WordPress
 date: 2013-08-26T17:30:19+00:00
 description: Conheça as vantagens dessa otimização e saiba como e porque incluir o jQuery do Google CDN irá fazer com que o carregamento do seu website seja reduzido.
-topics:
+categories:
   - Artigos
   - HTML
   - Javascript

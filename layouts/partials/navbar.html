@@ -5,6 +5,7 @@
 
         <div class="mdl-layout-spacer"></div>
         
+        <!-- Search bar -->
         <form onsubmit="return false;">
             <div class="mdl-textfield mdl-js-textfield">
                 <input class="mdl-textfield__input" type="text" id="search" name="search" />
@@ -16,10 +17,32 @@
 
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
+            {{ $categories := .Site.Taxonomies.categories }}
+            {{ $data       := .Site.Data.categories }}
+            {{ $baseUrl    := .Site.BaseURL }}
+            {{ $locale     := .Site.Params.locale }}
+            {{ $locales    := .Site.Data.locales }}
+
+            <ul class="categories">
+                {{ range $category, $map := $categories }}
+                    {{ range $key, $current := $data }}
+                        {{ if eq $key $category }}
+                            <li>
+                                <a href="{{ $baseUrl }}categories/{{ $category }}">{{ index $current.title $locale }} <span>({{ $map.Count }})</span></a>
+                            </li>
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+            </ul>
+
+            <ul class="lang">
+                <li class="pt">
+                    <a href="{{ $baseUrl }}"><span>{{ (index $locales "pt").icon }}</span>{{ index (index $locales "pt").title $locale }}</a>
+                </li>
+                <li class="en">
+                    <a href="{{ $baseUrl }}en"><span>{{ (index $locales "en").icon }}</span>{{ index (index $locales "en").title $locale }}</a>
+                </li>
+            </ul>
         </nav>
     </div>
 </header>

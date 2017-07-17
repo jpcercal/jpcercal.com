@@ -5,7 +5,7 @@ slug: cakephp-problema-com-mod_rewrite
 title: CakePHP problema com mod_rewrite
 date: 2012-02-23T03:10:27+00:00
 description: Se você já enfrentou algum problema com mod_rewrite no CakePHP saiba que a solução pode ser bastante simples, confira o problema que passamos e resolvemos.
-topics:
+categories:
   - Artigos
   - CakePHP
   - PHP

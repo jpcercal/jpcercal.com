@@ -5,7 +5,7 @@ slug: conheca-o-facebook-home
 title: Conheça o Facebook Home
 date: 2013-04-09T14:42:23+00:00
 description: Na busca por oferecer novidades aos usuários da grande rede social, Facebook lança recurso para transformar o foco dos celulares em pessoas, não em apps.
-topics:
+categories:
   - Notícias
 tags: []
 ---
