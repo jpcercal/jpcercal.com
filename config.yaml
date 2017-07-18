@@ -4,26 +4,23 @@ layoutDir:    "layouts"
 publishDir:   "public"
 dataDir:      "data"
 staticDir:    "static"
-themesDir:    "themes"
-theme:        ""
-baseURL:      "https://cercal.io/"
 
 taxonomies:
-  tag: "tags"
-  category: "categories"
-  author: "authors"
+  tag:        "tags"
+  category:   "categories"
+  authors:    "authors"
 
 disqusShortname:  "Cercal.IO"
-defaultLayout:    "post"
 defaultExtension: "html"
 metaDataFormat:   "yaml"
 googleAnalytics:  ""
 
-pygmentsUseClasses:             true
-pygmentsCodeFences:             true
-pygmentsOptions:                "linenos=true,linespans=line"
-languageCode:                   "pt"
-defaultContentLanguage:         "pt"
+pygmentsUseClasses: true
+pygmentsCodeFences: true
+pygmentsOptions:    "linenos=true,linespans=line"
+
+languageCode: "pt"
+defaultContentLanguage: "pt"
 defaultContentLanguageInSubdir: false
 enableMissingTranslationPlaceholders: false
 
@@ -31,22 +28,21 @@ languages:
   en:
     title: "Cercal.IO"
     locale: "en"
-    description: "English"
+    description: "From developers to developers"
   pt:
     title: "Cercal.IO"
     locale: "pt"
-    description: "Português"
+    description: "De desenvolvedores para desenvolvedores"
 
-rssLimit:     15
-paginate:     10
+rssLimit: 15
+paginate: 10
 paginatePath: "page"
 permalinks:
-  post: /:slug/
+  posts: /:slug/
 
 stepAnalysis: true
 noChmod:      false
 noTimes:      false
-buildDrafts:  false
 buildFuture:  false
 buildExpired: false
 relativeURLs: false
@@ -59,17 +55,12 @@ verboseLog:   true
 
 disablePathToLower:         false
 watch:                      true
-disableLiveReload:          false
-enableGitInfo:              false
 enableRobotsTXT:            true
 disableHugoGeneratorInject: true
 enableEmoji:                false
 
 footnoteAnchorPrefix:       ""
 footnoteReturnLinkContents: ""
-
-disableKinds: 
-  - "section"
 
 ignoreFiles: 
   - "Thumbs\\.db$"

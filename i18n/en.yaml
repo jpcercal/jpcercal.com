@@ -10,6 +10,14 @@ resume:
   other: Resumé
 terms:
   other: Categories and Tags
+seeAllPosts:
+  other: See all posts
+authors:
+  other: Authors
+categories:
+  other: Categories
+tags:
+  other: Tags
 readingTime:
   one: Aproximatelly 1 minute to read
   other: Aproximatelly {{ .Count }} minutes to read

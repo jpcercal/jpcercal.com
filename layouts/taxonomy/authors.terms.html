@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Params.Locale }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+{{ partial "head-favicon.html" . }}
+{{ partial "head-support-ie.html" . }}
+{{ partial "head-meta.html" . }}
+{{ partial "head-assets.html" . }}
+</head>
+<body role="document">
+    <div class="blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+        {{ partial "navbar.html" . }}
+        <main class="mdl-layout__content">
+            {{ partial "banner.html" . }}
+            <div class="blog__posts mdl-grid">
+                <h4>{{ i18n "authors" }}</h4>
+
+                {{ $locale    := .Site.Params.locale }}
+                {{ $authors   := .Site.Data.authors }}
+                {{ $pages     := .Site.Pages }}
+                {{ $paginator := .Paginate (where .Site.Pages "Type" "authors") }}
+
+                {{ range $paginator.Pages }}
+                    {{ if .Slug }}
+                        {{ $author := index $authors .Params.email }}
+                        {{ $posts  := where $pages "Params.author" .Params.email }}
+
+                        {{ if $posts }}
+                            <h3>
+                                <a href="{{ .Permalink }}">{{ $author.name }}</a>
+                            </h3>
+
+                            <ul class="posts">
+                                {{ range first 10 $posts }}
+                                    {{ partial "post-li" . }}
+                                {{ end }}
+                            </ul>
+
+                            <a href="{{ .Permalink }}">{{ i18n "seeAllPosts" }}</a>
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+
+            </div>
+            {{ partial "footer.html" . }}
+        </main>
+        <div class="mdl-layout__obfuscator"></div>
+    </div>
+</body>
+</html>

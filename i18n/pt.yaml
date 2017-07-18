@@ -10,6 +10,14 @@ resume:
   other: Currículo
 terms:
   other: Categorias e Tags
+seeAllPosts:
+  other: Ver todos os posts
+authors:
+  other: Autores
+categories:
+  other: Categorias
+tags:
+  other: Marcadores
 readingTime:
   one: Aproximadamente 1 minuto de leitura
   other: Aproximadamente {{ .Count }} minutos de leitura
