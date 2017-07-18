@@ -3,16 +3,16 @@ jpcercal@gmail.com:
   position: 
     en: Senior PHP Developer
     pt: Desenvolvedor PHP Sênior
-  cover: authors/picture/jpcercal@gmail.com.cover.jpg
+  cover: authors/jpcercal/cover.jpg
   picture: 
-    thumbnail: authors/picture/jpcercal@gmail.com.thumbnail.jpg
-    original: authors/picture/jpcercal@gmail.com.jpg
+    thumbnail: authors/jpcercal/thumbnail.jpg
+    original: authors/jpcercal/picture.jpg
   biography:
     en: I'm a ZCPE (Zend Certified PHP Engineer) and I've worked with PHP since 2009, I'm passionate for open-source, patterns, tests and source code well written. Always looking for best practices, new technologies and methodologies to improve my workflow and bring great results to the project and to my customer.
     pt: Sou ZCPE (Zend Certified PHP Engineer) e trabalho com PHP desde 2009, apaixonado por open-source, padrões, testes e código bem escrito. Sempre buscando melhores práticas, novas tecnologias e metodologias para melhorar meu fluxo de trabalho e trazer retorno além do esperado para o projeto e para o meu cliente.
   resume:
-    en: authors/resume/jpcercal@gmail.com.en.pdf
-    pt: authors/resume/jpcercal@gmail.com.pt.pdf
+    en: authors/jpcercal/resume.en.pdf
+    pt: authors/jpcercal/resume.pt.pdf
   socialNetworks:
     facebook: jpcercal
     twitter: jpcercal
@@ -34,16 +34,16 @@ elisetecercal@gmail.com:
   position: 
     en: Recruiter
     pt: Recrutadora de Talentos
-  cover: authors/picture/elisetecercal@gmail.com.cover.jpg
+  cover: authors/elisetecercal/cover.jpg
   picture: 
-    thumbnail: authors/picture/elisetecercal@gmail.com.thumbnail.jpg
-    original: authors/picture/elisetecercal@gmail.com.jpg
+    thumbnail: authors/elisetecercal/thumbnail.jpg
+    original: authors/elisetecercal/picture.jpg
   biography:
     en: 
     pt: 
   resume:
-    en: authors/resume/elisetecercal@gmail.com.en.pdf
-    pt: authors/resume/elisetecercal@gmail.com.pt.pdf
+    en: authors/elisetecercal/resume.en.pdf
+    pt: authors/elisetecercal/resume.pt.pdf
   socialNetworks:
     facebook: elisete.dossantoscercal
     twitter: 
@@ -55,16 +55,16 @@ lukas.cercal@gmail.com:
   position: 
     en: Front-end Developer
     pt: Desenvolvedor Front-end
-  cover: authors/picture/lukas.cercal@gmail.com.cover.jpg
+  cover: authors/lucascercal/cover.jpg
   picture: 
-    thumbnail: authors/picture/lukas.cercal@gmail.com.thumbnail.jpg
-    original: authors/picture/lukas.cercal@gmail.com.jpg
+    thumbnail: authors/lucascercal/thumbnail.jpg
+    original: authors/lucascercal/picture.jpg
   biography:
     en: 
     pt: Desenvolvedor Front-End desde 2012. Sempre buscando melhores práticas, novas tecnologias, e metodologias para melhorar o fluxo de trabalho e trazer retorno além do esperado para seus projetos e para seus clientes.
   resume:
-    en: authors/resume/lukas.cercal@gmail.com.en.pdf
-    pt: authors/resume/lukas.cercal@gmail.com.pt.pdf
+    en: authors/lucascercal/resume.en.pdf
+    pt: authors/lucascercal/resume.pt.pdf
   socialNetworks:
     facebook: lucasalfredo.cercal
     twitter: lucascercal

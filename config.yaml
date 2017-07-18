@@ -38,7 +38,8 @@ rssLimit: 15
 paginate: 10
 paginatePath: "page"
 permalinks:
-  posts: /:slug/
+  posts:   /:slug/
+  authors: /authors/:slug/
 
 stepAnalysis: true
 noChmod:      false

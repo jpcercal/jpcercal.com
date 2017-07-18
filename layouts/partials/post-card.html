@@ -1,10 +1,10 @@
 {{ $baseURL   := .Site.BaseURL }}
 {{ $author    := index .Site.Data.authors .Params.author }}
-{{ $directory := "images/content/" }}
-{{ $slug      := printf "%s/covers.jpg" (.Title | urlize) }}
-{{ $filename  := where (readDir (printf "assets/%s" $directory)) "Name" $slug }}
+{{ $directory := "content/posts/" }}
+{{ $filename  := "index.jpg" }}
+{{ $cover     := where (readDir (printf "%s%s" $directory .Slug)) "Name" $filename }}
 
-<div class="mdl-card mdl-cell mdl-cell--12-col"{{ if $filename }} style="background-image: url('./{{ printf "%s%s" $directory $filename }}');"{{ end }}>
+<div class="mdl-card mdl-cell mdl-cell--12-col"{{ if $cover }} style="background-image: url('{{ printf "%s%s/%s" $baseURL .Slug $filename }}');"{{ end }}>
     <div class="mdl-card__media mdl-color-text--grey-50">
         <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
     </div>

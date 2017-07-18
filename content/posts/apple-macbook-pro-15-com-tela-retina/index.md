@@ -6,9 +6,10 @@ title: Apple Macbook Pro 15" com Tela Retina
 date: 2013-02-20T10:08:18+00:00
 description: Confira as nossas impressões referentes ao novo Apple Macbook Pro de 15 polegadas com tela Retina. Um portátil com um belo design e ótima performance.
 categories:
-  - Apple
-  - Notícias
-tags: []
+  - other
+tags: 
+  - apple
+  - osx
 ---
 
 Todos os dias novos produtos são criados, alguns se destacam outros nem tanto. Recentemente realizei a compra do revolucionário MacBook Pro de 15 polegadas com tela Retina.
@@ -24,7 +25,7 @@ Alguns pontos que me fizeram pensar antes de compra-lo foram:
 
 Sinceramente, não sinto falta do drive óptico e da porta _Ethernet_.
 
-![Macbook Pro Fechado - Apple Macbook Pro 15 com Tela Retina](http://sistemas.cekurte.com/wp-content/uploads/2013/02/Macbook-Pro-Fechado.jpg "Apple Macbook Pro 15 com Tela Retina")
+![Macbook Pro Fechado - Apple Macbook Pro 15 com Tela Retina](macbook.jpg "Apple Macbook Pro 15 com Tela Retina")
 
 Um portátil que não abandona a performance característica da linha "Pro". Abaixo apresento as configurações do equipamento que comprei:
 
@@ -47,7 +48,7 @@ Um portátil que não abandona a performance característica da linha "Pro". Ab
   * _Trackpad Multi-Touch com controle preciso do cursor_
   * _Aceita as funções de rolamento inercial, esticar, girar, deslizar, deslizar com três dedos, com quatro dedos, um toque, dois toques e arrastar_
 
-![Docker - Apple Macbook Pro 15 com Tela Retina](http://sistemas.cekurte.com/wp-content/uploads/2013/02/Macbook-Pro-1024x212.jpg "Apple Macbook Pro 15 com Tela Retina")
+![Docker - Apple Macbook Pro 15 com Tela Retina](index.jpg "Apple Macbook Pro 15 com Tela Retina")
 
 Sem dúvidas, fiz a escolha certa, sempre fui louco para ter um Macbook, tentei com o _Hackintosh_ no meu _Dell XPS 15 L502X_,mas, isso não chegou nem perto da performance da máquina original, entretanto, possibilitou o primeiro contato com o sistema operacional da Apple, o _Mountain Lion (10.8.x)_.
 

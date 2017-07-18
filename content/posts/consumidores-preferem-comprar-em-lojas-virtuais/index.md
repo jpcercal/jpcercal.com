@@ -6,8 +6,9 @@ title: Consumidores preferem comprar em lojas virtuais
 date: 2013-03-28T15:33:02+00:00
 description: As lojas virtuais trazem mais segurança aos consumidores tornando o e-commerce  uma ferramenta indispensável para o seu negócio.
 categories:
-  - Artigos
-tags: []
+  - other
+tags: 
+  - ecommerce
 ---
 
 Em uma pesquisa realizada por dois comparadores de preços o **Kuantokusta** e **Netquest**, foram perguntados a 1.081 pessoas sobre compras virtuais e presenciais. A pesquisa revelou que os consumidores se sentem muito mais a vontade em realizar compras pela internet, alegam que se sentem pressionados nas lojas físicas pelos vendedores, com os argumentos que utilizam para induzir a compra compulsiva.
@@ -16,7 +17,7 @@ Quando questionados sobre a forma que realizaram uma compra em que se arrepender
 
 Sendo que, no momento em que os consumidores vão realizar suas compras preferem estar acompanhados (para terem uma segunda opinião), pois, não se sentem seguros em efetivar a compra.  Cerca de 57% das pessoas vão acompanhadas em um loja, enquanto que, no comércio eletrônico 73% realizam suas compras sozinhas.
 
-[![Consumidores preferem comprar em lojas virtuais](http://sistemas.cekurte.com/wp-content/uploads/2013/03/e-commerce-300x200.jpg "Consumidores preferem comprar em lojas virtuais")](http://sistemas.cekurte.com/wp-content/uploads/2013/03/e-commerce.jpg)
+[![Consumidores preferem comprar em lojas virtuais](index.jpg "Consumidores preferem comprar em lojas virtuais")](http://sistemas.cekurte.com/wp-content/uploads/2013/03/e-commerce.jpg)
 
 Isto deixa claro que, os consumidores se sentem mais seguros nas lojas virtuais (61% dos entrevistados), pois, não são pressionados e podem pesquisar preços e conhecerem as características de um ou mais produtos, além de verificar a credibilidade da loja quanto à entrega da mercadoria.
 

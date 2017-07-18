@@ -34,12 +34,13 @@ module.exports = function (grunt) {
         js_path:         "js",
         css_path:        "css",
         img_path:        "images",
-        author_path:     "authors",
+        author_path:     "content/authors",
+        content_path:    "content/posts",
 
         dist_js_path:    "<%= dist_path %>/<%= js_path %>",
         dist_css_path:   "<%= dist_path %>/<%= css_path %>",
         dist_img_path:   "<%= dist_path %>/<%= img_path %>",
-        dist_author_path:"<%= dist_path %>/<%= author_path %>",
+        dist_author_path:"<%= dist_path %>/authors",
 
         src_app_path:    "<%= src_path %>",
         src_less_path:   "<%= src_app_path %>/less",
@@ -70,13 +71,19 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= src_app_path %>/<%= img_path %>/',
-                        src: ['**/*.{png,jpg,gif}'],
+                        src: ['**/*.{png,jpg,jpeg,gif}'],
                         dest: '<%= dist_img_path %>/'
                     },
                     {
                         expand: true,
-                        cwd: '<%= src_app_path %>/<%= author_path %>/',
-                        src: ['**/*.{png,jpg,gif}'],
+                        cwd: '<%= content_path %>/',
+                        src: ['**/*.{png,jpg,jpeg,gif}'],
+                        dest: '<%= dist_path %>/'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= author_path %>/',
+                        src: ['**/*.{png,jpg,jpeg,gif,pdf}'],
                         dest: '<%= dist_author_path %>/'
                     },
                     {
@@ -90,13 +97,19 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= src_app_path %>/<%= img_path %>/',
-                        src: ['**/*.{png,jpg,gif}'],
+                        src: ['**/*.{png,jpg,jpeg,gif}'],
                         dest: '<%= dist_img_path %>/'
                     },
                     {
                         expand: true,
-                        cwd: '<%= src_app_path %>/<%= author_path %>/',
-                        src: ['**/*.{png,jpg,gif}'],
+                        cwd: '<%= content_path %>/',
+                        src: ['**/*.{png,jpg,jpeg,gif}'],
+                        dest: '<%= dist_path %>/'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= author_path %>/',
+                        src: ['**/*.{png,jpg,jpeg,gif,pdf}'],
                         dest: '<%= dist_author_path %>/'
                     },
                     {

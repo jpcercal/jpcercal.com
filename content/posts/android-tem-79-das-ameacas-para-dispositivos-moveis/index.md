@@ -6,15 +6,14 @@ title: Android tem 79% das ameaças para dispositivos móveis
 date: 2013-08-25T15:00:25+00:00
 description: F-Secure identificou 301 ameaças voltadas aos smartphones e tablets. Em 2011, o Android atingiu 66% e neste ano 79% dos vírus criados para aparelhos móveis.
 categories:
-  - Android
-  - Apple
-  - Notícias
-tags: []
+  - other
+tags: 
+  - android
 ---
 
-O _Android_, sistema operacional móvel do _Google_, concentrou 79% das ameaças digitais criadas para dispositivos móveis em 2012\. Um ano antes, esse índice foi de 66% e, em 2010, de 11%. Os dados foram divulgados nesta quinta-feira (7) pela _F-Secure_, companhia finlandesa de software de segurança. A empresa identificou 301 novas ameaças e variações voltadas exclusivamente aos _smartphones_ e _tablets_ durante o ano.
+O _Android_, sistema operacional móvel do _Google_, concentrou 79% das ameaças digitais criadas para dispositivos móveis em 2012. Um ano antes, esse índice foi de 66% e, em 2010, de 11%. Os dados foram divulgados nesta quinta-feira (7) pela _F-Secure_, companhia finlandesa de software de segurança. A empresa identificou 301 novas ameaças e variações voltadas exclusivamente aos _smartphones_ e _tablets_ durante o ano.
 
-![Android tem 79% das ameaças para dispositivos móveis](http://sistemas.cekurte.com/wp-content/uploads/2013/08/Android-com-Vírus.jpg "Android tem 79% das ameaças para dispositivos móveis")
+![Android tem 79% das ameaças para dispositivos móveis](index.jpg "Android tem 79% das ameaças para dispositivos móveis")
 
 O _iOS_, da _Apple_, segundo sistema operacional móvel mais popular entre os _smartphones_, atingiu apenas 0,7% dos vírus criados para dispositivos móveis. A pesquisa da _F-Secure_ também destacou a queda das ameaças desenvolvidas para o _Symbian_, da _Nokia_. Durante muito tempo, os aparelhos baseados nesse sistema dominaram as vendas no mercado de celulares. De acordo com o estudo, o _Symbian_ foi alvo de 19% das ameaças para dispositivos móveis em 2012, contra 29% em 2011 e 62% em 2010.
 
