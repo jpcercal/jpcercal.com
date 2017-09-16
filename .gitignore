@@ -1,5 +1,6 @@
 public/
 node_modules/
+cache/
 package-lock.*
 *.log
 *.lock
