@@ -4,16 +4,7 @@
         <a href="{{ .Site.BaseURL }}" class="mdl-layout-title">Cercal.io</a>
 
         <div class="mdl-layout-spacer"></div>
-        
-        <!-- Search bar -->
-        <form onsubmit="return false;">
-            <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="search" name="search" />
-                <label class="mdl-textfield__label" for="sample1">{{ i18n "searchFor" }} ...</label>
-            </div>
-        </form>
 
-        <div class="mdl-layout-spacer"></div>
 
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
@@ -35,12 +26,26 @@
                 {{ end }}
             </ul>
 
+            <div class="mdl-layout-spacer"></div>
+
+            <img src="{{ $baseUrl }}images/search.svg" alt="">
+
+            <!-- Search bar -->
+            <form onsubmit="return false;" class="lc-search-component">
+                <div class="mdl-textfield mdl-js-textfield lc-search-container">
+                    <div>
+                        
+                    </div>
+                    <input class="mdl-textfield__input" placeholder='{{ i18n "searchFor" }} ...' type="text" id="search" name="search" />
+                </div>
+            </form>
+
             <ul class="lang">
                 <li class="pt">
-                    <a href="{{ $baseUrl }}"><span>{{ (index $locales "pt").icon }}</span>{{ index (index $locales "pt").title $locale }}</a>
+                    <a href="{{ .Site.BaseURL }}"><img src="{{ (index $locales "pt").icon }}" alt="{{ index (index $locales "pt").title $locale }}"></a>
                 </li>
                 <li class="en">
-                    <a href="{{ $baseUrl }}en"><span>{{ (index $locales "en").icon }}</span>{{ index (index $locales "en").title $locale }}</a>
+                    <a href="{{ .Site.BaseURL }}"><img src="{{ (index $locales "en").icon }}" alt="{{ index (index $locales "en").title $locale }}"></a>
                 </li>
             </ul>
         </nav>
