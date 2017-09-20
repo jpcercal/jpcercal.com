@@ -28,7 +28,7 @@
 
             <div class="mdl-layout-spacer"></div>
 
-            <img src="{{ $baseUrl }}images/search.svg" alt="">
+            <img src="{{ .Site.BaseURL }}images/search.svg" alt="">
 
             <!-- Search bar -->
             <form onsubmit="return false;" class="lc-search-component">
@@ -42,10 +42,10 @@
 
             <ul class="lang">
                 <li class="pt">
-                    <a href="{{ .Site.BaseURL }}"><img src="{{ (index $locales "pt").icon }}" alt="{{ index (index $locales "pt").title $locale }}"></a>
+                    <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.BaseURL }}{{ (index $locales "pt").icon }}" alt="{{ index (index $locales "pt").title $locale }}"></a>
                 </li>
                 <li class="en">
-                    <a href="{{ .Site.BaseURL }}"><img src="{{ (index $locales "en").icon }}" alt="{{ index (index $locales "en").title $locale }}"></a>
+                    <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.BaseURL }}{{ (index $locales "en").icon }}" alt="{{ index (index $locales "en").title $locale }}"></a>
                 </li>
             </ul>
         </nav>
