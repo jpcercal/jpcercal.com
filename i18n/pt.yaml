@@ -5,7 +5,7 @@ searchFor:
 error404: 
   other: Erro 404 - Página não encontrada
 wordCount:
-  other: Este artigo tem {{ .WordCount }} palavras
+  other: Este artigo tem {{ .WordCount }} palavras.
 resume:
   other: Currículo
 terms:
