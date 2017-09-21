@@ -14,16 +14,7 @@
             {{ partial "banner.html" . }}
             <div class="blog__posts mdl-grid">
                 
-                {{ if .IsTranslated }}
-                    <!-- <h4>{{ i18n "translations" }}</h4> -->
-                    <!-- <ul>
-                        {{ range .Translations }}
-                            <li>
-                                <a href="{{ .Permalink }}">{{ if .IsPage }} ({{ i18n "wordCount" . }}){{ end }}</a>
-                            </li>
-                        {{ end}}
-                    </ul> -->
-                {{ end }}
+                {{ partial "i18n-list" . }}
 
                 <div class="lc-info-tip">
                     <div class="lc-info-tip-icon">
@@ -31,12 +22,15 @@
                     </div>
                     <div class="lc-info-tip-txt">
                         <p>
-                            {{ i18n "readingTime" .ReadingTime }}
+                            {{ partial "word-count.html" . }}
+                        </p>
+                        <p>
+                            {{ partial "reading-time.html" . }}
                         </p>
                     </div>
                 </div>
 
-                <!--<p>{{ .Description }}</p>-->
+                <!--<p>{{ .Description }}</p>--> 
 
                 <div class="blog__posts mdl-grid">
                     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
