@@ -1,3 +1,7 @@
+body{
+    margin: 0px !important;
+    padding: 0px !important;
+}
 p {
     margin: 0px;
 }
@@ -8,6 +12,17 @@ p {
 
 .mdl-card__supporting-text p {
     padding: 10px 0px;
+    line-height: 1.9;
+    width: 100%;
+    font-size: 16px;
+    color: #444;
+}
+.mdl-card__supporting-text p img{
+    margin:0 auto;
+    display: block;
+    padding-top:20px;
+    padding-bottom:20px;
+    max-width:100%;
 }
 
 .mdl-card__media {
@@ -16,6 +31,7 @@ p {
 
 .nav {
     display: flex;
+    width: 100%;
 }
 
 #disqus_thread {
@@ -68,6 +84,7 @@ body .blog {
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
+    width:100%;
 }
 
 .blog .mdl-card__title {
@@ -685,3 +702,118 @@ blockquote:before{
 blockquote{
     margin:0px;
 }
+
+/* 
+// 12 - CSS3 Blockquote Effects Demo
+// Made with ❤ by @Pawan_Mall
+// http://www.pawanmall.net 
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Montez');
+@import url(https://fonts.googleapis.com/css?family=Francois+One);
+
+body{
+  background: #f5f7fa;
+  margin:10px;
+  padding:10px;  
+}
+
+blockquote{
+  display:flex;
+  background: #fff;
+  padding: 15px 20px 15px 45px;
+  margin: 0 0 20px;
+  position: relative;
+  
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #666;
+
+  /*Box Shadow - (Optional)*/
+  -moz-box-shadow: 2px 2px 15px #ccc;
+  -webkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+
+  /*Borders - (Optional)*/
+  border-left-style: solid;
+  border-left-width: 15px;
+  border-right-style: solid;
+  border-right-width: 2px;   
+  border-left-color: #46cfb0;
+  border-right-color: #34bc9d;
+  margin:50px auto;
+}
+
+blockquote::before{
+  content: "\201C"; /*Unicode for Left Double Quote*/
+  
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: #999;
+  
+  /*Positioning*/
+  position: absolute;
+  left: 10px;
+  top:5px;
+  
+}
+blockquote a{
+  text-decoration: none;
+  background: #eee;
+  cursor: pointer;
+  padding: 0 3px;
+  color: #999;
+}
+
+blockquote a:hover{
+ color: #666;
+}
+
+.mdl-card__supporting-text blockquote p{
+    padding: 0px 50px;
+}
+
+blockquote em{
+  font-style: italic;
+}
+
+/*Mint Color Palette*/
+blockquote.mint{
+  
+}
+
+
+
+/* These CSS classes used just for Demo purpose */
+.heading{
+   font-family:Montez;
+   text-align:center;
+   font-size:30px;
+}
+code{
+  color:#da4453;
+}
+span{
+  font-weight:bolder;
+  
+}
+
+.lc-info-tip{
+    padding-left: 10px;
+    padding: 20px 7px;
+    background: none;
+    width: 100%;
+    margin: 10px 0px;
+    text-align:center;
+    font-size: 16px;
+}
+
+.mdl-cell{
+    margin-left:0px;
+    margin-right:0px;
+}
+

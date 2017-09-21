@@ -15,19 +15,22 @@
             <div class="blog__posts mdl-grid">
                 
                 {{ if .IsTranslated }}
-                    <h4>{{ i18n "translations" }}</h4>
-                    <ul>
+                    <!-- <h4>{{ i18n "translations" }}</h4> -->
+                    <!-- <ul>
                         {{ range .Translations }}
                             <li>
-                                <a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}{{ if .IsPage }} ({{ i18n "wordCount" . }}){{ end }}</a>
+                                <a href="{{ .Permalink }}">{{ if .IsPage }} ({{ i18n "wordCount" . }}){{ end }}</a>
                             </li>
                         {{ end}}
-                    </ul>
+                    </ul> -->
                 {{ end }}
 
-                <p>{{ i18n "readingTime" .ReadingTime }}</p>
+                <p class="lc-info-tip">
+                    <img src="{{ $baseURL }}images/icons/idea.svg" alt="">
+                    {{ i18n "readingTime" .ReadingTime }}
+                </p>
 
-                <p>{{ .Description }}</p>
+                <!--<p>{{ .Description }}</p>-->
 
                 <div class="blog__posts mdl-grid">
                     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">

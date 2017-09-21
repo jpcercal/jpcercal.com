@@ -4,8 +4,8 @@
 {{ $filename  := "index.jpg" }}
 {{ $cover     := where (readDir (printf "%s%s" $directory .Slug)) "Name" $filename }}
 
-<div class="mdl-card mdl-cell mdl-cell--12-col"{{ if $cover }} style="background-image: url('{{ printf "%s%s/%s" $baseURL .Slug $filename }}');"{{ end }}>
-    <div class="mdl-card__media mdl-color-text--grey-50">
+<div class="mdl-card mdl-cell mdl-cell--12-col">
+    <div class="mdl-card__media mdl-color-text--grey-50" {{ if $cover }} style="background: url('{{ printf "%s%s/%s" $baseURL .Slug $filename }}') no-repeat center/contain;"{{ end }}>
         <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
     </div>
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="meta__item">
-            <div class="lc-author lc-author__img" style="background-image: url('{{ $baseURL }}/{{ $author.picture.thumbnail }}');"></div>
+            <div class="lc-author lc-author__img" style="background-image: url('{{ $baseURL }}/{{ $author.picture.thumbnail }}')"></div>
             <div class="meta__item--author">
                 <strong>{{ $author.name }}</strong>
                 <a href="{{ $author.socialNetworks.twitter }}">
