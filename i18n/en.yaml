@@ -18,6 +18,12 @@ categories:
   other: Categories
 tags:
   other: Tags
+translations:
+  other: Read this article in
+en:
+  other: English
+pt:
+  other: Portuguese
 readingTime:
   one: Aproximatelly 1 minute to read
   other: Aproximatelly {{ .Count }} minutes to read

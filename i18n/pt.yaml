@@ -18,6 +18,12 @@ categories:
   other: Categorias
 tags:
   other: Marcadores
+translations:
+  other: Ler este conteúdo em
+en:
+  other: Inglês
+pt:
+  other: Português
 readingTime:
   one: Aproximadamente 1 minuto de leitura
   other: Aproximadamente {{ .Count }} minutos de leitura

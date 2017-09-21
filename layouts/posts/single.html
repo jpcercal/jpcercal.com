@@ -14,21 +14,11 @@
             {{ partial "banner.html" . }}
             <div class="blog__posts mdl-grid">
                 
-                {{ if .IsTranslated }}
-                    <h4>{{ i18n "translations" }}</h4>
-                    <ul>
-                        {{ $post := . }}
-                        {{ range .Translations }}
-                            <li>
-                                <a href="{{ .Permalink }}">({{ partial "word-count.html" $post }})</a>
-                            </li>
-                        {{ end}}
-                    </ul>
-                {{ end }}
+                {{ partial "i18n-list" . }}
 
                 <p class="lc-info-tip">
                     <img src="{{ $baseURL }}images/icons/idea.svg" alt="">
-                    
+                    {{ partial "word-count.html" . }}
                     {{ partial "reading-time.html" . }}
                 </p>
 

@@ -1,0 +1,10 @@
+<!-- {{ if .IsTranslated }}
+    <h4>{{ i18n "translations" }}</h4>
+    <ul>
+        {{ range $translatedPost := .Translations }}
+            <li>
+                <a href="{{ .Permalink }}">{{ i18n $translatedPost.Lang }}: {{ $translatedPost.Title }}</a>
+            </li>
+        {{ end}}
+    </ul>
+{{ end }} -->
