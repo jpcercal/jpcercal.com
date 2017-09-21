@@ -28,13 +28,11 @@
 
             <div class="mdl-layout-spacer"></div>
 
-            <img src="{{ .Site.BaseURL }}images/search.svg" alt="">
-
             <!-- Search bar -->
             <form onsubmit="return false;" class="lc-search-component">
                 <div class="mdl-textfield mdl-js-textfield lc-search-container">
-                    <div>
-                        
+                    <div class="lc-search-icon">
+                        <img src="{{ .Site.BaseURL }}images/icons/search.svg" alt="">
                     </div>
                     <input class="mdl-textfield__input" placeholder='{{ i18n "searchFor" }} ...' type="text" id="search" name="search" />
                 </div>

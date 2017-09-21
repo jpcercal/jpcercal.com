@@ -679,10 +679,20 @@ body .blog {
 
 .lc-search-container{
     height: 50px;
+    display: flex;
+    align-items:center;
     background: #2C313B;
     border-radius: 3px;
     padding: 0px 10px;
     margin: 0px 50px;
+}
+
+.lc-search-icon{
+    width: 50px;
+}
+
+.lc-search-container .lc-search-icon img{
+    width:24px;
 }
 
 .lc-search-container input{
@@ -799,16 +809,30 @@ code{
 }
 span{
   font-weight:bolder;
-  
+
 }
 
 .lc-info-tip{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-left: 10px;
     padding: 20px 7px;
-    background: none;
+    background: #19B5FE;
+    color: #FFFFFF;
     width: 100%;
     margin: 10px 0px;
-    text-align:center;
+    text-align:center;    
+}
+
+.lc-info-tip-icon{
+    margin-right: 10px;
+}
+
+.lc-info-tip .lc-info-tip-icon img{
+    width: 30px;
+}
+.lc-info-tip .lc-info-tip-txt p{
     font-size: 16px;
 }
 
@@ -817,3 +841,38 @@ span{
     margin-right:0px;
 }
 
+.meta__actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row !important;
+}
+
+.meta__actions div{
+    margin-right: 10px;
+}
+
+.meta__actions span{
+    padding: 10px;
+    background: #2E4DA7;
+    color: #FFFFFF;
+    border-radius: 50px;
+}
+.meta__actions img{
+    cursor:pointer;
+}
+
+.lc-banner__more--links button{
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.lc-banner-button-salmon{
+    background: #F32C52 !important;
+}
+.lc-banner-button-grass{
+    background: #3dd28d !important;
+}
+.lc-banner-button-ocean{
+    background: #416dea !important;
+}

@@ -51,11 +51,11 @@
                 <div class="mdl-cell mdl-cell--12-col">
                     <div class="lc-banner__content">
                         <p class="lc-banner__content--info lc-banner__more--links">
-                            <button  data-href="{{ index $author.resume $locale }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                            <button  data-href="{{ index $author.resume $locale }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect lc-banner-button-salmon">
                                 {{ i18n "resume" }}
                             </button>
                             {{ range $author.links }}
-                            <button  data-href="{{ .url }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                            <button  data-href="{{ .url }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect lc-banner-button-salmon">
                                 {{ index .name $locale }}
                             </button>
                             {{ end }}

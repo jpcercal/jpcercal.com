@@ -25,10 +25,16 @@
                     </ul> -->
                 {{ end }}
 
-                <p class="lc-info-tip">
-                    <img src="{{ $baseURL }}images/icons/idea.svg" alt="">
-                    {{ i18n "readingTime" .ReadingTime }}
-                </p>
+                <div class="lc-info-tip">
+                    <div class="lc-info-tip-icon">
+                        <img src="{{ $baseURL }}images/icons/idea.svg" alt="">
+                    </div>
+                    <div class="lc-info-tip-txt">
+                        <p>
+                            {{ i18n "readingTime" .ReadingTime }}
+                        </p>
+                    </div>
+                </div>
 
                 <!--<p>{{ .Description }}</p>-->
 
@@ -37,8 +43,8 @@
                         <div class="mdl-card__media mdl-color-text--grey-50">
                             <h3>{{ .Title }}</h3>
                         </div>
-                        <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-                            <div class="minilogo"></div>
+                        <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta" style="padding-left:30px">
+                            <img src="{{ $baseURL }}images/icons/calendar.svg" style="width:24px;" alt="">
                             <div>
                                 {{ range .Params.topics }}
                                     <a href="{{ $baseURL }}/topics/{{ . | urlize }}">{{ . }}</a>
@@ -46,18 +52,18 @@
                                 <span>{{ .Date.Format "Mon Jan 2, 2006" }}</span>
                             </div>
                             <div class="section-spacer"></div>
-                            <div class="meta__favorites">
-                                425 <i class="material-icons" role="presentation">favorite</i>
-                                <span class="visuallyhidden">favorites</span>
+                            <div class="meta__actions">
+                                <div>
+                                    <span>425</span>
+                                </div>
+                                <div>
+                                    <img src="{{ $baseURL }}images/icons/like.svg" style="width:24px;" alt="icone like">
+                                </div>
+                                <div>
+                                    <img src="{{ $baseURL }}images/icons/share.svg" style="width:24px;" alt="ícone share">
+                                </div>
                             </div>
-                            <div>
-                                <i class="material-icons" role="presentation">bookmark</i>
-                                <span class="visuallyhidden">bookmark</span>
-                            </div>
-                            <div>
-                                <i class="material-icons" role="presentation">share</i>
-                                <span class="visuallyhidden">share</span>
-                            </div>
+                            
                         </div>
                         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
                             {{ .Content }}
