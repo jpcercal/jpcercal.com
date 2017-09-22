@@ -1,16 +1,8 @@
 {{ if not (isset .Params "author") }}
-<div class="lc-banner" style="background-image: url({{ .Site.BaseURL }}images/bg-1.jpg);">
-    <div class="mdl-grid wrapper">
-        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-            <div class="mdl-grid container">
-                <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone item-1">
-                    <div class="lc-banner__content">
-                        <h1 class="lc-banner__content--title">Lorem ipsum doller sit undunit</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="lc-banner">
+    <div class="lc-banner-picture" style="background-image:url('{{ .Site.BaseURL }}authors/lucascercal/picture.jpg')"></div>
+    <div class="lc-banner-picture" style="background-image:url('{{ .Site.BaseURL }}authors/jpcercal/picture.jpg')"></div>
+    <div class="lc-banner-picture" style="background-image:url('{{ .Site.BaseURL }}authors/elisetecercal/picture.jpg')"></div>
 </div>
 {{ else }}
 {{ $locale         := .Site.Params.locale }}
