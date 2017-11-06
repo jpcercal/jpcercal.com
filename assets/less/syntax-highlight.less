@@ -1,40 +1,64 @@
-@import (less) "syntax-highlight-atom-light.css";
+/**
+ * For reference this script was generated according
+ * to the documentation in this repository:
+ *
+ * https://github.com/mgyongyosi/OneDarkJekyll
+ *
+ * Step by step:
+ *
+ * Clone this repository
+ * Download the colors.less file from the syntax theme's repository (for example https://github.com/atom/one-dark-syntax/blob/master/styles/colors.less in case of One-Dark)
+ * Put the previously downloaded file next to syntax.less
+ */
+@import "../../node_modules/one-dark-syntax/styles/colors.less";
+@import "../../node_modules/one-dark-jekyll/syntax.less";
 
 .highlighttable {
-    font-family: 'Ubuntu Mono', 'Menlo', monospace;
-    border: 1px solid #ccc;
-    border-left: 5px solid #222;
-    text-shadow: 0 1px white;
-    line-height: 2;
+    font-family: 'Fira Mono', monospace;
+    width: 100%;
+    margin-bottom: 5px;
+
+    border: 1px solid #191F2B;
+    border-left-width: 15px;
+    border-right-width: 2px;
+
+    .border-radius(3px);
+    .text-shadow();
+    .drop-shadow();
+
+    background-color: @syntax-bg;
 
     .linenos {
-        padding: 0px 15px;
-        border-right: 1px solid #eee;
-        color: #aaa;
-        font-weight: 500;
+        width: 35px;
+        text-align: right;
+        border-right: 1px solid @syntax-guide;
+
+        pre {
+            padding-right: 10px;
+
+            code {
+                color: @syntax-gutter;
+            }
+        }
     }
 
     .code {
-        padding: 0px 15px;
-        background: transparent;
-
         .highlight {
-            background: transparent;
+            padding: 0px 10px;
 
-            pre {
-                background: transparent;
-                display: block;
-
-                span[id^="line-"] {
-                    &:nth-child(even) {
-                        background-color: red;
-                    }
-
-                    &:nth-child(odd) {
-                        background-color: green;
-                    }
-                }
-            }
+    //        pre {
+    //            span[id^="line-"] {
+    //                display: block;
+    //
+    //                &:nth-child(even) {
+    //                    background-color: @syntax-guide;
+    //                }
+    //
+    //                &:nth-child(odd) {
+    //                    background-color: @syntax-bg;
+    //                }
+    //            }
+    //        }
         }
     }
 }

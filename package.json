@@ -31,6 +31,11 @@
     "material-design-lite": "^1.3.0"
   },
   "scripts": {
-    "napa": "napa pixabay/javascript-autocomplete"
+    "napa": "napa"
+  },
+  "napa": {
+    "javascript-autocomplete": "pixabay/javascript-autocomplete",
+    "one-dark-jekyll": "mgyongyosi/OneDarkJekyll",
+    "one-dark-syntax": "atom/one-dark-syntax"
   }
 }
