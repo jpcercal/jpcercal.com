@@ -1,29 +1,29 @@
 latestPosts: 
-  other: Últimos Posts
+  other: "Últimos Posts"
 searchFor: 
-  other: Procurar por
+  other: "Procurar por"
 error404: 
-  other: Erro 404 - Página não encontrada
+  other: "Erro 404 - Página não encontrada"
 wordCount:
-  other: Este artigo tem {{ .WordCount }} palavras.
+  other: "{{ .WordCount }} palavras"
 resume:
-  other: Currículo
+  other: "Currículo"
 terms:
-  other: Categorias e Tags
+  other: "Categorias e Tags"
 seeAllPosts:
-  other: Ver todos os posts
+  other: "Ver todos os posts"
 authors:
-  other: Autores
+  other: "Autores"
 categories:
-  other: Categorias
+  other: "Categorias"
 tags:
-  other: Marcadores
+  other: "Marcadores"
 translations:
-  other: Ler este conteúdo em
+  other: "Ler este conteúdo em"
 en:
-  other: Inglês
+  other: "Inglês"
 pt:
-  other: Português
+  other: "Português"
 readingTime:
-  one: Aproximadamente 1 minuto de leitura
-  other: Aproximadamente {{ .Count }} minutos de leitura
+  one: "1 min de leitura"
+  other: "{{ .Count }} min de leitura"

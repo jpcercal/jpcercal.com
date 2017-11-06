@@ -1,29 +1,29 @@
 latestPosts: 
-  other: Latest Posts
+  other: "Latest Posts"
 searchFor: 
-  other: Search for
+  other: "Search for"
 error404: 
-  other: Error 404 - Page not found
+  other: "Error 404 - Page not found"
 wordCount:
-  other: This article has {{ .WordCount }} words
+  other: "{{ .WordCount }} words"
 resume:
-  other: Resumé
+  other: "Resumé"
 terms:
-  other: Categories and Tags
+  other: "Categories and Tags"
 seeAllPosts:
-  other: See all posts
+  other: "See all posts"
 authors:
-  other: Authors
+  other: "Authors"
 categories:
-  other: Categories
+  other: "Categories"
 tags:
-  other: Tags
+  other: "Tags"
 translations:
-  other: Read this article in
+  other: "Read this article in"
 en:
-  other: English
+  other: "English"
 pt:
-  other: Portuguese
+  other: "Portuguese"
 readingTime:
-  one: Aproximatelly 1 minute to read
-  other: Aproximatelly {{ .Count }} minutes to read
+  one: "1 min read"
+  other: "{{ .Count }} min read"
