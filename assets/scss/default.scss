@@ -1,0 +1,32 @@
+body {
+  background-color: #FFFFFF;
+  color: $fontColor;
+}
+
+nav {
+  .previous,
+  .next {
+    color: $fontColor;
+    text-decoration: none;
+  }
+
+  .previous::before,
+  .next::after {
+    display: inline;
+    color: lighten($fontColor, 10%);
+  }
+
+  .previous {
+    &::before {
+      content: '\2190';
+      margin-right: 5px;
+    }
+  }
+
+  .next {
+    &::after {
+      content: '\2192';
+      margin-left: 5px;
+    }
+  }
+}

@@ -1,44 +1,36 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Params.Locale }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-<head>
-{{ partial "head-favicon.html" . }}
-{{ partial "head-support-ie.html" . }}
-{{ partial "head-meta.html" . }}
-{{ partial "head-assets.html" . }}
-</head>
-<body role="document">
-    <div class="blog mdl-layout mdl-js-layout has-drawer is-upgraded">
-        {{ partial "navbar.html" . }}
-        <main class="mdl-layout__content">
-            {{ partial "banner.html" . }}
-            <div class="blog__posts mdl-grid">
-                <h4>{{ i18n "latestPosts" }}</h4>
+{{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
 
-                {{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
-                
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+
+<section class="container">
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <h1>{{ i18n "latestPosts" }}</h1>
+
+            {{ if $paginator.Pages }}
                 {{ range $paginator.Pages }}
-                    {{ partial "post-card" . }}
+                    {{ partial "post-card.html" . }}
+                {{ end }}
+            {{ else }}
+                <p>“{{ i18n "noResultsFound" }}”.</p>
+            {{ end }}
+
+            <nav class="d-flex mt-2 mb-4">
+                {{ if .Paginator.HasPrev }}
+                    <a class="d-inline-flex previous" href="{{ .Paginator.Prev.URL }}">
+                        {{ i18n "previous" }}
+                    </a>
                 {{ end }}
 
-                {{ if .Paginator.HasPrev }}
-                    <a href="{{ .Paginator.Prev.URL }}" class="nav__button">
-                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                            <i class="material-icons">arrow_back</i>
-                        </button>
-                    </a>
-                {{ end }}
-                <div class="section-spacer"></div>
                 {{ if .Paginator.HasNext }}
-                    <a href="{{ .Paginator.Next.URL }}" class="nav__button">
-                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                            <i class="material-icons">arrow_forward</i>
-                        </button>
+                    <a class="ml-auto d-inline-flex next" href="{{ .Paginator.Next.URL }}">
+                        {{ i18n "next" }}
                     </a>
                 {{ end }}
-            </div>
-            {{ partial "footer.html" . }}
-        </main>
-        <div class="mdl-layout__obfuscator"></div>
+            </nav>
+        </div>
     </div>
-</body>
-</html>
+</section>
+
+{{ partial "footer.html" . }}

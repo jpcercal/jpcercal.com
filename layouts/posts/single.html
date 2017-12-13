@@ -1,87 +1,63 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Params.Locale }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-<head>
-{{ partial "head-favicon.html" . }}
-{{ partial "head-support-ie.html" . }}
-{{ partial "head-meta.html" . }}
-{{ partial "head-assets.html" . }}
-</head>
-<body role="document">
-    {{ $baseURL := .Site.BaseURL }}
-    <div class="blog mdl-layout mdl-js-layout has-drawer is-upgraded">
-        {{ partial "navbar.html" . }}
-        <main class="mdl-layout__content">
-            {{ partial "banner.html" . }}
-            <div class="blog__posts mdl-grid">
-                
-                {{ partial "i18n-list" . }}
+{{ $baseURL         := .Site.BaseURL }}
+{{ $author          := index .Site.Data.authors .Params.author }}
+{{ $locale          := .Site.Params.locale }}
+{{ $datetime        := .Date.Format "2006-01-02" }}
+{{ $datetimeDisplay := .Date.Format "Jan 2, 2006" }}
+{{ $categoryAlias   := index .Params.categories 0 }}
+{{ $category        := index .Site.Data.categories $categoryAlias }}
 
-                <div class="blog__posts mdl-grid">
-                    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-                        <div class="mdl-card__media mdl-color-text--grey-50">
-                            <h3>{{ .Title }}</h3>
-                            {{ $locale          := .Site.Params.locale }}
-                            {{ $datetime        := .Date.Format "2006-01-02" }}
-                            {{ $datetimeDisplay := .Date.Format "Jan 2, 2006" }}
-                            {{ $categories      := .Site.Data.categories }}
-                            <ul>
-                                <li>
-                                    <time datetime="{{ $datetime }}">{{ $datetimeDisplay }}</time>
-                                </li>
-                                <li>
-                                    {{ partial "word-count.html" . }}
-                                </li>
-                                <li>
-                                    {{ partial "reading-time.html" . }}
-                                </li>
-                                {{ range $index, $categoryAlias := .Params.categories }}
-                                    {{ $categoryMap := index $categories $categoryAlias }}
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
 
-                                    {{ if $categoryMap }}
-                                        {{ $category := index $categoryMap "title" }}
-                                        <li>
-                                            <a href="{{ $baseURL }}/categories/{{ $categoryAlias | urlize }}">{{ index $category $locale }}</a>
-                                        </li>
-                                    {{ end }}
-                                {{ end }}
-                            </ul>
-                        </div>
-                        <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
-                            {{ .Content }}
-
-                            <ul id="tags">
-                                {{ range .Params.tags }}
-                                    <li>
-                                        <a href="{{ $baseURL }}/tags/{{ . | urlize }}">{{ . }}</a>
-                                    </li>
-                                {{ end }}
-                            </ul>
-                        </div>
-                        {{ template "_internal/disqus.html" . }}                       
-                    </div>
-
-                    <nav class="nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-                        {{ if .Prev }}
-                            <a href="{{ .Prev.Permalink }}" class="nav__button">
-                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                                    <i class="material-icons">arrow_back</i>
-                                </button>
-                            </a>
-                        {{ end }}
-                        <div class="section-spacer"></div>
-                        {{ if .Next }}
-                            <a href="{{ .Next.Permalink }}" class="nav__button">
-                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                                    <i class="material-icons">arrow_forward</i>
-                                </button>
-                            </a>
-                        {{ end }}
-                    </nav>
-                </div>
+<article class="container">
+    <header class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <div class="float-left">
+                <img class="rounded-circle" src="{{ $baseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60px" width="60px">
             </div>
-            {{ partial "footer.html" . }}
-        </main>
-        <div class="mdl-layout__obfuscator"></div>
+
+            <div class="float-left ml-2">
+                <a href='{{ $baseURL }}authors/{{ $author.slug }}' rel="author" class="author-name">{{ $author.name }}</a>
+                <p class="author-position">{{ index $author.position $locale }}</p>
+
+                <ul class="list-inline">
+                    <li class="list-inline-item d-inline">
+                        <time datetime="{{ $datetime }}">{{ $datetimeDisplay }}</time>
+                    </li>
+                    <li class="list-inline-item d-none d-sm-inline">
+                        <span>{{ partial "word-count.html" . }}</span>
+                    </li>
+                    <li class="list-inline-item d-none d-sm-inline">
+                        <span>{{ partial "reading-time.html" . }}</span>
+                    </li>
+                    {{ if $category }}
+                        <li class="list-inline-item d-inline">
+                            <a href="{{ $baseURL }}categories/{{ $categoryAlias | urlize }}">{{ index (index $category "title") $locale }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <h1 class="article-title mt-4 mb-3">{{ .Title }}</h1>
+
+            <div class="article-content">
+                {{ .Content }}
+            </div>
+
+            <ul class="article-tags list-unstyled list-inline">
+                {{ range .Params.tags }}
+                    <li class="article-tag list-inline-item">
+                        <a href="{{ $baseURL }}tags/{{ . | urlize }}">{{ . }}</a>
+                    </li>
+                {{ end }}
+            </ul>
+
+            {{ template "_internal/disqus.html" . }}
+        </div>
     </div>
-</body>
-</html>
+</article>
+
+{{ partial "footer.html" . }}

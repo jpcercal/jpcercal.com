@@ -1,20 +1,11 @@
-<footer class="mdl-mini-footer">
-    Cercal.IO
-</footer>
 {{ "<!-- build:template" | safeHTML }}
 {{ "<% if (environment === 'production') { %>" | safeHTML }}
-<script async src="//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
-<script async src="{{ .Site.BaseURL }}vendor/js/javascript-autocomplete.min.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.0.1/lunr.min.js"></script>
 <script async src="{{ .Site.BaseURL }}js/cercal.io.min.js"></script>
 {{ "<% } else { %>" | safeHTML }}
-<script async src="{{ .Site.BaseURL }}vendor/js/material.js"></script>
-<script async src="{{ .Site.BaseURL }}vendor/js/axios.js"></script>
-<script async src="{{ .Site.BaseURL }}vendor/js/javascript-autocomplete.js"></script>
-<script async src="{{ .Site.BaseURL }}vendor/js/lunr.js"></script>
 <script async src="{{ .Site.BaseURL }}js/cercal.io.js"></script>
 {{ "<% } %>" | safeHTML }}
 {{ "/build -->" | safeHTML }}
 
 {{ template "_internal/google_analytics_async.html" . }}
+</body>
+</html>

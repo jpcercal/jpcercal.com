@@ -14,7 +14,11 @@
 @import "../../node_modules/one-dark-jekyll/syntax.less";
 
 .highlighttable {
-    font-family: 'Fira Mono', monospace;
+    & code,
+    & span {
+        font-family: 'Fira Mono', monospace;
+    }
+
     width: 100%;
     margin-bottom: 5px;
 
@@ -35,9 +39,13 @@
 
         pre {
             padding-right: 10px;
+            margin-bottom: 0px;
 
             code {
                 color: @syntax-gutter;
+                padding: 0px;
+                font-size: 16px;
+                background-color: transparent;
             }
         }
     }
@@ -46,7 +54,10 @@
         .highlight {
             padding: 0px 10px;
 
-    //        pre {
+            pre {
+                margin-bottom: 0px;
+                font-size: 16px;
+
     //            span[id^="line-"] {
     //                display: block;
     //
@@ -58,7 +69,7 @@
     //                    background-color: @syntax-bg;
     //                }
     //            }
-    //        }
+            }
         }
     }
 }

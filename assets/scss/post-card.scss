@@ -1,0 +1,38 @@
+.post-card {
+  position: relative;
+  border: 1px solid #eee;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  a {
+    text-decoration: none;
+
+    &.post-card--title {
+      font-family: 'Fjalla One';
+      font-weight: normal;
+      font-style: normal;
+      color: $fontColor;
+      font-size: 22px;
+      line-height: 30px;
+      display: block;
+    }
+
+    &.post-card--category {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: lighten($fontColor, 50%);
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      padding: 7px 15px;
+      border-bottom: 1px solid #eee;
+      border-left: 1px solid #eee;
+      border-bottom-left-radius: 4px;
+    }
+  }
+
+  p {
+    line-height: 26px;
+  }
+}

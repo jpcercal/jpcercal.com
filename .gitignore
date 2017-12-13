@@ -1,6 +1,12 @@
 public/
 node_modules/
 cache/
+.sass-cache/
+.idea/
+fontpatcher/
 package-lock.*
 *.log
 *.lock
+*.pem
+.DS_Store
+

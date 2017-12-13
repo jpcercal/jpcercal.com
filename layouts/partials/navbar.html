@@ -1,53 +1,42 @@
-<header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-        <!-- Title -->
-        <a href="{{ .Site.BaseURL }}" class="mdl-layout-title">
-            <img src="{{ .Site.BaseURL }}images/cercal.io.png" alt="Cercal.io">
-        </a>
+{{ $categories := .Site.Taxonomies.categories }}
+{{ $data       := .Site.Data.categories }}
+{{ $baseUrl    := .Site.BaseURL }}
+{{ $locale     := .Site.Params.locale }}
+{{ $locales    := .Site.Data.locales }}
+{{ $localeEn   := index $locales "en" }}
+{{ $localePt   := index $locales "pt" }}
 
-        <div class="mdl-layout-spacer"></div>
-
-
-        <!-- Navigation. We hide it in small screens. -->
-        <nav class="mdl-navigation mdl-layout--large-screen-only">
-            {{ $categories := .Site.Taxonomies.categories }}
-            {{ $data       := .Site.Data.categories }}
-            {{ $baseUrl    := .Site.BaseURL }}
-            {{ $locale     := .Site.Params.locale }}
-            {{ $locales    := .Site.Data.locales }}
-
-            <ul class="categories">
-                {{ range $category, $map := $categories }}
-                    {{ range $key, $current := $data }}
-                        {{ if eq $key $category }}
-                            <li>
-                                <a href="{{ $baseUrl }}categories/{{ $category }}">{{ index $current.title $locale }} <span>({{ $map.Count }})</span></a>
-                            </li>
-                        {{ end }}
-                    {{ end }}
-                {{ end }}
-            </ul>
-
-            <div class="mdl-layout-spacer"></div>
-
-            <!-- Search bar -->
-            <form onsubmit="return false;" class="lc-search-component">
-                <div class="mdl-textfield mdl-js-textfield lc-search-container">
-                    <div class="lc-search-icon">
-                        <img src="{{ .Site.BaseURL }}images/icons/search.svg" alt="">
-                    </div>
-                    <input class="mdl-textfield__input" placeholder='{{ i18n "searchFor" }} ...' type="text" id="search" name="search" />
+<header class="container">
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <div class="row align-items-center header">
+                <div class="col search">
+                    <a class="search-link" href='{{ $baseUrl }}{{ if eq $locale "en" }}en/{{ end }}search'>
+                        <span class="search-icon"></span> <span class="d-none d-sm-inline">{{ i18n "searchFor" }}</span>
+                    </a>
                 </div>
-            </form>
 
-            <ul class="lang">
-                <li class="pt">
-                    <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.BaseURL }}{{ (index $locales "pt").icon }}" alt="{{ index (index $locales "pt").title $locale }}"></a>
-                </li>
-                <li class="en">
-                    <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.BaseURL }}{{ (index $locales "en").icon }}" alt="{{ index (index $locales "en").title $locale }}"></a>
-                </li>
-            </ul>
-        </nav>
+                <div class="col">
+                    <a class="brand text-center m-0" href='{{ $baseUrl }}{{ if eq $locale "en" }}en/{{ end }}'>Cercal.IO</a>
+                </div>
+
+                <div class="col clearfix">
+                    <nav class="locale float-right">
+                        <ul class="list-unstyled list-inline m-0">
+                            <li class="list-inline-item">
+                                <a href="{{ $baseUrl }}">
+                                    <img src="{{ .Site.BaseURL }}{{ $localePt.icon }}" alt="{{ index $localePt.title $locale }}" title="{{ index $localePt.title $locale }}">
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{{ $baseUrl }}en">
+                                    <img src="{{ .Site.BaseURL }}{{ $localeEn.icon }}" alt="{{ index $localeEn.title $locale }}" title="{{ index $localeEn.title $locale }}">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </div>
 </header>

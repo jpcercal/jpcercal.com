@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 author: elisetecercal@gmail.com
 slug: android-era-um-software-para-maquinas-fotograficas
 title: Android era um software para máquinas fotográficas

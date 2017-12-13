@@ -1,0 +1,5 @@
+{{ if $.link.url }}
+    <li class="list-inline-item d-none d-sm-inline">
+        <a href="{{ $.link.url }}" target="_blank">{{ index $.link.name $.locale }}</a>
+    </li>
+{{ end }}

@@ -8,10 +8,32 @@ Considering that you have already installed [Docker](https://www.docker.com/), f
 docker build -t cercal.io .
 ```
 
+Generating a certificate:
+
+```shell
+openssl req \
+    -new \
+    -newkey rsa:4096 \
+    -days 3650 \
+    -nodes \
+    -x509 \
+    -subj "/C=BR/ST=SC/L=Joinville/CN=cercal.io" \
+    -keyout key.pem \
+    -out cert.pem
+```
+
+Put in you `/etc/hosts` file:
+
+```shell
+...
+127.0.0.1 cercal.dev
+...
+```
+
 To be able to run this project on your browser you will must start the http server, to do that you can run this command:
 
 ```shell
-docker run -ti -p 1313:1313 -v $PWD:/usr/share/blog cercal.io http-server -p 1313 /usr/share/blog/public
+docker run -ti -p 443:1313 -v $PWD:/usr/share/blog cercal.io http-server -p 1313 /usr/share/blog/public --ssl --cert cert.pem
 ```
 
 The next step will be access the machine and run this commands to install the dependencies and build the project:
@@ -23,4 +45,4 @@ npm run napa
 grunt
 ```
 
-Now, just open your browser to see everything running [http://localhost:1313/](http://localhost:1313/).
+Now, just open your browser to see everything running [https://cercal.dev](https://cercal.dev).

@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Params.Locale }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-<head>
-{{ partial "head-favicon.html" . }}
-{{ partial "head-support-ie.html" . }}
-{{ partial "head-meta.html" . }}
-{{ partial "head-assets.html" . }}
-</head>
-<body role="document">
-<div class="blog mdl-layout mdl-js-layout has-drawer is-upgraded">
-    {{ partial "navbar.html" . }}
-    <main class="mdl-layout__content">
-        {{ partial "banner.html" . }}
-        <div class="blog__posts mdl-grid">
-            <h4>{{ i18n "error404" }}</h4>
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+
+<section class="container">
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <h1>{{ i18n "error404Title" }}</h1>
+            <p>“{{ i18n "error404Message" }}”.</p>
         </div>
-        {{ partial "footer.html" . }}
-    </main>
-    <div class="mdl-layout__obfuscator"></div>
-</div>
-</body>
-</html>
+    </div>
+</section>
+
+{{ partial "footer.html" . }}

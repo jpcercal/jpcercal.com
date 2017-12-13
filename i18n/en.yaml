@@ -1,13 +1,33 @@
 latestPosts: 
   other: "Latest Posts"
-searchFor: 
+previous:
+  other: "Previous"
+next:
+  other: "Next"
+noResultsFound:
+  other: "No results found"
+searchFor:
   other: "Search for"
-error404: 
-  other: "Error 404 - Page not found"
+searchForInfo:
+  other: "Type terms like \"PHP\" or \"Javascript\". The terms that you'll type are \"case-insensitive\". You must type at least 3 characters to perform this operation."
+searchForPlaceholder:
+  other: "Example \"PHP\" or \"Javascript\"."
+error404Title:
+  other: "Error 404"
+error404Message:
+  other: "The requested page could not be found on our servers"
 wordCount:
   other: "{{ .WordCount }} words"
 resume:
   other: "Resumé"
+facebook:
+  other: "Facebook"
+linkedin:
+  other: "LinkedIn"
+twitter:
+  other: "Twitter"
+github:
+  other: "GitHub"
 terms:
   other: "Categories and Tags"
 seeAllPosts:

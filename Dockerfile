@@ -1,12 +1,27 @@
 FROM library/node
 
 # Install Grunt
-RUN npm install -g grunt-cli http-server
+RUN npm install -g npm grunt-cli http-server
+
+# Run update
+RUN apt-get update
 
 # Install pygments (for syntax highlighting) 
-RUN apt-get update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python-pygments git ca-certificates asciidoc \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    python-pygments \
+    git \
+    ca-certificates \
+    asciidoc \
 	&& rm -rf /var/lib/apt/lists/*
+
+# Install ruby + scss
+ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
+
+RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+RUN curl -L https://get.rvm.io | bash -s stable
+RUN echo 'source /etc/profile.d/rvm.sh' >> /etc/profile
+RUN /bin/bash -l -c "rvm install ruby --latest"
+RUN /bin/bash -l -c "gem install sass"
 
 # Download and install hugo
 ENV HUGO_VERSION 0.27.1
@@ -24,4 +39,4 @@ WORKDIR /usr/share/blog
 EXPOSE 1313
 
 # Define default command.
-CMD ["bash"]
+CMD ["/bin/bash", "-l"]

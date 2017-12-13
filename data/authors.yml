@@ -1,40 +1,40 @@
 jpcercal@gmail.com:
+  slug: jpcercal
   name: João Paulo Cercal
   position: 
-    en: Senior PHP Developer
-    pt: Desenvolvedor PHP Sênior
-  cover: authors/jpcercal/cover.jpg
+    en: PHP Developer at FlixBus GmbH in Munich, Germany
+    pt: PHP Developer na FlixBus GmbH em Munique, Alemanha
   picture: 
     thumbnail: authors/jpcercal/thumbnail.jpg
     original: authors/jpcercal/picture.jpg
   biography:
-    en: I'm a ZCPE (Zend Certified PHP Engineer) and I've worked with PHP since 2009, I'm passionate for open-source, patterns, tests and source code well written. Always looking for best practices, new technologies and methodologies to improve my workflow and bring great results to the project and to my customer.
-    pt: Sou ZCPE (Zend Certified PHP Engineer) e trabalho com PHP desde 2009, apaixonado por open-source, padrões, testes e código bem escrito. Sempre buscando melhores práticas, novas tecnologias e metodologias para melhorar meu fluxo de trabalho e trazer retorno além do esperado para o projeto e para o meu cliente.
+    en: Zend Certified PHP Engineer, I'm passionate for open-source, patterns, tests and source code well written.
+    pt: Zend Certified PHP Engineer, apaixonado por open-source, padrões, testes e código bem escrito.
   resume:
     en: authors/jpcercal/resume.en.pdf
     pt: authors/jpcercal/resume.pt.pdf
   socialNetworks:
-    facebook: jpcercal
-    twitter: jpcercal
-    linkedin: jpcercal
-    github: jpcercal
+    facebook: https://www.facebook.com/jpcercal
+    twitter: https://twitter.com/jpcercal
+    linkedin: https://www.linkedin.com/in/jpcercal
+    github: https://github.com/jpcercal
   links:
+    -
+      name:
+        en: Portfolio
+        pt: Portfólio
+      url: https://jpcercal.github.io/projects
     - 
       name: 
         en: About me
         pt: About me
       url: https://about.me/jpcercal
-    - 
-      name: 
-        en: Portfolio
-        pt: Portfólio
-      url: https://jpcercal.github.io/projects
 elisetecercal@gmail.com:
+  slug: elisetecercal
   name: Elisete dos Santos Cercal
   position: 
     en: Recruiter
     pt: Recrutadora de Talentos
-  cover: authors/elisetecercal/cover.jpg
   picture: 
     thumbnail: authors/elisetecercal/thumbnail.jpg
     original: authors/elisetecercal/picture.jpg
@@ -45,17 +45,17 @@ elisetecercal@gmail.com:
     en: authors/elisetecercal/resume.en.pdf
     pt: authors/elisetecercal/resume.pt.pdf
   socialNetworks:
-    facebook: elisete.dossantoscercal
-    twitter: 
-    linkedin: elisete-santos-cercal-861a4755
-    github: 
+    facebook: https://www.facebook.com/elisete.dossantoscercal
+    twitter:
+    linkedin: https://www.linkedin.com/in/elisete-santos-cercal-861a4755
+    github:
   links: []
 lukas.cercal@gmail.com:
+  slug: lucascercal
   name: Lucas Alfredo Cercal
   position: 
     en: Front-end Developer
     pt: Desenvolvedor Front-end
-  cover: authors/lucascercal/cover.jpg
   picture: 
     thumbnail: authors/lucascercal/thumbnail.jpg
     original: authors/lucascercal/picture.jpg
@@ -66,10 +66,10 @@ lukas.cercal@gmail.com:
     en: authors/lucascercal/resume.en.pdf
     pt: authors/lucascercal/resume.pt.pdf
   socialNetworks:
-    facebook: lucasalfredo.cercal
-    twitter: lucascercal
-    linkedin: lucascercalW
-    github: LucasCercal
+    facebook: https://www.facebook.com/lucasalfredo.cercal
+    twitter: https://twitter.com/lucascercal
+    linkedin: https://www.linkedin.com/in/lucascercal
+    github: https://github.com/LucasCercal
   links:
     - 
       name: 

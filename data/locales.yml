@@ -2,9 +2,9 @@ pt:
   title:
     en: Portuguese
     pt: Português
-  icon: locale/pt/icon.svg
+  icon: images/icons/locale/pt/icon.svg
 en:
   title:
     en: English
     pt: Inglês
-  icon: locale/en/icon.svg
+  icon: images/icons/locale/en/icon.svg

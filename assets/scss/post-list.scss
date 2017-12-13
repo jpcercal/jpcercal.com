@@ -1,0 +1,43 @@
+.post-list {
+  a {
+    color: $fontColor;
+    text-decoration: none;
+  }
+
+  .counter {
+    color: lighten($fontColor, 20%);
+
+    &::before,
+    &::after {
+      display: inline;
+      color: lighten($fontColor, 20%);
+    }
+
+    &::before {
+      content: '(';
+      margin-right: 1px;
+    }
+
+    &::after {
+      content: ')';
+      margin-left: 1px;
+    }
+  }
+
+  a.see-all-posts {
+    display: block;
+
+    &::after {
+      display: inline;
+      color: lighten($fontColor, 10%);
+      content: '\2192';
+      margin-left: 5px;
+    }
+  }
+
+  h2 {
+    a {
+      text-decoration: underline;
+    }
+  }
+}

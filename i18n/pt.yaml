@@ -1,13 +1,33 @@
 latestPosts: 
   other: "Últimos Posts"
+previous:
+  other: "Anterior"
+next:
+  other: "Próximo"
+noResultsFound:
+  other: "Nenhum resultado encontrado"
 searchFor: 
   other: "Procurar por"
-error404: 
-  other: "Erro 404 - Página não encontrada"
+searchForInfo:
+  other: "Digite termos como \"PHP\" ou \"Javascript\". Os termos de busca são \"case-insensitive\". Você precisa informar pelo menos 3 caracteres para iniciar uma busca."
+searchForPlaceholder:
+  other: "Exemplo \"PHP\" ou \"Javascript\"."
+error404Title:
+  other: "Erro 404"
+error404Message:
+  other: "A página solicitada não foi encontrada em nossos servidores"
 wordCount:
   other: "{{ .WordCount }} palavras"
 resume:
   other: "Currículo"
+facebook:
+  other: "Facebook"
+linkedin:
+  other: "LinkedIn"
+twitter:
+  other: "Twitter"
+github:
+  other: "GitHub"
 terms:
   other: "Categorias e Tags"
 seeAllPosts:

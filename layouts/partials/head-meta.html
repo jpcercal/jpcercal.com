@@ -1,40 +1,40 @@
 <!-- BEGIN meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- END meta -->
 
 <!-- BEGIN seo -->
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:domain" content="{{ .Site.BaseURL }}"/>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:domain" content="{{ .Site.BaseURL }}">
 <meta property="og:locale" content="{{ .Site.Params.Locale }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 
 {{ if .RSSLink }}
-<link href="{{ .RSSLink }}" rel="alternate feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+<link href="{{ .RSSLink }}" rel="alternate feed" type="application/rss+xml" title="{{ .Site.Title }}">
 {{ end }}
 
 {{ if .IsHome }}
 <title>{{ .Site.Title }}</title>
-<meta property="og:title" content="{{ .Site.Title }}" />
-<meta property="og:url" content="{{ .Site.BaseURL }}" />
-<meta name="description" content="{{ .Site.Params.Description }}"/>
-<meta property="og:description" content="{{ .Site.Params.Description }}" />
-<link rel="canonical" href="{{ .Site.BaseURL }}" />
-<meta name="twitter:site" content="@jpcercal"/>
-<meta name="twitter:creator" content="@jpcercal"/>
+<meta property="og:title" content="{{ .Site.Title }}">
+<meta property="og:url" content="{{ .Site.BaseURL }}">
+<meta name="description" content="{{ .Site.Params.Description }}">
+<meta property="og:description" content="{{ .Site.Params.Description }}">
+<link rel="canonical" href="{{ .Site.BaseURL }}">
+<meta name="twitter:site" content="@jpcercal">
+<meta name="twitter:creator" content="@jpcercal">
 {{ else }}
 <title>{{ .Title }}</title>
-<meta property="og:title" content="{{ .Title }}" />
-<meta property="og:url" content="{{ .Permalink }}" />
-<meta name="description" content="{{ .Description }}"/>
-<meta property="og:description" content="{{ .Description }}" />
-<link rel="canonical" href="{{ .Permalink }}" />
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta name="description" content="{{ .Description }}">
+<meta property="og:description" content="{{ .Description }}">
+<link rel="canonical" href="{{ .Permalink }}">
 {{ if isset .Params "author" }}
 {{ $author := index .Site.Data.authors .Params.author }}
-<meta name="twitter:site" content="{{ $author.twitter }}"/>
-<meta name="twitter:creator" content="{{ $author.twitter }}"/>
+<meta name="twitter:site" content="{{ $author.twitter }}">
+<meta name="twitter:creator" content="{{ $author.twitter }}">
 {{ end }}
 {{ end }} 
 
-<meta property="og:type" content="website" />
+<meta property="og:type" content="website">

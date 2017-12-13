@@ -1,33 +1,58 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Params.Locale }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-<head>
-{{ partial "head-favicon.html" . }}
-{{ partial "head-support-ie.html" . }}
-{{ partial "head-meta.html" . }}
-{{ partial "head-assets.html" . }}
-</head>
-<body role="document">
-    <div class="blog mdl-layout mdl-js-layout has-drawer is-upgraded">
-        {{ partial "navbar.html" . }}
-        <main class="mdl-layout__content">
-            {{ partial "banner.html" . }}
-            <div class="blog__posts mdl-grid">
-                <h4>{{ .Title }}</h4>
+{{ $posts          := where (where .Site.Pages "Type" "posts") "Params.author" .Params.email }}
+{{ $author         := index .Site.Data.authors .Params.email }}
+{{ $locale         := .Site.Params.locale }}
+{{ $resume         := index $author.resume $locale }}
+{{ $links          := $author.links }}
+{{ $socialNetworks := $author.socialNetworks }}
 
-                {{ $posts := where (where .Site.Pages "Type" "posts") "Params.author" .Params.email }}
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
 
-                <ul class="posts">
-                    {{ range $posts }}
-                        {{ if .Slug }}
-                            {{ partial "post-li" . }}
-                        {{ end }}
-                    {{ end }}
-                </ul>
-        
-            </div>
-            {{ partial "footer.html" . }}
-        </main>
-        <div class="mdl-layout__obfuscator"></div>
+<section class="container">
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+
+            <header>
+                <div class="row clearfix">
+                    <div class="col">
+                        <div class="float-left">
+                            <img class="rounded-circle" src="{{ .Site.BaseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60px" width="60px">
+                        </div>
+
+                        <div class="float-left ml-2">
+                            <a href="#" rel="author" class="author-name">{{ $author.name }}</a>
+                            <p class="author-position">{{ index $author.position $locale }}</p>
+                            <p class="author-position">{{ index $author.biography $locale }}</p>
+
+                            <ul class="list-unstyled list-inline">
+                                {{ if $resume }}
+                                    <li class="list-inline-item d-none d-sm-inline">
+                                        <a href="{{ $resume }}" target="_blank">{{ i18n "resume" }}</a>
+                                    </li>
+                                {{ end }}
+
+                                {{ range $socialNetwork, $profile := $socialNetworks }}
+                                    {{ partial "author-social-network.html" (dict "socialNetwork" $socialNetwork "profile" $profile ) }}
+                                {{ end }}
+
+                                {{ range $link := $links }}
+                                    {{ partial "author-links.html" (dict "link" $link "locale" $locale ) }}
+                                {{ end }}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            {{ if $posts }}
+                {{ range $posts }}
+                    {{ partial "post-card.html" . }}
+                {{ end }}
+            {{ else }}
+                <p>“{{ i18n "noResultsFound" }}”.</p>
+            {{ end }}
+        </div>
     </div>
-</body>
-</html>
+</section>
+
+{{ partial "footer.html" . }}

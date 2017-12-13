@@ -44,6 +44,7 @@ module.exports = function (grunt) {
 
         src_app_path:    "<%= src_path %>",
         src_less_path:   "<%= src_app_path %>/less",
+        src_scss_path:   "<%= src_app_path %>/scss",
 
         jshint: {
             files: ['Gruntfile.js', '<%= src_path %>/**/*.js'],
@@ -85,10 +86,6 @@ module.exports = function (grunt) {
                         cwd: '<%= author_path %>/',
                         src: ['**/*.{png,jpg,jpeg,gif,pdf}'],
                         dest: '<%= dist_author_path %>/'
-                    },
-                    {
-                        src: 'node_modules/javascript-autocomplete/auto-complete.min.js',
-                        dest: '<%= dist_path %>/vendor/js/javascript-autocomplete.min.js'
                     }
                 ]
             },
@@ -113,34 +110,16 @@ module.exports = function (grunt) {
                         dest: '<%= dist_author_path %>/'
                     },
                     {
-                        src: 'node_modules/javascript-autocomplete/auto-complete.js',
-                        dest: '<%= dist_path %>/vendor/js/javascript-autocomplete.js'
-                    },
-                    {
-                        src: 'node_modules/font-awesome/css/font-awesome.css',
-                        dest: '<%= dist_path %>/vendor/css/font-awesome.css'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'node_modules/font-awesome/fonts/',
-                        src: ['**/*'],
-                        dest: '<%= dist_path %>/vendor/fonts/'
-                    },
-                    {
-                        src: 'node_modules/material-design-lite/dist/material.indigo-pink.min.css',
-                        dest: '<%= dist_path %>/vendor/css/material.indigo-pink.min.css'
-                    },
-                    {
-                        src: 'node_modules/material-design-lite/dist/material.js',
-                        dest: '<%= dist_path %>/vendor/js/material.js'
-                    },
-                    {
                         src: 'node_modules/lunr/lunr.js',
                         dest: '<%= dist_path %>/vendor/js/lunr.js'
                     },
                     {
                         src: 'node_modules/axios/dist/axios.js',
                         dest: '<%= dist_path %>/vendor/js/axios.js'
+                    },
+                    {
+                        src: 'node_modules/bootstrap/dist/css/bootstrap.css',
+                        dest: '<%= dist_path %>/vendor/css/bootstrap.css'
                     }
                 ]
             }
@@ -156,22 +135,39 @@ module.exports = function (grunt) {
             options: {
                 banner: '<%= banner %>'
             },
-            dist: {
+            js: {
                 src: [
-                    '<%= src_app_path %>/<%= js_path %>/<%= pkg.name %>.js',
-                    '<%= src_app_path %>/<%= js_path %>/search.js'
+                    '<%= src_app_path %>/<%= js_path %>/<%= pkg.name %>.js'
                 ],
                 dest: '<%= dist_js_path %>/<%= pkg.name %>.js'
+            },
+            search: {
+                src: [
+                    '<%= src_app_path %>/<%= js_path %>/search.js'
+                ],
+                dest: '<%= dist_js_path %>/<%= pkg.name %>.search.js'
+            },
+            css: {
+                src: [
+                    '<%= dist_css_path %>/style.less.css',
+                    '<%= dist_css_path %>/style.scss.css'
+                ],
+                dest: '<%= dist_css_path %>/<%= pkg.name %>.css'
             }
         },
 
         less: {
             dist: {
-                options: {
-                    banner: '<%= banner %>'
-                },
                 files: {
-                    '<%= dist_css_path %>/<%= pkg.name %>.css': '<%= src_less_path %>/<%= pkg.name %>.less'
+                    '<%= dist_css_path %>/style.less.css': '<%= src_less_path %>/<%= pkg.name %>.less'
+                }
+            }
+        },
+
+        sass: {
+            dist: {
+                files: {
+                    '<%= dist_css_path %>/style.scss.css': '<%= src_scss_path %>/<%= pkg.name %>.scss'
                 }
             }
         },
@@ -247,10 +243,17 @@ module.exports = function (grunt) {
         },
 
         uglify: {
-            dist: {
+            js: {
                 files: {
                     '<%= dist_js_path %>/<%= pkg.name %>.min.js': [
-                        '<%= concat.dist.dest %>'
+                        '<%= concat.js.dest %>'
+                    ]
+                }
+            },
+            search: {
+                files: {
+                    '<%= dist_js_path %>/<%= pkg.name %>.search.min.js': [
+                        '<%= concat.search.dest %>'
                     ]
                 }
             }
@@ -259,7 +262,7 @@ module.exports = function (grunt) {
         env: {
             development: {
                 BASE_URL: function () {
-                    return baseUrl('http://localhost:1313/');
+                    return baseUrl('https://cercal.dev/');
                 }
             },
             production: {
@@ -314,7 +317,7 @@ module.exports = function (grunt) {
         hugo_lunr: {
             development: {
                 options: {
-                    buildDraft: true
+                    buildDraft: false
                 }
             },
             production: {
@@ -339,6 +342,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -354,10 +358,13 @@ module.exports = function (grunt) {
     grunt.registerTask("hugo_lunr", function(env) {
         grunt.config.requires('hugo_lunr.' + env + '.options.buildDraft');
 
-        grunt.log.writeln("Build pages index");
+        grunt.log.writeln("Build search index");
 
         var buildDraft = grunt.config.get('hugo_lunr.' + env + '.options.buildDraft');
-        var contentDir = grunt.file.readYAML('config.yaml').contentDir;
+        var contentDir = grunt.file.readYAML('config.yaml').contentDir + '/posts';
+
+        var authors = grunt.file.readYAML('data/authors.yml');
+        var categories = grunt.file.readYAML('data/categories.yml');
 
         grunt.log.writeln('Reading files from "./' + contentDir + '/"...');
 
@@ -393,22 +400,35 @@ module.exports = function (grunt) {
                 frontMatter = yaml.safeLoad(content[1].trim());
                 frontMatter.content = content[2];
             } catch (e) {
-                conzole.failed(e.message);
+                console.error(e.message);
             }
 
             return frontMatter;
         };
 
         var processMDFile = function(frontMatter, abspath, filename) {
-            // Build Lunr index for this page
+            // Build Lunr index for this search
+            console.info('> Processing "' + frontMatter.slug + '/' + S(filename).trim() + '".');
+
+            var language = S(filename).endsWith('.en.md') ? 'en' : 'pt';
+
+            var image = 'content/posts/' + frontMatter.slug + '/index.jpg';
+
+            if (!grunt.file.exists(image)) {
+                image = 'images/icons/tag.svg';
+            }
+
             return {
                 id: md5(frontMatter.title + frontMatter.language + frontMatter.description),
                 title: frontMatter.title,
-                description: frontMatter.description,
                 slug: frontMatter.slug,
-                language: S(filename).endsWith('.en.md') ? 'en' : 'pt',
+                author: authors[frontMatter.author].name,
+                description: frontMatter.description,
+                language: language,
                 tags: frontMatter.tags,
-                topics: frontMatter.topics,
+                image: image,
+                categoryUrl: frontMatter.categories[0],
+                categoryTitle: categories[frontMatter.categories[0]].title[language],
                 content: S(frontMatter.content).trim().stripTags().stripPunctuation().s
             };
         };
@@ -427,8 +447,9 @@ module.exports = function (grunt) {
     grunt.registerTask('main', [
         'jshint',
         'clean',
-        'concat',
-        'less'
+        'less',
+        'sass',
+        'concat'
     ]);
 
     grunt.registerTask('default', [
@@ -448,11 +469,11 @@ module.exports = function (grunt) {
         'shell:production',
         'copy:production',
         'processhtml:production',
+        'uglify',
+        'cssmin',
         'imagemin',
         'htmlmin',
         'xmlmin',
-        'cssmin',
-        'uglify',
         'notify_hooks'
     ]);
 };

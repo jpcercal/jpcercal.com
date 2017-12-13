@@ -18,7 +18,7 @@ Se você já sentiu a necessidade de adicionar resumos para páginas no WordPres
  * @param string $post_type
  * @param string|array $supports
  */
-add_post_type_support('page', 'excerpt');
+add_post_type_support('search', 'excerpt');
 ```
 
 Geralmente o código acima é colocado em uma _action hook_ "init".

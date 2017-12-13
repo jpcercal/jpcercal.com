@@ -1,0 +1,40 @@
+{{ $info := split (i18n "searchForInfo") "." }}
+
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+
+<section class="container">
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <h1>{{ i18n "searchFor" }}</h1>
+
+            <div class="search">
+                <form onsubmit="return false;">
+                    <ul class="search-info mt-4 mb-4">
+                        {{ range $current := $info }}
+                            {{ if $current }}
+                                <li>{{ . }}</li>
+                            {{ end }}
+                        {{ end }}
+                    </ul>
+                    <input id="search" class="search-input-field" type="search" autofocus placeholder='{{ i18n "searchForPlaceholder" }}'/>
+                </form>
+                <div id="search-results" class="mt-4 mb-3"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ "<!-- build:template" | safeHTML }}
+{{ "<% if (environment === 'production') { %>" | safeHTML }}
+<script async src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.0.1/lunr.min.js"></script>
+<script async src="{{ .Site.BaseURL }}js/cercal.io.search.min.js"></script>
+{{ "<% } else { %>" | safeHTML }}
+<script async src="{{ .Site.BaseURL }}vendor/js/axios.js"></script>
+<script async src="{{ .Site.BaseURL }}vendor/js/lunr.js"></script>
+<script async src="{{ .Site.BaseURL }}js/cercal.io.search.js"></script>
+{{ "<% } %>" | safeHTML }}
+{{ "/build -->" | safeHTML }}
+
+{{ partial "footer.html" . }}
