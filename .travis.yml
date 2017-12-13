@@ -11,16 +11,16 @@ before_install:
 install:
   - echo $PWD
   - ls -lha $PWD
-  - docker run -v $PWD:/usr/share/blog cercal.io npm install
-  - docker run -v $PWD:/usr/share/blog cercal.io npm run napa
+  - docker run -v $PWD:/usr/share/blog cercal.io /bin/bash -l -c "npm install"
+  - docker run -v $PWD:/usr/share/blog cercal.io /bin/bash -l -c "npm run napa"
 
 before_script:
   - git clone -b master https://github.com/jpcercal/cercal.io.git public/
 
 script:
-  - docker run -v $PWD:/usr/share/blog cercal.io grunt production
+  - docker run -v $PWD:/usr/share/blog cercal.io /bin/bash -l -c "grunt production"
 
-after_script:
+after_success:
   - git config --global user.name "${GIT_DISPLAYNAME}"
   - git config --global user.email "${GIT_EMAIL}"
   - cd public/
