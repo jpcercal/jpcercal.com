@@ -1,13 +1,29 @@
-language: go
-install: go get -v github.com/spf13/hugo
+language: node_js
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t cercal.io .
+
+install:
+  - echo $PWD
+  - ls -lha $PWD
+  - docker run -v $PWD:/usr/share/blog cercal.io npm install
+  - docker run -v $PWD:/usr/share/blog cercal.io npm run napa
+
 before_script:
-  - git clone -b master https://github.com/cercal/cercal.github.io.git public/
+  - git clone -b master https://github.com/jpcercal/cercal.io.git public/
+
 script:
-  - travis_wait 1440 hugo --baseURL https://cercal.io/
+  - docker run -v $PWD:/usr/share/blog cercal.io grunt production
+
 after_script:
   - git config --global user.name "${GIT_DISPLAYNAME}"
   - git config --global user.email "${GIT_EMAIL}"
   - cd public/
   - git add . --all
   - git commit --amend --message "${GIT_COMMIT_MESSAGE}"
-  - git push --force --quiet "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/cercal/cercal.github.io.git" master
+  - git push --force --quiet "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/jpcercal/cercal.io.git" master
