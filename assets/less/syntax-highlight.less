@@ -14,23 +14,21 @@
 @import "../../node_modules/one-dark-jekyll/syntax.less";
 
 .highlighttable {
-    & code,
-    & span {
-        font-family: 'Fira Mono', monospace;
-    }
-
+    overflow: auto;
+    display: block;
     width: 100%;
     margin-bottom: 5px;
-
-    border: 1px solid #191F2B;
-    border-left-width: 15px;
-    border-right-width: 2px;
-
+    background-color: @syntax-bg;
+    border-left-width: 15px solid #191F2B;
+    border-right-width: 2px solid #191F2B;
     .border-radius(3px);
     .text-shadow();
     .drop-shadow();
 
-    background-color: @syntax-bg;
+    & code,
+    & span {
+        font-family: 'Fira Mono', monospace;
+    }
 
     .linenos {
         width: 35px;
