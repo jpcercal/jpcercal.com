@@ -9,8 +9,6 @@ before_install:
   - docker build -t cercal.io .
 
 install:
-  - echo $PWD
-  - ls -lha $PWD
   - docker run -v $PWD:/usr/share/blog cercal.io /bin/bash -l -c "npm install"
   - docker run -v $PWD:/usr/share/blog cercal.io /bin/bash -l -c "npm run napa"
 
@@ -18,12 +16,13 @@ before_script:
   - git clone -b master https://github.com/jpcercal/cercal.io.git public/
 
 script:
-  - docker run -v $PWD:/usr/share/blog cercal.io /bin/bash -l -c "grunt production"
+  - docker run -v $PWD:/usr/share/blog cercal.io /bin/bash -l -c "BASE_URL=$BASE_URL grunt production"
 
-after_success:
-  - git config --global user.name "${GIT_DISPLAYNAME}"
-  - git config --global user.email "${GIT_EMAIL}"
-  - cd public/
-  - git add . --all
-  - git commit --amend --message "${GIT_COMMIT_MESSAGE}"
-  - git push --force --quiet "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/jpcercal/cercal.io.git" master
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: public
+  target_branch: master
+  on:
+    all_branches: true
