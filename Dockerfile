@@ -24,7 +24,7 @@ RUN /bin/bash -l -c "rvm install ruby --latest"
 RUN /bin/bash -l -c "gem install sass"
 
 # Download and install hugo
-ENV HUGO_VERSION 0.31.1
+ENV HUGO_VERSION 0.27.1
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit.deb
 
 ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY} /tmp/hugo.deb
@@ -39,4 +39,4 @@ WORKDIR /usr/share/blog
 EXPOSE 1313
 
 # Define default command.
-CMD ["/bin/bash", "-l", "-c"]
+CMD ["/bin/bash", "-l"]
