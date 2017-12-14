@@ -149,8 +149,8 @@ module.exports = function (grunt) {
             },
             css: {
                 src: [
-                    '<%= dist_css_path %>/style.less.css',
-                    '<%= dist_css_path %>/style.scss.css'
+                    '<%= dist_css_path %>/style.scss.css',
+                    '<%= dist_css_path %>/style.less.css'
                 ],
                 dest: '<%= dist_css_path %>/<%= pkg.name %>.css'
             }
