@@ -1,3 +1,5 @@
+{{ $font := htmlEscape "https://fonts.googleapis.com/css?family=Fjalla+One|Barlow+Condensed:400,500|PT+Serif:400,400i,700,700i|Fira+Mono:400,500,700" }}
+
 <script>
     /**
      * Define the BaseURL that can be used in javascript files.
@@ -5,11 +7,22 @@
     window.baseUrl = '{{ .Site.BaseURL }}';
     window.locale = '{{ .Site.Params.locale }}';
 </script>
-<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Barlow+Condensed:400,500|PT+Serif:400,400i,700,700i|Fira+Mono:400,500,700" rel="stylesheet">
+<link href="{{ $font }}" rel="stylesheet">
 {{ "<!-- build:template" | safeHTML }}
 {{ "<% if (environment === 'production') { %>" | safeHTML }}
+<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/vendor.min.css">
 <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/cercal.io.min.css">
 {{ "<% } else { %>" | safeHTML }}
+<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/vendor.css">
 <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/cercal.io.css">
 {{ "<% } %>" | safeHTML }}
 {{ "/build -->" | safeHTML }}
+{{ if $.Scratch.Get "singlePost" }}
+{{ "<!-- build:template" | safeHTML }}
+{{ "<% if (environment === 'production') { %>" | safeHTML }}
+<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/syntax-highlight.min.css">
+{{ "<% } else { %>" | safeHTML }}
+<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/syntax-highlight.css">
+{{ "<% } %>" | safeHTML }}
+{{ "/build -->" | safeHTML }}
+{{ end }}

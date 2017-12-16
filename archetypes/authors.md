@@ -1,4 +1,5 @@
 ---
 slug: 
-email: 
+email:
+title:
 ---

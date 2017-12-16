@@ -5,7 +5,7 @@
     list-style: circle;
 
     li {
-      font-size: 16px;
+      color: #808080d6;
       color: lighten($fontColor, 50%);
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 400;
@@ -13,6 +13,7 @@
 
     li::after {
       display: inline;
+      color: #999999d6;
       color: lighten($fontColor, 60%);
       content: ';';
     }
@@ -25,11 +26,10 @@
   .search-input-field {
     height: 60px;
     width: 100%;
-    padding: 0px 15px;
+    padding: 0 15px;
     border: 1px solid #eee;
     border-radius: 10px;
-    box-shadow: rgba(0,0,0,0.1) 1px 1px 1px;
-    font-size: 18px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px;
     font-style: italic;
   }
 }

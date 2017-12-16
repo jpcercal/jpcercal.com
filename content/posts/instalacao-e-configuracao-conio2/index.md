@@ -24,11 +24,11 @@ Após ter realizado o download devemos executar o arquivo com extensão _"DevPak
 
 Um setup será exibido clique no botão _"Install"_ como mostra a imagem abaixo:
 
-![Conio2.h - Instalação e Configuração Conio2.h](http://sistemas.cekurte.com/wp-content/uploads/2012/05/Conio2.h-Instalando-Tela01.png "Conio2.h - Instalação - Clique no botão \"Install\" (Instalar)")
+![Conio2.h - Instalação e Configuração Conio2.h](http://sistemas.cekurte.com/wp-content/uploads/2012/05/Conio2.h-Instalando-Tela01.png "Conio2.h - Instalação - Clique no botão \"Install\"")
 
 Agora clique no botão _"Finish"_ como mostra a imagem abaixo:
 
-![Conio2.h - Instalação e Configuração Conio2.h](http://sistemas.cekurte.com/wp-content/uploads/2012/05/Conio2.h-Instalando-Tela02.png "Conio2.h - Instalação - Clique no botão \"Finish\" (Finalizar)")
+![Conio2.h - Instalação e Configuração Conio2.h](http://sistemas.cekurte.com/wp-content/uploads/2012/05/Conio2.h-Instalando-Tela02.png "Conio2.h - Instalação - Clique no botão \"Finish\"")
 
 Vamos nos certificar de que a biblioteca **Conio2.h** foi instalada, como mostra a imagem abaixo:
 

@@ -20,6 +20,7 @@ header {
     }
 
     .search-link {
+      color: #000;
       color: $fontColor;
       text-decoration: none;
       @include box-shadow(0 0 0 0 #34e79a);
@@ -30,21 +31,22 @@ header {
     font-family: 'Fjalla One';
     font-weight: normal;
     font-style: normal;
+    color: #000;
     color: $fontColor;
     text-decoration: none;
     display: block;
-    font-size: 24px;
-
 
     &::before {
       display: inline;
       content: '<';
+      color: #999;
       color: lighten($fontColor, 60%);
     }
 
     &::after {
       display: inline;
       content: '/>';
+      color: #999;
       color: lighten($fontColor, 60%);
     }
   }

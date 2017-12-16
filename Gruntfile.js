@@ -47,11 +47,40 @@ module.exports = function (grunt) {
         src_scss_path:   "<%= src_app_path %>/scss",
 
         jshint: {
-            files: ['Gruntfile.js', '<%= src_path %>/**/*.js'],
+            files: [
+                'Gruntfile.js',
+                '<%= src_app_path %>/<%= js_path %>/*.js'
+            ],
             options: {
                 globals: {
                     console: true
                 }
+            }
+        },
+
+        csslint: {
+            dist: {
+                src: '<%= dist_css_path %>/<%= pkg.name %>.css'
+            },
+            syntax: {
+                src: '<%= dist_css_path %>/syntax-highlight.css'
+            },
+            options: {
+                csslintrc: ".csslintrc"
+            }
+        },
+
+        htmllint: {
+            dist: {
+                options: {
+                    ignore: [
+                        /This document appears to be written in \w+ but the “\w+” start tag has “\w+="\w+"”\. Consider using “\w+="\w+"” \(or variant\) instead\./
+                    ]
+                },
+                src: [
+                    '<%= dist_path %>/**/*.html',
+                    '!<%= dist_path %>/search-template.html'
+                ]
             }
         },
 
@@ -62,6 +91,19 @@ module.exports = function (grunt) {
                     src: [
                         '<%= dist_path %>/**/*'
                     ]
+                }]
+            },
+            unminified: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '<%= dist_css_path %>/<%= pkg.name %>.css',
+                        '<%= dist_css_path %>/<%= pkg.name %>.css.map',
+                        '<%= dist_css_path %>/syntax-highlight.css',
+                        '<%= dist_css_path %>/syntax-highlight.css.map',
+                        '<%= dist_css_path %>/vendor.css',
+                        '<%= dist_css_path %>/vendor.css.map',
+                    ].concat('<%= concat.js.src %>').concat('<%= concat.search.src %>')
                 }]
             }
         },
@@ -116,10 +158,6 @@ module.exports = function (grunt) {
                     {
                         src: 'node_modules/axios/dist/axios.js',
                         dest: '<%= dist_path %>/vendor/js/axios.js'
-                    },
-                    {
-                        src: 'node_modules/bootstrap/dist/css/bootstrap.css',
-                        dest: '<%= dist_path %>/vendor/css/bootstrap.css'
                     }
                 ]
             }
@@ -146,20 +184,16 @@ module.exports = function (grunt) {
                     '<%= src_app_path %>/<%= js_path %>/search.js'
                 ],
                 dest: '<%= dist_js_path %>/<%= pkg.name %>.search.js'
-            },
-            css: {
-                src: [
-                    '<%= dist_css_path %>/style.scss.css',
-                    '<%= dist_css_path %>/style.less.css'
-                ],
-                dest: '<%= dist_css_path %>/<%= pkg.name %>.css'
             }
         },
 
         less: {
+            options: {
+                sourceMap: true
+            },
             dist: {
                 files: {
-                    '<%= dist_css_path %>/style.less.css': '<%= src_less_path %>/<%= pkg.name %>.less'
+                    '<%= dist_css_path %>/syntax-highlight.css': '<%= src_less_path %>/<%= pkg.name %>.less'
                 }
             }
         },
@@ -167,7 +201,8 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 files: {
-                    '<%= dist_css_path %>/style.scss.css': '<%= src_scss_path %>/<%= pkg.name %>.scss'
+                    '<%= dist_css_path %>/vendor.css': '<%= src_scss_path %>/vendor.scss',
+                    '<%= dist_css_path %>/<%= pkg.name %>.css': '<%= src_scss_path %>/<%= pkg.name %>.scss'
                 }
             }
         },
@@ -237,6 +272,12 @@ module.exports = function (grunt) {
                 files: {
                     '<%= dist_css_path %>/<%= pkg.name %>.min.css': [
                         '<%= dist_css_path %>/<%= pkg.name %>.css',
+                    ],
+                    '<%= dist_css_path %>/vendor.min.css': [
+                        '<%= dist_css_path %>/vendor.css',
+                    ],
+                    '<%= dist_css_path %>/syntax-highlight.min.css': [
+                        '<%= dist_css_path %>/syntax-highlight.css',
                     ]
                 }
             }
@@ -338,6 +379,7 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -354,43 +396,24 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-xmlmin');
-    
+    grunt.loadNpmTasks('grunt-html');
+
     grunt.registerTask("hugo_lunr", function(env) {
         grunt.config.requires('hugo_lunr.' + env + '.options.buildDraft');
 
-        grunt.log.writeln("Build search index");
-
         var buildDraft = grunt.config.get('hugo_lunr.' + env + '.options.buildDraft');
-        var contentDir = grunt.file.readYAML('config.yaml').contentDir + '/posts';
-
+        
         var authors = grunt.file.readYAML('data/authors.yml');
         var categories = grunt.file.readYAML('data/categories.yml');
+        var contentDir = grunt.file.readYAML('config.yaml').contentDir + '/posts';
 
-        grunt.log.writeln('Reading files from "./' + contentDir + '/"...');
+        var pages = [];
 
-        var indexPages = function() {
-            var pagesIndex = [];
-
-            grunt.file.recurse(contentDir, function(abspath, rootdir, subdir, filename) {
-                if (S(filename).endsWith(".md")) {
-                    var frontMatter = readContentFile(abspath, filename);
-
-                    if (frontMatter != null) {
-                        if (buildDraft == true || frontMatter.draft == false) {
-                            pagesIndex.push(processMDFile(frontMatter, abspath, filename));
-                        }
-                    }
-                }
-            });
-
-            return pagesIndex;
-        };
-
-        var readContentFile = function (abspath, filename) {
+        var getFrontMatter = function (abspath, filename) {
             grunt.verbose.ok('Reading "' + abspath + '"...');
 
             var content = grunt.file.read(abspath);
-            
+
             // First separate the Front Matter from the content and parse it
             content = content.split("---");
 
@@ -400,15 +423,15 @@ module.exports = function (grunt) {
                 frontMatter = yaml.safeLoad(content[1].trim());
                 frontMatter.content = content[2];
             } catch (e) {
-                console.error(e.message);
+                grunt.log.error(e.message);
             }
 
             return frontMatter;
         };
 
-        var processMDFile = function(frontMatter, abspath, filename) {
+        var processMDFile = function (frontMatter, filename) {
             // Build Lunr index for this search
-            console.info('> Processing "' + frontMatter.slug + '/' + S(filename).trim() + '".');
+            grunt.log.writeln('> Processing "' + frontMatter.slug + '/' + S(filename).trim() + '".');
 
             var language = S(filename).endsWith('.en.md') ? 'en' : 'pt';
 
@@ -433,7 +456,20 @@ module.exports = function (grunt) {
             };
         };
 
-        var pages = indexPages();
+        grunt.log.writeln("Build search index");
+        grunt.log.writeln('Reading files from "./' + contentDir + '/"...');
+
+        grunt.file.recurse(contentDir, function (abspath, rootdir, subdir, filename) {
+            if (S(filename).endsWith(".md")) {
+                var frontMatter = getFrontMatter(abspath, filename);
+
+                if (frontMatter != null) {
+                    if (buildDraft == true || frontMatter.draft == false) {
+                        pages.push(processMDFile(frontMatter, filename));
+                    }
+                }
+            }
+        });
 
         grunt.file.write('public/search.json', JSON.stringify(pages));
 
@@ -445,8 +481,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('main', [
-        'jshint',
-        'clean',
+        'clean:dist',
         'less',
         'sass',
         'concat'
@@ -459,6 +494,9 @@ module.exports = function (grunt) {
         'shell:development',
         'copy:development',
         'processhtml:development',
+        'csslint',
+        'jshint',
+        'htmllint',
         'notify_hooks'
     ]);
 
@@ -474,6 +512,10 @@ module.exports = function (grunt) {
         'imagemin',
         'htmlmin',
         'xmlmin',
+        'csslint',
+        'jshint',
+        'htmllint',
+        'clean:unminified',
         'notify_hooks'
     ]);
 };

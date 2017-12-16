@@ -14,6 +14,16 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     asciidoc \
 	&& rm -rf /var/lib/apt/lists/*
 
+# Install Java 8 (for w3c validation)
+RUN set -ex && \
+    echo 'deb http://deb.debian.org/debian jessie-backports main' \
+    > /etc/apt/sources.list.d/jessie-backports.list && \
+    apt update -y && \
+    apt install -t \
+    jessie-backports \
+    openjdk-8-jre-headless \
+    ca-certificates-java -y
+
 # Install ruby + scss
 ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
 

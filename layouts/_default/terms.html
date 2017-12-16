@@ -10,7 +10,7 @@
 <section class="container post-list">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <h1>{{ .Title }}</h1>
+            <h1>{{ i18n (lower .Title) }}</h1>
 
             {{ if $results }}
                 {{ range $key, $value := $results }}
@@ -18,9 +18,9 @@
 
                     <h2 class="mt-3">
                         {{ if $category }}
-                            <a href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ index (index $category "title") $locale }}</a>
+                            <a class="post-list--title" href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ index (index $category "title") $locale }}</a>
                         {{ else }}
-                            <a href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a>
+                            <a class="post-list--title" href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a>
                         {{ end }}
                         <span class="counter">{{ $value.Count }}</span>
                     </h2>

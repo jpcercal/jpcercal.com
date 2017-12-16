@@ -16,8 +16,8 @@ Entretanto, podemos fazer isto de uma maneira bem simples. Enfim, chega de enrol
 
 Quando realizamos o _login_ e marcamos a opção para salvar a senha o _Subversive_ criou um arquivo criptografado que contém os seus dados de acesso, não permitindo a edição. Sendo assim, para alterar o seu usuário e senha basta excluir este arquivo e quando for realizar uma ação no _Subversive_, será exibida novamente uma janela na qual você irá preencher o seu usuário e senha.
 
-![Como alterar o usuário no Subversive (Eclipse SVN)](http://sistemas.cekurte.com/wp-content/uploads/2013/06/svn-login.png "Como alterar o usuário no Subversive (Eclipse SVN)")
+![Como alterar o usuário no Subversive](http://sistemas.cekurte.com/wp-content/uploads/2013/06/svn-login.png "Como alterar o usuário no Subversive")
 
 O arquivo que você precisa excluir encontra-se no seguinte diretório: `%APPDATA%\Subversion\auth\svn.simple`
 
-![Como alterar o usuário no Subversive (Eclipse SVN)](http://sistemas.cekurte.com/wp-content/uploads/2013/06/svn-arquivo-authpng.png "Como alterar o usuário no Subversive (Eclipse SVN)")
+![Como alterar o usuário no Subversive](http://sistemas.cekurte.com/wp-content/uploads/2013/06/svn-arquivo-authpng.png "Como alterar o usuário no Subversive")

@@ -2,7 +2,7 @@ article,
 section {
   header {
     a.author-name {
-      font-size: 18px;
+      color: #000;
       color: $fontColor;
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 500;
@@ -10,21 +10,21 @@ section {
 
     .author-position,
     .author-biography {
-      font-size: 16px;
+      color: #808080;
       color: lighten($fontColor, 50%);
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 400;
-      margin: 0px;
+      margin: 0;
     }
 
     ul {
-      margin: 2px 0px 0px 0px;
+      margin: 2px 0 0 0;
 
       li {
         a,
         time,
         span {
-          font-size: 16px;
+          color: #808080;
           color: lighten($fontColor, 50%);
           font-family: 'Barlow Condensed', sans-serif;
           font-weight: 400;
@@ -40,19 +40,17 @@ section {
       li:not(:first-child)::before {
         display: inline;
         content: '\00B7';
+        color: #808080;
         color: lighten($fontColor, 50%);
         margin-right: 2px;
       }
     }
   }
 
-  h1.article-title {
-    font-size: 30px;
-  }
-
   .article-tags {
     .article-tag {
       a {
+        color: #808080;
         color: lighten($fontColor, 50%);
         text-decoration: underline;
       }
@@ -60,26 +58,10 @@ section {
   }
 
   .article-content {
-    font-size: 18px;
     line-height: 1.8em;
     font-weight: 400;
     text-align: left;
     overflow: hidden;
-
-    ul {
-      list-style: none;
-      list-style-image: none;
-      padding-left: 20px;
-
-      li {
-        &::before {
-          font-size: 14px;
-          padding-top: 4px;
-          padding-right: 15px;
-          content: '\2022';
-        }
-      }
-    }
 
     /**
      * Hack to get just table elements without the class attribute
@@ -89,50 +71,62 @@ section {
       width: 100%;
       border-collapse: collapse;
       overflow-x: scroll;
-      border: 1px solid lighten($fontColor, 70%);
-      margin: 0px 0px 15px 0px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #b3b3b3d6;
+      border-color: lighten($fontColor, 70%);
+      margin: 0 0 15px 0;
 
       thead {
-        background: lighten($fontColor, 90%);
+        background-color: #b3b3b3d6;
+        background-color: lighten($fontColor, 90%);
       }
 
       tr {
         th, td {
           text-align: left;
           padding: 7px 10px;
-          border: 1px solid lighten($fontColor, 70%);
-          font-size: 16px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: #b3b3b3d6;
+          font-size: em(16px);
         }
       }
     }
 
     code {
+      font-size: em(15px);
       padding: 0.2rem 0.4rem;
-      font-size: 90%;
       color: #bd4147;
       background-color: #f8f9fa;
       border-radius: 0.25rem;
     }
 
     blockquote {
-      border-left: 3px solid $fontColor;
+      border-left-width: 3px;
+      border-left-style: solid;
+      border-left-color: #000000d6;
+      border-left-color: $fontColor;
       padding-left: 20px;
 
       p {
         display: inline;
         font-style: italic;
+        color: #333333d6;
         color: lighten($fontColor, 20%);
       }
 
       &::before {
         display: inline;
         content: '\201C';
+        color: #333333d6;
         color: lighten($fontColor, 20%);
       }
 
       &::after {
         display: inline;
         content: '\201D';
+        color: #333333d6;
         color: lighten($fontColor, 20%);
       }
     }

@@ -1,15 +1,18 @@
 .post-list {
   a {
+    color: #000000d6;
     color: $fontColor;
     text-decoration: none;
   }
 
   .counter {
+    color: #333333d6;
     color: lighten($fontColor, 20%);
 
     &::before,
     &::after {
       display: inline;
+      color: #333333d6;
       color: lighten($fontColor, 20%);
     }
 
@@ -25,19 +28,18 @@
   }
 
   a.see-all-posts {
-    display: block;
+    display: inline-block;
 
     &::after {
       display: inline;
+      color: #1a1a1ad6;
       color: lighten($fontColor, 10%);
       content: '\2192';
       margin-left: 5px;
     }
   }
 
-  h2 {
-    a {
-      text-decoration: underline;
-    }
+  .post-list--title {
+    text-decoration: underline;
   }
 }

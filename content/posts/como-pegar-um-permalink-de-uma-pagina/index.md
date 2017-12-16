@@ -45,7 +45,7 @@ _Por exemplo:_ para pegar o _permalink_ de uma página filha chamada "Festas" qu
 
 As funções citadas acima, você pode conferir diretamente na documentação oficial do _WordPress_.
 
-* [Documentação da função get_permalink()](http://codex.wordpress.org/Function_Reference/get_permalink "Documentação da função get_permalink()")
-* [Documentação da função get_page_by_path()](http://codex.wordpress.org/Function_Reference/get_page_by_path "Documentação da função get_page_by_path()")
+* [Documentação da função get_permalink](http://codex.wordpress.org/Function_Reference/get_permalink "Documentação da função get_permalink")
+* [Documentação da função get_page_by_path](http://codex.wordpress.org/Function_Reference/get_page_by_path "Documentação da função get_page_by_path")
 
 > Esse foi um post bem curto, se tiver dúvidas deixe um comentário!

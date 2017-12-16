@@ -1,11 +1,13 @@
 body {
   background-color: #FFFFFF;
+  color: #000000d6;
   color: $fontColor;
 }
 
 nav {
   .previous,
   .next {
+    color: #000000d6;
     color: $fontColor;
     text-decoration: none;
   }
@@ -13,6 +15,7 @@ nav {
   .previous::before,
   .next::after {
     display: inline;
+    color: #1a1a1ad6;
     color: lighten($fontColor, 10%);
   }
 
@@ -27,6 +30,21 @@ nav {
     &::after {
       content: '\2192';
       margin-left: 5px;
+    }
+  }
+}
+
+ul:not([class]) {
+  list-style: none;
+  list-style-image: none;
+  padding-left: 20px;
+
+  li {
+    &::before {
+      font-size: em(13px);
+      padding-top: 4px;
+      padding-right: 15px;
+      content: '\2022';
     }
   }
 }

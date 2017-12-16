@@ -6,6 +6,8 @@
 {{ $categoryAlias   := index .Params.categories 0 }}
 {{ $category        := index .Site.Data.categories $categoryAlias }}
 
+{{ $.Scratch.Add "singlePost" true }}
+
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
 
@@ -13,11 +15,11 @@
     <header class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
             <div class="float-left">
-                <img class="rounded-circle" src="{{ $baseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60px" width="60px">
+                <img class="rounded-circle" src="{{ $baseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60" width="60">
             </div>
 
             <div class="float-left ml-2">
-                <a href='{{ $baseURL }}authors/{{ $author.slug }}' rel="author" class="author-name">{{ $author.name }}</a>
+                <a href='{{ $baseURL }}authors/{{ $author.slug }}' rel="author" class="font-size-h6 author-name">{{ $author.name }}</a>
                 <p class="author-position">{{ index $author.position $locale }}</p>
 
                 <ul class="list-inline">
@@ -41,9 +43,9 @@
     </header>
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <h1 class="article-title mt-4 mb-3">{{ .Title }}</h1>
+            <h1 class="font-size-h1 mt-2 mb-3">{{ .Title }}</h1>
 
-            <div class="article-content">
+            <div class="font-size-h6 article-content">
                 {{ .Content }}
             </div>
 
