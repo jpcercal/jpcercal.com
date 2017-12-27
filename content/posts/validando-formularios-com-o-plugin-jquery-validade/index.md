@@ -1,23 +1,25 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: validando-formularios-com-o-plugin-jquery-validade
 title: Validando formulários com o plugin jQuery Validade
 date: 2013-01-21T13:15:32+00:00
 description: Aprenda a realizar a validação de formulários utilizando um excelente plugin, conheça o  jQuery Validade desenvolvido pela equipe http://bassistance.de.
 categories:
-  - Artigos
-  - Javascript
-  - jQuery
-  - Programação
-tags: []
+  - js
+tags: 
+  - jquery
 ---
 
-Hoje apresento a vocês o **jQuery Validade**, um excelente plugin jQuery desenvolvido pela equipe [http://bassistance.de](http://bassistance.de/jquery-plugins/jquery-plugin-validation/ "jQuery Validate").
+Hoje apresento a vocês o **jQuery Validade**, um excelente plugin jQuery desenvolvido pela equipe 
+[http://bassistance.de](http://bassistance.de/jquery-plugins/jquery-plugin-validation/ "jQuery Validate").
 
-Você pode fazer o download deste plugin diretamente no site do desenvolvedor (_citado acima_) ou então no repositório [GitHub](http://sistemas.cekurte.com/blog/git-hub-atinge-tres-milhoes-de-usuarios/ "Git Hub atinge 3 milhões de usuários") (_https://github.com/jzaefferer/jquery-validation_).
+Você pode fazer o download deste plugin diretamente no site do desenvolvedor (_citado acima_) ou então no repositório 
+[GitHub]({{< ref "posts/git-hub-atinge-tres-milhoes-de-usuarios/index.md" >}} "Git Hub atinge 3 milhões de usuários") 
+(_https://github.com/jzaefferer/jquery-validation_).
 
-Se você utiliza o **GIT** como controlador de versão, poderá executar o comando abaixo para clonar o repositório oficial do plugin:
+Se você utiliza o **GIT** como controlador de versão, poderá executar o comando abaixo para clonar o repositório 
+oficial do plugin:
 
 ```shell
 $ git clone https://github.com/jzaefferer/jquery-validation.git
@@ -27,7 +29,8 @@ Para utilizar este plugin você precisa utilizar o [jQuery](http://jquery.com/ "
 
 **Mão na massa**
 
-Adicione as linhas abaixo dentro da tag head do seu documento [HTML](http://sistemas.cekurte.com/blog/aprenda-o-basico-sobre-html/ "Aprenda o básico sobre HTML").
+Adicione as linhas abaixo dentro da tag head do seu documento 
+[HTML]({{< ref "posts/aprenda-o-basico-sobre-html/index.md" >}} "Aprenda o básico sobre HTML").
 
 ```html
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -94,6 +97,7 @@ $(document).ready(function(){
 </script>
 ```
 
-Agora basta executar o seu documento HTML em seu [navegador](http://sistemas.cekurte.com/blog/navegadores-ou-browsers/ "Navegadores ou Browsers") para ver o resultado final.
+Agora basta executar o seu documento HTML em seu 
+[navegador]({{< ref "posts/navegadores-ou-browsers/index.md" >}} "Navegadores ou Browsers") para ver o resultado final.
 
 > Espero que tenham gostado, se houver dúvidas quanto a utilização do plugin, deixe um comentário.

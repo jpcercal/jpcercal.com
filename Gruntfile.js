@@ -20,6 +20,22 @@ module.exports = function (grunt) {
         return EnvironmentVariable.has('BASE_URL') ? EnvironmentVariable.get('BASE_URL') : defaultValue;
     };
 
+    var shouldBuildDraft = function () {
+        if (EnvironmentVariable.has('BUILD_DRAFT')) {
+            var value = EnvironmentVariable.get('BUILD_DRAFT');
+
+            switch (value.toLowerCase()) {
+                case '1':
+                case 'yes':
+                case 'y':
+                case 'on':
+                    return true;
+            }
+        }
+
+        return false;
+    };
+
     grunt.initConfig({
 
         pkg:             grunt.file.readJSON('package.json'),
@@ -103,7 +119,7 @@ module.exports = function (grunt) {
                         '<%= dist_css_path %>/syntax-highlight.css.map',
                         '<%= dist_css_path %>/vendor.css',
                         '<%= dist_css_path %>/vendor.css.map',
-                    ].concat('<%= concat.js.src %>').concat('<%= concat.search.src %>')
+                    ].concat('<%= concat.js.dest %>').concat('<%= concat.search.dest %>').concat('<%= concat.contact.dest %>')
                 }]
             }
         },
@@ -120,13 +136,13 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= content_path %>/',
-                        src: ['**/*.{png,jpg,jpeg,gif}'],
+                        src: ['**/*.{png,jpg,jpeg,gif,svg}'],
                         dest: '<%= dist_path %>/'
                     },
                     {
                         expand: true,
                         cwd: '<%= author_path %>/',
-                        src: ['**/*.{png,jpg,jpeg,gif,pdf}'],
+                        src: ['**/*.{png,jpg,jpeg,gif,svg,pdf}'],
                         dest: '<%= dist_author_path %>/'
                     }
                 ]
@@ -142,13 +158,13 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= content_path %>/',
-                        src: ['**/*.{png,jpg,jpeg,gif}'],
+                        src: ['**/*.{png,jpg,jpeg,gif,svg}'],
                         dest: '<%= dist_path %>/'
                     },
                     {
                         expand: true,
                         cwd: '<%= author_path %>/',
-                        src: ['**/*.{png,jpg,jpeg,gif,pdf}'],
+                        src: ['**/*.{png,jpg,jpeg,gif,svg,pdf}'],
                         dest: '<%= dist_author_path %>/'
                     },
                     {
@@ -184,6 +200,12 @@ module.exports = function (grunt) {
                     '<%= src_app_path %>/<%= js_path %>/search.js'
                 ],
                 dest: '<%= dist_js_path %>/<%= pkg.name %>.search.js'
+            },
+            contact: {
+                src: [
+                    '<%= src_app_path %>/<%= js_path %>/contact.js'
+                ],
+                dest: '<%= dist_js_path %>/<%= pkg.name %>.contact.js'
             }
         },
 
@@ -260,7 +282,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= dist_path %>/',
-                        src: ['**/*.xml'],
+                        src: ['**/*.{xml,svg}'],
                         dest: '<%= dist_path %>/'
                     }
                 ]
@@ -297,6 +319,13 @@ module.exports = function (grunt) {
                         '<%= concat.search.dest %>'
                     ]
                 }
+            },
+            contact: {
+                files: {
+                    '<%= dist_js_path %>/<%= pkg.name %>.contact.min.js': [
+                        '<%= concat.contact.dest %>'
+                    ]
+                }
             }
         },
 
@@ -320,7 +349,9 @@ module.exports = function (grunt) {
             },
             development: {
                 command: function () {
-                    var cmd = 'hugo --buildDrafts --baseURL ' + EnvironmentVariable.get('BASE_URL');
+                    var buildDraft = shouldBuildDraft() ? ' --buildDrafts ' : ' ';
+
+                    var cmd = 'hugo' + buildDraft + '--baseURL ' + EnvironmentVariable.get('BASE_URL');
 
                     grunt.log.ok(cmd);
 
@@ -358,12 +389,12 @@ module.exports = function (grunt) {
         hugo_lunr: {
             development: {
                 options: {
-                    buildDraft: false
+                    buildDraft: shouldBuildDraft()
                 }
             },
             production: {
                 options: {
-                    buildDraft: false
+                    buildDraft: shouldBuildDraft()
                 }
             }
         },
@@ -435,9 +466,9 @@ module.exports = function (grunt) {
 
             var language = S(filename).endsWith('.en.md') ? 'en' : 'pt';
 
-            var image = 'content/posts/' + frontMatter.slug + '/index.jpg';
+            var image = frontMatter.slug + '/index.svg';
 
-            if (!grunt.file.exists(image)) {
+            if (!grunt.file.exists('content/posts/' + image)) {
                 image = 'images/icons/tag.svg';
             }
 

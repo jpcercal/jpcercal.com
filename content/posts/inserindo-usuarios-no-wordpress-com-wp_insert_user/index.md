@@ -1,19 +1,20 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: inserindo-usuarios-no-wordpress-com-wp_insert_user
 title: Inserindo usuários no WordPress com wp_insert_user
 date: 2013-01-24T10:16:39+00:00
 description: A função wp_insert_user insere um usuário na base de dados do Wordpress. Com ela também é possível atualizar um usuário, aprenda a utilizar esta função.
 categories:
-  - Artigos
-  - PHP
-  - Programação
-  - Wordpress
-tags: []
+  - other
+tags: 
+  - cms
+  - wordpress
+  - tutorial
 ---
 
-A função wp_insert_user insere um usuário na base de dados do WordPress. Com ela também é possível atualizar um usuário se a chave ID estiver presente no array passado para a função como parâmetro.
+A função wp_insert_user insere um usuário na base de dados do WordPress. Com ela também é possível atualizar um usuário 
+se a chave ID estiver presente no array passado para a função como parâmetro.
 
 ```php
 <?php
@@ -54,13 +55,13 @@ O array `$userdata` deve conter os seguintes campos:
 
 $userdata = array(
   'user_pass'    => '123',
-  'user_login'   => 'jpcercal',
-  'user_url'     => 'http://sistemas.cekurte.com',
-  'user_email'   => 'jpcercal@gmail.com',
-  'display_name' => 'João Paulo Cercal',
-  'nickname'     => 'JPC',
-  'first_name'   => 'João Paulo',
-  'last_name'    => 'Cercal',
+  'user_login'   => 'johndoe',
+  'user_url'     => 'https://cercal.io',
+  'user_email'   => 'johndoe@gmail.com',
+  'display_name' => 'John Doe',
+  'nickname'     => 'JD',
+  'first_name'   => 'John',
+  'last_name'    => 'Doe',
   'role'         => 'author',
 );
 

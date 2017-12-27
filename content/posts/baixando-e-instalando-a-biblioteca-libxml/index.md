@@ -1,18 +1,21 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: baixando-e-instalando-a-biblioteca-libxml
 title: Baixando e Instalando a biblioteca libxml
 date: 2011-12-22T19:13:10+00:00
 description: Neste guia você aprenderá a realizar a instalação da biblioteca libxml em sistemas operacionais Linux. Baixe o código fonte e o compile para a sua distro.
 categories:
-  - Artigos
-tags: []
+  - devops
+tags: 
+  - tutorial
+  - linux
 ---
 
 XML é um padrão para a construção de documentos estruturados baseado em marcações que contém os dados.
 
-A biblioteca **libxml2** foi escrita em **C** puro, a fim de permitir uma fácil reutilização em várias plataformas, incluindo sistemas embarcados.
+A biblioteca **libxml2** foi escrita em **C** puro, a fim de permitir uma fácil reutilização em várias plataformas, 
+incluindo sistemas embarcados.
 
 **Mão na massa!**
 

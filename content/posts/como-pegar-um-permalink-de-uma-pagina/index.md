@@ -1,25 +1,25 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: como-pegar-um-permalink-de-uma-pagina
 title: Como pegar um Permalink de uma Página
 date: 2013-02-09T10:17:18+00:00
 description: Aprenda como obter um permalink de uma página no Wordpress, cujo post_type é "page". Combinando as funções get_permalink() e get_page_by_path().
 categories:
-  - Artigos
-  - PHP
-  - Programação
-  - Wordpress
-tags: []
+  - php
+tags: 
+  - cms
+  - wordpress
 ---
 
-Hoje precisamos obter um **permalink** de uma página no _WordPress_, cujo _post_type_ é "_page_". Para isto, tivemos de combinar duas funções, são elas: `get_permalink()` e `get_page_by_path()`.
+Hoje precisamos obter um **permalink** de uma página no _WordPress_, cujo _post_type_ é "_page_". Para isto, tivemos de 
+combinar duas funções, são elas: `get_permalink()` e `get_page_by_path()`.
 
 **Como Pegar um Permalink de uma Página utilizando o Nome da Página:**
 
 ```php
 <a href="<?php echo get_permalink( get_page_by_path('Eventos') ); ?>">
-    <?php _e('Eventos', 'cekurte'); ?>
+    <?php _e('Eventos', 'cercal-io'); ?>
 </a>
 ```
 
@@ -27,19 +27,21 @@ Hoje precisamos obter um **permalink** de uma página no _WordPress_, cujo _post
 
 ```php
 <a href="<?php echo get_permalink( get_page_by_path('cadastrar-cliente') ); ?>">
-    <?php _e('Cadastrar Cliente', 'cekurte'); ?>
+    <?php _e('Cadastrar Cliente', 'cercal-io'); ?>
 </a>
 ```
 
 **Nota Sobre a Hierarquia de Páginas e Slug's.**
 
-Se você tem uma hierarquia de páginas você terá de passar o _slug_ completo incluindo a página base para a função `get_page_by_path()`.
+Se você tem uma hierarquia de páginas você terá de passar o _slug_ completo incluindo a página base para a função 
+`get_page_by_path()`.
 
-_Por exemplo:_ para pegar o _permalink_ de uma página filha chamada "Festas" que possuí uma página base chamada "Eventos" faríamos assim:
+_Por exemplo:_ para pegar o _permalink_ de uma página filha chamada "Festas" que possuí uma página base chamada 
+"Eventos" faríamos assim:
 
 ```php
 <a href="<?php echo get_permalink( get_page_by_path( 'eventos/festas' ) ) ?>">
-    <?php _e('Eventos', 'cekurte'); ?>
+    <?php _e('Eventos', 'cercal-io'); ?>
 </a>
 ```
 

@@ -1,18 +1,19 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: jquery-mask-mascaras-para-campos-de-formularios
 title: "jQuery Mask: Máscaras para campos de formulários"
 date: 2013-01-20T11:01:36+00:00
 description: Uma maneira simples e rápida de adicionar máscaras aos campos de um formulário é utilizando um plugin jQuery, este plugin se chama Masked Input Plugin.
 categories:
-  - Artigos
-  - Javascript
-  - jQuery
-tags: []
+  - js
+tags: 
+  - jquery
 ---
 
-Uma maneira simples e rápida de adicionar máscaras aos campos de um formulário é utilizando um plugin [jQuery](http://jquery.com/ "jQuery"), este plugin se chama [Masked Input Plugin](https://github.com/digitalBush/jquery.maskedinput "Plugin jQuery").
+Uma maneira simples e rápida de adicionar máscaras aos campos de um formulário é utilizando um plugin 
+[jQuery](http://jquery.com/ "jQuery"), este plugin se chama 
+[Masked Input Plugin](https://github.com/digitalBush/jquery.maskedinput "Plugin jQuery").
 
 Para criar uma **máscara**, basta você informar um simples comando _javascript_, tendo apenas as seguintes regras:
 

@@ -6,6 +6,10 @@ next:
   other: "Next"
 noResultsFound:
   other: "No results found"
+contact:
+  other: "Contact"
+contactInfo:
+  other: "Fill out the form below to contact us"
 searchFor:
   other: "Search for"
 searchForInfo:

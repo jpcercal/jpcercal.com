@@ -3,6 +3,7 @@
 {{ $baseUrl    := .Site.BaseURL }}
 {{ $locale     := .Site.Params.locale }}
 {{ $categories := .Site.Data.categories }}
+{{ $tags       := .Site.Data.tags }}
 
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
@@ -15,10 +16,13 @@
             {{ if $results }}
                 {{ range $key, $value := $results }}
                     {{ $category := index $categories $value.Name }}
+                    {{ $tag := index $tags $value.Name }}
 
                     <h2 class="mt-3">
                         {{ if $category }}
                             <a class="post-list--title" href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ index (index $category "title") $locale }}</a>
+                        {{ else if $tag }}
+                            <a class="post-list--title" href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ index (index $tag "title") $locale }}</a>
                         {{ else }}
                             <a class="post-list--title" href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a>
                         {{ end }}

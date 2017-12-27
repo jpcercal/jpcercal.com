@@ -1,18 +1,23 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: baixando-e-instalando-a-biblioteca-zlib
 title: Baixando e Instalando a biblioteca Zlib
 date: 2011-12-22T17:43:30+00:00
 description: Neste guia você aprenderá a realizar a instalação da biblioteca zlib em sistemas operacionais Linux. Baixe o código fonte e o compile para a sua distro.
 categories:
-  - Artigos
-tags: []
+  - devops
+tags: 
+  - tutorial
+  - linux
 ---
 
-A biblioteca de compressão **zlib** tem como finalidade a **compressão** e **descompressão** de _arquivos_, incluindo _verificações de integridade_ dos dados _descompactados_. Esta biblioteca também pode, opcionalmente, ler e escrever **streams gzip** na _memória_.
+A biblioteca de compressão **zlib** tem como finalidade a **compressão** e **descompressão** de _arquivos_, incluindo 
+_verificações de integridade_ dos dados _descompactados_. Esta biblioteca também pode, opcionalmente, ler e escrever 
+**streams gzip** na _memória_.
 
-O formato **zlib** foi projetado principalmente para ser compacto e rápido, para uso na memória e nos canais de comunicação.
+O formato **zlib** foi projetado principalmente para ser compacto e rápido, para uso na memória e nos canais de 
+comunicação.
 
 **Então, Mão na massa!**
 

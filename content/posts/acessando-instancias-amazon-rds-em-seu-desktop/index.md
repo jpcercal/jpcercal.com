@@ -16,36 +16,9 @@ tags:
   - database
 ---
 
-Acho que poderia ser melhor se usasse `true` ao invés de `false`, porque neste caso você está chamando uma função que retorno valores _booleanos_.
-
-Depois de alguns **minutos** de *pesquisa*, encontrei uma solução interessante para conectar no RDS da Amazon através de um cliente Desktop, pois bem, a fórmula mágica se dá através de uma conexão SSH que reencaminha os pacotes para a máquina local, permitindo desta forma, uma conexão remota.
-
-> Ficou com dúvidas ou este conteúdo realmente lhe ajudou? Então, deixe um comentário.
-
-1. Imagina a **situação**;
-2. Que ele *mesmo* __criou__;
-3. Quando __***você***__ fez ***aquilo***.
-
-
-* Imagina a situação;
-* Que ele mesmo criou;
-* Quando você fez aquilo.
-
-| header 1 | header 2 |
-| -------- | -------- |
-| cell 1   | cell 2   |
-| cell 3   | cell 4   |
+Depois de alguns minutos de pesquisa, encontrei uma solução interessante para conectar no RDS da Amazon através de um cliente Desktop, pois bem, a fórmula mágica se dá através de uma conexão SSH que reencaminha os pacotes para a máquina local, permitindo desta forma, uma conexão remota.
 
 Primeiramente você precisa adicionar a sua chave de conexão do serviço EC2 da Amazon. Faça isso executando o seguinte comando:
-
-
-`$ ssh-add <your-key-filename>.pem`
-
-```bash
-$ ssh-add <your-key-filename>.pem
-$ ssh-add <your-key-filename>.pem
-$ ssh-add <your-key-filename>.pem
-```
 
 ```shell
 $ ssh-add <your-key-filename>.pem

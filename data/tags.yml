@@ -1,40 +1,124 @@
-zf:
-  title: Zend Framework
-sf:
-  title: Symfony
-laravel:
-  title: Laravel
-cakephp:
-  title: Cake PHP
-wp:
-  title: Wordpress
-mysql:
-  title: MySQL
-delphi:
-  title: Delphi
-git:
-  title: Git
-cpp:
-  title: C++
-node:
-  title: NodeJS
-jquery:
-  title: jQuery
-angular:
-  title: AngularJS
-es2015:
-  title: EcmaScript 2015
-osx:
-  title: OSX
-linux:
-  title: Linux
-windows:
-  title: Windows
 android:
-  title: Android
+  title:
+    en: Android
+    pt: Android
 apple:
-  title: Apple
+  title:
+    en: Apple
+    pt: Apple
+aws:
+  title:
+    en: AWS
+    pt: AWS
+cakephp:
+  title:
+    en: CakePHP
+    pt: CakePHP
+cms:
+  title:
+    en: CMS
+    pt: CMS
+conference:
+  title:
+    en: Conference
+    pt: Conferência
+database:
+  title:
+    en: Database
+    pt: Banco de dados
+delphi:
+  title:
+    en: Delphi
+    pt: Delphi
+ec2:
+  title:
+    en: EC2
+    pt: EC2
+eclipse:
+  title:
+    en: Eclipse
+    pt: Eclipse
+ecommerce:
+  title:
+    en: E-commerce
+    pt: Loja virtual
+framework:
+  title:
+    en: Framework
+    pt: Framework
+ide:
+  title:
+    en: IDE
+    pt: IDE
+internet:
+  title:
+    en: Internet
+    pt: Internet
+joomla:
+  title:
+    en: Joomla
+    pt: Joomla
+jquery:
+  title:
+    en: jQuery
+    pt: jQuery
+linux:
+  title:
+    en: Linux
+    pt: Linux
+marketing:
+  title:
+    en: Marketing
+    pt: Marketing
 microsoft:
-  title: Microsoft
+  title:
+    en: Microsoft
+    pt: Microsoft
+mysql:
+  title:
+    en: MySQL
+    pt: MySQL
+news:
+  title:
+    en: News
+    pt: News
+osx:
+  title:
+    en: OSX
+    pt: OSX
+rds:
+  title:
+    en: RDS
+    pt: RDS
+security:
+  title:
+    en: Security
+    pt: Segurança
 seo:
-  title: SEO
+  title:
+    en: SEO
+    pt: SEO
+ssh:
+  title:
+    en: SSH
+    pt: SSH
+svn:
+  title:
+    en: SVN
+    pt: SVN
+tutorial:
+  title:
+    en: Tutorial
+    pt: Tutorial
+windows:
+  title:
+    en: Windows
+    pt: Windows
+wordpress:
+  title:
+    en: Wordpress
+    pt: Wordpress
+zend:
+  title:
+    en: Zend
+    pt: Zend

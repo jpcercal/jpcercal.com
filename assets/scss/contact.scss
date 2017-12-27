@@ -1,0 +1,68 @@
+.notification {
+  margin: 15px 0;
+}
+
+.notification--success {
+  color: $colorGreen;
+}
+
+.notification--error {
+  color: #D9534F;
+}
+
+#contact-form {
+  #name,
+  #email {
+    height: 45px;
+    padding: 0 15px;
+  }
+
+  #message {
+    height: 160px;
+    padding: 15px;
+  }
+
+  #name,
+  #email,
+  #message {
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    font-style: italic;
+  }
+
+  #send {
+    background-color: #FFF;
+    color: $colorGreen;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #5cb85c80;
+    border-color: rgba($colorGreen, 0.5);
+    text-align: center;
+    padding: 10px 45px;
+    border-radius: 2px;
+    cursor: pointer;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+      color: #FFF;
+      background-color: $colorGreen;
+      border-color: $colorGreen;
+    }
+  }
+
+  #name,
+  #email,
+  #message,
+  #send {
+    &:focus {
+      border-color: transparent;
+      box-shadow: 0 0 0 2px rgba($colorGreen, 0.5);
+    }
+  }
+
+}

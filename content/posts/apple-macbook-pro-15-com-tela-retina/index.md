@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: apple-macbook-pro-15-com-tela-retina
 title: Apple Macbook Pro 15" com Tela Retina
@@ -12,11 +12,14 @@ tags:
   - osx
 ---
 
-Todos os dias novos produtos são criados, alguns se destacam outros nem tanto. Recentemente realizei a compra do revolucionário MacBook Pro de 15 polegadas com tela Retina.
+Todos os dias novos produtos são criados, alguns se destacam outros nem tanto. Recentemente realizei a compra do 
+revolucionário MacBook Pro de 15 polegadas com tela Retina.
 
-A linha de produtos da Apple é muito bem respeitada no mercado, a qualidade do produto é excelente, digo isto desde a sua caixa.
+A linha de produtos da Apple é muito bem respeitada no mercado, a qualidade do produto é excelente, digo isto desde a 
+sua caixa.
 
-O novo MacBook Pro, é um notebook bastante leve, sendo que, possuí espessura de 1,8 centímetro e pesa apenas 2 quilos, o mesmo que o modelo de 13 polegadas.
+O novo MacBook Pro, é um notebook bastante leve, sendo que, possuí espessura de 1,8 centímetro e pesa apenas 2 quilos, 
+o mesmo que o modelo de 13 polegadas.
 
 Alguns pontos que me fizeram pensar antes de compra-lo foram:
 
@@ -27,7 +30,8 @@ Sinceramente, não sinto falta do drive óptico e da porta _Ethernet_.
 
 ![Macbook Pro Fechado - Apple Macbook Pro 15 com Tela Retina](macbook.jpg "Apple Macbook Pro 15 com Tela Retina")
 
-Um portátil que não abandona a performance característica da linha "Pro". Abaixo apresento as configurações do equipamento que comprei:
+Um portátil que não abandona a performance característica da linha "Pro". Abaixo apresento as configurações do 
+equipamento que comprei:
 
 * **Sistema Operacional**: _OS X 10.8.2 Mountain Lion_
 * **Processador**: _Intel Core i7 2.3 Ghz_
@@ -44,16 +48,21 @@ Um portátil que não abandona a performance característica da linha "Pro". Ab
   * _Peso: 2,02 kg_
 * **Camera**: _Câmera FaceTime HD de 720p_
 * **Teclado e trackpad**:
-  * _Teclado padrão retroiluminado, com 78 (EUA) ou 79 (ISO) teclas, incluindo 12 teclas de função e 4 teclas de direção (disposição de "T" invertido) e sensor de luz ambiente_
+  * _Teclado padrão retroiluminado, com 78 (EUA) ou 79 (ISO) teclas, incluindo 12 teclas de função e 4 teclas de 
+  direção (disposição de "T" invertido) e sensor de luz ambiente_
   * _Trackpad Multi-Touch com controle preciso do cursor_
-  * _Aceita as funções de rolamento inercial, esticar, girar, deslizar, deslizar com três dedos, com quatro dedos, um toque, dois toques e arrastar_
+  * _Aceita as funções de rolamento inercial, esticar, girar, deslizar, deslizar com três dedos, com quatro dedos, 
+  um toque, dois toques e arrastar_
 
-![Docker - Apple Macbook Pro 15 com Tela Retina](index.jpg "Apple Macbook Pro 15 com Tela Retina")
+![Dock - Apple Macbook Pro 15 com Tela Retina](dock.jpg "Apple Macbook Pro 15 com Tela Retina")
 
-Sem dúvidas, fiz a escolha certa, sempre fui louco para ter um Macbook, tentei com o _Hackintosh_ no meu _Dell XPS 15 L502X_,mas, isso não chegou nem perto da performance da máquina original, entretanto, possibilitou o primeiro contato com o sistema operacional da Apple, o _Mountain Lion (10.8.x)_.
+Sem dúvidas, fiz a escolha certa, sempre fui louco para ter um Macbook, tentei com o _Hackintosh_ no meu _Dell XPS 15 
+L502X_,mas, isso não chegou nem perto da performance da máquina original, entretanto, possibilitou o primeiro contato 
+com o sistema operacional da Apple, o _Mountain Lion (10.8.x)_.
 
 É uma máquina para uso profissional que aumenta a qualidade dos seus trabalhos e te deixa feliz, MUITO FELIZ!
 
 Sou mais um fã da Apple, só não concordo com o preço praticado pela empresa de Cupertino aqui no Brasil.
 
-> Se você pensa em adquirir um Macbook Pro, ou já possuí um produto Apple, por favor deixe um comentário para contribuir com quem ainda está com dúvidas.
+> Se você pensa em adquirir um Macbook Pro, ou já possuí um produto Apple, por favor deixe um comentário para 
+contribuir com quem ainda está com dúvidas.

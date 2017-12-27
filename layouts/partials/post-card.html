@@ -5,18 +5,14 @@
 {{ $categoryAlias   := index .Params.categories 0 }}
 {{ $category        := index .Site.Data.categories $categoryAlias }}
 {{ $directory       := "content/posts/" }}
-{{ $filename        := "index.jpg" }}
+{{ $filename        := "index.svg" }}
 {{ $cover           := where (readDir (printf "%s%s" $directory .Slug)) "Name" $filename }}
 {{ $img             := printf "%s%s" $baseURL "images/icons/tag.svg" }}
-
-{{ if $cover }}
-    {{ $img := printf "%s%s/%s" $baseURL .Slug $filename }}
-{{ end }}
 
 <article class="post-card mb-4">
     <div class="flex-row d-flex">
         <div class="flex-column m-3">
-            <img class="rounded-circle" src="{{ $img }}" alt="{{ .Title }}" height="60" width="60">
+            <img class="rounded" src='{{ if $cover }}{{ printf "%s%s/%s" $baseURL .Slug $filename }}{{ else }}{{ $img }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
         </div>
         <header class="flex-column m-0">
             <h2 class="mt-0 mb-0 font-size-h4">

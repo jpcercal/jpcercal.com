@@ -1,24 +1,24 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: instalando-servidor-web-apache-no-linux
 title: Instalando o servidor web Apache no Linux
 date: 2011-12-22T09:38:01+00:00
 description: Neste guia você aprenderá a realizar a instalação do servidor web apache em sistemas operacionais Linux. Baixe o código fonte e o compile para a sua distro.
 categories:
-  - Artigos
-  - HTML
-  - Linux
-  - PHP
-  - Programação
-tags: []
+  - devops
+tags: 
+  - linux
+  - tutorial
 ---
 
 Bem, hoje vou apresentar como realizar a instalação do servidor web **Apache 2**. Então, vamos lá!
 
-_**Nota:** Quando realizei a instalação a última versão do pacote era a "2.2.19″. Portanto o tutorial irá tratar dessa versão. Entretanto, você irá baixar a versão mais recente, sendo assim, seu arquivo provavelmente terá um nome diferente._
+_**Nota:** Quando realizei a instalação a última versão do pacote era a "2.2.19″. Portanto o tutorial irá tratar dessa 
+versão. Entretanto, você irá baixar a versão mais recente, sendo assim, seu arquivo provavelmente terá um nome 
+diferente._
 
-![Instalando o servidor web Apache no Linux](http://sistemas.cekurte.com/wp-content/uploads/2011/12/i-apache-2.2.jpg "Servidor Web Apache 2.2")
+![Instalando o servidor web Apache no Linux](i-apache-2.2.jpg "Servidor Web Apache 2.2")
 
 Primeiramente efetue o download do último pacote com os fontes do **Apache**, no formato _"tar.gz"_ em:
 
@@ -48,9 +48,12 @@ Em seguida:
 $ sudo make && make install
 ```
 
-Parabéns seu servidor web apache já está instalado, agora iremos verificar se ele está funcionando corretamente. Para isto, devemos inicializa-lo e tentar acessá-lo utilizando um [web browser](http://sistemas.cekurte.com/blog/navegadores-ou-browsers/ "Navegadores ou Browsers") (_ex: Mozilla Firefox_).
+Parabéns seu servidor web apache já está instalado, agora iremos verificar se ele está funcionando corretamente. 
+Para isto, devemos inicializa-lo e tentar acessá-lo utilizando um 
+[web browser]({{< ref "posts/navegadores-ou-browsers/index.md" >}} "Navegadores ou Browsers") (_ex: Mozilla Firefox_).
 
-Entre no diretório em que que você instalou o **apache**. Se você não modificou o caminho de instalação, rode o seguinte comando:
+Entre no diretório em que que você instalou o **apache**. Se você não modificou o caminho de instalação, rode o 
+seguinte comando:
 
 ```shell
 $ cd /usr/local/apache2

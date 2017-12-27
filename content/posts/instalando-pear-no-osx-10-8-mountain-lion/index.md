@@ -1,17 +1,20 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: instalando-pear-no-osx-10-8-mountain-lion
 title: Instalando PEAR no OSX 10.8 Mountain Lion
 date: 2013-04-04T22:28:01+00:00
 description: Aprenda a realizar a instalação do PEAR no sistema operacional da Apple, o Mac OSX 10.8 Mountain Lion com este passo a passo.
 categories:
-  - Apple
-  - Artigos
-tags: []
+  - php
+tags: 
+  - apple
+  - osx
+  - tutorial
 ---
 
-Galera, desta vez vamos aprender a instalar o _PEAR_ no sistema operacional da _Apple_. Este guia deve ser compatível também com os sistemas operacionais anteriores da família da maçã, tais como: _Snow Leopard_ e _Lion_.
+Galera, desta vez vamos aprender a instalar o _PEAR_ no sistema operacional da _Apple_. Este guia deve ser compatível 
+também com os sistemas operacionais anteriores da família da maçã, tais como: _Snow Leopard_ e _Lion_.
 
 Bem, vamos passar a receita do bolo.
 
@@ -42,9 +45,11 @@ Finalmente vamos instalar o pear:
 $ sudo php -d detect_unicode=0 go-pear.phar
 ```
 
-Apenas confira o _PATH_ informado, se precisar personalizar a sua instalação faça as alterações necessárias, no meu caso não modifiquei nenhuma linha e pressionei direto a tecla _ENTER_.
+Apenas confira o _PATH_ informado, se precisar personalizar a sua instalação faça as alterações necessárias, no meu 
+caso não modifiquei nenhuma linha e pressionei direto a tecla _ENTER_.
 
-O Script também irá lhe perguntar se você deseja atualizar o _include_path_ do _PHP _adicionando o _PEAR_, pressione a tecla Y (Sim/Yes) seguida de _ENTER_.
+O Script também irá lhe perguntar se você deseja atualizar o _include_path_ do _PHP _adicionando o _PEAR_, pressione 
+a tecla Y (Sim/Yes) seguida de _ENTER_.
 
 Agora vamos adicionar o _PEAR_ ao _PATH_ do seu usuário.
 
@@ -74,6 +79,8 @@ PHP Version: 5.3.15
 Zend Engine Version: 2.3.0
 ```
 
-Se você viu a saída acima, então o _PEAR_ foi instalado com **sucesso** em sua máquina. Do contrário, verifique novamente os comandos mencionados acima e analise se não houve algum erro de sintaxe.
+Se você viu a saída acima, então o _PEAR_ foi instalado com **sucesso** em sua máquina. Do contrário, verifique 
+novamente os comandos mencionados acima e analise se não houve algum erro de sintaxe.
 
-> Se estiver com dificuldades em realizar a instalação ou conseguir instalar o _pear_ através deste guia, por favor, deixe o seu comentário.
+> Se estiver com dificuldades em realizar a instalação ou conseguir instalar o _pear_ através deste guia, por favor, 
+deixe o seu comentário.

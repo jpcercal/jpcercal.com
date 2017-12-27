@@ -1,21 +1,17 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: como-e-porque-voce-deve-incluir-o-jquery-do-google-cdn-no-wordpress
 title: Como e Porque você deve incluir o jQuery do Google CDN no WordPress
 date: 2013-08-26T17:30:19+00:00
 description: Conheça as vantagens dessa otimização e saiba como e porque incluir o jQuery do Google CDN irá fazer com que o carregamento do seu website seja reduzido.
 categories:
-  - Artigos
-  - HTML
-  - Javascript
-  - jQuery
-  - PHP
-  - Programação
-  - SEO
-  - Wordpress
-  - Wordpress
-tags: []
+  - php
+tags: 
+  - jquery
+  - seo
+  - cms
+  - wordpress
 ---
 
 O _jQuery_ é uma biblioteca amplamente utilizada para o desenvolvimento web, sendo que, no _WordPress_ temos essa biblioteca incluída no pacote de instalação _default_.
@@ -30,9 +26,9 @@ Eis as questões que deveriam levar você a adotar esta prática.
 
 **Caching**
 
-Talvez o grande benefício de incluir o _jQuery_ hospedado pelo _Google_ está na chance de seus visitantes nem sequer precisarem realizar o download do _jQuery._ Isto ocorre porque, se um usuário já tiver visitado outro site que utilize o _jQuery_ hospedado pelo _Google_, ele já terá a biblioteca no cache do [browser](http://sistemas.cekurte.com/blog/navegadores-ou-browsers/ "Navegadores ou Browsers") (navegador), desta forma, evitando uma nova requisição.
+Talvez o grande benefício de incluir o _jQuery_ hospedado pelo _Google_ está na chance de seus visitantes nem sequer precisarem realizar o download do _jQuery._ Isto ocorre porque, se um usuário já tiver visitado outro site que utilize o _jQuery_ hospedado pelo _Google_, ele já terá a biblioteca no cache do [browser]({{< ref "posts/navegadores-ou-browsers/index.md" >}} "Navegadores ou Browsers") (navegador), desta forma, evitando uma nova requisição.
 
-![Como e Porque você deve incluir o jQuery do Google CDN no Wordpress](http://sistemas.cekurte.com/wp-content/uploads/2013/08/Google-CDN-jQuery.jpg "Como e Porque você deve incluir o jQuery do Google CDN no Wordpress")
+![Como e Porque você deve incluir o jQuery do Google CDN no Wordpress](Google-CDN-jQuery.jpg "Como e Porque você deve incluir o jQuery do Google CDN no Wordpress")
 
 **Baixa Lantência**
 
@@ -58,7 +54,7 @@ Isto é bem simples, primeiramente abra o diretório onde está localizado o tem
  *
  * @author João Paulo Cercal <jpcercal@gmail.com>
  */
-function cekurte_jquery_from_google_cdn() {
+function jquery_from_google_cdn() {
 
   // Se a página carregada não for da área administrativa...
   if (!is_admin()) {
@@ -80,7 +76,7 @@ function cekurte_jquery_from_google_cdn() {
 }
 
 // Hook executado na inicialização
-add_action('init', 'cekurte_jquery_from_google_cdn');
+add_action('init', 'jquery_from_google_cdn');
 ```
 
 Se o arquivo `functions.php` não existir neste diretório, então, você deverá cria-lo e adicionar as seguintes linhas no conteúdo do arquivo:
@@ -92,9 +88,9 @@ Se o arquivo `functions.php` não existir neste diretório, então, você dever�
  * Remove o jQuery utilizado pelo WordPress e adiciona
  * o jQuery do Google CDN nas páginas do Website.
  *
- * @author João Paulo Cercal <sistemas@cekurte.com>
+ * @author João Paulo Cercal
  */
-function cekurte_jquery_from_google_cdn() {
+function jquery_from_google_cdn() {
 
   // Se a página carregada não for da área administrativa...
   if (!is_admin()) {
@@ -116,12 +112,14 @@ function cekurte_jquery_from_google_cdn() {
 }
 
 // Hook executado na inicialização
-add_action('init', 'cekurte_jquery_from_google_cdn');
+add_action('init', 'jquery_from_google_cdn');
 ```
 
 **Mas se eu não usar o WordPress, posso utilizar o Google CDN?**
 
-É claro que pode! Para implementar isto no seu website, você poderá alterar a linha onde realiza a inclusão da biblioteca _jQuery _modificando o atributo **src** para o endereço do _Google CDN_. Esta linha, geralmente fica localizada no bloco **head** do documento **html**, ou então, ao final da página antes da tag .
+É claro que pode! Para implementar isto no seu website, você poderá alterar a linha onde realiza a inclusão da 
+biblioteca _jQuery _modificando o atributo **src** para o endereço do _Google CDN_. Esta linha, geralmente fica 
+localizada no bloco **head** do documento **html**, ou então, ao final da página antes da tag .
 
 A linha que você deve alterar deve se parecer com o código abaixo:
 
@@ -139,7 +137,7 @@ Altere a linha mencionada acima para:
 
 Na imagem abaixo você confere as versões que poderá utilizar do _jQuery_ no _Google CDN_.
 
-![Como e Porque você deve incluir o jQuery do Google CDN no Wordpress](http://sistemas.cekurte.com/wp-content/uploads/2013/08/jQuery-screenshot-do-Google-CDN.png "Como e Porque você deve incluir o jQuery do Google CDN no Wordpress")
+![Como e Porque você deve incluir o jQuery do Google CDN no Wordpress](jQuery-screenshot-do-Google-CDN.png "Como e Porque você deve incluir o jQuery do Google CDN no Wordpress")
 
 **Pronto!**
 

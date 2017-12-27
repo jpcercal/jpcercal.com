@@ -5,6 +5,7 @@
 {{ $datetimeDisplay := .Date.Format "Jan 2, 2006" }}
 {{ $categoryAlias   := index .Params.categories 0 }}
 {{ $category        := index .Site.Data.categories $categoryAlias }}
+{{ $tags            := .Site.Data.tags }}
 
 {{ $.Scratch.Add "singlePost" true }}
 
@@ -50,10 +51,12 @@
             </div>
 
             <ul class="article-tags list-unstyled list-inline">
-                {{ range .Params.tags }}
-                    <li class="article-tag list-inline-item">
-                        <a href="{{ $baseURL }}tags/{{ . | urlize }}">{{ . }}</a>
-                    </li>
+                {{ range $tag := .Params.tags }}
+                    {{ if $tag }}
+                        <li class="article-tag list-inline-item">
+                            <a href="{{ $baseURL }}tags/{{ $tag | urlize }}">{{ index (index (index $tags $tag) "title") $locale }}</a>
+                        </li>
+                    {{ end }}
                 {{ end }}
             </ul>
 
