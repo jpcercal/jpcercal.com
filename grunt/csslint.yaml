@@ -1,0 +1,6 @@
+options: 
+  csslintrc: '.csslintrc'
+dist: 
+  src: '<%= dist_css_path %>/<%= package.name %>.css'
+syntax: 
+  src: '<%= dist_css_path %>/syntax-highlight.css'

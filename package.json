@@ -22,6 +22,7 @@
     "grunt-shell": "^2.1.0",
     "grunt-xmlmin": "^0.1.8",
     "js-yaml": "^3.8.4",
+    "load-grunt-config": "^0.19.2",
     "md5": "^2.2.1",
     "napa": "^3.0.0",
     "string": "^3.3.3",

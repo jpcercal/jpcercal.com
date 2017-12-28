@@ -1,0 +1,13 @@
+default: 
+  - 'jshint'
+ 
+lint:
+  description: 'Helps to make our code better'
+  tasks:
+    - 'jshint'
+    - 'csslint'
+ 
+build:
+  - 'lint'
+  - 'mocha'
+  - 'notify'
