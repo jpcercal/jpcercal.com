@@ -1,0 +1,22 @@
+development:
+  options:
+    process: true
+  files:
+    - 
+      expand: true
+      cwd: public/
+      src:
+        - "**/*.html"
+      dest: public/
+      ext: ".html"
+production:
+  options:
+    process: true
+  files:
+    - 
+      expand: true
+      cwd: public/
+      src:
+        - "**/*.html"
+      dest: public/
+      ext: ".html"

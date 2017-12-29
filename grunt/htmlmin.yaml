@@ -1,7 +1,11 @@
 dist:
   options:
-    ignore: 
-      - '/This document appears to be written in \w+ but the “\w+” start tag has “\w+="\w+"”\. Consider using “\w+="\w+"” \(or variant\) instead\./'
-  src:
-    - '<%= dist_path %>/**/*.html'
-    - '!<%= dist_path %>/search-template.html'
+    removeComments: true
+    collapseWhitespace: true
+  files:
+    - 
+      expand: true
+      cwd: "<%= dist_path %>/"
+      src:
+        - "**/*.html"
+      dest: "<%= dist_path %>/"

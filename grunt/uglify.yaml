@@ -1,0 +1,12 @@
+js:
+  files:
+    "<%= dist_js_path %>/<%= package.name %>.min.js":
+      - "<%= concat.js.dest %>"
+search:
+  files:
+    "<%= dist_js_path %>/<%= package.name %>.search.min.js":
+      - "<%= concat.search.dest %>"
+contact:
+  files:
+    "<%= dist_js_path %>/<%= package.name %>.contact.min.js":
+      - "<%= concat.contact.dest %>"

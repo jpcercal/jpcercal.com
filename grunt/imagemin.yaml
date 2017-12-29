@@ -1,0 +1,2 @@
+production:
+  files: "<%= copy.production.files %>"

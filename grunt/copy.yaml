@@ -1,0 +1,46 @@
+production:
+  files:
+    - 
+      expand: true
+      cwd: "<%= src_app_path %>/<%= img_path %>/"
+      src:
+        - "**/*.{png,jpg,jpeg,gif,svg}"
+      dest: "<%= dist_img_path %>/"
+    - 
+      expand: true
+      cwd: "<%= content_path %>/"
+      src:
+        - "**/*.{png,jpg,jpeg,gif,svg}"
+      dest: "<%= dist_path %>/"
+    - 
+      expand: true
+      cwd: "<%= author_path %>/"
+      src:
+        - "**/*.{png,jpg,jpeg,gif,svg,pdf}"
+      dest: "<%= dist_author_path %>/"
+development:
+  files:
+    - 
+      expand: true
+      cwd: "<%= src_app_path %>/<%= img_path %>/"
+      src:
+        - "**/*.{png,jpg,jpeg,gif,svg}"
+      dest: "<%= dist_img_path %>/"
+    - 
+      expand: true
+      cwd: "<%= content_path %>/"
+      src:
+        - "**/*.{png,jpg,jpeg,gif,svg}"
+      dest: "<%= dist_path %>/"
+    - 
+      expand: true
+      cwd: "<%= author_path %>/"
+      src:
+        - "**/*.{png,jpg,jpeg,gif,svg,pdf}"
+      dest: "<%= dist_author_path %>/"
+    - 
+      src: node_modules/lunr/lunr.js
+      dest: "<%= dist_path %>/vendor/js/lunr.js"
+    - 
+      src: node_modules/axios/dist/axios.js
+      dest: "<%= dist_path %>/vendor/js/axios.js"

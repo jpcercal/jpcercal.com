@@ -1,0 +1,12 @@
+dist:
+  files:
+    - "<%= src_path %>/**/*"
+    - content/**/*
+    - data/**/*
+    - i18n/**/*
+    - layouts/**/*
+    - static/**/*
+  tasks:
+    - default
+  options:
+    livereload: true

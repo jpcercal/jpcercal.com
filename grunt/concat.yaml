@@ -1,0 +1,11 @@
+options:
+  banner: '<%= banner %>'
+js:
+  src: ['<%= src_app_path %>/<%= js_path %>/<%= package.name %>.js']
+  dest: '<%= dist_js_path %>/<%= package.name %>.js'
+search:
+  src: ['<%= src_app_path %>/<%= js_path %>/search.js']
+  dest: '<%= dist_js_path %>/<%= package.name %>.search.js'
+contact:
+  src: ['<%= src_app_path %>/<%= js_path %>/contact.js']
+  dest: '<%= dist_js_path %>/<%= package.name %>.contact.js'

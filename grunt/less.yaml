@@ -1,0 +1,6 @@
+options:
+  sourceMap: true
+dist:
+  files:
+    "<%= dist_css_path %>/syntax-highlight.css": "<%= src_less_path %>/<%= package.name
+      %>.less"

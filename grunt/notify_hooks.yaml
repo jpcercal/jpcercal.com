@@ -1,0 +1,6 @@
+options:
+  enabled: true
+  max_jshint_notifications: 5
+  title: "<%= package.name %>"
+  success: true
+  duration: 2

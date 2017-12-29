@@ -1,0 +1,10 @@
+dist:
+  options:
+    preserveComments: false
+  files:
+    - 
+      expand: true
+      cwd: "<%= dist_path %>/"
+      src:
+        - "**/*.{xml,svg}"
+      dest: "<%= dist_path %>/"

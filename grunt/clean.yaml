@@ -1,20 +1,18 @@
 dist:
-  files: 
-    - 
-      dot: true
-      src: 
-        - '<%= dist_path %>/**/*'
+  files:
+  - dot: true
+    src:
+    - "<%= dist_path %>/**/*"
 unminified:
-  files: 
-    -
-      dot: true
-      src:
-        - '<%= dist_css_path %>/<%= package.name %>.css'
-        - '<%= dist_css_path %>/<%= package.name %>.css.map'
-        - '<%= dist_css_path %>/syntax-highlight.css'
-        - '<%= dist_css_path %>/syntax-highlight.css.map'
-        - '<%= dist_css_path %>/vendor.css'
-        - '<%= dist_css_path %>/vendor.css.map'
-        - '<%= concat.js.dest %>'
-        - '<%= concat.search.dest %>'
-        - '<%= concat.contact.dest %>'
+  files:
+  - dot: true
+    src:
+    - "<%= dist_css_path %>/<%= package.name %>.css"
+    - "<%= dist_css_path %>/<%= package.name %>.css.map"
+    - "<%= dist_css_path %>/syntax-highlight.css"
+    - "<%= dist_css_path %>/syntax-highlight.css.map"
+    - "<%= dist_css_path %>/vendor.css"
+    - "<%= dist_css_path %>/vendor.css.map"
+    - "<%= concat.js.dest %>"
+    - "<%= concat.search.dest %>"
+    - "<%= concat.contact.dest %>"
