@@ -15,9 +15,9 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^3.0.1",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-env": "^0.4.4",
     "grunt-html": "^8.6.1",
     "grunt-notify": "^0.4.5",
+    "grunt-pagespeed": "^2.0.1",
     "grunt-processhtml": "^0.4.1",
     "grunt-shell": "^2.1.0",
     "grunt-xmlmin": "^0.1.8",
@@ -25,6 +25,7 @@
     "load-grunt-config": "^0.19.2",
     "md5": "^2.2.1",
     "napa": "^3.0.0",
+    "sprintf-js": "^1.1.1",
     "string": "^3.3.3",
     "time-grunt": "^1.4.0"
   },

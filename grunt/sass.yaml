@@ -1,5 +1,4 @@
 dist:
   files:
     "<%= dist_css_path %>/vendor.css": "<%= src_scss_path %>/vendor.scss"
-    "<%= dist_css_path %>/<%= package.name %>.css": "<%= src_scss_path %>/<%= package.name
-      %>.scss"
+    "<%= dist_css_path %>/<%= package.name %>.css": "<%= src_scss_path %>/<%= package.name %>.scss"

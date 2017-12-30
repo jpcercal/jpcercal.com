@@ -1,0 +1,4 @@
+development:
+  buildDraft: true
+production:
+  buildDraft: false

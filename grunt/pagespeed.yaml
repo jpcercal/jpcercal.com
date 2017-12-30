@@ -1,0 +1,10 @@
+options:
+  nokey: true
+  url: "https://jpcercal.github.io/cercal.io/"
+paths:
+  options:
+    locale: "en_GB"
+    strategy: "desktop"
+    threshold: 80
+    paths:
+      - "/"

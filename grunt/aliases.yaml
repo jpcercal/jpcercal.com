@@ -1,13 +1,44 @@
-default: 
-  - 'jshint'
- 
-lint:
-  description: 'Helps to make our code better'
+w:
+  description: 'Watch'
   tasks:
-    - 'jshint'
+    - 'watch'
+
+main:
+  description: 'Common tasks that will be executed independently of environment'
+  tasks:
+    - 'clean:dist'
+    - 'less'
+    - 'sass'
+    - 'concat'
+
+default:
+  description: 'Default task'
+  tasks:
+    - 'main'
+    - 'lunr:development'
+    - 'shell:development'
+    - 'copy:development'
+    - 'processhtml:development'
     - 'csslint'
- 
-build:
-  - 'lint'
-  - 'mocha'
-  - 'notify'
+    - 'jshint'
+    - 'htmllint'
+    - 'notify_hooks'
+
+production:
+  description: 'Production task'
+  tasks:
+    - 'main'
+    - 'lunr:production'
+    - 'shell:production'
+    - 'copy:production'
+    - 'processhtml:production'
+    - 'uglify'
+    - 'cssmin'
+    - 'imagemin'
+    - 'htmlmin'
+    - 'xmlmin'
+    - 'csslint'
+    - 'jshint'
+    - 'htmllint'
+    - 'clean:unminified'
+    - 'notify_hooks'

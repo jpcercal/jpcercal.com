@@ -1,8 +1,7 @@
 dist:
   options:
     ignore:
-    - /This document appears to be written in w+ but the “w+” start tag has “w+="w+"”.
-      Consider using “w+="w+"” (or variant) instead./
+      - 'This document appears to be written in Occitan but the “html” start tag has “lang="pt"”. Consider using “lang="oc"” (or variant) instead.'
   src:
-  - "<%= dist_path %>/**/*.html"
-  - "!<%= dist_path %>/search-template.html"
+    - "<%= dist_path %>/**/*.html"
+    - "!<%= dist_path %>/search-template.html"
