@@ -10,24 +10,24 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var disqus_config = function () {
-        {{with .GetParam "disqus_identifier" }}this.page.identifier = '{{ . }}';{{end}}
-        {{with .GetParam "disqus_title" }}this.page.title = '{{ . }}';{{end}}
-        {{with .GetParam "disqus_url" }}this.page.url = '{{ . | html  }}';{{end}}
+        this.page.identifier = "{{ .Slug }}";
+        this.page.title = "{{ .Title }}";
+        this.page.url = {{ printf "%s" .Permalink }};
     };
 
     var options = {
-        scriptUrl: '//{{ .Site.DisqusShortname }}.disqus.com/embed.js',
+        scriptUrl: "//{{ .Site.DisqusShortname }}.disqus.com/embed.js",
         disqusConfig: disqus_config
     };
 
-    disqusLoader('#disqus', options);
+    disqusLoader("#disqus", options);
 });
 </script>
 {{ "<!-- build:template" | safeHTML }}
 {{ "<% if (environment === 'production') { %>" | safeHTML }}
-<script async src="{{ .Site.BaseURL }}vendor/js/disqus-loader.min.js"></script>
+<script src="{{ .Site.BaseURL }}vendor/js/disqus-loader.min.js"></script>
 {{ "<% } else { %>" | safeHTML }}
-<script async src="{{ .Site.BaseURL }}vendor/js/disqus-loader.js"></script>
+<script src="{{ .Site.BaseURL }}vendor/js/disqus-loader.js"></script>
 {{ "<% } %>" | safeHTML }}
 {{ "/build -->" | safeHTML }}
 {{ end }}
