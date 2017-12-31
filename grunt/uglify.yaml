@@ -10,3 +10,7 @@ contact:
   files:
     "<%= dist_js_path %>/<%= package.name %>.contact.min.js":
       - "<%= concat.contact.dest %>"
+disqus:
+  files:
+    "<%= dist_path %>/vendor/js/disqus-loader.min.js":
+      - "<%= dist_path %>/vendor/js/disqus-loader.js"

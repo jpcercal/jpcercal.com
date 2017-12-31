@@ -39,6 +39,7 @@
   },
   "napa": {
     "one-dark-jekyll": "mgyongyosi/OneDarkJekyll",
-    "one-dark-syntax": "atom/one-dark-syntax"
+    "one-dark-syntax": "atom/one-dark-syntax",
+    "disqus-loader": "osvaldasvalutis/disqusLoader.js"
   }
 }
