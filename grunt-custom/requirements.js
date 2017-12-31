@@ -11,11 +11,19 @@ module.exports = function (grunt) {
         grunt.fail.fatal(sprintf('Environment variable "%s" not found.', environmentVariable));
     };
 
-    if (typeof process.env.BASE_URL === 'undefined') {
+    var envIsDefined = function (env) {
+        return typeof process.env[env] !== 'undefined';
+    };
+
+    var currentTaskIsPageSpeed = function () {
+        return grunt.cli.tasks.indexOf('pagespeed') === 0;
+    };
+
+    if (!currentTaskIsPageSpeed() && !envIsDefined('BASE_URL')) {
         abortAndDisplayAnError('BASE_URL', 'https://cercal.io/');
     }
 
-    if (grunt.cli.tasks.indexOf('pagespeed') === 0 && typeof process.env.GOOGLE_API_KEY === 'undefined') {
+    if (currentTaskIsPageSpeed() && !envIsDefined('GOOGLE_API_KEY')) {
         abortAndDisplayAnError('GOOGLE_API_KEY', '<your-google-api-key>');
     }
 };

@@ -35,4 +35,4 @@ deploy:
     all_branches: true
 
 after_deploy:
-  - docker run -v $PWD:/usr/share/blog jpcercal/cercal.io:latest /bin/bash -l -c "BASE_URL=$BASE_URL grunt pagespeed"
+  - docker run -v $PWD:/usr/share/blog jpcercal/cercal.io:latest /bin/bash -l -c "GOOGLE_API_KEY=$GOOGLE_API_KEY grunt pagespeed"

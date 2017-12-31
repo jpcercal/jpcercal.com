@@ -3,5 +3,5 @@ options:
     console: true
 files:
   - 'Gruntfile.js'
-  - 'lunr.js'
+  - 'grunt-custom/*.js'
   - '<%= src_app_path %>/<%= js_path %>/*.js'
