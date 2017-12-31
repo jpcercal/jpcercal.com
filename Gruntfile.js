@@ -1,20 +1,21 @@
 module.exports = function (grunt) {
     'use strict';
 
-    if (typeof process.env.BASE_URL === 'undefined') {
-        grunt.log.errorlns('You must set the environment variable "BASE_URL" before.');
-        grunt.log.writeln('As an example for development environment you can set it just running this command:');
-        grunt.log.oklns('export BASE_URL=https://cercal.dev/');
+    require('time-grunt')(grunt);
+    require('./grunt-custom/requirements')(grunt);
+    require('./grunt-custom/lunr')(grunt);
 
-        return;
-    }
+    var pageSpeedPaths = require('./grunt-custom/pagespeed')(grunt).paths;
 
     require('load-grunt-config')(grunt, {
         init: true,
         data: {
             baseUrl:         process.env.BASE_URL,
+            googleApiKey:    process.env.GOOGLE_API_KEY,
             license:         grunt.file.read('LICENSE'),
             banner:          "/*\n<%= license %>*/\n",
+
+            pageSpeedPaths:  pageSpeedPaths,
 
             bower_path:      "vendor",
             dist_path:       "public",
@@ -36,7 +37,4 @@ module.exports = function (grunt) {
             src_scss_path:   "<%= src_app_path %>/scss"
         }
     });
-
-    require('time-grunt')(grunt);
-    require('./lunr')(grunt);
 };

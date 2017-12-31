@@ -1,10 +1,15 @@
 options:
-  nokey: true
-  url: "https://jpcercal.github.io/cercal.io/"
-paths:
+  key: "<%= googleApiKey %>"
+  url: "https://cercal.io/"
+desktop:
   options:
     locale: "en_GB"
     strategy: "desktop"
+    threshold: 85
+    paths: "<%= pageSpeedPaths %>"
+mobile:
+  options:
+    locale: "en_GB"
+    strategy: "mobile"
     threshold: 80
-    paths:
-      - "/"
+    paths: "<%= pageSpeedPaths %>"

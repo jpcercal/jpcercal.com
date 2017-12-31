@@ -2,6 +2,11 @@ language: node_js
 dist: trusty
 sudo: required
 
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+
 services:
   - docker
 
@@ -28,3 +33,6 @@ deploy:
   target_branch: master
   on:
     all_branches: true
+
+after_deploy:
+  - docker run -v $PWD:/usr/share/blog jpcercal/cercal.io:latest /bin/bash -l -c "BASE_URL=$BASE_URL grunt pagespeed"
