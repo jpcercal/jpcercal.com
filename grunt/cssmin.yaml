@@ -1,3 +1,5 @@
+options:
+  level: 2
 dist:
   files:
     "<%= dist_css_path %>/<%= package.name %>.min.css":

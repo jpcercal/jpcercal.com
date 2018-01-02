@@ -1,4 +1,20 @@
+options:
+  output:
+    comments: false
+  mangle: true
+  compress:
+    sequences: true
+    dead_code: true
+    conditionals: true
+    booleans: true
+    unused: true
+    if_return: true
+    join_vars: true
+    drop_console: true
 js:
+  options:
+    compress:
+      drop_console: false
   files:
     "<%= dist_js_path %>/<%= package.name %>.min.js":
       - "<%= concat.js.dest %>"

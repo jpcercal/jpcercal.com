@@ -7,13 +7,13 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-csslint": "^2.0.0",
-    "grunt-contrib-cssmin": "^2.2.0",
+    "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-htmlmin": "^2.4.0",
     "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-less": "^1.4.1",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-uglify": "^3.3.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-html": "^8.6.1",
     "grunt-notify": "^0.4.5",
@@ -21,7 +21,7 @@
     "grunt-processhtml": "^0.4.1",
     "grunt-shell": "^2.1.0",
     "grunt-xmlmin": "^0.1.8",
-    "js-yaml": "^3.8.4",
+    "js-yaml": "^3.10.0",
     "load-grunt-config": "^0.19.2",
     "md5": "^2.2.1",
     "napa": "^3.0.0",
@@ -32,7 +32,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^4.0.0-beta.2",
-    "lunr": "^2.1.0"
+    "lunr": "^2.1.5"
   },
   "scripts": {
     "napa": "napa"
