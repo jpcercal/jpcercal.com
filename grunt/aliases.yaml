@@ -22,6 +22,7 @@ default:
     - 'csslint'
     - 'jshint'
     - 'htmllint'
+    - 'google-serp-preview'
     - 'notify_hooks'
 
 production:
@@ -40,5 +41,7 @@ production:
     - 'csslint'
     - 'jshint'
     - 'htmllint'
+    - 'google-serp-preview'
+    - 'clean:google-serp-preview'
     - 'clean:unminified'
     - 'notify_hooks'

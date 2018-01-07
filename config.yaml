@@ -28,11 +28,11 @@ languages:
   en:
     title: "Cercal.IO"
     locale: "en"
-    description: "From developers to developers"
+    description: "High quality and variety of subjects, including tips from programming to lifestyle but written in our style and we are not talking about CSS."
   pt:
     title: "Cercal.IO"
     locale: "pt"
-    description: "De desenvolvedores para desenvolvedores"
+    description: "Alta qualidade e variedade de assuntos, incluindo desde dicas de programação à estilo de vida, mas no nosso estilo e não estamos falando de CSS."
 
 rssLimit: 15
 paginate: 10

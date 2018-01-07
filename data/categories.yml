@@ -7,12 +7,7 @@ js:
   title:
     en: Javascript
     pt: Javascript
-  icon: 
-css:
-  title:
-    en: CSS
-    pt: CSS
-  icon: 
+  icon:
 html:
   title:
     en: HTML
@@ -22,11 +17,6 @@ devops:
   title:
     en: DevOps
     pt: DevOps
-  icon:
-lifestyle:
-  title:
-    en: Lifestyle
-    pt: Estilo de vida
   icon:
 other:
   title:

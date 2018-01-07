@@ -1,0 +1,17 @@
+{{- $baseURL        := .Site.BaseURL -}}
+{{- $seoTitle       := $.Scratch.Get "seoTitle" -}}
+{{- $seoDescription := $.Scratch.Get "seoDescription" -}}
+{{- $seoImage       := $.Scratch.Get "seoImage" -}}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:domain" content="{{ $baseURL }}">
+<meta name="twitter:image:src" content="{{ $seoImage }}">
+<meta name="twitter:title" content="{{ $seoTitle }}">
+<meta name="twitter:description" content="{{ $seoDescription }}">
+{{ if isset .Params "author" -}}
+    {{- $author         := index .Site.Data.authors .Params.author -}}
+    {{- $twitterProfile := replace $author.socialNetworks.twitter "https://twitter.com/" "" -}}
+    {{- if $twitterProfile -}}
+        <meta name="twitter:creator" content="{{ $twitterProfile }}">
+    {{- end -}}
+{{- end -}}

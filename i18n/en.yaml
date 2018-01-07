@@ -38,9 +38,19 @@ seeAllPosts:
   other: "See all posts"
 authors:
   other: "Authors"
+authorsDescription:
+  other: "We are a family that would like to share our knowledge with you and make your life easier, here we talk about different subjects from programming to lifestyle."
 categories:
   other: "Categories"
+categoryDescription:
+  other: "You can quickly browse all posts from category {{ .category }} that were published in our site."
+categoriesDescription:
+  other: "Would you like to check the topics that we're talking about? PHP, Javascript, HTML, Devops, Lifestyle,... written in a simple and uncomplicated way."
 tags:
+  other: "Would you like to check the tags that we're talking about? AWS, Apple, Microsoft, Database, News, Munich,... written in a simple and uncomplicated way."
+tagDescription:
+  other: "You can quickly browse all posts from tag {{ .tag }} that were published in our site."
+tagsDescription:
   other: "Tags"
 translations:
   other: "Read this article in"

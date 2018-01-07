@@ -4,8 +4,9 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
     require('./grunt-custom/requirements')(grunt);
     require('./grunt-custom/lunr')(grunt);
+    require('./grunt-custom/google-serp-preview')(grunt);
 
-    var pageSpeedPaths = require('./grunt-custom/pagespeed')(grunt).paths;
+    var paths = require('./grunt-custom/paths')(grunt);
 
     require('load-grunt-config')(grunt, {
         init: true,
@@ -15,7 +16,7 @@ module.exports = function (grunt) {
             license:         grunt.file.read('LICENSE'),
             banner:          "/*\n<%= license %>*/\n",
 
-            pageSpeedPaths:  pageSpeedPaths,
+            paths:           paths,
 
             bower_path:      "vendor",
             dist_path:       "public",

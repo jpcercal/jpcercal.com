@@ -1,0 +1,62 @@
+options:
+  paths: "<%= paths %>"
+  template: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="css/vendor.css">
+      <link rel="stylesheet" type="text/css" href="css/cercal.io.css">
+      <style>
+        .search-result .title {
+          text-decoration: none;
+          color: #1a0dab;
+          font-size: 19px;
+          font-family: arial, sans-serif;
+          max-width: 512px;
+          max-height: 22px;
+          overflow: hidden;
+        }
+
+        .search-result .url {
+          color: #006621;
+          font-size: 13px;
+          font-family: arial, sans-serif;
+          line-height: 16px;
+          max-width: 512px;
+          max-height: 18px;
+          overflow: hidden;
+        }
+
+        .search-result .description {
+          font-family: arial, sans-serif;
+          line-height: 16px;
+          font-size: 13px;
+          max-width: 512px;
+          max-height: 32px;
+          overflow: hidden;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8 search-results">
+            <h1 class="mt-5 mb-4">Google SERP preview</h1>
+            {{#each results}}
+              <div class="search-result mb-4">
+                <div class="title">
+                  {{this.title}}
+                </div>
+                <div class="url">
+                  {{this.url}}
+                </div>
+                <div class="description">
+                  {{this.description}}
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>

@@ -1,42 +1,108 @@
-<!-- BEGIN meta -->
+{{- $baseURL    := .Site.BaseURL -}}
+{{- $locale     := .Site.Params.Locale -}}
+{{- $authors    := .Site.Data.authors -}}
+{{- $categories := .Site.Data.categories -}}
+{{- $tags       := .Site.Data.tags -}}
+{{- $titleSep   := "|" -}}
+
+<!-- ==================================================================== -->
+<!-- Set TITLE, DESCRIPTION -->
+<!-- Get data from a single content type  -->
+{{- with .Description -}}
+    {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" $.Title $titleSep $.Site.Title) -}}
+    {{- $.Scratch.Set "seoDescription" . -}}
+{{- else -}}
+    <!-- Get data using for the categories/tags/authors pages -->
+    {{- if eq .Kind "taxonomyTerm" -}}
+        {{- if eq .Data.Plural "categories" -}}
+            {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" (i18n "categories") $titleSep $.Site.Title) -}}
+            {{- $.Scratch.Set "seoDescription" (i18n "categoriesDescription") -}}
+        {{- else if eq .Data.Plural "tags" -}}
+            {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" (i18n "tags") $titleSep $.Site.Title) -}}
+            {{- $.Scratch.Set "seoDescription" (i18n "tagsDescription") -}}
+        {{- else if eq .Data.Plural "authors" -}}
+            {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" (i18n "authors") $titleSep $.Site.Title) -}}
+            {{- $.Scratch.Set "seoDescription" (i18n "authorsDescription") -}}
+        {{- end -}}
+    <!-- Get data using the $.Site.Data.categories|tags according to the current locale -->
+    {{- else if eq .Kind "taxonomy" -}}
+        {{- if eq .Data.Plural "categories" -}}
+            {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" (index (index (index $categories (lower .Title)) "title") $locale) $titleSep $.Site.Title) -}}
+            {{- $.Scratch.Set "seoDescription" (i18n "categoryDescription" (dict "category" (index (index (index $categories (lower .Title)) "title") $locale))) -}}
+        {{- else if eq .Data.Plural "tags" -}}
+            {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" (index (index (index $tags (lower .Title)) "title") $locale) $titleSep $.Site.Title) -}}
+            {{- $.Scratch.Set "seoDescription" (i18n "tagDescription" (dict "tag" (index (index (index $tags (lower .Title)) "title") $locale))) -}}
+        {{- end -}}
+    <!-- Get author single page data -->
+    {{- else if eq .Section "authors" -}}
+        {{- with $.Params.email -}}
+            {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" $.Title $titleSep $.Site.Title) -}}
+            {{- $.Scratch.Set "seoDescription" (index (index (index $authors $.Params.email) "biography") $locale) -}}
+        {{- end -}}
+    <!-- Get data for 404 not found page -->
+    {{- else if eq .Kind "404" -}}
+        {{- with $.Site.Params.description -}}
+            {{- $.Scratch.Set "seoTitle" (printf "404 %s %s" $titleSep $.Site.Title) -}}
+            {{- $.Scratch.Set "seoDescription" . -}}
+        {{- end -}}
+    <!-- If nothing is available then get the site configuration as a default callback -->
+    {{- else -}}
+        {{- with $.Site.Params.description -}}
+            {{- $.Scratch.Set "seoTitle" $.Site.Title -}}
+            {{- $.Scratch.Set "seoDescription" . -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+<!-- ==================================================================== -->
+<!-- Set KEYWORDS -->
+{{- if eq .Section "posts" -}}
+    {{- $categoryAlias := index .Params.categories 0 -}}
+    {{- $category      := index $categories $categoryAlias -}}
+    {{- $categoryTitle := index (index $category "title") $locale -}}
+
+    {{- $.Scratch.Add "seoKeywords" (slice $categoryTitle) -}}
+
+    {{- range $i, $tag := .Params.tags -}}
+        {{- $.Scratch.Add "seoKeywords" (slice (index (index (index $tags $tag) "title") $locale)) -}}
+    {{- end -}}
+
+    {{- $.Scratch.Set "seoKeywords" (delimit ($.Scratch.Get "seoKeywords") ", ") -}}
+{{- end -}}
+
+<!-- ==================================================================== -->
+<!-- Set IMAGE -->
+{{- if eq .Section "posts" -}}
+    {{- $.Scratch.Set "seoImage" (printf "%s%s/%s" $baseURL .Slug "index.svg") -}}
+{{- else if eq .Section "authors" -}}
+    {{- $.Scratch.Set "seoImage" (printf "%s%s/%s" $baseURL .Slug "picture.svg") -}}
+{{- else -}}
+    {{- $.Scratch.Set "seoImage" (printf "%s%s" $baseURL "logo.svg") -}}
+{{- end -}}
+
+<!-- ==================================================================== -->
+<!-- Set Unique URL (aka canonical) -->
+{{- with .Permalink -}}
+    {{- $.Scratch.Set "seoCanonical" . -}}
+{{- else -}}
+    {{- $.Scratch.Set "seoCanonical" $baseURL -}}
+{{- end -}}
+
+<!-- ==================================================================== -->
+
+<title>{{ $.Scratch.Get "seoTitle" }}</title>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- END meta -->
 
-<!-- BEGIN seo -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:domain" content="{{ .Site.BaseURL }}">
-<meta property="og:locale" content="{{ .Site.Params.Locale }}" />
-<meta property="og:site_name" content="{{ .Site.Title }}" />
+<link rel="canonical" href='{{ $.Scratch.Get "seoCanonical" }}'>
 
-{{ if .RSSLink }}
+{{- if .RSSLink -}}
 <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
-{{ end }}
+{{- end -}}
 
-{{ if .IsHome }}
-<title>{{ .Site.Title }}</title>
-<meta property="og:title" content="{{ .Site.Title }}">
-<meta property="og:url" content="{{ .Site.BaseURL }}">
-<meta name="description" content="{{ .Site.Params.Description }}">
-<meta property="og:description" content="{{ .Site.Params.Description }}">
-<link rel="canonical" href="{{ .Site.BaseURL }}">
-<meta name="twitter:site" content="@jpcercal">
-<meta name="twitter:creator" content="@jpcercal">
-{{ else }}
-<title>{{ .Title }}</title>
-<meta property="og:title" content="{{ .Title }}">
-<meta property="og:url" content="{{ .Permalink }}">
-<meta name="description" content="{{ .Description }}">
-<meta property="og:description" content="{{ .Description }}">
-{{ if .Permalink }}
-<link rel="canonical" href="{{ .Permalink }}">
-{{ end }}
-{{ if isset .Params "author" }}
-{{ $author := index .Site.Data.authors .Params.author }}
-<meta name="twitter:site" content="{{ $author.twitter }}">
-<meta name="twitter:creator" content="{{ $author.twitter }}">
-{{ end }}
-{{ end }} 
-
-<meta property="og:type" content="website">
+{{ partial "head-meta-twitter-cards.html" . }}
+{{ partial "head-meta-google-news.html" . }}
+{{ partial "head-meta-schema.html" . }}
+{{ partial "head-meta-opengraph.html" . }}

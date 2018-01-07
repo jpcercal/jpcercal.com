@@ -4,6 +4,12 @@ dist:
       dot: true
       src:
         - "<%= dist_path %>/**/*"
+google-serp-preview:
+  files:
+    -
+      src:
+        - "<%= dist_path %>/google.html"
+unminified:
 unminified:
   files:
     -

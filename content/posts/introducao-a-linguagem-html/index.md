@@ -7,8 +7,7 @@ date: 2010-12-07T23:57:10+00:00
 description: Um documento HTML (HyperText Markup Language) é um conjunto de instruções em formato ASCII, usada para criar documentos de hipertexto e que podem ser visualizados por um browser WWW (como o Internet Explorer, Mozilla Firefox, Apple Safari, etc).
 categories:
   - html
-tags: 
-  - 
+tags: []
 ---
 
 Um documento **HTML** (_HyperText Markup Language_) é um conjunto de instruções em formato _ASCII_, usada para criar 

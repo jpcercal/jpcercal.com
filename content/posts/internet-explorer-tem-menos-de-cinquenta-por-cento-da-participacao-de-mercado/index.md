@@ -2,7 +2,7 @@
 draft: false
 author: jpcercal@gmail.com
 slug: internet-explorer-tem-menos-de-cinquenta-por-cento-da-participacao-de-mercado
-title: Internet Explorer tem menos de 50% da participação de mercado
+title: Internet Explorer tem menos de 50% do mercado
 date: 2010-10-06T19:47:18+00:00
 description: Pela primeira vez, navegador da Microsoft tem baixa significativa. E o browser Google Chrome, triplicou a sua participação no mercado.
 categories:

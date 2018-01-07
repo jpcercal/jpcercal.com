@@ -1,0 +1,27 @@
+{{- $baseURL        := .Site.BaseURL -}}
+{{- $ISO8601        := "2006-01-02T15:04:05-07:00" -}}
+{{- $seoTitle       := $.Scratch.Get "seoTitle" -}}
+{{- $seoDescription := $.Scratch.Get "seoDescription" -}}
+{{- $seoKeywords    := $.Scratch.Get "seoKeywords" -}}
+{{- $seoImage       := $.Scratch.Get "seoImage" -}}
+
+<meta itemprop="name" content="{{ $seoTitle }}">
+<meta itemprop="description" content="{{ $seoDescription }}">
+<meta name="description" content="{{ $seoDescription }}">
+
+{{- if .IsPage -}}
+    {{- if not .PublishDate.IsZero -}}
+        <meta itemprop="datePublished" content="{{ .PublishDate.Format $ISO8601 | safeHTML }}" />
+    {{- end -}}
+
+    {{- if not .Date.IsZero -}}
+        <meta itemprop="dateModified" content="{{ .Date.Format $ISO8601 | safeHTML }}" />
+    {{- end -}}
+
+    <meta itemprop="wordCount" content="{{ .WordCount }}">
+    <meta itemprop="image" content="{{ $seoImage }}">
+
+    {{- if $seoKeywords -}}
+        <meta itemprop="keywords" content="{{ $seoKeywords }}">
+    {{- end -}}
+{{- end -}}

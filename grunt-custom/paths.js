@@ -40,9 +40,12 @@ module.exports = function (grunt) {
 
     var paths = [
         '/',
+        '/en/',
         '/contact/',
+        '/en/contact/',
         '/search/',
-        '/page/1/',
+        '/en/search/',
+        '/page/2/',
         '/404/'
     ];
 
@@ -53,7 +56,5 @@ module.exports = function (grunt) {
         .concat(tagsPath)
     ;
 
-    return {
-        paths: paths
-    };
+    return paths;
 };

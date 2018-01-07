@@ -4,8 +4,8 @@
     /**
      * Define the BaseURL that can be used in javascript files.
      */
-    window.baseUrl = '{{ .Site.BaseURL }}';
-    window.locale = '{{ .Site.Params.locale }}';
+    window.baseUrl = {{ .Site.BaseURL }};
+    window.locale = {{ .Site.Params.locale }};
 </script>
 <link href="{{ $font }}" rel="stylesheet">
 {{ "<!-- build:template" | safeHTML }}

@@ -1,0 +1,5 @@
+{{- $seoKeywords := $.Scratch.Get "seoKeywords" -}}
+
+{{- if $seoKeywords -}}
+    <meta name="news_keywords" content="{{ $seoKeywords }}">
+{{- end -}}

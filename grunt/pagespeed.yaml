@@ -6,10 +6,10 @@ desktop:
     locale: "en_GB"
     strategy: "desktop"
     threshold: 85
-    paths: "<%= pageSpeedPaths %>"
+    paths: "<%= paths %>"
 mobile:
   options:
     locale: "en_GB"
     strategy: "mobile"
     threshold: 80
-    paths: "<%= pageSpeedPaths %>"
+    paths: "<%= paths %>"
