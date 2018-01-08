@@ -13,7 +13,7 @@ taxonomies:
 disqusShortname:  "cercal-io"
 defaultExtension: "html"
 metaDataFormat:   "yaml"
-googleAnalytics:  ""
+googleAnalytics:  "UA-112106232-1"
 
 pygmentsUseClasses: true
 pygmentsCodeFences: true
