@@ -164,8 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
         notifier.notify(i18n.trans('sendingData'));
 
         var cc = [
-            'elisetecercal@gmail.com',
-            'lukas.cercal@gmail.com'
+            'jpcercal@gmail.com'
         ];
 
         var params = new URLSearchParams();
@@ -183,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
 
-        axios.post('//formspree.io/jpcercal@gmail.com', params, config).then(function (response) {
+        axios.post('//formspree.io/contact@cercal.io', params, config).then(function (response) {
             if (response.status == 200) {
                 notifier.notify(i18n.trans('success'), notifier.TYPE.SUCCESS);
 
