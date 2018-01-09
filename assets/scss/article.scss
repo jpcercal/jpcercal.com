@@ -47,6 +47,15 @@ section {
     }
   }
 
+  .article-share-buttons {
+    padding: 0;
+
+    img {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
   .article-tags {
     .article-tag {
       a {

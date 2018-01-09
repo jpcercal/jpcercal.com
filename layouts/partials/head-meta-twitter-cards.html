@@ -9,9 +9,11 @@
 <meta name="twitter:title" content="{{ $seoTitle }}">
 <meta name="twitter:description" content="{{ $seoDescription }}">
 {{ if isset .Params "author" -}}
-    {{- $author         := index .Site.Data.authors .Params.author -}}
-    {{- $twitterProfile := replace $author.socialNetworks.twitter "https://twitter.com/" "" -}}
-    {{- if $twitterProfile -}}
-        <meta name="twitter:creator" content="{{ $twitterProfile }}">
+    {{- $author := index .Site.Data.authors .Params.author -}}
+    
+    {{- $.Scratch.Set "twitterProfile" (replace $author.socialNetworks.twitter "https://twitter.com/" "") -}}
+    
+    {{- if ($.Scratch.Get "twitterProfile") -}}
+        <meta name="twitter:creator" content='{{ $.Scratch.Get "twitterProfile" }}'>
     {{- end -}}
 {{- end -}}
