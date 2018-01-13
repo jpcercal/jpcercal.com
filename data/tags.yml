@@ -122,3 +122,23 @@ zend:
   title:
     en: Zend
     pt: Zend
+howto:
+  title:
+    en: How to do that
+    pt: Como fazer
+dream:
+  title:
+    en: Dream
+    pt: Sonho
+germany:
+  title:
+    en: Germany
+    pt: Alemanha
+munich:
+  title:
+    en: Munich
+    pt: Munique
+english:
+  title:
+    en: English
+    pt: Inglês

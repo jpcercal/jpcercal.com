@@ -1,46 +1,13 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 58 58" style="enable-background:new 0 0 58 58;" xml:space="preserve">
-<path style="fill:#556080;" d="M54.392,19.5H3.608C1.616,19.5,0,17.884,0,15.892V4.108C0,2.116,1.616,0.5,3.608,0.5h50.783
-	C56.384,0.5,58,2.116,58,4.108v11.783C58,17.884,56.384,19.5,54.392,19.5z"/>
-<path style="fill:#424A60;" d="M54.392,38.5H3.608C1.616,38.5,0,36.884,0,34.892V23.108C0,21.116,1.616,19.5,3.608,19.5h50.783
-	c1.993,0,3.608,1.616,3.608,3.608v11.783C58,36.884,56.384,38.5,54.392,38.5z"/>
-<path style="fill:#556080;" d="M54.392,57.5H3.608C1.616,57.5,0,55.884,0,53.892V42.108C0,40.116,1.616,38.5,3.608,38.5h50.783
-	c1.993,0,3.608,1.616,3.608,3.608v11.783C58,55.884,56.384,57.5,54.392,57.5z"/>
-<circle style="fill:#7383BF;" cx="9.5" cy="10" r="3.5"/>
-<circle style="fill:#7383BF;" cx="49" cy="8.5" r="1"/>
-<circle style="fill:#7383BF;" cx="45" cy="8.5" r="1"/>
-<circle style="fill:#7383BF;" cx="51" cy="11.5" r="1"/>
-<circle style="fill:#7383BF;" cx="47" cy="11.5" r="1"/>
-<circle style="fill:#7383BF;" cx="41" cy="8.5" r="1"/>
-<circle style="fill:#7383BF;" cx="43" cy="11.5" r="1"/>
-<circle style="fill:#7383BF;" cx="37" cy="8.5" r="1"/>
-<circle style="fill:#7383BF;" cx="39" cy="11.5" r="1"/>
-<circle style="fill:#7383BF;" cx="33" cy="8.5" r="1"/>
-<circle style="fill:#7383BF;" cx="35" cy="11.5" r="1"/>
-<circle style="fill:#7383BF;" cx="9.5" cy="29" r="3.5"/>
-<circle style="fill:#7383BF;" cx="49" cy="27.5" r="1"/>
-<circle style="fill:#7383BF;" cx="45" cy="27.5" r="1"/>
-<circle style="fill:#7383BF;" cx="51" cy="30.5" r="1"/>
-<circle style="fill:#7383BF;" cx="47" cy="30.5" r="1"/>
-<circle style="fill:#7383BF;" cx="41" cy="27.5" r="1"/>
-<circle style="fill:#7383BF;" cx="43" cy="30.5" r="1"/>
-<circle style="fill:#7383BF;" cx="37" cy="27.5" r="1"/>
-<circle style="fill:#7383BF;" cx="39" cy="30.5" r="1"/>
-<circle style="fill:#7383BF;" cx="33" cy="27.5" r="1"/>
-<circle style="fill:#7383BF;" cx="35" cy="30.5" r="1"/>
-<circle style="fill:#7383BF;" cx="9.5" cy="48" r="3.5"/>
-<circle style="fill:#7383BF;" cx="49" cy="46.5" r="1"/>
-<circle style="fill:#7383BF;" cx="45" cy="46.5" r="1"/>
-<circle style="fill:#7383BF;" cx="51" cy="49.5" r="1"/>
-<circle style="fill:#7383BF;" cx="47" cy="49.5" r="1"/>
-<circle style="fill:#7383BF;" cx="41" cy="46.5" r="1"/>
-<circle style="fill:#7383BF;" cx="43" cy="49.5" r="1"/>
-<circle style="fill:#7383BF;" cx="37" cy="46.5" r="1"/>
-<circle style="fill:#7383BF;" cx="39" cy="49.5" r="1"/>
-<circle style="fill:#7383BF;" cx="33" cy="46.5" r="1"/>
-<circle style="fill:#7383BF;" cx="35" cy="49.5" r="1"/>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 460 460" style="enable-background:new 0 0 460 460;" xml:space="preserve">
+<path style="fill:#C8523B;" d="M412.557,287.245l0.125-112.286l-10-0.011l-0.125,112.285c-6.039,2.072-10.386,7.786-10.386,14.527
+	c0,8.488,6.881,15.369,15.369,15.369c8.488,0,15.369-6.881,15.369-15.369C422.91,295.031,418.578,289.327,412.557,287.245z"/>
+<path style="fill:#59595A;" d="M460,162.909L230,67.567L0,162.909l122.978,50.978v134.908c0,24.101,47.915,43.638,107.022,43.638
+	s107.022-19.538,107.022-43.638V213.887L460,162.909z"/>
+<polygon style="opacity:0.3;fill:#211915;enable-background:new    ;" points="337.022,213.887 230,258.249 122.978,213.887 
+	122.978,235.536 222.341,276.725 230,279.899 237.659,276.725 337.022,235.536 "/>
 <g>
 </g>
 <g>

@@ -1,3 +1,19 @@
+{{ if $.Scratch.Get "showIconCredits" }}
+<footer class="container mt-2 mb-2">
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="text-center m-0 icon-credits">
+                        Icon made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">www.flaticon.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{{ end }}
+
 {{ "<!-- build:template" | safeHTML }}
 {{ "<% if (environment === 'production') { %>" | safeHTML }}
 <script async src="{{ .Site.BaseURL }}js/cercal.io.min.js"></script>

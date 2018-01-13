@@ -7,7 +7,7 @@
 {{ $category        := index .Site.Data.categories $categoryAlias }}
 {{ $tags            := .Site.Data.tags }}
 
-{{ $.Scratch.Add "singlePost" true }}
+{{ $.Scratch.Set "singlePost" true }}
 
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
@@ -49,22 +49,22 @@
             <ul class="article-share-buttons mt-1 mb-3 list-unstyled list-inline">
                 <li class="list-inline-item">
                     <a href='https://www.facebook.com/sharer/sharer.php?u={{ $.Scratch.Get "seoCanonical" }}&quote={{ $.Scratch.Get "seoTitle" }}' target="_blank" title="Share on Facebook">
-                        <img alt="Share on Facebook" src="{{ .Site.BaseURL }}images/icons/share-buttons/facebook.png" />
+                        <img alt="Share on Facebook" src="{{ .Site.BaseURL }}images/icons/share-buttons/facebook.svg" />
                     </a>
                 </li>
                 <li class="list-inline-item">
                     <a href='https://twitter.com/intent/tweet?source={{ $.Scratch.Get "seoCanonical" }}&text={{ $.Scratch.Get "seoTitle" }}:%20{{ $.Scratch.Get "seoCanonical" }}&via={{ $.Scratch.Get "twitterProfile" }}' target="_blank" title="Share on Twitter">
-                        <img alt="Share on Twitter" src="{{ .Site.BaseURL }}images/icons/share-buttons/twitter.png" />
+                        <img alt="Share on Twitter" src="{{ .Site.BaseURL }}images/icons/share-buttons/twitter.svg" />
                     </a>
                 </li>
                 <li class="list-inline-item">
                     <a href='https://plus.google.com/share?url={{ $.Scratch.Get "seoCanonical" }}' target="_blank" title="Share on Google+">
-                        <img alt="Share on Google+" src="{{ .Site.BaseURL }}images/icons/share-buttons/google-plus.png" />
+                        <img alt="Share on Google+" src="{{ .Site.BaseURL }}images/icons/share-buttons/google-plus.svg" />
                     </a>
                 </li>
                 <li class="list-inline-item">
                     <a href='http://www.linkedin.com/shareArticle?mini=true&url={{ $.Scratch.Get "seoCanonical" }}&title={{ $.Scratch.Get "seoTitle" }}&summary={{ $.Scratch.Get "seoDescription" }}&source={{ $.Scratch.Get "seoCanonical" }}' target="_blank" title="Share on LinkedIn">
-                        <img alt="Share on LinkedIn" src="{{ .Site.BaseURL }}images/icons/share-buttons/linkedin.png" />
+                        <img alt="Share on LinkedIn" src="{{ .Site.BaseURL }}images/icons/share-buttons/linkedin.svg" />
                     </a>
                 </li>
             </ul>

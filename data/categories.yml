@@ -18,6 +18,11 @@ devops:
     en: DevOps
     pt: DevOps
   icon:
+lifestyle:
+  title:
+    en: Lifestyle
+    pt: Estilo de vida
+  icon:
 other:
   title:
     en: Others

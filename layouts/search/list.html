@@ -1,5 +1,7 @@
 {{ $info := split (i18n "searchForInfo") "." }}
 
+{{ $.Scratch.Set "showIconCredits" true }}
+
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
 

@@ -1,5 +1,7 @@
 {{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
 
+{{ $.Scratch.Set "showIconCredits" true }}
+
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
 
