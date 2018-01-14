@@ -13,6 +13,7 @@ tags:
   - germany
   - munich
   - english
+  - living_abroad
 ---
 
 A princípio a decisão de mudar de país pode ser fascinante, no entanto, é necessário um pouco de esforço e dedicação para que isto possa se tornar realidade. Nós queríamos viver em outro país e ter a chance de conhecer uma **cultura** diferente da nossa, mas como nós começamos a *lutar* por este **sonho**?
@@ -22,7 +23,7 @@ A primeira coisa foi sim, definir um país para onde gostaríamos de ir e, a dec
 * As similiaridades climáticas com o Brasil;
 * E o idioma inglês (na Nova Zelândia também há o *Maori*, mas isto é uma outra história).
 
-Se você conhece a nossa história já deve saber que não estamos nem na Nova Zelândia nem na Austrália, mas na **Alemanha**. <!-- Temos um post sobre isso, que você pode conferir aqui. -->
+Se você conhece a nossa história já deve saber que não estamos nem na Nova Zelândia nem na Austrália, mas na **Alemanha**. Temos um post sobre isso, que você pode conferir [aqui]({{< ref "posts/vamos-morar-em-munique-na-alemanha/index.md" >}}).
 
 Nesta etapa eu já conseguia ler e escrever em inglês então, atualizei meu **LinkedIn** [https://www.linkedin.com/in/jpcercal](https://www.linkedin.com/in/jpcercal) preenchendo completamente meu perfil profissional em **inglês**.
 
