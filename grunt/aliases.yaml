@@ -32,6 +32,7 @@ production:
     - 'lunr:production'
     - 'shell:production'
     - 'copy:production'
+    - 'svg2png'
     - 'processhtml:production'
     - 'uglify'
     - 'cssmin'
@@ -44,4 +45,5 @@ production:
     - 'google-serp-preview'
     - 'clean:google-serp-preview'
     - 'clean:unminified'
+    - 'clean:public-posts-directory'
     - 'notify_hooks'

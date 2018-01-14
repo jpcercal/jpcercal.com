@@ -73,11 +73,11 @@
 <!-- ==================================================================== -->
 <!-- Set IMAGE -->
 {{- if eq .Section "posts" -}}
-    {{- $.Scratch.Set "seoImage" (printf "%s%s/%s" $baseURL .Slug "index.svg") -}}
+    {{- $.Scratch.Set "seoImage" (printf "%s%s/%s" $baseURL .Slug "index.png") -}}
 {{- else if eq .Section "authors" -}}
-    {{- $.Scratch.Set "seoImage" (printf "%s%s/%s" $baseURL .Slug "picture.svg") -}}
+    {{- $.Scratch.Set "seoImage" (printf "%s%s/%s" $baseURL .Slug "picture.jpg") -}}
 {{- else -}}
-    {{- $.Scratch.Set "seoImage" (printf "%s%s" $baseURL "logo.svg") -}}
+    {{- $.Scratch.Set "seoImage" (printf "%s%s" $baseURL "images/logo.png") -}}
 {{- end -}}
 
 <!-- ==================================================================== -->

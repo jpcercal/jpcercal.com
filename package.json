@@ -22,6 +22,7 @@
     "grunt-pagespeed": "^2.0.1",
     "grunt-processhtml": "^0.4.1",
     "grunt-shell": "^2.1.0",
+    "grunt-svg2png": "^0.2.8",
     "grunt-xmlmin": "^0.1.8",
     "handlebars": "^4.0.11",
     "html-entities": "^1.2.1",

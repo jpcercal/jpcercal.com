@@ -9,7 +9,11 @@ google-serp-preview:
     -
       src:
         - "<%= dist_path %>/google.html"
-unminified:
+public-posts-directory:
+  files:
+    -
+      src:
+        - "<%= dist_path %>/posts/*"
 unminified:
   files:
     -
