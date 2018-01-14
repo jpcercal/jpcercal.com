@@ -77,7 +77,7 @@
 {{- else if eq .Section "authors" -}}
     {{- $.Scratch.Set "seoImage" (printf "%s%s/%s" $baseURL .Slug "picture.jpg") -}}
 {{- else -}}
-    {{- $.Scratch.Set "seoImage" (printf "%s%s" $baseURL "images/logo.png") -}}
+    {{- $.Scratch.Set "seoImage" (printf "%s%s" $baseURL "logo.png") -}}
 {{- end -}}
 
 <!-- ==================================================================== -->
