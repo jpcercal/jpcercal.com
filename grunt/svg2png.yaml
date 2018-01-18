@@ -1,9 +1,3 @@
-all:
-  files:
-    -
-      expand: false
-      cwd: "<%= dist_path %>/"
-      src:
-        - "**/*.svg"
-      dest: "<%= dist_path %>/"
-      ext: "png"
+options:
+  width: 512
+  height: 512
