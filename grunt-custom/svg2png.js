@@ -17,7 +17,12 @@ module.exports = function (grunt) {
         var height = grunt.config.get(sprintf('%s.options.height', task.name));
 
         var postsPath = postRepository.findAll().map(function (post) {
-            return sprintf('%s/public/%s/index', process.cwd(), post.slug);
+            return sprintf(
+                '%s/public/%s%s/index', 
+                process.cwd(), 
+                post.language == 'en' ? 'en/' : '',
+                post.slug
+            );
         });
 
         var options = {
