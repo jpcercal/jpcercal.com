@@ -4,7 +4,6 @@ cache/
 .sass-cache/
 .idea/
 fontpatcher/
-package-lock.*
 *.log
 *.lock
 *.pem
