@@ -1,48 +1,33 @@
 # Cercal.IO
 
+You must have docker installed in your machine in order to run this application locally.
+
 ## Setup
 
-Considering that you have already installed [Docker](https://www.docker.com/), firstly you will need to build the image:
+Add to your `/etc/hosts` file:
 
 ```shell
-docker build -t jpcercal/cercal.io:latest .
-```
-
-Generating a certificate:
-
-```shell
-openssl req \
-    -new \
-    -newkey rsa:4096 \
-    -days 3650 \
-    -nodes \
-    -x509 \
-    -subj "/C=BR/ST=SC/L=Joinville/CN=cercal.io" \
-    -keyout key.pem \
-    -out cert.pem
-```
-
-Put in you `/etc/hosts` file:
-
-```shell
-...
 127.0.0.1 cercal.dev
-...
 ```
 
-To be able to run this project on your browser you will must start the http server, to do that you can run this command:
+## Running the webserver
 
 ```shell
-docker run -ti -p 443:1313 -v $PWD:/usr/share/blog jpcercal/cercal.io:latest http-server -p 1313 /usr/share/blog/public --ssl --cert cert.pem
+./bin/http-server.sh
 ```
 
-The next step will be access the machine and run this commands to install the dependencies and build the project:
+## Bash
 
 ```shell
-docker run -ti -v $PWD:/usr/share/blog jpcercal/cercal.io:latest
-npm install
-npm run napa
+# This command will do the compilation for the first time.
+# After that, you will gain access to the container.
+./bin/bash.sh
+
+# then, to do a build in development mode you can run this command:
 grunt
+
+# Or, if you want to do a build in production mode:
+grunt production
 ```
 
 Now, just open your browser to see everything running [https://cercal.dev](https://cercal.dev).
