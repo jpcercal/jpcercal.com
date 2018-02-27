@@ -23,6 +23,8 @@ As *MBM* fazem um trabalho social louvável sem fins lucrativos, existem reuniõ
 
 Enfim, o segredo para tapar parte daquele buraco chamado saudade foi encontrá-las e descobrir que construir minha rotina aqui me daria autonomia e segurança. Claro que os laços de amizade feitos neste grupo local tem um papel importante nessa adaptação e troca de informações. Portanto, o encontro desse acalanto fraternal nos faz sentir novamente parte do mundo.
 
+![Mulheres brasileiras em Munique](mbm.jpg)
+
 Este grupo no facebook não é apenas mais um grupo, ele tem propósito de apoio e integração das **Mulheres** **Brasileiras** em **Munique** e para isso acontecer, as *MBMs* são extremamente organizadas quanto a gestão do grupo. Não posso deixar de citar que, por trás de tudo existem seres humanos formidáveis interessados em ajudar-nos, eles não fazem nada por nós mas nos orientam como fazer. O melhor de tudo é que são alegres e dividem essa alegria com quem chega, aí você encontra um pedacinho do Brasil em Munique. Bom de mais! Como diz uma das queridas, “aqui uma ajuda a outra e todas se ajudam” e você realmente vivencia essa energia nos encontros.
 
 É muito importante salientar que as *MBMs* desenvolvem muitos projetos que agregam diferenciais ao grupo, dentre eles posso citar:
