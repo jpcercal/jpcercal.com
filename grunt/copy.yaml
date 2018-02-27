@@ -8,12 +8,6 @@ production:
       dest: "<%= dist_img_path %>/"
     - 
       expand: true
-      cwd: "<%= content_path %>/"
-      src:
-        - "**/*.{png,jpg,jpeg,gif,svg}"
-      dest: "<%= dist_path %>/"
-    - 
-      expand: true
       cwd: "<%= author_path %>/"
       src:
         - "**/*.{png,jpg,jpeg,gif,svg,pdf}"
@@ -29,12 +23,6 @@ development:
       src:
         - "**/*.{png,jpg,jpeg,gif,svg}"
       dest: "<%= dist_img_path %>/"
-    - 
-      expand: true
-      cwd: "<%= content_path %>/"
-      src:
-        - "**/*.{png,jpg,jpeg,gif,svg}"
-      dest: "<%= dist_path %>/"
     - 
       expand: true
       cwd: "<%= author_path %>/"

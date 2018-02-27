@@ -1,6 +1,6 @@
 development:
   options:
-    process: true
+    process: false
   files:
     - 
       expand: true
@@ -11,7 +11,7 @@ development:
       ext: ".html"
 production:
   options:
-    process: true
+    process: false
   files:
     - 
       expand: true

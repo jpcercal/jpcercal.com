@@ -1,0 +1,9 @@
+dist:
+  sourcePath: "<%= content_path %>/"
+  destinationPath: "<%= dist_path %>/"
+  fileExtensions: 
+    - png
+    - jpg
+    - jpeg
+    - gif
+    - svg

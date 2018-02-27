@@ -17,7 +17,7 @@ module.exports = function (grunt) {
     var tags = tagRepository.findAll();
 
     var postsPath = posts.map(function (post) {
-         return sprintf('/%s/', post.slug);
+        return sprintf('%s/%s/', post.language == 'en' ? '/en' : '', post.slug);
     });
 
     var authorsPath = ['/authors/'];

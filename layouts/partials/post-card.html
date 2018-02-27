@@ -12,7 +12,7 @@
 <article class="post-card mb-4">
     <div class="flex-row d-flex">
         <div class="flex-column m-3">
-            <img class="rounded" src='{{ if $cover }}{{ printf "%s%s/%s" $baseURL .Slug $filename }}{{ else }}{{ $img }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
+            <img class="rounded" src='{{ if $cover }}{{ if eq $locale "en" }}{{ printf "%sen/%s/%s" $baseURL .Slug $filename }}{{ else }}{{ printf "%s%s/%s" $baseURL .Slug $filename }}{{ end }}{{ else }}{{ $img }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
         </div>
         <header class="flex-column m-0">
             <h2 class="mt-0 mb-0 font-size-h4">
