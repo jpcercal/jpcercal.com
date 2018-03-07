@@ -21,7 +21,7 @@ E então as lindas do [MBMs](https://www.facebook.com/groups/mbmunique/) aparece
 
 As *MBM* fazem um trabalho social louvável sem fins lucrativos, existem reuniões para empoderar estas mulheres afim de despertar o lado empreendedor, profissional e, principalmente para elevar nossa autoestima. Durante os encontros de mães - este é um dos projetos do *MBM* - temos a oportunidade de dividir nossas angústias, matar a saudade do **Brasil**, compartilhar nossa cultura com as crianças, tomar um café *delicioso* e ainda sobra tempo para desenvolver belas **amizades** regadas a uma boa conversa.
 
-Enfim, o segredo para tapar parte daquele buraco chamado saudade foi encontrá-las e descobrir que construir minha rotina aqui me daria autonomia e segurança. Claro que os laços de amizade feitos neste grupo local tem um papel importante nessa adaptação e troca de informações. Portanto, o encontro desse acalanto fraternal nos faz sentir novamente parte do mundo.
+Enfim, o segredo para tapar parte daquele buraco chamado saudade foi encontrá-las e descobrir que construir minha rotina aqui me daria autonomia e segurança. Claro que os laços de amizade feitos neste grupo local tem um papel importante na adaptação principalmente pela troca de informações. Portanto, ter encontrado este acalanto fraternal me fez sentir novamente parte do mundo.
 
 ![Mulheres brasileiras em Munique](mbm.jpg)
 
@@ -39,7 +39,7 @@ Este é um programa para **mães** e seus **babies** (de 0 à 2 anos) e também 
 
 ## Descoladas
 
-Com foco em descontração reafirmando mais uma vez a autoestima das mulheres que quebram a rotina diária de filhos, marido, casa e trabalho em um encontro com as amigas. Curtindo um bom cinema em grupo, um bate papo relax num restaurante, teatro ou talvez conhecendo novos lugares. Tudo isso combinado combinado com boas risadas fazem deste programa uma excelente oportunidade de relaxar e de sentir a sensação de bem estar das *MBMs*.
+Com foco em descontração reafirmando mais uma vez a autoestima das mulheres que quebram a rotina diária de filhos, marido, casa e trabalho em um encontro com as amigas. Curtindo um bom cinema em grupo, um bate papo relax num restaurante, teatro ou talvez conhecendo novos lugares. Tudo isso combinado com boas risadas fazem deste programa uma excelente oportunidade de relaxar e de sentir a sensação de bem estar das *MBMs*.
 
 ## Papo Café
 
