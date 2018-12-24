@@ -16,4 +16,4 @@ docker pull jpcercal/cercal.io:latest
 # grunt
 # or...
 # grunt production (for production builds)
-docker run -it -v $PWD:/usr/share/blog jpcercal/cercal.io:latest /bin/bash -l -c "npm install && npm run napa && export BASE_URL=https://cercal.dev/ && grunt && /bin/bash -l"
+docker run -it -v $PWD:/usr/share/blog jpcercal/cercal.io:latest /bin/bash -l -c "npm install && npm run napa && export BASE_URL=https://cercal.local/ && grunt && /bin/bash -l"

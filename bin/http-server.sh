@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Hostname
-HOSTNAME="cercal.dev"
+HOSTNAME="cercal.local"
 
 # Setup the host name in your /etc/hosts file
 function addhost() {
@@ -44,7 +44,7 @@ function generateCertificate() {
 # Start the webserver on public directory with https enabled
 function startHttpServer() {
     echo
-    echo "> Starting HTTP Server: https://cercal.dev/"
+    echo "> Starting HTTP Server: https://cercal.local/"
     echo
     docker run -ti -p 443:1313 -v $PWD:/usr/share/blog jpcercal/cercal.io:latest http-server -p 1313 /usr/share/blog/public --ssl --cert cert.pem
 }

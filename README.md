@@ -7,7 +7,7 @@ You must have docker installed in your machine in order to run this application 
 Add to your `/etc/hosts` file:
 
 ```shell
-127.0.0.1 cercal.dev
+127.0.0.1 cercal.local
 ```
 
 ## Running the webserver
@@ -30,4 +30,4 @@ grunt
 grunt production
 ```
 
-Now, just open your browser to see everything running [https://cercal.dev](https://cercal.dev).
+Now, just open your browser to see everything running [https://cercal.local](https://cercal.local).
