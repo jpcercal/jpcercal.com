@@ -17,14 +17,14 @@ Well, from time to time I feel the need of cleaning my local branches, it’s pa
 
 ```bash
 $ git branch --list | \
-egrep --invert-match "(master|develop|\*)" | \
+egrep --invert-match "(master|gh-pages|\*)" | \
 xargs git branch -D
 ```
 
 So, I believe the command listed above is self-explained, but if you didn’t understand what’s going on then, here’s the explanation for each on of them:
 
 - `git branch --list` lists all the branches in your git local repository
-- `egrep --invert-match "(master|develop|\*)"` filters out the branch `master`, `develop` and the current branch (where you’re now, just in case), note that, you can add/remove branches to/from that expression.
+- `egrep --invert-match "(master|gh-pages|\*)"` filters out the branch `master`, `gh-pages` and the current branch (where you’re now, just in case), note that, you can add/remove branches to/from that expression.
 - `xargs git branch -D` deletes each one of your local branches except the ones filtered out on the step before
 
 
