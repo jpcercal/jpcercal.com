@@ -51,7 +51,7 @@ Vamos tentar fornecer para você alguns exemplos de itens desta lista, obviament
     * Geladeira;
     * Cama;
     * ...
-* Comprar passagens áereas;
+* Comprar passagens aéreas;
     * Contratar um seguro saúde para a viagem;
     * Monitorar o valor das passagens;
     * Comprar os tickets;
@@ -75,7 +75,7 @@ Nossa lista “Mudança para Munique” foi muito importante para nós, para ter
 
 ## Vídeos do Youtube
 
-Outra coisa muito importante durante as nossas pesquisas foram os vídeos do youtube e o feedback das pessoas que já haviam passado por estas etapas. Isso, economiza muito tempo de pesquisa e te guia muitas vezes pelo melhor caminho. Dentre, os assuntos que encontramos no youtube estão salários, impostos, saúde, educação, transporte e cultura, por conta disto, deixamos abaixo alguns dos canais que acompanhamos e contínuamos acompanhando. 
+Outra coisa muito importante durante as nossas pesquisas foram os vídeos do youtube e o feedback das pessoas que já haviam passado por estas etapas. Isso, economiza muito tempo de pesquisa e te guia muitas vezes pelo melhor caminho. Dentre, os assuntos que encontramos no youtube estão salários, impostos, saúde, educação, transporte e cultura, por conta disto, deixamos abaixo alguns dos canais que acompanhamos e continuamos acompanhando. 
 
 Note que, alguns vídeos fora do escopo de um canal também podem ser muito interessantes pra você, e eles não precisam falar de Alemanha, como por exemplo filhos bilíngues. 
 
@@ -123,8 +123,8 @@ Mesmo com um monte de **pesquisas** e **organização**, ainda assim foi muito *
  
 **Apoio**, esta palavra é muito importante para quem pensa em mudar de país, apoio da família que fica, da família que vai junto e também dos conterrâneos, é um fato muito curioso que não levamos em conta esta última forma de apoio, pois não imaginamos que ao chegar aqui você pode contar com o acolhimento dos grupos de conterrâneos vivendo neste país.
 
-É bem verdade que, diversas foram as vezes que precisamos de alguma informação e a encontramos nos grupos do Facebook de Brasileiros que vivem na Alemanha e inclusive aqui mesmo em Munique um grupo de mulheress brasileiras ([MBM](https://www.facebook.com/groups/mbmunique/)) que me recebeu e ajudou com diversas questões inclusive a saudade do Brasil, mas isso é assunto para outro texto já que elas fazem um trabalho incrível e louvável.
+É bem verdade que, diversas foram as vezes que precisamos de alguma informação e a encontramos nos grupos do Facebook de Brasileiros que vivem na Alemanha e inclusive aqui mesmo em Munique um grupo de mulheres brasileiras ([MBM](https://www.facebook.com/groups/mbmunique/)) que me recebeu e ajudou com diversas questões inclusive a saudade do Brasil, mas isso é assunto para outro texto já que elas fazem um trabalho incrível e louvável.
 
 > Se você tiver alguma dúvida específica, deixe um comentário ou envie pra gente uma mensagem em nossa página de contato ou perfis do facebook. 
-> Ficaremos felizes em ajudar você assim como recebemos o âmparo de outras pessoas quando estávamos pesquisando. 
+> Ficaremos felizes em ajudar você assim como recebemos o amparo de outras pessoas quando estávamos pesquisando. 
 > Bis später.
