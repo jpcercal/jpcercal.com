@@ -30,9 +30,9 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   local_dir: public
-  target_branch: master
+  target_branch: gh-pages
   on:
-    all_branches: true
+    branch: master
 
 after_deploy:
   - docker run -v $PWD:/usr/share/blog jpcercal/cercal.io:latest /bin/bash -l -c "GOOGLE_API_KEY=$GOOGLE_API_KEY grunt pagespeed"
