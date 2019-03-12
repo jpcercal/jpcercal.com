@@ -35,7 +35,7 @@ But the most interesting feature for me is called `Split Panes`.
 
 To continue with the customization of your terminal we'll install the `One Dark` color scheme in your iTerm app.
 
-```bash
+```shell
 git clone -b master --depth=1 https://github.com/bahlo/iterm-colors.git ~/iterm-colors
 ```
 
@@ -49,7 +49,7 @@ Note that the presets are living inside of the directory `~/iterm-colors/colors/
 
 Another thing to install is a good font, I'm using `Meslo` if you want the same you can install doing this:
 
-```bash
+```shell
 git clone https://github.com/powerline/fonts.git && cd fonts && ./install.sh
 ```
 
@@ -82,7 +82,7 @@ Some advantages according to the [project page](https://github.com/zplug/zplug):
 
 This is a framework for managing your zsh configuration. In order to install this tool, you should run this command:
 
-```bash
+```shell
 brew install zplug
 ```
 
@@ -90,7 +90,7 @@ brew install zplug
 
 This is the configuration file that I'm using now. To be able to use this one you must install this dependencies before proceed:
 
-```bash
+```shell
 pip install psutil
 pip install powerline-shell
 brew install peco
@@ -98,7 +98,7 @@ brew install peco
 
 Now, copy and paste this content to your `~/.zshrc` file.
 
-```bash
+```shell
 ###########################################################
 # Pre configuration
 
