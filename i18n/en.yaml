@@ -61,3 +61,5 @@ pt:
 readingTime:
   one: "1 min read"
   other: "{{ .Count }} min read"
+githubCorner:
+  other: "View source on GitHub"
