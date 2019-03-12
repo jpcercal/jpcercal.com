@@ -61,3 +61,5 @@ pt:
 readingTime:
   one: "1 min de leitura"
   other: "{{ .Count }} min de leitura"
+githubCorner:
+  other: "Ver código-fonte no GitHub"

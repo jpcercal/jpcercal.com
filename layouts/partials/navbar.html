@@ -1,10 +1,12 @@
-{{ $categories := .Site.Taxonomies.categories }}
-{{ $data       := .Site.Data.categories }}
-{{ $baseUrl    := .Site.BaseURL }}
-{{ $locale     := .Site.Params.locale }}
-{{ $locales    := .Site.Data.locales }}
-{{ $localeEn   := index $locales "en" }}
-{{ $localePt   := index $locales "pt" }}
+{{ $categories  := .Site.Taxonomies.categories }}
+{{ $data        := .Site.Data.categories }}
+{{ $baseUrl     := .Site.BaseURL }}
+{{ $locale      := .Site.Params.locale }}
+{{ $locales     := .Site.Data.locales }}
+{{ $localeEn    := index $locales "en" }}
+{{ $localePt    := index $locales "pt" }}
+{{ $githubTitle := i18n "githubCorner" }}
+{{ $githubImg   := printf "%s%s" $baseUrl "images/icons/github-corner-right.svg" }}
 
 <header class="container">
     <div class="row">
@@ -39,4 +41,8 @@
             </div>
         </div>
     </div>
+
+    <a href="https://github.com/jpcercal/cercal.io" class="d-none d-lg-inline github-corner" title="{{ $githubTitle }}" aria-label="{{ $githubTitle }}">
+        <img src="{{ $githubImg }}" alt="{{ $githubTitle }}" />
+    </a>
 </header>
