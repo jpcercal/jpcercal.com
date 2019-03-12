@@ -23,17 +23,15 @@
                 </div>
 
                 <div class="col clearfix">
-                    <nav class="locale float-right">
-                        <ul class="list-unstyled list-inline m-0">
-                            <li class="list-inline-item">
-                                <a href="{{ $baseUrl }}">
-                                    <img src="{{ .Site.BaseURL }}{{ $localePt.icon }}" alt="{{ index $localePt.title $locale }}" title="{{ index $localePt.title $locale }}" height="32" width="32">
-                                </a>
+                    <nav class="float-right">
+                        <ul class="list-unstyled list-inline m-0 locale-list">
+                            <li class='list-inline-item locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
+                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseUrl }}{{ end }}' class="d-none d-lg-inline">{{ index $localePt.title $locale }}</a>
+                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseUrl }}{{ end }}' class="d-lg-none" title="{{ index $localePt.title $locale }}">PT</a>
                             </li>
-                            <li class="list-inline-item">
-                                <a href="{{ $baseUrl }}en">
-                                    <img src="{{ .Site.BaseURL }}{{ $localeEn.icon }}" alt="{{ index $localeEn.title $locale }}" title="{{ index $localeEn.title $locale }}" height="32" width="32">
-                                </a>
+                            <li class='list-inline-item locale-list-item {{ if eq $locale "en" }}locale-list-item--active{{ end }}'>
+                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseUrl }}en{{ end }}' class="d-none d-lg-inline">{{ index $localeEn.title $locale }}</a>
+                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseUrl }}en{{ end }}' class="d-lg-none" title="{{ index $localeEn.title $locale }}">EN</a>
                             </li>
                         </ul>
                     </nav>
