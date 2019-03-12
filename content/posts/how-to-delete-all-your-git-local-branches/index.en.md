@@ -15,7 +15,7 @@ tags:
 
 Well, from time to time I feel the need of cleaning my local branches, it’s part of my natural workflow and if you need the same you could benefit as well of this handful pipped command below:
 
-```bash
+```shell
 $ git branch --list | \
 egrep --invert-match "(master|gh-pages|\*)" | \
 xargs git branch -D

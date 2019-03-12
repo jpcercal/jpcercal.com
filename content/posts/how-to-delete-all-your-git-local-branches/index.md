@@ -15,7 +15,7 @@ tags:
 
 Bem, de tempos em tempos eu percebo que preciso limpar minhas branches locais, isto é parte do meu workflow e se você precisa ou quer fazer o mesmo, então poderia se beneficiar desse snippet abaixo:
 
-```bash
+```shell
 $ git branch --list | \
 egrep --invert-match "(master|gh-pages|\*)" | \
 xargs git branch -D
