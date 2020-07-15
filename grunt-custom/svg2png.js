@@ -16,15 +16,6 @@ module.exports = function (grunt) {
         var width  = grunt.config.get(sprintf('%s.options.width', task.name));
         var height = grunt.config.get(sprintf('%s.options.height', task.name));
 
-        var postsPath = postRepository.findAll().map(function (post) {
-            return sprintf(
-                '%s/public/%s%s/index', 
-                process.cwd(), 
-                post.language == 'en' ? 'en/' : '',
-                post.slug
-            );
-        });
-
         var options = {
             width:  typeof width  === 'undefined' ? 512 : width,
             height: typeof height === 'undefined' ? 512 : height
@@ -38,11 +29,21 @@ module.exports = function (grunt) {
 
         grunt.log.writeln(sprintf('> Options: {height: %d, width: %d}', options.height, options.width));
 
-        for (var i = 0; i < postsPath.length; i++) {
-            var inputFilename  = sprintf('%s.svg', postsPath[i]);
-            var outputFilename = sprintf('%s.png', postsPath[i]);
+        var posts = postRepository.findAll();
 
-            grunt.log.writeln(sprintf('> Processing "%s".', inputFilename));
+        for (var i = 0; i < posts.length; i++) {
+            var filenameTemplate = sprintf(
+                '%s/public/%s%s/index',
+                process.cwd(),
+                posts[i].language == 'en' ? 'en/' : '',
+                posts[i].slug
+            );
+
+            var inputFilename = sprintf("%s.svg", filenameTemplate);
+            var outputFilename = sprintf("%s.png", filenameTemplate);
+
+            grunt.verbose.writeln(sprintf('> Reading "%s".', inputFilename));
+            grunt.log.writeln(sprintf('> Generating "%s".', outputFilename));
 
             var sourceBuffer = fs.readFileSync(inputFilename);
             var outputBuffer = svg2png.sync(sourceBuffer, options);
@@ -50,6 +51,6 @@ module.exports = function (grunt) {
             fs.writeFileSync(outputFilename, outputBuffer, 'utf-8', writeFileCallback);
         }
 
-        grunt.log.ok(sprintf('Done. It was generated an index containing "%d" posts.', postsPath.length));
+        grunt.log.ok(sprintf('Done. It was generated an index containing "%d" posts.', posts.length));
     });
 };

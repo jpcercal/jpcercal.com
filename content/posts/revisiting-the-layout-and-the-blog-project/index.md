@@ -1,7 +1,7 @@
 ---
 draft: false
 author: jpcercal@gmail.com
-slug: revisiting-the-layout-and-the-blog-project
+slug: revisitando-o-layout-e-o-projeto-do-blog
 title: Revisitando o layout e o projeto do Blog
 date: 2019-03-12T21:33:54+00:00
 description: Um projeto/prova de conceito que se mostrou interessante, trata-se da migração de um site dinâmico escrito em PHP para um blog estático, sem custos com servidores e otimizado para a web. Confira alguns detalhes da implementação.

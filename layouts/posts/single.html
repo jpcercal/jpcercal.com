@@ -6,6 +6,7 @@
 {{ $categoryAlias   := index .Params.categories 0 }}
 {{ $category        := index .Site.Data.categories $categoryAlias }}
 {{ $tags            := .Site.Data.tags }}
+{{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
 {{ $.Scratch.Set "singlePost" true }}
 
@@ -20,7 +21,7 @@
             </div>
 
             <div class="float-left ml-2">
-                <a href='{{ $baseURL }}authors/{{ $author.slug }}' rel="author" class="font-size-h6 author-name">{{ $author.name }}</a>
+                <a href='{{ $localeBaseURL }}authors/{{ $author.slug }}' rel="author" class="font-size-h6 author-name">{{ $author.name }}</a>
                 <p class="author-position">{{ index $author.position $locale }}</p>
 
                 <ul class="list-inline">
@@ -35,7 +36,7 @@
                     </li>
                     {{ if $category }}
                         <li class="list-inline-item d-inline">
-                            <a href="{{ $baseURL }}categories/{{ $categoryAlias | urlize }}">{{ index (index $category "title") $locale }}</a>
+                            <a href='{{ $localeBaseURL }}categories/{{ $categoryAlias | urlize }}'>{{ index (index $category "title") $locale }}</a>
                         </li>
                     {{ end }}
                 </ul>
@@ -77,7 +78,7 @@
                 {{ range $tag := .Params.tags }}
                     {{ if $tag }}
                         <li class="article-tag list-inline-item">
-                            <a href="{{ $baseURL }}tags/{{ $tag | urlize }}">{{ index (index (index $tags $tag) "title") $locale }}</a>
+                            <a href='{{ $localeBaseURL }}tags/{{ $tag | urlize }}'>{{ index (index (index $tags $tag) "title") $locale }}</a>
                         </li>
                     {{ end }}
                 {{ end }}

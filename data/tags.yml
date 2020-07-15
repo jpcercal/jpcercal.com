@@ -25,11 +25,15 @@ conference:
 database:
   title:
     en: Database
-    pt: Banco de dados
+    pt: "Banco de dados"
 delphi:
   title:
     en: Delphi
     pt: Delphi
+dream:
+  title:
+    en: Dream
+    pt: Sonho
 ec2:
   title:
     en: EC2
@@ -41,11 +45,27 @@ eclipse:
 ecommerce:
   title:
     en: E-commerce
-    pt: Loja virtual
+    pt: "Loja virtual"
+english:
+  title:
+    en: English
+    pt: Inglês
 framework:
   title:
     en: Framework
     pt: Framework
+germany:
+  title:
+    en: Germany
+    pt: Alemanha
+git:
+  title:
+    en: Git
+    pt: Git
+howto:
+  title:
+    en: "How to do that"
+    pt: "Como fazer"
 ide:
   title:
     en: IDE
@@ -66,6 +86,10 @@ linux:
   title:
     en: Linux
     pt: Linux
+living_abroad:
+  title:
+    en: "Living abroad"
+    pt: "Vivendo no exterior"
 marketing:
   title:
     en: Marketing
@@ -74,6 +98,10 @@ microsoft:
   title:
     en: Microsoft
     pt: Microsoft
+munich:
+  title:
+    en: Munich
+    pt: Munique
 mysql:
   title:
     en: MySQL
@@ -122,31 +150,3 @@ zend:
   title:
     en: Zend
     pt: Zend
-howto:
-  title:
-    en: How to do that
-    pt: Como fazer
-dream:
-  title:
-    en: Dream
-    pt: Sonho
-germany:
-  title:
-    en: Germany
-    pt: Alemanha
-munich:
-  title:
-    en: Munich
-    pt: Munique
-english:
-  title:
-    en: English
-    pt: Inglês
-living_abroad:
-  title:
-    en: Living abroad
-    pt: Vivendo no exterior
-git:
-  title:
-    en: Git
-    pt: Git

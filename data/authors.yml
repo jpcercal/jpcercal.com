@@ -1,10 +1,10 @@
 jpcercal@gmail.com:
   slug: jpcercal
   name: João Paulo Cercal
-  position: 
-    en: PHP Developer at GetYourGuide GmbH in Berlin, Germany
-    pt: PHP Developer na GetYourGuide GmbH em Berlim, Alemanha
-  picture: 
+  position:
+    en: Software Engineer at Spectrm in Berlin, Germany
+    pt: Software Engineer na Spectrm em Berlim, Alemanha
+  picture:
     thumbnail: authors/jpcercal/thumbnail.jpg
     original: authors/jpcercal/picture.jpg
   biography:
@@ -24,18 +24,19 @@ jpcercal@gmail.com:
         en: Portfolio
         pt: Portfólio
       url: https://jpcercal.github.io/projects
-    - 
-      name: 
+    -
+      name:
         en: About me
         pt: About me
       url: https://about.me/jpcercal
+
 elisetecercal@gmail.com:
   slug: elisetecercal
   name: Elisete dos Santos Cercal
-  position: 
+  position:
     en: Wife and mother living in Berlin, Germany
     pt: Esposa e mãe vivendo em Berlim, Alemanha
-  picture: 
+  picture:
     thumbnail: authors/elisetecercal/thumbnail.jpg
     original: authors/elisetecercal/picture.jpg
   biography:
@@ -50,29 +51,30 @@ elisetecercal@gmail.com:
     linkedin: https://www.linkedin.com/in/elisete-santos-cercal-861a4755
     github:
   links: []
+
 lukas.cercal@gmail.com:
   slug: lucascercal
   name: Lucas Alfredo Cercal
-  position: 
+  position:
     en: Front-end Developer
     pt: Desenvolvedor Front-end
-  picture: 
+  picture:
     thumbnail: authors/lucascercal/thumbnail.jpg
     original: authors/lucascercal/picture.jpg
   biography:
-    en: 
+    en:
     pt: Desenvolvedor Front-End desde 2012. Sempre buscando melhores práticas, novas tecnologias, e metodologias para melhorar o fluxo de trabalho e trazer retorno além do esperado para seus projetos e para seus clientes.
   resume:
-    en: 
-    pt: 
+    en:
+    pt:
   socialNetworks:
     facebook: https://www.facebook.com/lucasalfredo.cercal
     twitter: https://twitter.com/lucascercal
     linkedin: https://www.linkedin.com/in/lucascercal
     github: https://github.com/LucasCercal
   links:
-    - 
-      name: 
+    -
+      name:
         en: Portfolio
         pt: Portfólio
       url: https://lucascercal.github.io
