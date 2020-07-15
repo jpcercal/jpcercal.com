@@ -4,15 +4,16 @@
 {{ $datetimeDisplay := .Date.Format "Jan 2, 2006" }}
 {{ $categoryAlias   := index .Params.categories 0 }}
 {{ $category        := index .Site.Data.categories $categoryAlias }}
-{{ $directory       := "content/posts/" }}
+{{ $directory       := "content/" }}
 {{ $filename        := "index.svg" }}
-{{ $cover           := where (readDir (printf "%s%s" $directory .Slug)) "Name" $filename }}
-{{ $img             := printf "%s%s" $baseURL "images/icons/tag.svg" }}
+{{ $cover           := where (readDir (printf "%s%s" $directory .File.Dir)) "Name" $filename }}
+{{ $defaultCover    := printf "%s%s" $baseURL "images/icons/tag.svg" }}
+{{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
 <article class="post-card mb-4">
     <div class="flex-row d-flex">
         <div class="flex-column m-3">
-            <img class="rounded" src='{{ if $cover }}{{ if eq $locale "en" }}{{ printf "%sen/%s/%s" $baseURL .Slug $filename }}{{ else }}{{ printf "%s%s/%s" $baseURL .Slug $filename }}{{ end }}{{ else }}{{ $img }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
+            <img class="rounded" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
         </div>
         <header class="flex-column m-0">
             <h2 class="mt-0 mb-0 font-size-h4">
@@ -32,7 +33,7 @@
             </ul>
 
             {{ if $category }}
-                <a class="post-card--category d-none d-md-inline" href="{{ $baseURL }}categories/{{ $categoryAlias | urlize }}">{{ index (index $category "title") $locale }}</a>
+                <a class="post-card--category d-none d-md-inline" href='{{ $localeBaseURL }}categories/{{ $categoryAlias | urlize }}'>{{ index (index $category "title") $locale }}</a>
             {{ end }}
             <p class="mt-2 mb-3 mr-2">{{ .Description }}</p>
         </header>

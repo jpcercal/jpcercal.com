@@ -1,16 +1,16 @@
-facebook: 
+facebook:
+  baseUrl: "https://facebook.com/"
   icon: fa-facebook-square
   title: Facebook
-  baseUrl: https://facebook.com/
-twitter: 
-  icon: fa-twitter
-  title: Twitter
-  baseUrl: https://twitter.com/
-linkedin: 
-  icon: fa-linkedin
-  title: LinkedIn
-  baseUrl: https://www.linkedin.com/in/
-github: 
+github:
+  baseUrl: "https://github.com/"
   icon: fa-github
   title: GitHub
-  baseUrl: https://github.com/
+linkedin:
+  baseUrl: "https://www.linkedin.com/in/"
+  icon: fa-linkedin
+  title: LinkedIn
+twitter:
+  baseUrl: "https://twitter.com/"
+  icon: fa-twitter
+  title: Twitter

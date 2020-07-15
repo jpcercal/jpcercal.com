@@ -1,8 +1,6 @@
 module.exports = function (grunt) {
     'use strict';
 
-    var md5 = require('md5');
-    var S = require("string");
     var sprintf = require('sprintf-js').sprintf;
 
     var postRepository = require('./post-repository')(grunt);
@@ -33,7 +31,7 @@ module.exports = function (grunt) {
         var copiedFiles = 0;
 
         var postsPath = postRepository.findAll().map(function (post) {
-            var source = post.slug + sprintf('/*.{%s}', fileExtensions.join(','));
+            var source = post.subdir + sprintf('/*.{%s}', fileExtensions.join(','));
 
             var contentDestination = sprintf('%s%s/', post.language == 'en' ? 'en/' : '', post.slug);
 

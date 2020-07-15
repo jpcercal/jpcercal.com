@@ -1,30 +1,30 @@
-php:
-  title:
-    en: PHP
-    pt: PHP
-  icon: 
-js:
-  title:
-    en: Javascript
-    pt: Javascript
-  icon:
-html:
-  title:
-    en: HTML
-    pt: HTML
-  icon: 
 devops:
+  icon: ~
   title:
     en: DevOps
     pt: DevOps
-  icon:
+html:
+  icon: ~
+  title:
+    en: HTML
+    pt: HTML
+js:
+  icon: ~
+  title:
+    en: Javascript
+    pt: Javascript
 lifestyle:
+  icon: ~
   title:
     en: Lifestyle
-    pt: Estilo de vida
-  icon:
+    pt: "Estilo de vida"
 other:
+  icon: ~
   title:
     en: Others
     pt: Outros
-  icon: 
+php:
+  icon: ~
+  title:
+    en: PHP
+    pt: PHP
