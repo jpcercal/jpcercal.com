@@ -15,7 +15,7 @@ module.exports = function (grunt) {
 
             grunt.file.recurse(contentDir, function (abspath, rootdir, subdir, filename) {
                 if (S(filename).endsWith(".md")) {
-                    var frontMatter = findByAbsolutePath(abspath, filename);
+                    var frontMatter = findByAbsolutePath(abspath, rootdir, subdir, filename);
 
                     if (frontMatter != null) {
                         posts.push(frontMatter);
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
             return posts;
         };
 
-        var findByAbsolutePath = function (abspath, filename) {
+        var findByAbsolutePath = function (abspath, rootdir, subdir, filename) {
             grunt.verbose.ok(sprintf('Reading "%s" ...', abspath));
 
             var content = grunt.file.read(abspath);
@@ -41,6 +41,7 @@ module.exports = function (grunt) {
                 frontMatter = yaml.safeLoad(content[1].trim());
                 frontMatter.content = content[2];
                 frontMatter.language = language;
+                frontMatter.subdir = subdir;
             } catch (e) {
                 grunt.log.error(e.message);
             }

@@ -1,9 +1,10 @@
-{{ $data       := .Data }}
-{{ $results    := .Data.Terms.ByCount }}
-{{ $baseUrl    := .Site.BaseURL }}
-{{ $locale     := .Site.Params.locale }}
-{{ $categories := .Site.Data.categories }}
-{{ $tags       := .Site.Data.tags }}
+{{ $data          := .Data }}
+{{ $results       := .Data.Terms.ByCount }}
+{{ $baseURL       := .Site.BaseURL }}
+{{ $locale        := .Site.Params.locale }}
+{{ $categories    := .Site.Data.categories }}
+{{ $tags          := .Site.Data.tags }}
+{{ $localeBaseURL := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
@@ -20,11 +21,11 @@
 
                     <h2 class="mt-3">
                         {{ if $category }}
-                            <a class="post-list--title" href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ index (index $category "title") $locale }}</a>
+                            <a class="post-list--title" href='{{ $localeBaseURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}'>{{ index (index $category "title") $locale }}</a>
                         {{ else if $tag }}
-                            <a class="post-list--title" href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ index (index $tag "title") $locale }}</a>
+                            <a class="post-list--title" href='{{ $localeBaseURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}'>{{ index (index $tag "title") $locale }}</a>
                         {{ else }}
-                            <a class="post-list--title" href="{{ $baseUrl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a>
+                            <a class="post-list--title" href='{{ $localeBaseURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}'>{{ $value.Name }}</a>
                         {{ end }}
                         <span class="counter">{{ $value.Count }}</span>
                     </h2>

@@ -1,37 +1,37 @@
 {{ $categories  := .Site.Taxonomies.categories }}
 {{ $data        := .Site.Data.categories }}
-{{ $baseUrl     := .Site.BaseURL }}
+{{ $baseURL     := .Site.BaseURL }}
 {{ $locale      := .Site.Params.locale }}
 {{ $locales     := .Site.Data.locales }}
 {{ $localeEn    := index $locales "en" }}
 {{ $localePt    := index $locales "pt" }}
 {{ $githubTitle := i18n "githubCorner" }}
-{{ $githubImg   := printf "%s%s" $baseUrl "images/icons/github-corner-right.svg" }}
+{{ $githubImg   := printf "%s%s" $baseURL "images/icons/github-corner-right.svg" }}
 
 <header class="container">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
             <div class="row align-items-center header">
                 <div class="col search">
-                    <a class="search-link" href='{{ $baseUrl }}{{ if eq $locale "en" }}en/{{ end }}search'>
+                    <a class="search-link" href='{{ $baseURL }}{{ if eq $locale "en" }}en/{{ end }}search'>
                         <span class="search-icon"></span> <span class="d-none d-sm-inline">{{ i18n "searchFor" }}</span>
                     </a>
                 </div>
 
                 <div class="col">
-                    <a class="font-size-h3 brand text-center m-0" href='{{ $baseUrl }}{{ if eq $locale "en" }}en/{{ end }}'>Cercal.IO</a>
+                    <a class="font-size-h3 brand text-center m-0" href='{{ $baseURL }}{{ if eq $locale "en" }}en/{{ end }}'>Cercal.IO</a>
                 </div>
 
                 <div class="col clearfix">
                     <nav class="float-right">
                         <ul class="list-unstyled list-inline m-0 locale-list">
                             <li class='list-inline-item locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
-                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseUrl }}{{ end }}' class="d-none d-lg-inline">{{ index $localePt.title $locale }}</a>
-                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseUrl }}{{ end }}' class="d-lg-none" title="{{ index $localePt.title $locale }}">PT</a>
+                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="d-none d-lg-inline">{{ index $localePt.title $locale }}</a>
+                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="d-lg-none" title="{{ index $localePt.title $locale }}">PT</a>
                             </li>
                             <li class='list-inline-item locale-list-item {{ if eq $locale "en" }}locale-list-item--active{{ end }}'>
-                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseUrl }}en{{ end }}' class="d-none d-lg-inline">{{ index $localeEn.title $locale }}</a>
-                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseUrl }}en{{ end }}' class="d-lg-none" title="{{ index $localeEn.title $locale }}">EN</a>
+                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="d-none d-lg-inline">{{ index $localeEn.title $locale }}</a>
+                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="d-lg-none" title="{{ index $localeEn.title $locale }}">EN</a>
                             </li>
                         </ul>
                     </nav>
