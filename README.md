@@ -25,26 +25,25 @@ Let’s move on and take a look what are the steps you have to do in order to ha
 
 ### Compiling the blog
 
-The following script will build the blog according to the existing files on the repository, then it will give you the control and so, you have access to the bash, there you should be able to run either `grunt` (this is the development compilation mode) or `grunt production` which compiles the blog performing micro-optimizations to our target, production.
+The following script will build the blog according to the existing files on the repository, then it will listen to any changes in order to recompile the project.
+
+Before doing so, you have to copy the file `.env.dist` and save it as `.env` while applying the changes according to your environment.
+
+```
+cp .env.dist .env
+vi .env
+```
 
 > For the majority of things you have to do, the development compilation mode should be more than enough.
 > If you are curious about the steps that are executed for each compilation mode, please take a look on the [Gruntfile.js](https://github.com/jpcercal/cercal.io/blob/master/Gruntfile.js) file.
 > Otherwise, if you would like to take a look into our pipeline and check the compilation process for production, then take a look into the [.travis.yml](https://github.com/jpcercal/cercal.io/blob/master/.travis.yml) file and into the [TravisCI.org:jpcercal/cercal.io](https://travis-ci.org/jpcercal/cercal.io) pipeline.
 
 ```shell
-$ ./bin/bash.sh
-
-# grunt
+$ ./bin/watch.sh
 ```
 
-### Running the Webserver
-
-The following script will add a line if it doesn’t exists in your `/etc/hosts` file containing the domain `cercal.local` pointing to `127.0.0.1`. After all, it will run a docker container that will start a http web server.
-
-> You have to leave this command being executed, otherwise the http server is terminated and you cannot access the http service.
-
-```shell
-./bin/http-server.sh
-```
+> Note that, the command above requires docker to be running on your machine.
 
 If everything went okay, it’s time to open your browser to see everything running [https://cercal.local](https://cercal.local).
+
+> It assumes that the hostname defined on the `.env` file is still the default one `"cercal.local"`. 
