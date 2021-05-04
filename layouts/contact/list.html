@@ -31,10 +31,10 @@
 {{ "<!-- build:template" | safeHTML }}
 {{ "<% if (environment === 'production') { %>" | safeHTML }}
 <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/cercal.io.contact.min.js"></script>
+<script src="{{ .Site.BaseURL }}js/jpcercal.com.contact.min.js"></script>
 {{ "<% } else { %>" | safeHTML }}
 <script src="{{ .Site.BaseURL }}vendor/js/axios.js"></script>
-<script src="{{ .Site.BaseURL }}js/cercal.io.contact.js"></script>
+<script src="{{ .Site.BaseURL }}js/jpcercal.com.contact.js"></script>
 {{ "<% } %>" | safeHTML }}
 {{ "/build -->" | safeHTML }}
 

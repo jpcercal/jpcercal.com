@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var params = new URLSearchParams();
         params.append('_cc', cc.join(','));
-        params.append('_subject', '[via @cercal.io] ' + name.value);
+        params.append('_subject', '[via @jpcercal.com] ' + name.value);
         params.append('email', email.value);
         params.append('name', name.value);
         params.append('message', message.value);
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
 
-        axios.post('//formspree.io/contact@cercal.io', params, config).then(function (response) {
+        axios.post('//formspree.io/contact@jpcercal.com', params, config).then(function (response) {
             if (response.status == 200) {
                 notifier.notify(i18n.trans('success'), notifier.TYPE.SUCCESS);
 

@@ -11,10 +11,10 @@
 {{ "<!-- build:template" | safeHTML }}
 {{ "<% if (environment === 'production') { %>" | safeHTML }}
 <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/vendor.min.css">
-<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/cercal.io.min.css">
+<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/jpcercal.com.min.css">
 {{ "<% } else { %>" | safeHTML }}
 <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/vendor.css">
-<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/cercal.io.css">
+<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/jpcercal.com.css">
 {{ "<% } %>" | safeHTML }}
 {{ "/build -->" | safeHTML }}
 {{ if $.Scratch.Get "singlePost" }}

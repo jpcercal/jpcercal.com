@@ -23,7 +23,7 @@ Olá caros leitores, tinha vontade de revisitar o layout do *blog* há muito tem
 
 Pois bem, tecnicamente falando eu gostaria de ter o blog com o código fonte aberto no GitHub para servir de inspiração para outros nerds tomarem meu projeto como base.
 
-> Ficou curioso e quer dar uma olhadinha no código fonte? Então aqui está o [link do repositório](https://github.com/jpcercal/cercal.io), mate sua vontade e deixe um *star* pra mim por lá. Além disto, por que não fazer um *fork* do projeto também? Encontrou algum bug? Abra uma issue ou melhor ainda manda um PR. ❤️
+> Ficou curioso e quer dar uma olhadinha no código fonte? Então aqui está o [link do repositório](https://github.com/jpcercal/jpcercal.com), mate sua vontade e deixe um *star* pra mim por lá. Além disto, por que não fazer um *fork* do projeto também? Encontrou algum bug? Abra uma issue ou melhor ainda manda um PR. ❤️
 
 Quando iniciei esse projeto de migração em meados de 2017, o blog rodava em [Wordpress](https://wordpress.org/) 3.4 e dependia de um servidor para renderizar o conteúdo (nada mais nada menos que um *stack* [LAMP](https://www.ibm.com/cloud/learn/lamp-stack-explained)). Por isto, houve também a necessidade de migrar o conteúdo já existente na plataforma antiga para arquivos markdown. Assim sendo, eu buscava como objetivo final:
 
@@ -58,7 +58,7 @@ Outra vantagem é que não há processamento de dados no *server-side*, os arqui
 
 Uma desvantagem, mas nem tanto, é que não há como fazer *queries* num servidor e possibilitar buscas em um banco de dados de conteúdo, então caso algum visitante queira buscar algo no site o que acontece? Bem, exatamente aqui que entra em cena o [Lunr](https://lunrjs.com/).
 
-> Um arquivo de índice é criado em tempo de *build* por essa [task](https://github.com/jpcercal/cercal.io/blob/master/grunt-custom/lunr.js) do [grunt](https://gruntjs.com/), depois disso, um [arquivo JS implementa o módulo de busca](https://github.com/jpcercal/cercal.io/blob/master/assets/js/search.js) e faz uso do índice, atribuí peso para diferentes campos de conteúdo e faz a pesquisa. Lindo!
+> Um arquivo de índice é criado em tempo de *build* por essa [task](https://github.com/jpcercal/jpcercal.com/blob/master/grunt-custom/lunr.js) do [grunt](https://gruntjs.com/), depois disso, um [arquivo JS implementa o módulo de busca](https://github.com/jpcercal/jpcercal.com/blob/master/assets/js/search.js) e faz uso do índice, atribuí peso para diferentes campos de conteúdo e faz a pesquisa. Lindo!
 
 ## Arquivos Markdown
 
@@ -70,27 +70,27 @@ Já que este formato é tão popular e fluído, porque manter um banco de dados?
 
 Perfeito, não? Melhor ainda, é que posso criar o conteúdo no idioma que eu quiser, basta abrir um novo arquivo e começar a tradução, veja mais sobre isso no repositório, onde há arquivos estáticos de tradução que apresentam, menus, links, etc:
 
-- [jpcercal/cercal.io/i18n/en.yaml](https://github.com/jpcercal/cercal.io/blob/master/i18n/en.yaml)
-- [jpcercal/cercal.io/i18n/en.yaml](https://github.com/jpcercal/cercal.io/blob/master/i18n/en.yaml)
+- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/master/i18n/en.yaml)
+- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/master/i18n/en.yaml)
 
 E, conteúdos traduzidos:
 
-- [jpcercal/cercal.io/content/posts/composer-clear-cache/index.en.md](https://github.com/jpcercal/cercal.io/blob/master/content/posts/composer-clear-cache/index.en.md)
-- [jpcercal/cercal.io/content/posts/composer-clear-cache/index.md](https://github.com/jpcercal/cercal.io/blob/master/content/posts/composer-clear-cache/index.md)
+- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.en.md](https://github.com/jpcercal/jpcercal.com/blob/master/content/posts/composer-clear-cache/index.en.md)
+- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.md](https://github.com/jpcercal/jpcercal.com/blob/master/content/posts/composer-clear-cache/index.md)
 
 ## Ambiente de desenvolvimento e testes
 
 O ambiente de desenvolvimento é baseado em contêineres do Docker, basicamente a única coisa que você precisa ter na sua máquina pra compilar o projeto é o Docker e uma conexão ativa com a internet para baixar as imagens dos contêineres. 
 
-> Você pode encontrar mais detalhes sobre o processo de instalação  e o guia de utilização do serviço no repositório [jpcercal/cercal.io](https://github.com/jpcercal/cercal.io/).
+> Você pode encontrar mais detalhes sobre o processo de instalação  e o guia de utilização do serviço no repositório [jpcercal/jpcercal.com](https://github.com/jpcercal/jpcercal.com/).
 
 ## Travis CI
 
 Como todo bom desenvolvedor, eu criei uma *pipeline* que automatiza o *deploy* da aplicação, obrigado ao pessoal do [Travis CI](https://docs.travis-ci.com/user/for-beginners/) por disponibilizar um ferramenta excelente, pelo menos para o meu propósito.
 
-> Se você estiver curioso sobre como a *pipeline* funciona a cada *commit* ou *pull-request*, não deixe de dar uma passada no [Travis-CI deste repo jpcercal/cercal.io](https://travis-ci.org/jpcercal/cercal.io).
+> Se você estiver curioso sobre como a *pipeline* funciona a cada *commit* ou *pull-request*, não deixe de dar uma passada no [Travis-CI deste repo jpcercal/jpcercal.com](https://travis-ci.org/jpcercal/jpcercal.com).
 
-Basicamente o TravisCI abre o arquivo [.travis.yml](https://github.com/jpcercal/cercal.io/blob/master/.travis.yml) definido na raíz do repositório e executa as *tasks* ali definidas. As partes mais importantes estão listadas abaixo:
+Basicamente o TravisCI abre o arquivo [.travis.yml](https://github.com/jpcercal/jpcercal.com/blob/master/.travis.yml) definido na raíz do repositório e executa as *tasks* ali definidas. As partes mais importantes estão listadas abaixo:
 
 - Instala as dependências
 - Faz a build no modo de produção (isso incluí dentre outras coisas a otimização dos *assets*)

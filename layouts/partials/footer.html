@@ -16,9 +16,9 @@
 
 {{ "<!-- build:template" | safeHTML }}
 {{ "<% if (environment === 'production') { %>" | safeHTML }}
-<script async src="{{ .Site.BaseURL }}js/cercal.io.min.js"></script>
+<script async src="{{ .Site.BaseURL }}js/jpcercal.com.min.js"></script>
 {{ "<% } else { %>" | safeHTML }}
-<script async src="{{ .Site.BaseURL }}js/cercal.io.js"></script>
+<script async src="{{ .Site.BaseURL }}js/jpcercal.com.js"></script>
 {{ "<% } %>" | safeHTML }}
 {{ "/build -->" | safeHTML }}
 

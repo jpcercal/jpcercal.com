@@ -56,7 +56,7 @@ O array `$userdata` deve conter os seguintes campos:
 $userdata = array(
   'user_pass'    => '123',
   'user_login'   => 'johndoe',
-  'user_url'     => 'https://cercal.io',
+  'user_url'     => 'https://jpcercal.com',
   'user_email'   => 'johndoe@gmail.com',
   'display_name' => 'John Doe',
   'nickname'     => 'JD',
