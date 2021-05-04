@@ -1,7 +1,4 @@
-FROM node:9.2
-
-# Install Grunt
-RUN npm install -g grunt-cli http-server
+FROM node:12
 
 # Run update
 RUN apt-get update
@@ -12,22 +9,13 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     git \
     ca-certificates \
     asciidoc \
-	&& rm -rf /var/lib/apt/lists/*
+    openjdk-8-jdk
 
-# Install Java 8 (for w3c validation)
-RUN set -ex && \
-    echo 'deb http://deb.debian.org/debian jessie-backports main' \
-    > /etc/apt/sources.list.d/jessie-backports.list && \
-    apt update -y && \
-    apt install -t \
-    jessie-backports \
-    openjdk-8-jre-headless \
-    ca-certificates-java -y
+# Install Grunt
+RUN npm install -g grunt-cli http-server npm
 
 # Install ruby + scss
-ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
-
-RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+RUN gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 RUN curl -L https://get.rvm.io | bash -s stable
 RUN echo 'source /etc/profile.d/rvm.sh' >> /etc/profile
 RUN /bin/bash -l -c "rvm install ruby --latest"
@@ -36,13 +24,11 @@ RUN /bin/bash -l -c "gem install sass"
 # Download and install hugo
 ENV HUGO_VERSION 0.27.1
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit.deb
-
 ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY} /tmp/hugo.deb
 RUN dpkg -i /tmp/hugo.deb && rm /tmp/hugo.deb
 
 # Create and define working directory
 RUN mkdir -p /usr/share/blog/public
-
 WORKDIR /usr/share/blog
 
 # Expose default hugo port
