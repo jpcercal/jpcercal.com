@@ -44,6 +44,6 @@ $ ./bin/watch.sh
 
 > Note that, the command above requires docker to be running on your machine.
 
-If everything went okay, it’s time to open your browser to see everything running [https://cercal.local](https://cercal.local).
+If everything went okay, it’s time to open your browser to see everything running [https://jpcercal.local](https://jpcercal.local).
 
-> It assumes that the hostname defined on the `.env` file is still the default one `"cercal.local"`. 
+> It assumes that the hostname defined on the `.env` file is still the default one `"jpcercal.local"`. 
