@@ -19,7 +19,7 @@ combinar duas funções, são elas: `get_permalink()` e `get_page_by_path()`.
 
 ```php
 <a href="<?php echo get_permalink( get_page_by_path('Eventos') ); ?>">
-    <?php _e('Eventos', 'cercal-io'); ?>
+    <?php _e('Eventos', 'jpcercal-com'); ?>
 </a>
 ```
 
@@ -27,7 +27,7 @@ combinar duas funções, são elas: `get_permalink()` e `get_page_by_path()`.
 
 ```php
 <a href="<?php echo get_permalink( get_page_by_path('cadastrar-cliente') ); ?>">
-    <?php _e('Cadastrar Cliente', 'cercal-io'); ?>
+    <?php _e('Cadastrar Cliente', 'jpcercal-com'); ?>
 </a>
 ```
 
@@ -41,7 +41,7 @@ _Por exemplo:_ para pegar o _permalink_ de uma página filha chamada "Festas" qu
 
 ```php
 <a href="<?php echo get_permalink( get_page_by_path( 'eventos/festas' ) ) ?>">
-    <?php _e('Eventos', 'cercal-io'); ?>
+    <?php _e('Eventos', 'jpcercal-com'); ?>
 </a>
 ```
 
