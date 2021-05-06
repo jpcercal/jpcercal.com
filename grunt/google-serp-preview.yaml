@@ -5,7 +5,7 @@ options:
     <html>
     <head>
       <link rel="stylesheet" type="text/css" href="css/vendor.css">
-      <link rel="stylesheet" type="text/css" href="css/cercal.io.css">
+      <link rel="stylesheet" type="text/css" href="css/jpcercal.com.css">
       <style>
         .search-result .title {
           text-decoration: none;

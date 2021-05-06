@@ -31,11 +31,11 @@
 {{ "<% if (environment === 'production') { %>" | safeHTML }}
 <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.5/lunr.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/cercal.io.search.min.js"></script>
+<script src="{{ .Site.BaseURL }}js/jpcercal.com.search.min.js"></script>
 {{ "<% } else { %>" | safeHTML }}
 <script src="{{ .Site.BaseURL }}vendor/js/axios.js"></script>
 <script src="{{ .Site.BaseURL }}vendor/js/lunr.js"></script>
-<script src="{{ .Site.BaseURL }}js/cercal.io.search.js"></script>
+<script src="{{ .Site.BaseURL }}js/jpcercal.com.search.js"></script>
 {{ "<% } %>" | safeHTML }}
 {{ "/build -->" | safeHTML }}
 

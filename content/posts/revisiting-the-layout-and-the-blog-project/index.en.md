@@ -21,7 +21,7 @@ Hello dear visitor, a long time ago I had the desire to revisit the Blog layout,
 
 Well, technically speaking, the goal was to give back to the open-source community something and so the source code is hosted on GitHub. You can use it to inspire yourself by taking this project as a solid base or even as a starting point.
 
-> Are you curious and would love to take a look into the source code? Then, follow the [repository link](https://github.com/jpcercal/cercal.io), give me a star there. Also, why not create a fork of the repo? Did you find a bug? Open an issue or even better if you send a PR. ❤️
+> Are you curious and would love to take a look into the source code? Then, follow the [repository link](https://github.com/jpcercal/jpcercal.com), give me a star there. Also, why not create a fork of the repo? Did you find a bug? Open an issue or even better if you send a PR. ❤️
 
 When I started this migration project in the middle of 2017, the blog was running on top of [Wordpress](https://wordpress.org/) 3.4 and, as a dependency, a server was required in order to render the content (if you’re used to I’m talking about a [LAMP](https://www.ibm.com/cloud/learn/lamp-stack-explained) stack). That being said, I had to move all the content from the previous website to markdown files, in the end the main points that made me think about this migration were:
 
@@ -56,7 +56,7 @@ Another advantage of this approach is that there’s no script/data processing o
 
 A disadvantage, but not really, is that there’s no way to perform *queries* in a relational database to search for a post,  right? So, what happens in case a visitor searches for something? Good question by the way, another tool came in to solve this specific problem, take a close look into [Lunr](https://lunrjs.com/).
 
-> An index file is created during the build time by this [grunt](https://gruntjs.com/) [task](https://github.com/jpcercal/cercal.io/blob/master/grunt-custom/lunr.js), after [a JS file implements the search module](https://github.com/jpcercal/cercal.io/blob/master/assets/js/search.js), uses the search index created before, defines scores to each content field and, finally it searches for your search terms. Beautiful! 
+> An index file is created during the build time by this [grunt](https://gruntjs.com/) [task](https://github.com/jpcercal/jpcercal.com/blob/master/grunt-custom/lunr.js), after [a JS file implements the search module](https://github.com/jpcercal/jpcercal.com/blob/master/assets/js/search.js), uses the search index created before, defines scores to each content field and, finally it searches for your search terms. Beautiful! 
 
 ## Markdown files
 
@@ -68,27 +68,27 @@ As this format is popular, why should we insist in maintaining a relational data
 
 Perfect, isn’t it? Even better, I can create content in the language that I want, I just have to open the post content in the language that I want to and start typing, if you got interested in take a look into the repo where you can see translation for “static” parts of the site like menus, links, etc:
 
-- [jpcercal/cercal.io/i18n/en.yaml](https://github.com/jpcercal/cercal.io/blob/master/i18n/en.yaml)
-- [jpcercal/cercal.io/i18n/en.yaml](https://github.com/jpcercal/cercal.io/blob/master/i18n/en.yaml)
+- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/master/i18n/en.yaml)
+- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/master/i18n/en.yaml)
 
 And translated post content:
 
-- [jpcercal/cercal.io/content/posts/composer-clear-cache/index.en.md](https://github.com/jpcercal/cercal.io/blob/master/content/posts/composer-clear-cache/index.en.md)
-- [jpcercal/cercal.io/content/posts/composer-clear-cache/index.md](https://github.com/jpcercal/cercal.io/blob/master/content/posts/composer-clear-cache/index.md)
+- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.en.md](https://github.com/jpcercal/jpcercal.com/blob/master/content/posts/composer-clear-cache/index.en.md)
+- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.md](https://github.com/jpcercal/jpcercal.com/blob/master/content/posts/composer-clear-cache/index.md)
 
 ## Development environment and tests
 
 The development environment is based on docker containers and so the only thing you have to install locally is Docker, after having it installed, you just need an active internet connection to download the images for the first execution.
 
-> You can find more details about the entire installation process as well the guide about how to use the service into the repo [jpcercal/cercal.io](https://github.com/jpcercal/cercal.io/).
+> You can find more details about the entire installation process as well the guide about how to use the service into the repo [jpcercal/jpcercal.com](https://github.com/jpcercal/jpcercal.com/).
 
 ## Travis CI
 
 As any other great developer, I created a pipeline to automate the deployment process, thanks to the guys from [Travis CI](https://docs.travis-ci.com/user/for-beginners/) for giving an excellent tool to the community, at least to solve my case.
 
-> If you got seriously curious about how the pipeline looks like and what it does, pass by and check it out on [Travis-CI  jpcercal/cercal.io](https://travis-ci.org/jpcercal/cercal.io).
+> If you got seriously curious about how the pipeline looks like and what it does, pass by and check it out on [Travis-CI  jpcercal/jpcercal.com](https://travis-ci.org/jpcercal/jpcercal.com).
 
-What happens there in a nutshell, Travis opens the file  [.travis.yml](https://github.com/jpcercal/cercal.io/blob/master/.travis.yml) defined on the repository root folder and it runs the tasks that got defined there. The most important steps are listed below:
+What happens there in a nutshell, Travis opens the file  [.travis.yml](https://github.com/jpcercal/jpcercal.com/blob/master/.travis.yml) defined on the repository root folder and it runs the tasks that got defined there. The most important steps are listed below:
 
 - Install dependencies
 - Generate the static site in production mode (it includes among other things the assets optimization)

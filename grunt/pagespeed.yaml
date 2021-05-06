@@ -1,6 +1,6 @@
 options:
   key: "<%= googleApiKey %>"
-  url: "https://cercal.io/"
+  url: "https://jpcercal.com/"
 desktop:
   options:
     locale: "en_GB"

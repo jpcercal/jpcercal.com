@@ -43,7 +43,7 @@ Como sou um grande fã de automação, queria escrever no meu iPhone ou iPad enq
 
 O problema que tive é que queria salvar o conteúdo dos artigos no meu iPad, mas quando estava no PC queria enviar o arquivo para o repositório e ver como ficaria em um modo de visualização a postagem do blog (antes de enviar para produção).
 
-Para conseguir isso, decidi sincronizar minha subpasta do [iCloud](https://www.icloud.com) (aquela que contém todas as postagens do blog sincronizadas pelo iA Writer) com uma pasta específica do [repositório git `./content/posts/`](https://github.com/jpcercal/cercal.io/tree/master/content/posts). E funcionou perfeitamente. Veja como fazer isso abaixo.
+Para conseguir isso, decidi sincronizar minha subpasta do [iCloud](https://www.icloud.com) (aquela que contém todas as postagens do blog sincronizadas pelo iA Writer) com uma pasta específica do [repositório git `./content/posts/`](https://github.com/jpcercal/jpcercal.com/tree/master/content/posts). E funcionou perfeitamente. Veja como fazer isso abaixo.
 
 ## Como instalar o Unison
 
@@ -81,8 +81,8 @@ unison \
   -copyonconflict \
   -prefer newer \
   -ignore 'Name {.DS_Store}' \
-  "/Users/jpcercal/projects/cercal.io/content/posts" \
-  "/Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/cercal.io"
+  "/Users/jpcercal/projects/jpcercal.com/content/posts" \
+  "/Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/jpcercal.com"
 ```
 
 Um entendimento básico sobre o que o comando acima está fazendo:
@@ -90,8 +90,8 @@ Um entendimento básico sobre o que o comando acima está fazendo:
 - `-repeat watch` diz ao `unison` que queremos monitorar as mudanças e sincronizar essas mudanças incrementalmente conforme necessário.
 - `-copyonconflict -prefer newer` informa que queremos que os conflitos sejam resolvidos automaticamente e que preferimos a versão mais recente se isso acontecer.
 - `-ignore` como o nome sugere, ignore todas as mudanças relacionadas ao padrão `'Name {.DS_Store}'`.
-- `"/Users/jpcercal/projects/cercal.io/content/posts"` é meu repositório git apontando para a pasta [./content/posts/](https://github.com/jpcercal/cercal.io/tree/master/content/posts).
-- `"/Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/cercal.io"` é a minha pasta do iCloud, permitindo-me sincronizar qualquer conteúdo do diretório iCloud com meu diretório local.
+- `"/Users/jpcercal/projects/jpcercal.com/content/posts"` é meu repositório git apontando para a pasta [./content/posts/](https://github.com/jpcercal/jpcercal.com/tree/master/content/posts).
+- `"/Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/jpcercal.com"` é a minha pasta do iCloud, permitindo-me sincronizar qualquer conteúdo do diretório iCloud com meu diretório local.
 
 > `-ignore` pode ser interessante para você se você planeja sincronizar uma pasta raiz de um projeto que geralmente tem dependências de terceiros como a pasta `vendor` em projetos PHP ou `node_modules` em Javascript. Por exemplo, se você deseja ignorar os dois, pode fazer algo como:
 > `-ignore 'Name {node_modules,vendor,composer.lock,package-lock.json,.DS_Store}'`.
@@ -99,43 +99,43 @@ Um entendimento básico sobre o que o comando acima está fazendo:
 O comando acima começará a fazer a sincronização dos arquivos e ficará assim:
 
 ```bash
-jpcercal@Joaos-MBP: ~/projects/cercal.io (master ●●●)
+jpcercal@Joaos-MBP: ~/projects/jpcercal.com (master ●●●)
 →3 $ unison \
   -repeat watch \
   -copyonconflict \
   -prefer newer \
   -ignore 'Name {.DS_Store}' \
-  "/Users/jpcercal/projects/cercal.io/content/posts" \
-  "/Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/cercal.io"
+  "/Users/jpcercal/projects/jpcercal.com/content/posts" \
+  "/Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/jpcercal.com"
 Unison 2.51.2 (ocaml 4.08.1): Contacting server...
 Looking for changes
 Reconciling changes
          <---- deleted    how-to-create-a-bidirectional-file-sync-using-unison/25.png
 posts        : unchanged file     modified on 2020-08-26 at 10:06:28  size 32672     rw-r--r--
-cercal.io    : deleted
+jpcercal.com    : deleted
          <---- new file   how-to-create-a-bidirectional-file-sync-using-unison/git-status.png
 posts        : absent
-cercal.io    : new file           modified on 2020-08-26 at 19:53:38  size 49486     rw-r--r--
+jpcercal.com    : new file           modified on 2020-08-26 at 19:53:38  size 49486     rw-r--r--
          <---- new file   how-to-create-a-bidirectional-file-sync-using-unison/ia-writer-blog-posts.png
 posts        : absent
-cercal.io    : new file           modified on 2020-08-26 at 19:49:26  size 178662    rw-r--r--
+jpcercal.com    : new file           modified on 2020-08-26 at 19:49:26  size 178662    rw-r--r--
          <---- changed    how-to-create-a-bidirectional-file-sync-using-unison/index.en.md
 posts        : unchanged file     modified on 2020-08-26 at  6:42:09  size 348       rw-r--r--
-cercal.io    : changed file       modified on 2020-08-26 at 20:06:47  size 7503      rw-r--r--
+jpcercal.com    : changed file       modified on 2020-08-26 at 20:06:47  size 7503      rw-r--r--
          <---- changed    revisiting-the-layout-and-the-blog-project/index.md
 posts        : unchanged file     modified on 2020-08-25 at 18:46:23  size 9898      rw-r--r--
-cercal.io    : changed file       modified on 2020-08-26 at 19:14:52  size 9896      rw-r--r--
+jpcercal.com    : changed file       modified on 2020-08-26 at 19:14:52  size 9896      rw-r--r--
 Propagating updates
 UNISON 2.51.2 (OCAML 4.08.1) started propagating changes at 20:06:50.68 on 26 Aug 2020
-[BGN] Copying how-to-create-a-bidirectional-file-sync-using-unison/git-status.png from /Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/cercal.io to /Users/jpcercal/projects/cercal.io/content/posts
+[BGN] Copying how-to-create-a-bidirectional-file-sync-using-unison/git-status.png from /Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/jpcercal.com to /Users/jpcercal/projects/jpcercal.com/content/posts
 [END] Copying how-to-create-a-bidirectional-file-sync-using-unison/git-status.png
-[BGN] Copying how-to-create-a-bidirectional-file-sync-using-unison/ia-writer-blog-posts.png from /Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/cercal.io to /Users/jpcercal/projects/cercal.io/content/posts
+[BGN] Copying how-to-create-a-bidirectional-file-sync-using-unison/ia-writer-blog-posts.png from /Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/jpcercal.com to /Users/jpcercal/projects/jpcercal.com/content/posts
 [END] Copying how-to-create-a-bidirectional-file-sync-using-unison/ia-writer-blog-posts.png
-[BGN] Updating file how-to-create-a-bidirectional-file-sync-using-unison/index.en.md from /Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/cercal.io to /Users/jpcercal/projects/cercal.io/content/posts
+[BGN] Updating file how-to-create-a-bidirectional-file-sync-using-unison/index.en.md from /Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/jpcercal.com to /Users/jpcercal/projects/jpcercal.com/content/posts
 [END] Updating file how-to-create-a-bidirectional-file-sync-using-unison/index.en.md
-[BGN] Updating file revisiting-the-layout-and-the-blog-project/index.md from /Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/cercal.io to /Users/jpcercal/projects/cercal.io/content/posts
+[BGN] Updating file revisiting-the-layout-and-the-blog-project/index.md from /Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/jpcercal.com to /Users/jpcercal/projects/jpcercal.com/content/posts
 [END] Updating file revisiting-the-layout-and-the-blog-project/index.md
-[BGN] Deleting how-to-create-a-bidirectional-file-sync-using-unison/25.png from /Users/jpcercal/projects/cercal.io/content/posts
+[BGN] Deleting how-to-create-a-bidirectional-file-sync-using-unison/25.png from /Users/jpcercal/projects/jpcercal.com/content/posts
 [END] Deleting how-to-create-a-bidirectional-file-sync-using-unison/25.png
 UNISON 2.51.2 (OCAML 4.08.1) finished propagating changes at 20:06:50.68 on 26 Aug 2020
 Saving synchronizer state

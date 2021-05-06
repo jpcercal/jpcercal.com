@@ -1,4 +1,4 @@
-# cercal.io
+# jpcercal.com
 
 ## A brief history of time
 
@@ -11,7 +11,7 @@ Thanks to all of you for following me through this crazy things called life, to 
 This redesign which had started as a proof of concept is now live, what makes me really proud about the challenge that I’ve accepted a year ago. 
 
 > This project will be with the *WIP* status for a long time, however, the major features are already in place and I encourage you to fork this repo.
-> Follow us on [https://cercal.io/](https://cercal.io/), help us to maintain this project by supporting it. You can also give us a star or fork the project, this way we gain relevance in the community.
+> Follow us on [https://jpcercal.com/](https://jpcercal.com/), help us to maintain this project by supporting it. You can also give us a star or fork the project, this way we gain relevance in the community.
 
 ### Screenshots
 
@@ -35,8 +35,8 @@ vi .env
 ```
 
 > For the majority of things you have to do, the development compilation mode should be more than enough.
-> If you are curious about the steps that are executed for each compilation mode, please take a look on the [Gruntfile.js](https://github.com/jpcercal/cercal.io/blob/master/Gruntfile.js) file.
-> Otherwise, if you would like to take a look into our pipeline and check the compilation process for production, then take a look into the [.travis.yml](https://github.com/jpcercal/cercal.io/blob/master/.travis.yml) file and into the [TravisCI.org:jpcercal/cercal.io](https://travis-ci.org/jpcercal/cercal.io) pipeline.
+> If you are curious about the steps that are executed for each compilation mode, please take a look on the [Gruntfile.js](https://github.com/jpcercal/jpcercal.com/blob/master/Gruntfile.js) file.
+> Otherwise, if you would like to take a look into our pipeline and check the compilation process for production, then take a look into the [.travis.yml](https://github.com/jpcercal/jpcercal.com/blob/master/.travis.yml) file and into the [TravisCI.org:jpcercal/jpcercal.com](https://travis-ci.org/jpcercal/jpcercal.com) pipeline.
 
 ```shell
 $ ./bin/watch.sh
@@ -44,6 +44,6 @@ $ ./bin/watch.sh
 
 > Note that, the command above requires docker to be running on your machine.
 
-If everything went okay, it’s time to open your browser to see everything running [https://cercal.local](https://cercal.local).
+If everything went okay, it’s time to open your browser to see everything running [https://jpcercal.local](https://jpcercal.local).
 
-> It assumes that the hostname defined on the `.env` file is still the default one `"cercal.local"`. 
+> It assumes that the hostname defined on the `.env` file is still the default one `"jpcercal.local"`. 

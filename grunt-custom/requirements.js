@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     };
 
     if (!currentTaskIsPageSpeed() && !envIsDefined('BASE_URL')) {
-        abortAndDisplayAnError('BASE_URL', 'https://cercal.io/');
+        abortAndDisplayAnError('BASE_URL', 'https://jpcercal.com/');
     }
 
     if (currentTaskIsPageSpeed() && !envIsDefined('GOOGLE_API_KEY')) {

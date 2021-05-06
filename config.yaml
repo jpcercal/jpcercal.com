@@ -26,11 +26,11 @@ enableMissingTranslationPlaceholders: false
 
 languages:
   en:
-    title: "Cercal.IO"
+    title: "jpcercal.com"
     locale: "en"
     description: "High quality and variety of subjects, including tips from programming to lifestyle but written in our style and we are not talking about CSS."
   pt:
-    title: "Cercal.IO"
+    title: "jpcercal.com"
     locale: "pt"
     description: "Alta qualidade e variedade de assuntos, incluindo desde dicas de programação à estilo de vida, mas no nosso estilo e não estamos falando de CSS."
 

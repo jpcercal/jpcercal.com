@@ -90,7 +90,7 @@ function run_http_server_cmd() {
 
     echo
     echo "> Starting HTTP Server on \"https://${HOSTNAME}/\"."
-    docker run -d -p 443:1313 -v $PWD:/usr/share/blog jpcercal/cercal.io:latest /bin/bash -l -c "${CMD}" &>/dev/null
+    docker run -d -p 443:1313 -v $PWD:/usr/share/blog jpcercal/jpcercal.com:latest /bin/bash -l -c "${CMD}" &>/dev/null
 
     update_http_server_container_id
     echo
@@ -105,14 +105,14 @@ function run_http_server_cmd() {
 function run_compilation_cmd() {
   CMD="npm install && npm run napa && BASE_URL=https://${HOSTNAME}/ grunt"
 
-  docker run -a stdin -a stdout -it --volume $PWD:/usr/share/blog jpcercal/cercal.io:latest /bin/bash -l -c "${CMD}"
+  docker run -a stdin -a stdout -it --volume $PWD:/usr/share/blog jpcercal/jpcercal.com:latest /bin/bash -l -c "${CMD}"
 }
 
 function run_compilation_watcher_cmd() {
   CMD="BASE_URL=https://${HOSTNAME}/ grunt watch"
 
   echo "> Starting file watcher"
-  docker run -a stdin -a stdout -it --volume $PWD:/usr/share/blog jpcercal/cercal.io:latest /bin/bash -l -c "${CMD}"
+  docker run -a stdin -a stdout -it --volume $PWD:/usr/share/blog jpcercal/jpcercal.com:latest /bin/bash -l -c "${CMD}"
 }
 
 function show_http_server_banner() {
