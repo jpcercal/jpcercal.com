@@ -10,10 +10,10 @@ taxonomies:
   category:   "categories"
   authors:    "authors"
 
-disqusShortname:  "cercal-io"
+disqusShortname:  "cercal.io"
 defaultExtension: "html"
 metaDataFormat:   "yaml"
-googleAnalytics:  "UA-112106232-1"
+googleAnalytics:  "G-S1125GQLTK"
 
 pygmentsUseClasses: true
 pygmentsCodeFences: true
