@@ -1,9 +1,9 @@
 module.exports = function (grunt) {
     'use strict';
 
+    var fs = require('fs');
+    var spawnSync = require('child_process').spawnSync;
     var sprintf = require('sprintf-js').sprintf;
-    var fs      = require("pn/fs");
-    var svg2png = require('svg2png');
 
     var postRepository = require('./post-repository')(grunt);
 
@@ -11,25 +11,23 @@ module.exports = function (grunt) {
         name: "svg2png",
         description: "Converts SVG to PNG files"
     };
-
+    
     grunt.registerTask(task.name, task.description, function () {
+        var posts = postRepository.findAll();
+
         var width  = grunt.config.get(sprintf('%s.options.width', task.name));
         var height = grunt.config.get(sprintf('%s.options.height', task.name));
 
-        var options = {
-            width:  typeof width  === 'undefined' ? 512 : width,
-            height: typeof height === 'undefined' ? 512 : height
-        };
+        if (typeof width === 'undefined') {
+            width = 512;
+        }
 
-        var writeFileCallback = function(err) {
-            grunt.fail.fatal(err);
-        };
+        if (typeof height === 'undefined') {
+            height = 512;
+        }
 
         grunt.log.writeln('Preparing to convert SVG to PNG files for each post.');
-
-        grunt.log.writeln(sprintf('> Options: {height: %d, width: %d}', options.height, options.width));
-
-        var posts = postRepository.findAll();
+        grunt.log.writeln(sprintf('> Options: {height: %d, width: %d}', height, width));
 
         for (var i = 0; i < posts.length; i++) {
             var filenameTemplate = sprintf(
@@ -45,10 +43,16 @@ module.exports = function (grunt) {
             grunt.verbose.writeln(sprintf('> Reading "%s".', inputFilename));
             grunt.log.writeln(sprintf('> Generating "%s".', outputFilename));
 
-            var sourceBuffer = fs.readFileSync(inputFilename);
-            var outputBuffer = svg2png.sync(sourceBuffer, options);
-
-            fs.writeFileSync(outputFilename, outputBuffer, 'utf-8', writeFileCallback);
+            spawnSync('inkscape', [
+                '--export-type=png',
+                sprintf('--export-width=%d',  width),
+                sprintf('--export-height=%d', height),
+                inputFilename
+            ]);
+    
+            if (!fs.existsSync(outputFilename)) {
+                grunt.fail.fatal(sprintf('! Filename "%s" could not be created.', outputFilename));    
+            }
         }
 
         grunt.log.ok(sprintf('Done. It was generated an index containing "%d" posts.', posts.length));
