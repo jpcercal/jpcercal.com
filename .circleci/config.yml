@@ -4,6 +4,9 @@ workflows:
   build:
     jobs:
       - build
+      - deploy
+      - pagespeed
+      - docker_push
 
 jobs:
   build:
@@ -11,9 +14,10 @@ jobs:
     steps:
       - checkout
       - run: |
-          docker pull jpcercal/jpcercal.com:latest
-      - run: |
           docker run -v $PWD:/usr/share/blog jpcercal/jpcercal.com:latest /bin/bash -l -c "npm install && npm run napa && BASE_URL=$BASE_URL grunt production"
+  deploy:
+    machine: true
+    steps:
       - run: |
           remote=$(git config remote.origin.url)
           cd public/
@@ -21,13 +25,21 @@ jobs:
           git config --global user.name "$CIRCLE_PROJECT_USERNAME" > /dev/null 2>&1
           git init
           git remote add --fetch origin "$remote"
+      - run: |
           git checkout --orphan gh-pages
           git add -A
           git commit --allow-empty -m "Deploy to GitHub Pages"
+      - run: |
           git push --force --quiet origin gh-pages 
           echo "Finished Deployment!"
+  pagespeed:
+    machine: true
+    steps:
       - run: |
           docker run -v $PWD:/usr/share/blog jpcercal/jpcercal.com:latest /bin/bash -l -c "GOOGLE_API_KEY=$GOOGLE_API_KEY grunt pagespeed"
+  docker_push:
+    machine: true
+    steps:
       - run: |
           docker login -u jpcercal -p $DOCKER_PASSWORD
           docker tag jpcercal/jpcercal.com:latest jpcercal/jpcercal.com:$CIRCLE_BUILD_NUM
