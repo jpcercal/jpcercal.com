@@ -21,14 +21,9 @@ jpcercal@gmail.com:
   links:
     -
       name:
-        en: Portfolio
-        pt: Portfólio
-      url: https://jpcercal.github.io/projects
-    -
-      name:
-        en: About me
-        pt: About me
-      url: https://about.me/jpcercal
+        en: Resume
+        pt: Currículo
+      url: https://raw.githubusercontent.com/jpcercal/resume/main/resume.pdf
 
 elisetecercal@gmail.com:
   slug: elisetecercal
