@@ -1,9 +1,9 @@
 {{ $baseURL         := .Site.BaseURL }}
-{{ $locale          := .Site.Params.locale }}
+{{ $locale          := .Site.Language.Lang }}
 {{ $datetime        := .Date.Format "2006-01-02" }}
 {{ $datetimeDisplay := .Date.Format "Jan 2, 2006" }}
-{{ $categoryAlias   := index .Params.categories 0 }}
-{{ $category        := index .Site.Data.categories $categoryAlias }}
+{{ $categoryAlias   := index (default (slice "") .Params.categories) 0 }}
+{{ $category        := index site.Data.categories $categoryAlias }}
 {{ $directory       := "content/" }}
 {{ $filename        := "index.svg" }}
 {{ $cover           := where (readDir (printf "%s%s" $directory .File.Dir)) "Name" $filename }}

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     var options = {
-        scriptUrl: "//{{ .Site.DisqusShortname }}.disqus.com/embed.js",
+        scriptUrl: "//{{ site.Config.Services.Disqus.Shortname }}.disqus.com/embed.js",
         disqusConfig: disqus_config
     };
 

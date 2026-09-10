@@ -1,5 +1,5 @@
-{{ $locale    := .Site.Params.locale }}
-{{ $authors   := .Site.Data.authors }}
+{{ $locale    := .Site.Language.Lang }}
+{{ $authors   := site.Data.authors }}
 {{ $pages     := .Site.Pages }}
 {{ $paginator := .Paginate (where .Site.Pages "Type" "authors") }}
 

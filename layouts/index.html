@@ -1,4 +1,4 @@
-{{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
+{{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
 
 {{ $.Scratch.Set "showIconCredits" true }}
 

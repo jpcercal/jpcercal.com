@@ -41,6 +41,15 @@ jobs:
       - name: Install Ruby Sass
         run: gem install sass -v 3.7.4
 
+      - name: Setup Java 8 (for grunt-html validator)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "8"
+
+      - name: Install inkscape (for svg2png task)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends inkscape
+
       - name: Install npm dependencies
         run: npm ci --no-audit --no-fund
 

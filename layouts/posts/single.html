@@ -1,11 +1,11 @@
 {{ $baseURL         := .Site.BaseURL }}
-{{ $author          := index .Site.Data.authors .Params.author }}
-{{ $locale          := .Site.Params.locale }}
+{{ $author          := index site.Data.authors .Params.author }}
+{{ $locale          := .Site.Language.Lang }}
 {{ $datetime        := .Date.Format "2006-01-02" }}
 {{ $datetimeDisplay := .Date.Format "Jan 2, 2006" }}
-{{ $categoryAlias   := index .Params.categories 0 }}
-{{ $category        := index .Site.Data.categories $categoryAlias }}
-{{ $tags            := .Site.Data.tags }}
+{{ $categoryAlias   := index (default (slice "") .Params.categories) 0 }}
+{{ $category        := index site.Data.categories $categoryAlias }}
+{{ $tags            := site.Data.tags }}
 {{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
 {{ $.Scratch.Set "singlePost" true }}

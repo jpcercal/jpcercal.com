@@ -1,6 +1,6 @@
 {{ $posts          := where (where .Site.Pages "Type" "posts") "Params.author" .Params.email }}
-{{ $author         := index .Site.Data.authors .Params.email }}
-{{ $locale         := .Site.Params.locale }}
+{{ $author         := index site.Data.authors .Params.email }}
+{{ $locale         := .Site.Language.Lang }}
 {{ $resume         := index $author.resume $locale }}
 {{ $links          := $author.links }}
 {{ $socialNetworks := $author.socialNetworks }}

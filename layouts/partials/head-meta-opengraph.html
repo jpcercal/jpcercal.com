@@ -1,5 +1,5 @@
 {{- $baseURL        := .Site.BaseURL -}}
-{{- $locale         := .Site.Params.Locale -}}
+{{- $locale         := .Site.Language.Lang -}}
 {{- $ISO8601        := "2006-01-02T15:04:05-07:00" -}}
 {{- $seoTitle       := $.Scratch.Get "seoTitle" -}}
 {{- $seoDescription := $.Scratch.Get "seoDescription" -}}
@@ -36,7 +36,7 @@
 
 
 {{ if isset .Params "author" -}}
-    {{- $author := index .Site.Data.authors .Params.author -}}
+    {{- $author := index site.Data.authors .Params.author -}}
     <meta property="article:author" content="{{ $author.socialNetworks.facebook }}">
     <meta property="article:publisher" content="https://www.facebook.com/jpcercal.com">
     <meta property="article:section" content="{{ .Section }}">

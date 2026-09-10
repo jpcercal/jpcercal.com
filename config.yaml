@@ -10,16 +10,17 @@ taxonomies:
   category:   "categories"
   authors:    "authors"
 
-disqusShortname:  "cercal-io"
+services:
+  disqus:
+    shortname: cercal-io
+  googleAnalytics:
+    id: G-S1125GQLTK
 defaultExtension: "html"
 metaDataFormat:   "yaml"
-googleAnalytics:  "G-S1125GQLTK"
-
 pygmentsUseClasses: true
 pygmentsCodeFences: true
 pygmentsOptions:    "linenos=true"
 
-languageCode: "pt"
 defaultContentLanguage: "pt"
 defaultContentLanguageInSubdir: false
 enableMissingTranslationPlaceholders: false
@@ -29,10 +30,14 @@ languages:
     title: "jpcercal.com"
     locale: "en"
     description: "High quality and variety of subjects, including tips from programming to lifestyle but written in our style and we are not talking about CSS."
+    params:
+      description: "High quality and variety of subjects, including tips from programming to lifestyle but written in our style and we are not talking about CSS."
   pt:
     title: "jpcercal.com"
     locale: "pt"
     description: "Alta qualidade e variedade de assuntos, incluindo desde dicas de programação à estilo de vida, mas no nosso estilo e não estamos falando de CSS."
+    params:
+      description: "Alta qualidade e variedade de assuntos, incluindo desde dicas de programação à estilo de vida, mas no nosso estilo e não estamos falando de CSS."
 
 rssLimit: 15
 paginate: 10

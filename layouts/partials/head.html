@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Params.Locale }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" itemscope itemtype='http://schema.org/{{ if eq .Section "posts" }}Article{{ else }}WebPage{{ end }}'>
+<html lang="{{ .Site.Language.Lang }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" itemscope itemtype='http://schema.org/{{ if eq .Section "posts" }}Article{{ else }}WebPage{{ end }}'>
 <head>
     {{- partial "head-meta.html" . -}}
     {{- partial "head-favicon.html" . -}}
     {{- partial "head-assets.html" . -}}
     {{- partial "head-support-ie.html" . -}}
-    {{- with .Site.GoogleAnalytics -}}
+    {{- with site.Config.Services.GoogleAnalytics.ID -}}
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
         <script>
             window.dataLayer = window.dataLayer || [];

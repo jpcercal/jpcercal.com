@@ -1,6 +1,6 @@
-{{ $pages    := .Data.Pages }}
-{{ $locale   := .Site.Params.locale }}
-{{ $category := index .Site.Data.categories .Data.Term }}
+{{ $pages    := .Pages }}
+{{ $locale   := .Site.Language.Lang }}
+{{ $category := index site.Data.categories .Data.Term }}
 
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}

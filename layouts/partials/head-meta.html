@@ -1,8 +1,8 @@
 {{- $baseURL    := .Site.BaseURL -}}
-{{- $locale     := .Site.Params.Locale -}}
-{{- $authors    := .Site.Data.authors -}}
-{{- $categories := .Site.Data.categories -}}
-{{- $tags       := .Site.Data.tags -}}
+{{- $locale     := .Site.Language.Lang -}}
+{{- $authors    := site.Data.authors -}}
+{{- $categories := site.Data.categories -}}
+{{- $tags       := site.Data.tags -}}
 {{- $titleSep   := "|" -}}
 
 <!-- ==================================================================== -->
@@ -57,9 +57,12 @@
 <!-- ==================================================================== -->
 <!-- Set KEYWORDS -->
 {{- if eq .Section "posts" -}}
-    {{- $categoryAlias := index .Params.categories 0 -}}
+    {{- $categoryAlias := index (default (slice "") .Params.categories) 0 -}}
     {{- $category      := index $categories $categoryAlias -}}
-    {{- $categoryTitle := index (index $category "title") $locale -}}
+    {{- $categoryTitle := "" -}}
+    {{- if $category -}}
+        {{- $categoryTitle = index (index $category "title") $locale -}}
+    {{- end -}}
 
     {{- $.Scratch.Add "seoKeywords" (slice $categoryTitle) -}}
 
@@ -98,8 +101,8 @@
 
 <link rel="canonical" href='{{ $.Scratch.Get "seoCanonical" }}'>
 
-{{- if .RSSLink -}}
-<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+{{- with .OutputFormats.Get "rss" -}}
+<link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
 {{- end -}}
 
 {{ partial "head-meta-twitter-cards.html" . }}

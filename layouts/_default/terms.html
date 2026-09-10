@@ -1,9 +1,9 @@
 {{ $data          := .Data }}
 {{ $results       := .Data.Terms.ByCount }}
 {{ $baseURL       := .Site.BaseURL }}
-{{ $locale        := .Site.Params.locale }}
-{{ $categories    := .Site.Data.categories }}
-{{ $tags          := .Site.Data.tags }}
+{{ $locale        := .Site.Language.Lang }}
+{{ $categories    := site.Data.categories }}
+{{ $tags          := site.Data.tags }}
 {{ $localeBaseURL := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
 {{ partial "head.html" . }}
