@@ -7,7 +7,17 @@ module.exports = function (grunt) {
     var domutils   = require("domutils");
     var parseDOM   = require("htmlparser2").parseDOM;
     var array_dups = require('array-duplicates-properties');
-    var Entities   = require('html-entities').AllHtmlEntities;
+    var htmlEntities = require('html-entities');
+    // html-entities 1.x exposes AllHtmlEntities class, 2.x exposes decode() directly.
+    // Support both so the build works across the major upgrade.
+    var decodeEntities;
+    if (typeof htmlEntities.decode === 'function') {
+        decodeEntities = htmlEntities.decode;
+    } else {
+        var Entities = htmlEntities.AllHtmlEntities;
+        var entities = new Entities();
+        decodeEntities = function (str) { return entities.decode(str); };
+    }
 
     var task = {
         name: "google-serp-preview",
@@ -49,10 +59,9 @@ module.exports = function (grunt) {
 
             return {
                 getData: function () {
-                    var entities = new Entities();
-                    var title = entities.decode(getTitle());
-                    var url = entities.decode(getUrl());
-                    var description = entities.decode(getDescription());
+                    var title = decodeEntities(getTitle());
+                    var url = decodeEntities(getUrl());
+                    var description = decodeEntities(getDescription());
 
                     if (title.length === 0) {
                         throw new Error(sprintf('Path: "%s", the title is a mandatory tag.', path));

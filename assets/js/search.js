@@ -187,9 +187,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     /**
-     * Load dependencies.
+     * Load dependencies (Promise.all works with both axios 0.x and 1.x;
+     * axios.all / axios.spread were removed in axios 1.x).
      */
-    var promises = axios.all([
+    var promises = Promise.all([
         axios.get(window.baseUrl + 'search-template.html'),
         axios.get(window.baseUrl + 'search.json')
     ]);
@@ -197,5 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Start processing.
      */
-    promises.then(axios.spread(process));
+    promises.then(function (results) {
+        process(results[0], results[1]);
+    });
 });
