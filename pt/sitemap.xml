@@ -41,12 +41,12 @@
                 href="https://jpcercal.com/en/tags/linux/"
                 /></url><url><loc>https://jpcercal.com/tags/osx/</loc><lastmod>2020-07-13T06:35:28+00:00</lastmod><xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://jpcercal.com/en/tags/osx/"
-                /><xhtml:link
-                rel="alternate"
                 hreflang="pt"
                 href="https://jpcercal.com/tags/osx/"
+                /><xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jpcercal.com/en/tags/osx/"
                 /></url><url><loc>https://jpcercal.com/categories/other/</loc><lastmod>2020-07-13T06:35:28+00:00</lastmod><xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -73,12 +73,12 @@
                 href="https://jpcercal.com/tags/"
                 /></url><url><loc>https://jpcercal.com/tags/tutorial/</loc><lastmod>2020-07-13T06:35:28+00:00</lastmod><xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://jpcercal.com/tags/tutorial/"
-                /><xhtml:link
-                rel="alternate"
                 hreflang="en"
                 href="https://jpcercal.com/en/tags/tutorial/"
+                /><xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://jpcercal.com/tags/tutorial/"
                 /></url><url><loc>https://jpcercal.com/tags/windows/</loc><lastmod>2020-07-13T06:35:28+00:00</lastmod><xhtml:link
                 rel="alternate"
                 hreflang="pt"
@@ -97,12 +97,12 @@
                 href="https://jpcercal.com/composer-clear-cache/"
                 /></url><url><loc>https://jpcercal.com/tags/cms/</loc><lastmod>2019-03-12T21:33:54+00:00</lastmod><xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://jpcercal.com/en/tags/cms/"
-                /><xhtml:link
-                rel="alternate"
                 hreflang="pt"
                 href="https://jpcercal.com/tags/cms/"
+                /><xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jpcercal.com/en/tags/cms/"
                 /></url><url><loc>https://jpcercal.com/tags/framework/</loc><lastmod>2019-03-12T21:33:54+00:00</lastmod><xhtml:link
                 rel="alternate"
                 hreflang="pt"
@@ -137,20 +137,20 @@
                 href="https://jpcercal.com/en/revisiting-the-layout-and-the-blog-project/"
                 /></url><url><loc>https://jpcercal.com/tags/seo/</loc><lastmod>2019-03-12T21:33:54+00:00</lastmod><xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://jpcercal.com/tags/seo/"
-                /><xhtml:link
-                rel="alternate"
                 hreflang="en"
                 href="https://jpcercal.com/en/tags/seo/"
-                /></url><url><loc>https://jpcercal.com/tags/wordpress/</loc><lastmod>2019-03-12T21:33:54+00:00</lastmod><xhtml:link
+                /><xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://jpcercal.com/tags/wordpress/"
-                /><xhtml:link
+                href="https://jpcercal.com/tags/seo/"
+                /></url><url><loc>https://jpcercal.com/tags/wordpress/</loc><lastmod>2019-03-12T21:33:54+00:00</lastmod><xhtml:link
                 rel="alternate"
                 hreflang="en"
                 href="https://jpcercal.com/en/tags/wordpress/"
+                /><xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://jpcercal.com/tags/wordpress/"
                 /></url><url><loc>https://jpcercal.com/how-to-delete-all-your-git-local-branches/</loc><lastmod>2019-03-12T11:31:29+00:00</lastmod><xhtml:link
                 rel="alternate"
                 hreflang="pt"
