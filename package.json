@@ -27,7 +27,7 @@
     "handlebars": "^4.5.3",
     "html-entities": "^1.2.1",
     "js-yaml": "^3.15.2",
-    "load-grunt-config": "^4.0.1",
+    "load-grunt-config": "^0.19.2",
     "md5": "^2.2.1",
     "napa": "^3.0.0",
     "pn": "^1.1.0",
