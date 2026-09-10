@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    ignore:
+      # load-grunt-config 4.x is uninstallable-broken for this build:
+      # its YAML loader passes a js-yaml-3-style Type from
+      # js-yaml-js-types into js-yaml 4's Schema.extend, which throws
+      # and aborts every grunt run (verified in CI, see PRs #33 and
+      # #40). Re-allow once upstream ships a fixed major.
+      - dependency-name: load-grunt-config
+        versions: [">= 4, < 5"]
