@@ -13,7 +13,7 @@
     {{- $.Scratch.Set "seoDescription" . -}}
 {{- else -}}
     <!-- Get data using for the categories/tags/authors pages -->
-    {{- if eq .Kind "taxonomyTerm" -}}
+    {{- if eq .Kind "taxonomy" -}}
         {{- if eq .Data.Plural "categories" -}}
             {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" (i18n "categories") $titleSep $.Site.Title) -}}
             {{- $.Scratch.Set "seoDescription" (i18n "categoriesDescription") -}}
@@ -25,7 +25,7 @@
             {{- $.Scratch.Set "seoDescription" (i18n "authorsDescription") -}}
         {{- end -}}
     <!-- Get data using the $.Site.Data.categories|tags according to the current locale -->
-    {{- else if eq .Kind "taxonomy" -}}
+    {{- else if eq .Kind "term" -}}
         {{- if eq .Data.Plural "categories" -}}
             {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" (index (index (index $categories (lower .Title)) "title") $locale) $titleSep $.Site.Title) -}}
             {{- $.Scratch.Set "seoDescription" (i18n "categoryDescription" (dict "category" (index (index (index $categories (lower .Title)) "title") $locale))) -}}
