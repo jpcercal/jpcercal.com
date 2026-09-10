@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+env:
+  HUGO_VERSION: 0.166.0
+  NODE_VERSION: "20"
+  RUBY_VERSION: "3.3"
+  BASE_URL: https://jpcercal.com/
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Setup Ruby (for grunt-contrib-sass)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+
+      - name: Install Ruby Sass
+        run: gem install sass -v 3.7.4
+
+      - name: Install npm dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Fetch vendor sources
+        # Replaces `npm run napa`, which clones over the retired git://
+        # protocol and can no longer connect to GitHub.
+        run: bin/fetch-vendor.sh
+
+      - name: Production build
+        run: npx grunt production
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public
+          path: public
+          retention-days: 7
+
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build
+    # Only deploy from master pushes, never from PRs.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    permissions:
+      contents: write
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: public
+          path: public
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
