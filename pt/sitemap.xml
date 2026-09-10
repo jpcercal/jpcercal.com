@@ -33,12 +33,12 @@
                 href="https://jpcercal.com/"
                 /></url><url><loc>https://jpcercal.com/tags/linux/</loc><lastmod>2020-07-13T06:35:28+00:00</lastmod><xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://jpcercal.com/tags/linux/"
-                /><xhtml:link
-                rel="alternate"
                 hreflang="en"
                 href="https://jpcercal.com/en/tags/linux/"
+                /><xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://jpcercal.com/tags/linux/"
                 /></url><url><loc>https://jpcercal.com/tags/osx/</loc><lastmod>2020-07-13T06:35:28+00:00</lastmod><xhtml:link
                 rel="alternate"
                 hreflang="pt"
@@ -81,12 +81,12 @@
                 href="https://jpcercal.com/en/tags/tutorial/"
                 /></url><url><loc>https://jpcercal.com/tags/windows/</loc><lastmod>2020-07-13T06:35:28+00:00</lastmod><xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://jpcercal.com/tags/windows/"
-                /><xhtml:link
-                rel="alternate"
                 hreflang="en"
                 href="https://jpcercal.com/en/tags/windows/"
+                /><xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://jpcercal.com/tags/windows/"
                 /></url><url><loc>https://jpcercal.com/composer-clear-cache/</loc><lastmod>2019-03-31T20:53:12+00:00</lastmod><xhtml:link
                 rel="alternate"
                 hreflang="en"
