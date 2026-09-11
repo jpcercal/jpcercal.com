@@ -103,7 +103,7 @@ function run_http_server_cmd() {
 }
 
 function run_compilation_cmd() {
-  CMD="npm install && npm run napa && BASE_URL=https://${HOSTNAME}/ grunt"
+  CMD="npm install && bin/fetch-vendor.sh && BASE_URL=https://${HOSTNAME}/ grunt"
 
   docker run -a stdin -a stdout -it --volume $PWD:/usr/share/blog jpcercal/jpcercal.com:latest /bin/bash -l -c "${CMD}"
 }

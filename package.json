@@ -33,7 +33,6 @@
     "js-yaml": "^3.15.2",
     "load-grunt-config": "^0.19.2",
     "md5": "^2.3.0",
-    "napa": "^3.0.0",
     "pn": "^1.1.0",
     "sprintf-js": "^1.1.3",
     "string": "^3.3.3",
@@ -47,7 +46,6 @@
     "lunr": "^2.3.9"
   },
   "scripts": {
-    "napa": "napa",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "build:hugo": "hugo --minify --printUnusedTemplates",
@@ -55,10 +53,5 @@
     "links": "lychee --config .lychee.toml \"public/**/index.html\"",
     "lhci": "lhci autorun",
     "e2e": "playwright test"
-  },
-  "napa": {
-    "one-dark-jekyll": "mgyongyosi/OneDarkJekyll",
-    "one-dark-syntax": "atom/one-dark-syntax",
-    "disqus-loader": "osvaldasvalutis/disqusLoader.js"
   }
 }

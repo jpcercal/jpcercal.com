@@ -19,7 +19,10 @@
 - `grunt/` (23), `grunt-custom/` (10), `Gruntfile.js`, `grunt/aliases.yaml` —
   legacy build being replaced by Hugo Pipes + native binaries.
 - `design-system/` — repo-root staging-only docs (NOT under `content/`).
-- `bin/fetch-vendor.sh` — interim `napa` replacement (to be removed).
+- `bin/fetch-vendor.sh` — interim `napa` replacement (napa package itself
+  is gone). Remove per-consumer: `one-dark-*` clone lines die with the CSS
+  commit (Less port), `disqus-loader` line dies with the privacy commit.
+  `bin/watch.sh` is legacy Docker flow, deleted with the Grunt pipeline.
 - `.github/workflows/ci.yml` — jobs: `build`, `deploy` (prod Pages),
   `preview-staging` (PR → `gh-pages`), `cloudflare-pages` (blocking verify).
 
@@ -60,6 +63,8 @@
 - `static/CNAME` (`jpcercal.com`) must not publish to the staging branch;
   the staging job strips or overwrites it per-PR path.
 - `public/` output is stale dev-only; never trust it, always rebuild.
+- This machine's global gitignore ignores `*.js` — new JS files need
+  `git add -f` (tracked `*.js` files are unaffected).
 - `grunt-shell` production ≠ development (`--buildDrafts` only in dev);
   the same split applies to staging (`--buildDrafts` + PR baseURL) vs prod.
 
