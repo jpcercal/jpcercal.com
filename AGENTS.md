@@ -16,6 +16,15 @@
   variants (locale is a build param) mean 2 hashed files per bundle.
   `fetch` replaced `axios` (dropped dep; fixed ~500ms TBT from axios
   0.16.2); `lunr` CDN stays until the Pagefind commit.
+  DONE (Pagefind commit): `lunr` + `search.json` + `search-template.html`
+  + `grunt-custom/{lunr,post,author,category,tag}-*` + `paths.js` gone;
+  `pagefind --site public` (Rust, `cargo install pagefind`) indexes the
+  74 post pages (2 langs auto-detected, `type=post` filter); `search.js`
+  uses dynamic `import()` of the ES-module `pagefind.js` with
+  `basePath` = bundle dir (staging subpaths work). `pagefind.js` is a
+  module — classic `<script src>` fails with `import.meta` error.
+  Search works only in built output (+`pagefind --site`); `hugo server`
+  dev has no index, results area stays empty (silent, old parity).
 - `layouts/` (27 files) — `partials/head-assets.html`, `partials/footer.html`,
   `search/list.html`, `index.html`, `_default/`, shortcodes.
 - `static/` — `CNAME` (prod `jpcercal.com`; must NOT ship to staging branch),

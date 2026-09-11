@@ -7,6 +7,7 @@
 {{ $category        := index site.Data.categories $categoryAlias }}
 {{ $tags            := site.Data.tags }}
 {{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
+{{ $cover           := where (readDir (printf "content/%s" .File.Dir)) "Name" "index.svg" }}
 
 {{ $.Scratch.Set "singlePost" true }}
 
@@ -45,7 +46,16 @@
     </header>
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <h1 class="font-size-h1 mt-2 mb-4">{{ .Title }}</h1>
+            <h1 class="font-size-h1 mt-2 mb-4" data-pagefind-meta="title">{{ .Title }}</h1>
+
+            {{ if $category }}
+            <span class="hidden" data-pagefind-meta="category">{{ index (index $category "title") $locale }}</span>
+            {{ end }}
+            <span class="hidden" data-pagefind-meta="author">{{ $author.name }}</span>
+            <span class="hidden" data-pagefind-meta="description">{{ .Description }}</span>
+            <span class="hidden" data-pagefind-meta="image">{{ if $cover }}{{ $localeBaseURL }}{{ .Slug }}/index.svg{{ else }}{{ $baseURL }}images/icons/tag.svg{{ end }}</span>
+            <span class="hidden" data-pagefind-meta="language">{{ $locale }}</span>
+            <span class="hidden" data-pagefind-filter="type">post</span>
 
             <ul class="article-share-buttons mt-1 mb-4 list-none flex gap-2">
                 <li>
@@ -70,7 +80,7 @@
                 </li>
             </ul>
 
-            <div class="font-size-h6 article-content">
+            <div class="font-size-h6 article-content" data-pagefind-body>
                 {{ .Content }}
             </div>
 

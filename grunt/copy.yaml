@@ -18,8 +18,5 @@ development:
         - "**/*.{png,jpg,jpeg,gif,svg,pdf}"
       dest: "<%= dist_author_path %>/"
     -
-      src: node_modules/lunr/lunr.js
-      dest: "<%= dist_path %>/vendor/js/lunr.js"
-    -
       src: node_modules/disqus-loader/disqusloader.js
       dest: "<%= dist_path %>/vendor/js/disqus-loader.js"

@@ -8,10 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		minChars: 3, // Minimum quantity of characters that the user must input to perform the operation
 	};
 
-	let lunrIndex; // Store the Lunr index where the results will be compared with the term
-	let template; // Store the template that will be parsed
-	let source; // Store the data that will be be used to search for a term
-
 	/**
 	 * Input field where the user will put the terms that he wants search for.
 	 *
@@ -46,102 +42,46 @@ document.addEventListener("DOMContentLoaded", () => {
 	);
 
 	/**
-	 * Create and configure the Lunr Index.
-	 *
-	 * @retuns {lunr.Index}
+	 * Pagefind ships as an ES module (public/pagefind/pagefind.js); import
+	 * it dynamically and point it at the bundle directory (staging serves
+	 * under /pr-<n>/) so it fetches its fragments from the right place.
 	 */
-	const createLunrIndex = () =>
-		lunr(function () {
-			this.field("title", {
-				boost: 50,
-			});
+	const pagefindReady = import(`${params.baseUrl}pagefind/pagefind.js`).then(
+		(pagefind) =>
+			pagefind
+				.options({
+					basePath: new URL("pagefind/", params.baseUrl).pathname,
+				})
+				.then(() => pagefind),
+	);
 
-			this.field("description", {
-				boost: 25,
-			});
-
-			this.field("categoryTitle", {
-				boost: 20,
-			});
-
-			this.field("tags", {
-				boost: 15,
-			});
-
-			this.field("content", {
-				boost: 10,
-			});
-
-			this.field("author", {
-				boost: 5,
-			});
-
-			this.field("language", {
-				boost: 2,
-			});
-
-			this.ref("id");
-
-			source.forEach(function (doc) {
-				this.add(doc);
-			}, this);
-		});
+	// Silent failure keeps parity with the old fetch behavior: nothing
+	// renders until results arrive (also covers `hugo server` dev, which
+	// has no pagefind index — search only works in built output).
+	pagefindReady.catch(() => {});
 
 	/**
-	 * Search in the whole collection if there is a match with the current term.
+	 * Render a result card (same shape as the post-card partial).
 	 *
-	 * @param term
-	 * @returns {Array}
-	 */
-	const search = (term) => {
-		const suggestions = [];
-
-		lunrIndex.search(`*${term}*`).forEach((result) => {
-			source.forEach((current) => {
-				if (String(current.id) === result.ref) {
-					suggestions.push(current);
-				}
-			});
-		});
-
-		return suggestions;
-	};
-
-	/**
-	 * Render a HTML replacing values from template according to the suggestion that was received.
-	 *
-	 * @param suggestion
+	 * @param result Pagefind result data ({url, meta, excerpt})
 	 * @returns {string}
 	 */
-	const renderHtml = (suggestion) => {
-		const baseUrl =
-			params.baseUrl + (suggestion.language === "en" ? "en/" : "");
-
+	const renderHtml = (result) => {
 		const authorPrefix = i18n.trans("createdBy");
+		const image = result.meta.image || `${params.baseUrl}images/icons/tag.svg`;
 
-		return template
-			.split("__ID__")
-			.join(suggestion.id)
-			.split("__TITLE__")
-			.join(suggestion.title)
-			.split("__AUTHOR__")
-			.join(`${authorPrefix} ${suggestion.author}`)
-			.split("__DESCRIPTION__")
-			.join(suggestion.description)
-			.split("__LANGUAGE__")
-			.join(suggestion.language)
-			.split("__TAGS__")
-			.join(suggestion.tags.join(", "))
-			.split("__IMAGE__")
-			.join(baseUrl + suggestion.image)
-			.split("__CATEGORYURL__")
-			.join(`${baseUrl}categories/${suggestion.categoryUrl}`)
-			.split("__CATEGORYTITLE__")
-			.join(suggestion.categoryTitle)
-			.split("__CONTENT__")
-			.join(suggestion.content)
-			.split("__HREF__")
-			.join(baseUrl + suggestion.slug);
+		return (
+			`<article class="post-card mb-6">` +
+			`<div class="flex"><div class="flex-col m-4">` +
+			`<img class="rounded" src="${image}" alt="${result.meta.title}" height="60" width="60">` +
+			`</div><header class="flex-col m-0">` +
+			`<h2 class="mt-0 mb-0 font-size-h4">` +
+			`<a class="mt-4 mb-1 post-card--title" href="${result.url}">${result.meta.title}</a>` +
+			`</h2>` +
+			`<ul class="flex list-none gap-2"><li><span>${authorPrefix} ${result.meta.author}</span></li></ul>` +
+			`<p class="mt-2 mb-4 mr-2">${result.excerpt}</p>` +
+			`</header></div></article>`
+		);
 	};
 
 	/**
@@ -159,69 +99,26 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		config.timer = setTimeout(() => {
-			let suggestions = [];
-			let html = "";
-
 			if (term.length >= config.minChars) {
-				suggestions = search(term);
+				pagefindReady
+					.then((pagefind) =>
+						pagefind.search(term, { filters: { type: ["post"] } }),
+					)
+					.then(async (search) => {
+						const data = await Promise.all(
+							search.results.map((result) => result.data()),
+						);
 
-				searchResults.innerHTML = html;
-
-				if (suggestions.length === 0) {
-					html = `<p>“${i18n.trans("noResults")}.”</p>`;
-				} else {
-					for (let i = 0; i < suggestions.length; i++) {
-						html += renderHtml(suggestions[i]);
-					}
-				}
-
-				searchResults.innerHTML = html;
+						if (data.length === 0) {
+							searchResults.innerHTML = `<p>“${i18n.trans("noResults")}.”</p>`;
+						} else {
+							searchResults.innerHTML = data.map(renderHtml).join("");
+						}
+					});
 			}
 		}, config.delay);
 	};
 
-	/**
-	 * Process the template file and source data that contains searchable results.
-	 *
-	 * @param searchTemplate
-	 * @param searchData
-	 */
-	const process = (searchTemplate, searchData) => {
-		template = searchTemplate.data.trim();
-		source = searchData.data;
-
-		lunrIndex = createLunrIndex();
-
-		inputField.addEventListener("keyup", listener);
-		inputField.addEventListener("input", listener);
-	};
-
-	/**
-	 * Load dependencies with the fetch API (response shapes are adapted to
-	 * the { data } objects process() expects, matching the old axios
-	 * behavior including rejection on HTTP errors).
-	 */
-	const promises = Promise.all([
-		fetch(`${params.baseUrl}search-template.html`).then((response) => {
-			if (!response.ok) {
-				throw new Error(`search template: ${response.status}`);
-			}
-
-			return response.text().then((text) => ({ data: text }));
-		}),
-		fetch(`${params.baseUrl}search.json`).then((response) => {
-			if (!response.ok) {
-				throw new Error(`search index: ${response.status}`);
-			}
-
-			return response.json().then((json) => ({ data: json }));
-		}),
-	]);
-
-	/**
-	 * Start processing.
-	 */
-	promises.then((results) => {
-		process(results[0], results[1]);
-	});
+	inputField.addEventListener("keyup", listener);
+	inputField.addEventListener("input", listener);
 });

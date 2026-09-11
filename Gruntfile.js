@@ -3,9 +3,6 @@ module.exports = function (grunt) {
 
     require('time-grunt')(grunt);
     require('./grunt-custom/requirements')(grunt);
-    require('./grunt-custom/lunr')(grunt);
-
-    var paths = require('./grunt-custom/paths')(grunt);
 
     require('load-grunt-config')(grunt, {
         init: true,
@@ -14,8 +11,6 @@ module.exports = function (grunt) {
             googleApiKey:    process.env.GOOGLE_API_KEY,
             license:         grunt.file.read('LICENSE'),
             banner:          "/*\n<%= license %>*/\n",
-
-            paths:           paths,
 
             bower_path:      "vendor",
             dist_path:       "public",

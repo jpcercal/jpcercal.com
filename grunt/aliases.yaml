@@ -12,7 +12,6 @@ default:
   description: 'Default task'
   tasks:
     - 'main'
-    - 'lunr:development'
     - 'shell:development'
     - 'copy:development'
     - 'processhtml:development'
@@ -22,7 +21,6 @@ production:
   description: 'Production task'
   tasks:
     - 'main'
-    - 'lunr:production'
     - 'shell:production'
     - 'copy:production'
     - 'processhtml:production'
