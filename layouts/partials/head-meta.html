@@ -101,7 +101,7 @@
 
 <link rel="canonical" href='{{ $.Scratch.Get "seoCanonical" }}'>
 
-{{- if or (eq .Kind "404") (eq .Section "search") (eq .Section "contact") -}}
+{{- if or (eq .Kind "404") (eq .Section "search") (eq .Section "contact") (eq .Section "design-system") -}}
 <meta name="robots" content="noindex">
 {{- end -}}
 

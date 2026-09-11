@@ -1,0 +1,27 @@
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+
+<section class="container">
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <h1 class="mb-2">{{ .Title }}</h1>
+
+            <div class="font-size-h6 article-content">
+                {{ .Content }}
+            </div>
+
+            <ul class="post-list list-none">
+                {{ range .Pages }}
+                    <li class="mt-4">
+                        <h2 class="font-size-h4">
+                            <a class="post-list--title" href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h2>
+                        <p class="mt-2 mb-4">{{ .Description }}</p>
+                    </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</section>
+
+{{ partial "footer.html" . }}
