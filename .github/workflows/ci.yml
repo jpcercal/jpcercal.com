@@ -12,6 +12,7 @@ env:
   NODE_VERSION: "24"
   BASE_URL: https://jpcercal.com/
   STAGING_HOST: https://staging.jpcercal.com
+  CLOUDFLARE_PROJECT_NAME: cloudflare-pages
 
 jobs:
   build:
@@ -175,7 +176,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=jpcercal-com --commit-dirty=true
+          command: pages deploy public --project-name=${{ env.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
 
   cloudflare-pages:
     name: Verify Cloudflare Pages (prod, blocking)
