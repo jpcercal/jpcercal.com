@@ -10,32 +10,32 @@
 {{ $defaultCover    := printf "%s%s" $baseURL "images/icons/tag.svg" }}
 {{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
-<article class="post-card mb-4">
-    <div class="flex-row d-flex">
-        <div class="flex-column m-3">
+<article class="post-card mb-6">
+    <div class="flex">
+        <div class="flex-col m-4">
             <img class="rounded" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
         </div>
-        <header class="flex-column m-0">
+        <header class="flex-col m-0">
             <h2 class="mt-0 mb-0 font-size-h4">
-                <a class="mt-3 mb-1 post-card--title" href="{{ .Permalink }}">{{ .Title }}</a>
+                <a class="mt-4 mb-1 post-card--title" href="{{ .Permalink }}">{{ .Title }}</a>
             </h2>
 
-            <ul class="list-inline">
-                <li class="list-inline-item d-inline">
+            <ul class="flex list-none gap-2">
+                <li>
                     <time datetime="{{ $datetime }}">{{ $datetimeDisplay }}</time>
                 </li>
-                <li class="list-inline-item d-none d-sm-inline">
+                <li class="hidden sm:inline">
                     <span>{{ partial "word-count.html" . }}</span>
                 </li>
-                <li class="list-inline-item d-none d-sm-inline">
+                <li class="hidden sm:inline">
                     <span>{{ partial "reading-time.html" . }}</span>
                 </li>
             </ul>
 
             {{ if $category }}
-                <a class="post-card--category d-none d-md-inline" href='{{ $localeBaseURL }}categories/{{ $categoryAlias | urlize }}'>{{ index (index $category "title") $locale }}</a>
+                <a class="post-card--category hidden md:inline" href='{{ $localeBaseURL }}categories/{{ $categoryAlias | urlize }}'>{{ index (index $category "title") $locale }}</a>
             {{ end }}
-            <p class="mt-2 mb-3 mr-2">{{ .Description }}</p>
+            <p class="mt-2 mb-4 mr-2">{{ .Description }}</p>
         </header>
     </div>
 </article>

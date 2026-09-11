@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 footer {
   .icon-credits {
     font-size: em(12px);

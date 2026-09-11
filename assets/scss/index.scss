@@ -1,17 +1,13 @@
-// Twitter Bootstrap 4
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
-
-// jpcercal.com
-@import "mixins";
-@import "variables";
-@import "fonts";
-@import "header";
-@import "footer";
-@import "article";
-@import "default";
-@import "post-card";
-@import "post-list";
-@import "search";
-@import "contact";
+// jpcercal.com (compiled with Dart Sass via Hugo Pipes; Bootstrap imports
+// moved to assets/css/vendor.css which is now Tailwind v4 based)
+@use "mixins" as *;
+@use "variables" as *;
+@use "fonts";
+@use "header";
+@use "footer";
+@use "article";
+@use "default";
+@use "post-card";
+@use "post-list";
+@use "search";
+@use "contact";

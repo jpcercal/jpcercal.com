@@ -1,11 +1,14 @@
+@use "sass:math";
+@use "variables" as *;
+
 @function em($pixels, $context: $fontSize) {
-  @if (unitless($pixels)) {
+  @if (math.is-unitless($pixels)) {
     $pixels: $pixels * 1px;
   }
 
-  @if (unitless($context)) {
+  @if (math.is-unitless($context)) {
     $context: $context * 1px;
   }
 
-  @return $pixels / $context * 1em;
+  @return math.div($pixels, $context) * 1em;
 }

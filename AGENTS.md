@@ -63,8 +63,26 @@
 - `static/CNAME` (`jpcercal.com`) must not publish to the staging branch;
   the staging job strips or overwrites it per-PR path.
 - `public/` output is stale dev-only; never trust it, always rebuild.
-- This machine's global gitignore ignores `*.js` — new JS files need
-  `git add -f` (tracked `*.js` files are unaffected).
+- This machine's global gitignore ignores `*.js` and `assets/*` — new JS
+  files and new files under `assets/` need `git add -f` (tracked files
+  are unaffected).
+- Hugo Pipes binaries resolve via `node_modules/.bin` on PATH (npm scripts
+  provide it; `playwright.config.js` webServer prefixes it explicitly).
+  `config.yaml` must keep `^tailwindcss$` in `security.exec.allow`.
+- Hugo resource cache collides when a pipe chain changes shape (e.g. adding
+  `resources.Copy`); rebuild with `--ignoreCache` then. CI runners are cold.
+- Old `vendor.scss` never imported Bootstrap `utilities/api`, so nearly all
+  `d-*`/`mt-*`/`float-*`/responsive classes were dead in prod. The Tailwind
+  migration ACTIVATES them — diffs vs old rendering here are intended fixes
+  (locale switcher, floats, spacing), proven by old-vs-new screenshots.
+- `grunt/htmlmin.yaml` keeps optional tags/redundant attrs/entities to
+  satisfy `html-validate`; the file dies with the HTML commit (`hugo
+  --minify` keeps them anyway).
+- `svg2png` needs `inkscape` (absent locally, CI installs it); replaced by
+  `resvg` in the images commit.
+- Visual specs (`e2e/visual.spec.js`) are platform snapshots, skipped on CI;
+  regenerate only from fully-styled builds (`hugo server` with pipes, never
+  from grunt-CSS layouts).
 - `grunt-shell` production ≠ development (`--buildDrafts` only in dev);
   the same split applies to staging (`--buildDrafts` + PR baseURL) vs prod.
 

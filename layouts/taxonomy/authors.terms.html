@@ -9,7 +9,7 @@
 <section class="container post-list">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <h1>{{ i18n "authors" }}</h1>
+            <h1 class="mb-2">{{ i18n "authors" }}</h1>
 
             {{ if $paginator.Pages }}
                 {{ range $paginator.Pages }}
@@ -18,7 +18,7 @@
                         {{ $posts  := where $pages "Params.author" .Params.email }}
             
                         {{ if $posts }}
-                            <h2 class="mt-3">
+                            <h2 class="mt-4 mb-2">
                                 <a class="post-list--title" href="{{ .Permalink }}">{{ $author.name }}</a>
                             </h2>
                 
@@ -30,12 +30,12 @@
                                 {{ end }}
                             </ul>
                 
-                            <a class="see-all-posts mb-3" href="{{ .Permalink }}">{{ i18n "seeAllPosts" }}</a>
+                            <a class="see-all-posts mb-4" href="{{ .Permalink }}">{{ i18n "seeAllPosts" }}</a>
                         {{ end }}
                     {{ end }}
                 {{ end }}
             {{ else }}
-                <p>“{{ i18n "noResultsFound" }}”.</p>
+                <p class="mb-2">“{{ i18n "noResultsFound" }}”.</p>
             {{ end }}
         </div>
     </div>

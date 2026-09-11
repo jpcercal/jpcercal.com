@@ -65,6 +65,16 @@ enableRobotsTXT:            true
 disableHugoGeneratorInject: true
 enableEmoji:                false
 
+security:
+  exec:
+    allow:
+      - "^(dart-)?sass$"
+      - "^go$"
+      - "^git$"
+      - "^node$"
+      - "^postcss$"
+      - "^tailwindcss$"
+
 footnoteAnchorPrefix:       ""
 footnoteReturnLinkContents: ""
 

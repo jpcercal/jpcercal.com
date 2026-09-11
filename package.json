@@ -6,6 +6,7 @@
     "@biomejs/biome": "^2.5.13",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.63.0",
+    "@tailwindcss/cli": "^4.3.3",
     "array-duplicates-properties": "^1.1.2",
     "css-select": "^7.0.0",
     "grunt": "^1.6.3",
@@ -34,9 +35,12 @@
     "load-grunt-config": "^0.19.2",
     "md5": "^2.3.0",
     "pn": "^1.1.0",
+    "sass-embedded": "^1.104.0",
+    "sass-embedded-darwin-arm64": "^1.104.0",
     "sprintf-js": "^1.1.3",
     "string": "^3.3.3",
     "svg2png": "^4.1.1",
+    "tailwindcss": "^4.3.3",
     "time-grunt": "^2.0.0"
   },
   "dependencies": {

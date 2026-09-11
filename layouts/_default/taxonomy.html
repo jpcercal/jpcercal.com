@@ -9,9 +9,9 @@
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
             {{ if $category }}
-                <h1>{{ index (index $category "title") $locale }}</h1>
+                <h1 class="mb-2">{{ index (index $category "title") $locale }}</h1>
             {{ else }}
-                <h1>{{ .Title }}</h1>
+                <h1 class="mb-2">{{ .Title }}</h1>
             {{ end }}
 
             {{ if $pages }}
@@ -19,7 +19,7 @@
                     {{ partial "post-card.html" . }}
                 {{ end }}
             {{ else }}
-                <p>“{{ i18n "noResultsFound" }}”.</p>
+                <p class="mb-2">“{{ i18n "noResultsFound" }}”.</p>
             {{ end }}
         </div>
     </div>

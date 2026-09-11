@@ -16,7 +16,7 @@
                 <div class="row clearfix">
                     <div class="col">
                         <div class="float-left">
-                            <img class="rounded-circle" src="{{ .Site.BaseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60" width="60">
+                            <img class="rounded-full" src="{{ .Site.BaseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60" width="60">
                         </div>
 
                         <div class="float-left ml-2">
@@ -26,9 +26,9 @@
                             <p class="author-position">{{ index $author.position $locale }}</p>
                             <p class="author-position">{{ index $author.biography $locale }}</p>
 
-                            <ul class="list-unstyled list-inline">
+                            <ul class="list-none flex gap-2">
                                 {{ if $resume }}
-                                    <li class="list-inline-item d-none d-sm-inline">
+                                    <li class="hidden sm:inline">
                                         <a href="{{ $resume }}" target="_blank">{{ i18n "resume" }}</a>
                                     </li>
                                 {{ end }}
@@ -51,7 +51,7 @@
                     {{ partial "post-card.html" . }}
                 {{ end }}
             {{ else }}
-                <p>“{{ i18n "noResultsFound" }}”.</p>
+                <p class="mb-2">“{{ i18n "noResultsFound" }}”.</p>
             {{ end }}
         </div>
     </div>

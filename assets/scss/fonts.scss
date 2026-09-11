@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 body {
   font-family: 'PT Serif';
   font-weight: 400;

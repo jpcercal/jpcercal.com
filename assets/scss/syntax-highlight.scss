@@ -1,0 +1,435 @@
+// One Dark syntax theme, ported from Less to SCSS.
+// Sources (no longer cloned; values inlined, see bin/fetch-vendor.sh history):
+//   - https://github.com/atom/one-dark-syntax (styles/colors.less)
+//   - https://github.com/mgyongyosi/OneDarkJekyll (syntax.less)
+// NOTE: selectors target Pygments markup (.highlighttable/.linenos). Hugo now
+// renders Chroma markup, so most of this is dormant; the highlight commit
+// replaces it with a generated Chroma theme. Kept byte-identical meanwhile.
+
+// Monochrome
+$mono-1: hsl(220, 14%, 71%);
+$mono-3: hsl(220, 10%, 40%);
+
+// Hues
+$hue-1: hsl(187, 47%, 55%);
+$hue-2: hsl(207, 82%, 66%);
+$hue-3: hsl(286, 60%, 67%);
+$hue-4: hsl(95, 38%, 62%);
+$hue-5: hsl(355, 65%, 65%);
+$hue-6: hsl(29, 54%, 61%);
+$hue-6-2: hsl(39, 67%, 69%);
+
+// Base
+$syntax-fg: $mono-1;
+$syntax-bg: hsl(220, 13%, 18%);
+$syntax-gutter: hsl(220, 14%, 45%);
+$syntax-guide: hsla(220, 14%, 71%, 0.15);
+$syntax-accent: hsl(220, 100%, 66%);
+$syntax-selection-color: hsl(220, 13%, 28%);
+$syntax-color-removed: hsl(0, 70%, 60%);
+$syntax-color-added: hsl(150, 60%, 54%);
+$syntax-illegal-fg: white;
+$syntax-illegal-bg: $syntax-color-removed;
+
+pre.highlight,
+.highlight {
+  background: $syntax-bg;
+  color: $mono-1;
+}
+
+.highlight {
+  pre {
+    background: $syntax-bg;
+  }
+
+  .hll {
+    background: $syntax-bg;
+  }
+
+  .c {
+    color: $mono-3;
+    font-style: italic;
+  }
+
+  /* Error */
+  .err {
+    color: $syntax-illegal-fg;
+    background-color: $syntax-illegal-bg;
+  }
+
+  /* Keyword */
+  .k {
+    color: $hue-3;
+  }
+
+  /* Literal */
+  .l {
+    color: $hue-4;
+  }
+
+  /* Name */
+  .n {
+    color: $mono-1;
+  }
+
+  /* Operator */
+  .o {
+    color: $mono-1;
+  }
+
+  /* Punctuation */
+  .p {
+    color: $mono-1;
+  }
+
+  /* Comment.Multiline */
+  .cm {
+    color: $mono-3;
+    font-style: italic;
+  }
+
+  /* Comment.Preproc */
+  .cp {
+    color: $mono-3;
+    font-style: italic;
+  }
+
+  /* Comment.Single */
+  .c1 {
+    color: $mono-3;
+    font-style: italic;
+  }
+
+  /* Comment.Special */
+  .cs {
+    color: $mono-3;
+    font-style: italic;
+  }
+
+  /* Generic.Emph */
+  .ge {
+    font-style: italic;
+  }
+
+  /* Generic.Strong */
+  .gs {
+    font-weight: bold;
+  }
+
+  /* Keyword.Constant */
+  .kc {
+    color: $hue-3;
+  }
+
+  /* Keyword.Declaration */
+  .kd {
+    color: $hue-3;
+  }
+
+  /* Keyword.Namespace */
+  .kn {
+    color: $hue-3;
+  }
+
+  /* Keyword.Pseudo */
+  .kp {
+    color: $hue-3;
+  }
+
+  /* Keyword.Reserved */
+  .kr {
+    color: $hue-3;
+  }
+
+  /* Keyword.Type */
+  .kt {
+    color: $hue-3;
+  }
+
+  /* Literal.Date */
+  .ld {
+    color: $hue-4;
+  }
+
+  /* Literal.Number */
+  .m {
+    color: $hue-6;
+  }
+
+  /* Literal.String */
+  .s {
+    color: $hue-4;
+  }
+
+  /* Name.Attribute */
+  .na {
+    color: $hue-6;
+  }
+
+  /* Name.Builtin */
+  .nb {
+    color: $hue-6-2;
+  }
+
+  /* Name.Class */
+  .nc {
+    color: $hue-6-2;
+  }
+
+  /* Name.Constant */
+  .no {
+    color: $hue-6-2;
+  }
+
+  /* Name.Decorator */
+  .nd {
+    color: $hue-6-2;
+  }
+
+  /* Name.Entity */
+  .ni {
+    color: $hue-6-2;
+  }
+
+  /* Name.Exception */
+  .ne {
+    color: $hue-6-2;
+  }
+
+  /* Name.Function */
+  .nf {
+    color: $mono-1;
+  }
+
+  /* Name.Label */
+  .nl {
+    color: $hue-6-2;
+  }
+
+  /* Name.Namespace */
+  .nn {
+    color: $mono-1;
+  }
+
+  /* Name.Other */
+  .nx {
+    color: $mono-1;
+  }
+
+  /* Name.Property */
+  .py {
+    color: $hue-6-2;
+  }
+
+  /* Name.Tag */
+  .nt {
+    color: $hue-5;
+  }
+
+  /* Name.Variable */
+  .nv {
+    color: $hue-6-2;
+  }
+
+  /* Operator.Word */
+  .ow {
+    font-weight: bold;
+  }
+
+  /* Text.Whitespace */
+  .w {
+    color: #f8f8f2;
+  }
+
+  /* Literal.Number.Float */
+  .mf {
+    color: $hue-6;
+  }
+
+  /* Literal.Number.Hex */
+  .mh {
+    color: $hue-6;
+  }
+
+  /* Literal.Number.Integer */
+  .mi {
+    color: $hue-6;
+  }
+
+  /* Literal.Number.Oct */
+  .mo {
+    color: $hue-6;
+  }
+
+  /* Literal.String.Backtick */
+  .sb {
+    color: $hue-4;
+  }
+
+  /* Literal.String.Char */
+  .sc {
+    color: $hue-4;
+  }
+
+  /* Literal.String.Doc */
+  .sd {
+    color: $hue-4;
+  }
+
+  /* Literal.String.Double */
+  .s2 {
+    color: $hue-4;
+  }
+
+  /* Literal.String.Escape */
+  .se {
+    color: $hue-4;
+  }
+
+  /* Literal.String.Heredoc */
+  .sh {
+    color: $hue-4;
+  }
+
+  /* Literal.String.Interpol */
+  .si {
+    color: $hue-4;
+  }
+
+  /* Literal.String.Other */
+  .sx {
+    color: $hue-4;
+  }
+
+  /* Literal.String.Regex */
+  .sr {
+    color: $hue-1;
+  }
+
+  /* Literal.String.Single */
+  .s1 {
+    color: $hue-4;
+  }
+
+  /* Literal.String.Symbol */
+  .ss {
+    color: $hue-1;
+  }
+
+  /* Name.Builtin.Pseudo */
+  .bp {
+    color: $hue-6-2;
+  }
+
+  /* Name.Variable.Class */
+  .vc {
+    color: $hue-6-2;
+  }
+
+  /* Name.Variable.Global */
+  .vg {
+    color: $hue-6-2;
+  }
+
+  /* Name.Variable.Instance */
+  .vi {
+    color: $hue-5;
+  }
+
+  /* Literal.Number.Integer.Long */
+  .il {
+    color: $hue-6;
+  }
+
+  /* Generic Heading & Diff Header */
+  .gh {
+  }
+
+  /* Generic.Subheading & Diff Unified/Comment? */
+  .gu {
+    color: #75715e;
+  }
+
+  /* Generic.Deleted & Diff Deleted */
+  .gd {
+    color: $syntax-color-removed;
+  }
+
+  /* Generic.Inserted & Diff Inserted */
+  .gi {
+    color: $syntax-color-added;
+  }
+
+  ::selection {
+    background-color: $syntax-selection-color;
+  }
+
+  .language-json {
+    .w + .s2 {
+      color: $hue-5;
+    }
+
+    .kc {
+      color: $hue-1;
+    }
+  }
+}
+
+.highlighttable {
+  overflow: auto;
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  margin: 12px 0;
+  background-color: $syntax-bg;
+  border-left: 15px solid #191f2b;
+  border-right: 2px solid #191f2b;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+
+  code,
+  span {
+    font-family: "Fira Mono", monospace;
+  }
+
+  .linenos {
+    display: block;
+    width: 50px;
+    text-align: right;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #abb2bf;
+    border-right-color: $syntax-guide;
+
+    pre {
+      padding-right: 10px;
+      margin-bottom: 0;
+
+      code {
+        color: $syntax-gutter;
+        padding: 0;
+        font-size: 1em;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .code {
+    .highlight {
+      padding: 0 10px;
+
+      pre {
+        margin-bottom: 0;
+        font-size: 1em;
+      }
+    }
+  }
+}

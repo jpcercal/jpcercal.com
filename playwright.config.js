@@ -9,7 +9,10 @@ module.exports = defineConfig({
 		trace: "retain-on-failure",
 	},
 	webServer: {
-		command: "hugo server --bind 127.0.0.1 --port 1313 --disableFastRender",
+		// Hugo Pipes (Dart Sass, Tailwind) resolve their binaries from
+		// node_modules/.bin, which must be on PATH for the server too.
+		command:
+			"PATH='./node_modules/.bin:'$PATH hugo server --bind 127.0.0.1 --port 1313 --disableFastRender",
 		url: "http://127.0.0.1:1313/",
 		reuseExistingServer: !process.env.CI,
 		timeout: 120 * 1000,

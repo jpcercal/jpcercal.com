@@ -1,10 +1,13 @@
+@use "sass:color" as *;
+@use "variables" as *;
+
 .search {
   .search-info {
     list-style: circle;
 
     li {
       color: #808080d6;
-      color: lighten($fontColor, 50%);
+      color: adjust($fontColor, $lightness: 50%);
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 400;
     }
@@ -12,7 +15,7 @@
     li::after {
       display: inline;
       color: #999999d6;
-      color: lighten($fontColor, 60%);
+      color: adjust($fontColor, $lightness: 60%);
       content: ';';
     }
 

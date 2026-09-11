@@ -8,11 +8,11 @@
 <section class="container">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <h1>{{ i18n "searchFor" }}</h1>
+            <h1 class="mb-2">{{ i18n "searchFor" }}</h1>
 
             <div class="search">
                 <form onsubmit="return false;">
-                    <ul class="search-info mt-4 mb-4">
+                    <ul class="search-info mt-6 mb-6">
                         {{ range $current := $info }}
                             {{ if $current }}
                                 <li>{{ . }}</li>
@@ -21,7 +21,7 @@
                     </ul>
                     <input id="search" class="font-size-h6 search-input-field" type="search" autofocus placeholder='{{ i18n "searchForPlaceholder" }}'/>
                 </form>
-                <div id="search-results" class="mt-4 mb-3"></div>
+                <div id="search-results" class="mt-6 mb-4"></div>
             </div>
         </div>
     </div>

@@ -22,7 +22,5 @@ clone_if_missing() {
 }
 
 clone_if_missing "osvaldasvalutis/disqusLoader.js" "node_modules/disqus-loader"
-clone_if_missing "atom/one-dark-syntax" "node_modules/one-dark-syntax"
-clone_if_missing "mgyongyosi/OneDarkJekyll" "node_modules/one-dark-jekyll"
 
 echo "vendor: done."

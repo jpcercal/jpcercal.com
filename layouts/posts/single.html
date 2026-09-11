@@ -17,25 +17,25 @@
     <header class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
             <div class="float-left">
-                <img class="rounded-circle" src="{{ $baseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60" width="60">
+                <img class="rounded-full" src="{{ $baseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60" width="60">
             </div>
 
             <div class="float-left ml-2">
                 <a href='{{ $localeBaseURL }}authors/{{ $author.slug }}' rel="author" class="font-size-h6 author-name">{{ $author.name }}</a>
                 <p class="author-position">{{ index $author.position $locale }}</p>
 
-                <ul class="list-inline">
-                    <li class="list-inline-item d-inline">
+                <ul class="flex list-none gap-2">
+                    <li>
                         <time datetime="{{ $datetime }}">{{ $datetimeDisplay }}</time>
                     </li>
-                    <li class="list-inline-item d-none d-sm-inline">
+                    <li class="hidden sm:inline">
                         <span>{{ partial "word-count.html" . }}</span>
                     </li>
-                    <li class="list-inline-item d-none d-sm-inline">
+                    <li class="hidden sm:inline">
                         <span>{{ partial "reading-time.html" . }}</span>
                     </li>
                     {{ if $category }}
-                        <li class="list-inline-item d-inline">
+                        <li>
                             <a href='{{ $localeBaseURL }}categories/{{ $categoryAlias | urlize }}'>{{ index (index $category "title") $locale }}</a>
                         </li>
                     {{ end }}
@@ -45,25 +45,25 @@
     </header>
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <h1 class="font-size-h1 mt-2 mb-3">{{ .Title }}</h1>
+            <h1 class="font-size-h1 mt-2 mb-4">{{ .Title }}</h1>
 
-            <ul class="article-share-buttons mt-1 mb-3 list-unstyled list-inline">
-                <li class="list-inline-item">
+            <ul class="article-share-buttons mt-1 mb-4 list-none flex gap-2">
+                <li>
                     <a href='https://www.facebook.com/sharer/sharer.php?u={{ $.Scratch.Get "seoCanonical" }}&quote={{ $.Scratch.Get "seoTitle" }}' target="_blank" title="Share on Facebook">
                         <img alt="Share on Facebook" src="{{ .Site.BaseURL }}images/icons/share-buttons/facebook.svg" />
                     </a>
                 </li>
-                <li class="list-inline-item">
+                <li>
                     <a href='https://twitter.com/intent/tweet?source={{ $.Scratch.Get "seoCanonical" }}&text={{ $.Scratch.Get "seoTitle" }}:%20{{ $.Scratch.Get "seoCanonical" }}&via={{ $.Scratch.Get "twitterProfile" }}' target="_blank" title="Share on Twitter">
                         <img alt="Share on Twitter" src="{{ .Site.BaseURL }}images/icons/share-buttons/twitter.svg" />
                     </a>
                 </li>
-                <li class="list-inline-item">
+                <li>
                     <a href='https://plus.google.com/share?url={{ $.Scratch.Get "seoCanonical" }}' target="_blank" title="Share on Google+">
                         <img alt="Share on Google+" src="{{ .Site.BaseURL }}images/icons/share-buttons/google-plus.svg" />
                     </a>
                 </li>
-                <li class="list-inline-item">
+                <li>
                     <a href='http://www.linkedin.com/shareArticle?mini=true&url={{ $.Scratch.Get "seoCanonical" }}&title={{ $.Scratch.Get "seoTitle" }}&summary={{ $.Scratch.Get "seoDescription" }}&source={{ $.Scratch.Get "seoCanonical" }}' target="_blank" title="Share on LinkedIn">
                         <img alt="Share on LinkedIn" src="{{ .Site.BaseURL }}images/icons/share-buttons/linkedin.svg" />
                     </a>
@@ -74,10 +74,10 @@
                 {{ .Content }}
             </div>
 
-            <ul class="article-tags list-unstyled list-inline">
+            <ul class="article-tags list-none flex gap-2">
                 {{ range $tag := .Params.tags }}
                     {{ if $tag }}
-                        <li class="article-tag list-inline-item">
+                        <li class="article-tag">
                             <a href='{{ $localeBaseURL }}tags/{{ $tag | urlize }}'>{{ index (index (index $tags $tag) "title") $locale }}</a>
                         </li>
                     {{ end }}

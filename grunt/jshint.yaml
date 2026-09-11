@@ -1,7 +1,0 @@
-options:
-  globals:
-    console: true
-files:
-  - 'Gruntfile.js'
-  - 'grunt-custom/*.js'
-  - '<%= src_app_path %>/<%= js_path %>/*.js'
