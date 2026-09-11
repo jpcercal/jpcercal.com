@@ -10,7 +10,6 @@ on:
 env:
   HUGO_VERSION: 0.166.0
   NODE_VERSION: "24"
-  RUBY_VERSION: "3.3"
   BASE_URL: https://jpcercal.com/
 
 jobs:
@@ -32,20 +31,6 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
-
-      - name: Setup Ruby (for grunt-contrib-sass)
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ env.RUBY_VERSION }}
-
-      - name: Install Ruby Sass
-        run: gem install sass -v 3.7.4
-
-      - name: Setup Java 8 (for grunt-html validator)
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "8"
 
       - name: Install inkscape (for svg2png task)
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends inkscape

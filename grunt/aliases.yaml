@@ -17,7 +17,6 @@ default:
     - 'copy:development'
     - 'copy-content-assets'
     - 'processhtml:development'
-    - 'htmllint'
     - 'notify_hooks'
 
 production:
@@ -31,9 +30,7 @@ production:
     - 'processhtml:production'
     - 'uglify:disqus'
     - 'imagemin'
-    - 'htmlmin'
     - 'xmlmin'
-    - 'htmllint'
     - 'svg2png'
     - 'clean:unminified'
     - 'clean:public-posts-directory'

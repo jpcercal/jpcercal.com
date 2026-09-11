@@ -1,7 +1,6 @@
 FROM node:24-bookworm
 
 # Install system dependencies for the build:
-# - ruby + build tools for Ruby Sass (grunt-contrib-sass)
 # - git for fetching vendor sources (bin/fetch-vendor.sh)
 # - image tooling used by grunt imagemin/svg2png tasks
 ENV HUGO_VERSION=0.166.0
@@ -17,10 +16,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libjpeg-dev \
     libpng-dev \
     make \
-    ruby-full \
     python3-pygments \
-    && rm -rf /var/lib/apt/lists/* \
-    && gem install sass -v 3.7.4
+    && rm -rf /var/lib/apt/lists/*
 
 # Install global npm tools
 RUN npm install -g grunt-cli

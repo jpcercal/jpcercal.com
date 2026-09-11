@@ -4,4 +4,4 @@ options:
 development:
   command: "hugo --buildDrafts --baseURL <%= baseUrl %>"
 production:
-  command: "hugo --baseURL <%= baseUrl %>"
+  command: "hugo --minify --baseURL <%= baseUrl %>"

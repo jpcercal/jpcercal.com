@@ -24,7 +24,6 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-html": "^18.1.0",
     "grunt-notify": "^0.4.5",
-    "grunt-pagespeed": "^2.0.1",
     "grunt-processhtml": "^0.4.4",
     "grunt-shell": "^4.0.0",
     "grunt-xmlmin": "^0.1.8",
@@ -52,6 +51,7 @@
     "lint:fix": "biome check --write .",
     "build:hugo": "hugo --minify --printUnusedTemplates",
     "validate:html": "html-validate \"public/**/index.html\" \"public/404.html\"",
+    "validate:xml": "find public -name '*.xml' -o -name '*.svg' -exec xmllint --noout {} +",
     "links": "lychee --config .lychee.toml \"public/**/index.html\"",
     "lhci": "lhci autorun",
     "e2e": "playwright test"

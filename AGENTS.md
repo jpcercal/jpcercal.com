@@ -89,6 +89,13 @@
 - Visual specs (`e2e/visual.spec.js`) are platform snapshots, skipped on CI;
   regenerate only from fully-styled builds (`hugo server` with pipes, never
   from grunt-CSS layouts).
+- `hugo server` MUST pass `--renderToMemory` — otherwise it writes dev
+  rendering (localhost URLs, livereload) into `public/` and pollutes the
+  production artifact.
+- Run `bin/fetch-vendor.sh` AFTER any `npm install/uninstall` — npm prunes
+  the extraneous vendor clones (e.g. `disqus-loader`).
+- Legacy `grunt-contrib-imagemin` flakes intermittently under load
+  (`nodeUtil.isError` fatal); rerun the build. It dies in images commit.
 - `grunt-shell` production ≠ development (`--buildDrafts` only in dev);
   the same split applies to staging (`--buildDrafts` + PR baseURL) vs prod.
 

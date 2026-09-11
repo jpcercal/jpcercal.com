@@ -11,8 +11,9 @@ module.exports = defineConfig({
 	webServer: {
 		// Hugo Pipes (Dart Sass, Tailwind) resolve their binaries from
 		// node_modules/.bin, which must be on PATH for the server too.
+		// --renderToMemory keeps the dev server from writing into public/.
 		command:
-			"PATH='./node_modules/.bin:'$PATH hugo server --bind 127.0.0.1 --port 1313 --disableFastRender",
+			"PATH='./node_modules/.bin:'$PATH hugo server --bind 127.0.0.1 --port 1313 --disableFastRender --renderToMemory",
 		url: "http://127.0.0.1:1313/",
 		reuseExistingServer: !process.env.CI,
 		timeout: 120 * 1000,
