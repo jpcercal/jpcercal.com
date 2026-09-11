@@ -74,13 +74,13 @@
 {{- end -}}
 
 <!-- ==================================================================== -->
-<!-- Set IMAGE -->
+<!-- Set IMAGE (covers render at build time; authors publish page bundles) -->
 {{- if eq .Section "posts" -}}
-    {{- $.Scratch.Set "seoImage" (printf "%s%s/%s" $baseURL .Slug "index.png") -}}
+    {{- $.Scratch.Set "seoImage" (printf "%s%s%s/%s" $baseURL (cond (eq $locale "en") "en/" "") .Slug "index.png") -}}
 {{- else if eq .Section "authors" -}}
-    {{- $.Scratch.Set "seoImage" (printf "%s%s/%s" $baseURL .Slug "picture.jpg") -}}
+    {{- $.Scratch.Set "seoImage" (printf "%sauthors/%s/%s" $baseURL .Slug "picture.jpg") -}}
 {{- else -}}
-    {{- $.Scratch.Set "seoImage" (printf "%s%s" $baseURL "logo.png") -}}
+    {{- $.Scratch.Set "seoImage" (printf "%s%s" $baseURL "images/favicon/apple-icon-180x180.png") -}}
 {{- end -}}
 
 <!-- ==================================================================== -->
@@ -100,6 +100,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="canonical" href='{{ $.Scratch.Get "seoCanonical" }}'>
+
+{{- if or (eq .Kind "404") (eq .Section "search") (eq .Section "contact") -}}
+<meta name="robots" content="noindex">
+{{- end -}}
+
+{{- range .AllTranslations -}}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+{{- end -}}
 
 {{- with .OutputFormats.Get "rss" -}}
 <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">

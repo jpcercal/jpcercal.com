@@ -78,9 +78,9 @@
 - `static/CNAME` (`jpcercal.com`) must not publish to the staging branch;
   the staging job strips or overwrites it per-PR path.
 - `public/` output is stale dev-only; never trust it, always rebuild.
-- This machine's global gitignore ignores `*.js` and `assets/*` — new JS
-  files and new files under `assets/` need `git add -f` (tracked files
-  are unaffected).
+- This machine's global gitignore ignores `*.js`, `assets/*`, `/bin/`
+  and `robots.txt` — new files matching those need `git add -f`
+  (tracked files are unaffected).
 - Hugo Pipes binaries resolve via `node_modules/.bin` on PATH (npm scripts
   provide it; `playwright.config.js` webServer prefixes it explicitly).
   `config.yaml` must keep `^tailwindcss$` in `security.exec.allow`.
@@ -122,3 +122,5 @@
   evidence (commands + results), not intent.
 - **Prod gate absence assertions**: `public/design-system/` must not exist
   in prod artifacts; `search.json`/Lunr/Disqus/GA remnants must not exist.
+- LHCI collects `/`, `/en/` + one rich post page — NOT `/search/`
+  (noindexed by design, which fails the `is-crawlable` SEO audit).
