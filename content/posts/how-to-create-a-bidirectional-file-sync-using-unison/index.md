@@ -69,7 +69,7 @@ choco install unison
 ```
 
 > Há também a página de binários pré-compilados que pode ajudá-lo a instalar a ferramenta diretamente, mas o trabalho vai ser manual. Desculpe.
-> Confira em [http://unison-binaries.inria.fr](http://unison-binaries.inria.fr).
+> Confira em [https://github.com/bcpierce00/unison](https://github.com/bcpierce00/unison).
 
 ## Como habilitar a sincronização bidirecional (two-way) de duas pastas
 

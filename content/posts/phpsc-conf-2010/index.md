@@ -15,7 +15,7 @@ A coordenação do **Grupo de Usuários de PHP do Estado de Santa Catarina** –
 parceria com a SOCIESC, durante sua semana acadêmica dos cursos de computação, nos dias **27 e 28 de Agosto de 2010**, 
 a terceira edição do evento, entitulada: **PHPSC Conf 2010**.
 
-![PHPSC Conf 2010](http://www.phpsc.com.br/wp-content/uploads/2010/06/phpsc-270x175_exp.png "PHPSC Conf 2010") Os 
+Os 
 **temas sugeridos** contemplam as seguintes áreas:
 
 * PHP (versão 5.3 e futuras, frameworks, melhores práticas de desenvolvimento, IDEs, integração com outras 

@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="col clearfix">
-                    <nav class="float-right">
+                    <nav class="float-right" aria-label='{{ i18n "localeNav" }}'>
                         <ul class="list-unstyled list-inline m-0 locale-list">
                             <li class='list-inline-item locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
                                 <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="d-none d-lg-inline">{{ index $localePt.title $locale }}</a>

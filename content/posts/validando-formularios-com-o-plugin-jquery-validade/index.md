@@ -16,7 +16,7 @@ Hoje apresento a vocês o **jQuery Validade**, um excelente plugin jQuery desenv
 
 Você pode fazer o download deste plugin diretamente no site do desenvolvedor (_citado acima_) ou então no repositório 
 [GitHub]({{< ref "posts/git-hub-atinge-tres-milhoes-de-usuarios/index.md" >}} "Git Hub atinge 3 milhões de usuários") 
-(_https://github.com/jzaefferer/jquery-validation_).
+(_https://github.com/jquery-validation/jquery-validation).
 
 Se você utiliza o **GIT** como controlador de versão, poderá executar o comando abaixo para clonar o repositório 
 oficial do plugin:

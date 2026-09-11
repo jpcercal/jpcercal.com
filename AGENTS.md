@@ -6,8 +6,10 @@
   (EN translations). `content/search/`, `content/contact/`, `content/404.html`.
 - `assets/scss/` — `vendor.scss` (Bootstrap slim import), `index.scss` (app),
   syntax-highlight theme (ported from `assets/less/syntax-highlight.less`).
-- `assets/js/` — `search.js`, `contact.js`, `newsletter.js`, `blog.js`,
-  `language.js`, `post.js`; shared `i18n.js`/`notifier.js` after dedupe.
+- `assets/js/` — exactly 3 files: `search.js`, `contact.js`, `index.js`.
+  `search.js:31-46` and `contact.js:14-41` duplicate the `i18n` IIFE shape
+  (different keys); `contact.js:48+` owns `notifier` — extract shared
+  `i18n.js` (+`notifier.js`) ES modules in the JS commit.
 - `layouts/` (27 files) — `partials/head-assets.html`, `partials/footer.html`,
   `search/list.html`, `index.html`, `_default/`, shortcodes.
 - `static/` — `CNAME` (prod `jpcercal.com`; must NOT ship to staging branch),
@@ -50,7 +52,11 @@
 - `seoImage` front-matter points at `.png` but bundles ship `.svg` — fix
   with `Resources.GetMatch`, not string concat.
 - `search.js:31-48` and `contact.js:14-43` duplicate i18n/notify logic —
-  extract to shared ES modules.
+  extract to shared ES modules. (Line numbers approximate; see `assets/js/`.)
+- Biome `2.5` has no `files.ignores` (use `!` negations in `files.includes`)
+  and no comments in `biome.json`; explicit CLI paths bypass `includes`.
+  Biome must never scan `layouts/` — Go `{{ }}` templates are unparseable
+  JS/HTML (validate built `public/` output with `html-validate` instead).
 - `static/CNAME` (`jpcercal.com`) must not publish to the staging branch;
   the staging job strips or overwrites it per-PR path.
 - `public/` output is stale dev-only; never trust it, always rebuild.

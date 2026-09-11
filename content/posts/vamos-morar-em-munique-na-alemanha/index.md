@@ -28,7 +28,7 @@ Nos deparamos com o sonho ali na nossa frente, uma proposta de emprego que mudar
 
 ## Organização nunca é demais
 
-Decidimos então que, seria uma boa oportunidade e que teríamos muito trabalho pela frente, portanto começamos a nos **organizar**. Dentre as coisas que fizemos, uma que nos ajudou muito foi a criação de *tarefas* que teríamos que completar para chegarmos ao nosso objetivo. Usamos na época para este fim, um aplicativo chamado [wunderlist](https://www.wunderlist.com/), se você for começar hoje recomendaria o [trello](https://trello.com) (apenas uma preferência pessoal, visto que você pode usar qualquer aplicativo de lista de tarefas).
+Decidimos então que, seria uma boa oportunidade e que teríamos muito trabalho pela frente, portanto começamos a nos **organizar**. Dentre as coisas que fizemos, uma que nos ajudou muito foi a criação de *tarefas* que teríamos que completar para chegarmos ao nosso objetivo. Usamos na época para este fim, um aplicativo chamado [wunderlist](https://en.wikipedia.org/wiki/Wunderlist), se você for começar hoje recomendaria o [trello](https://trello.com) (apenas uma preferência pessoal, visto que você pode usar qualquer aplicativo de lista de tarefas).
 
 Vamos tentar fornecer para você alguns exemplos de itens desta lista, obviamente nossa lista era muito extensa e continha alguns tópicos irrelevantes para vocês, então use sua criatividade e pegue o que for relevante. **=)**
 

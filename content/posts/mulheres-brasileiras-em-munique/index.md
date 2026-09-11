@@ -43,7 +43,7 @@ Com foco em descontração reafirmando mais uma vez a autoestima das mulheres qu
 
 ## Papo Café
 
-Feito em parceria com o Blog [Bean Me Up Kaldi](http://beanmeupkaldi.com/), este é basicamente um encontro mensal em um café da cidade de **Munique**, nesta visita ao café a autora do blog faz um post à respeito de suas considerações sobre o estabelecimento, assim temos a mistura da apreciação de um bom café e um bom momento de socialização entre as integrantes do grupo. Prepare-se para muita troca de experiências vividas na **Alemanha**, descontração, boas gargalhadas e mais laços construídos ou reforçados.
+Feito em parceria com o Blog Bean Me Up Kaldi (hoje fora do ar), este é basicamente um encontro mensal em um café da cidade de **Munique**, nesta visita ao café a autora do blog faz um post à respeito de suas considerações sobre o estabelecimento, assim temos a mistura da apreciação de um bom café e um bom momento de socialização entre as integrantes do grupo. Prepare-se para muita troca de experiências vividas na **Alemanha**, descontração, boas gargalhadas e mais laços construídos ou reforçados.
 
 ## Quintal Brasil
 

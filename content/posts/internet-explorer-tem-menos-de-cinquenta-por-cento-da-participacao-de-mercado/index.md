@@ -13,7 +13,7 @@ tags:
 
 O [navegador]({{< ref "posts/navegadores-ou-browsers/index.md" >}} "Navegadores ou Browsers") **Internet Explorer**, 
 da Microsoft, teve menos de 50% de participação no mercado no mês de setembro, registrando a maior baixa de sua 
-história. De acordo com a empresa de análise de mercado [StatCounter](http://statcounter.com/ "StatCounter"), o uso 
+história. De acordo com a empresa de análise de mercado [StatCounter](https://gs.statcounter.com/ "StatCounter"), o uso 
 global do browser foi de 49,87%, número bastante inferior se comparado quando o programa venceu a batalha contra o 
 [Netscape]({{< ref "posts/navegadores-ou-browsers/index.md" >}} "Navegadores ou Browsers") na década de 90, conquistando 
 a maioria do mercado.

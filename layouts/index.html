@@ -18,7 +18,7 @@
                 <p>“{{ i18n "noResultsFound" }}”.</p>
             {{ end }}
 
-            <nav class="d-flex mt-2 mb-4">
+            <nav class="d-flex mt-2 mb-4" aria-label='{{ i18n "paginationNav" }}'>
                 {{ if .Paginator.HasPrev }}
                     <a class="d-inline-flex previous" href="{{ .Paginator.Prev.URL }}">
                         {{ i18n "previous" }}

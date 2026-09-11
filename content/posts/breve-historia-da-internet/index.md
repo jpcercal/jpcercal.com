@@ -96,7 +96,3 @@ HTML dinâmico. Surge então o DHTML;
 CSS1 ainda apresenta por volta de 70 novas propriedades;
 * 1999 – HTML 4.01: Alguma modificações da versão anterior;
 * 2000 – XHTML 1.0: É criado e consiste de uma versão XML do HTML v4.01.
-
-**Fontes de Pesquisa**:
-
-* http://www.htmlstaff.org/ver.php?id=1161

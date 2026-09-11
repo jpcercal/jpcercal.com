@@ -1,0 +1,12 @@
+{
+  "$schema": "https://html-validate.org/schemas/config.json",
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "attr-quotes": "off",
+    "doctype-style": "off",
+    "prefer-tbody": "off",
+    "long-title": "off",
+    "no-trailing-whitespace": "off",
+    "wcag/h32": "off"
+  }
+}

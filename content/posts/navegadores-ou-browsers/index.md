@@ -22,7 +22,7 @@ Um Navegador ou Browser é um programa que realiza a interpretação de arquivos
 
 Dentre os navegadores atuais mais populares temos:
 
-* [![Mozilla Firefox 150x150 Navegadores ou Browsers](Mozilla-Firefox-150x150.png "Navegadores ou Browsers")](http://br.mozdev.org/download/ "Mozilla Firefox")
+* [![Mozilla Firefox 150x150 Navegadores ou Browsers](Mozilla-Firefox-150x150.png "Navegadores ou Browsers")](https://www.mozilla.org/pt-BR/firefox/new/ "Mozilla Firefox")
 * [![Google Chrome 150x150 Navegadores ou Browsers](Google-Chrome-150x150.png "Navegadores ou Browsers")](http://www.google.com/chrome/?hl=pt-BR "Google Chrome")
 * [![Apple Safari 150x150 Navegadores ou Browsers](Apple-Safari-150x150.png "Navegadores ou Browsers")](http://www.apple.com/safari/download/ "Apple Safari")
 * [![Microsoft Internet Explorer 150x150 Navegadores ou Browsers](Microsoft-Internet-Explorer-150x150.png "Navegadores ou Browsers")](http://windows.microsoft.com/pt-BR/internet-explorer/products/ie/home "Microsoft Internet Explorer")

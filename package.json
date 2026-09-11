@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "license": "MIT",
   "devDependencies": {
+    "@biomejs/biome": "^2.5.13",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.63.0",
     "array-duplicates-properties": "^1.1.2",
     "css-select": "^7.0.0",
     "grunt": "^1.6.3",
@@ -26,6 +29,7 @@
     "grunt-xmlmin": "^0.1.8",
     "handlebars": "^4.7.9",
     "html-entities": "^2.6.0",
+    "html-validate": "^11.15.0",
     "js-yaml": "^3.15.2",
     "load-grunt-config": "^0.19.2",
     "md5": "^2.3.0",
@@ -43,7 +47,14 @@
     "lunr": "^2.3.9"
   },
   "scripts": {
-    "napa": "napa"
+    "napa": "napa",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "build:hugo": "hugo --minify --printUnusedTemplates",
+    "validate:html": "html-validate \"public/**/index.html\" \"public/404.html\"",
+    "links": "lychee --config .lychee.toml \"public/**/index.html\"",
+    "lhci": "lhci autorun",
+    "e2e": "playwright test"
   },
   "napa": {
     "one-dark-jekyll": "mgyongyosi/OneDarkJekyll",

@@ -1,0 +1,42 @@
+# Link checker config. Runs against built output: `lychee "public/**/index.html"`.
+# lychee itself is a Rust binary, installed in CI (not via npm).
+exclude_private = true
+exclude_loopback = true
+include_mail = false
+max_retries = 2
+timeout = 20
+
+exclude = [
+  "https://jpcercal.local",
+  "http://jpcercal.local",
+  # Favicon pipeline not ported yet (owned by the images commit); sources live
+  # in assets/images/favicon/ and currently 404 in Hugo-only builds.
+  "https://jpcercal.com/images/favicon/favicon.ico",
+  "https://jpcercal.com/images/favicon/manifest.json",
+  # Bot-blocking hosts (verified manually with a browser UA): LinkedIn 999,
+  # MySQL/Codex/Joomla/Flaticon/Freepik 403, Facebook sharer 500.
+  # Profiles and pages exist; they reject non-browser clients.
+  "https://www.facebook.com/sharer/sharer.php",
+  "http://codex.wordpress.org",
+  "https://codex.wordpress.org",
+  "http://www.freepik.com",
+  "https://www.freepik.com",
+  "http://www.flaticon.com",
+  "https://www.flaticon.com",
+  "https://www.linkedin.com",
+  "http://www.linkedin.com",
+  "https://www.mysql.com",
+  "http://www.mysql.com",
+  "https://docs.joomla.org",
+  "http://docs.joomla.org",
+  # External repo state owned outside this project; verify manually.
+  "https://raw.githubusercontent.com/jpcercal/resume/main/resume.pdf",
+  # Historical references to files/URLs intentionally removed from this repo.
+  "https://github.com/jpcercal/jpcercal.com/blob/master/.travis.yml",
+  # Local file references resolve through the asset pipeline (owned by the
+  # images commit: favicons, translation-bundle images, resume PDFs).
+  "file://",
+]
+
+# Resolve root-relative links against the built site.
+root_dir = "public"

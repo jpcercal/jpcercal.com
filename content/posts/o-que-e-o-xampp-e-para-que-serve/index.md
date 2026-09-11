@@ -34,4 +34,4 @@ PEAR, Perl, mod_php, mod_perl, mod_ssl, OpenSSL, phpMyAdmin, Webalizer, Mercury 
 NetWare Systems v3.32, JpGraph, FileZilla FTP Server, mcrypt, eAccelerator, SQLite e WEB-DAV + mod_auth_mysql.
 
 Para mais informações acesse o 
-[Site Oficial do XAMPP](http://www.apachefriends.org/pt_br/xampp.html "Site Oficial do Xampp").
+[Site Oficial do XAMPP](https://www.apachefriends.org/pt_br/index.html "Site Oficial do Xampp").

@@ -63,3 +63,7 @@ readingTime:
   other: "{{ .Count }} min de leitura"
 githubCorner:
   other: "Ver código-fonte no GitHub"
+paginationNav:
+  other: "Paginação de posts"
+localeNav:
+  other: "Seleção de idioma"
