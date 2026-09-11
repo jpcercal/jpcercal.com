@@ -32,8 +32,21 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
-      - name: Install inkscape (for svg2png task)
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends inkscape
+      - name: Setup Rust (for oxipng/oxvg/resvg)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install native image tools
+        # oxipng (PNG) + oxvg (SVG) + resvg (SVG->PNG covers) via cargo;
+        # mozjpeg (JPEG) has no apt/cargo binary, so build from source.
+        run: |
+          cargo install oxipng oxvg resvg
+          sudo apt-get update && sudo apt-get install -y --no-install-recommends nasm cmake
+          curl -fLO https://github.com/mozilla/mozjpeg/archive/v4.1.5.tar.gz
+          tar xf v4.1.5.tar.gz
+          cmake -B mozjpeg-4.1.5/build -DCMAKE_INSTALL_PREFIX=/usr/local mozjpeg-4.1.5
+          cmake --build mozjpeg-4.1.5/build -j
+          sudo cmake --install mozjpeg-4.1.5/build
+          /usr/local/bin/jpegtran -version
 
       - name: Install npm dependencies
         run: npm ci --no-audit --no-fund
@@ -45,6 +58,9 @@ jobs:
 
       - name: Production build
         run: npx grunt production
+
+      - name: Build images (native pipeline)
+        run: bin/build-images.sh
 
       - name: Upload site artifact
         uses: actions/upload-artifact@v4

@@ -2,20 +2,22 @@ FROM node:24-bookworm
 
 # Install system dependencies for the build:
 # - git for fetching vendor sources (bin/fetch-vendor.sh)
-# - image tooling used by grunt imagemin/svg2png tasks
+# - nasm/cmake for building mozjpeg (native image pipeline)
+# Full slim-down to native-only image happens in the deploy commit.
 ENV HUGO_VERSION=0.166.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
+    cmake \
     curl \
     file \
     g++ \
     gcc \
     git \
-    inkscape \
     libjpeg-dev \
     libpng-dev \
     make \
+    nasm \
     python3-pygments \
     && rm -rf /var/lib/apt/lists/*
 
@@ -38,7 +40,7 @@ WORKDIR /usr/share/blog
 EXPOSE 1313
 
 # Install npm dependencies, fetch vendor sources and build with:
-#   npm ci && bin/fetch-vendor.sh && BASE_URL=https://jpcercal.com/ grunt production
+#   npm ci && bin/fetch-vendor.sh && BASE_URL=https://jpcercal.com/ grunt production && bin/build-images.sh
 
 # Define default command
 CMD ["/bin/bash", "-l"]

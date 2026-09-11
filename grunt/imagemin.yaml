@@ -1,4 +1,0 @@
-options:
-  optimizationLevel: 7
-production:
-  files: "<%= copy.production.files %>"

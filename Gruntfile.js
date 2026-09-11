@@ -3,9 +3,7 @@ module.exports = function (grunt) {
 
     require('time-grunt')(grunt);
     require('./grunt-custom/requirements')(grunt);
-    require('./grunt-custom/copy-content-assets')(grunt);
     require('./grunt-custom/lunr')(grunt);
-    require('./grunt-custom/svg2png')(grunt);
 
     var paths = require('./grunt-custom/paths')(grunt);
 
