@@ -1,35 +1,25 @@
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
 
-{{ $.Scratch.Set "contactPage" true }}
+{{ $author := index site.Data.authors "jpcercal@gmail.com" }}
 
 <section class="container">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
             <h1 class="mb-2">{{ i18n "contact" }}</h1>
 
-            <div id="notification-container">
-                <p class="notification">{{ i18n "contactInfo" }}.</p>
-            </div>
+            <p class="mb-2">{{ i18n "contactInfo" }}.</p>
 
-            <form id="contact-form" class="row">
-                <div class="col col-lg-6">
-                    <input type="text" class="mt-4" id="name" name="name" placeholder="Name">
-                </div>
-                <div class="col col-lg-6">
-                    <input type="email" class="mt-4" id="email" name="email" placeholder="E-mail">
-                </div>
-                <div class="col-12">
-                    <textarea name="message" class="mt-4" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                </div>
-                <div class="col-12">
-                    <button type="submit" id="send" class="mt-4 float-right">Send</button>
-                </div>
-            </form>
+            <ul class="list-none flex gap-2">
+                <li>
+                    <a href="mailto:jpcercal@gmail.com">E-mail</a>
+                </li>
+                {{ range $socialNetwork, $profile := $author.socialNetworks }}
+                    {{ partial "author-social-network.html" (dict "socialNetwork" $socialNetwork "profile" $profile ) }}
+                {{ end }}
+            </ul>
         </div>
     </div>
 </section>
-
-{{ partial "js.html" . }}
 
 {{ partial "footer.html" . }}

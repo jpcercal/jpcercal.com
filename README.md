@@ -31,14 +31,14 @@ Well, nothing better than a picture showing how the blog is rendered today, righ
 | Images | grunt-contrib-imagemin + svg2png/Inkscape | `oxipng` (Rust) + `mozjpeg` (C) + `resvg` (Rust) |
 | Syntax highlight | Pygments (Python) | Chroma (Go, Hugo built-in) |
 | Search | Lunr.js 2.3.9 + `search.json` | Pagefind (Rust, static, PT stemming) |
-| Comments | Disqus (`cercal-io`) | `giscus` (GitHub Discussions) |
-| Analytics | Google Analytics 4 | Cloudflare Web Analytics / Zaraz |
+| Comments | Disqus (`cercal-io`) | removed (no third-party comments) |
+| Analytics | Google Analytics 4 | removed (no third-party analytics) |
 | Lint | csslint/jshint/VNU (Java) | Biome (Rust) + `html-validate` via Bun |
 | Link check | — | `lychee` (Rust) |
 | Perf audit | grunt-pagespeed (dead API) | `lhci` via Bun |
 | E2E | — | Playwright |
 | File ops | grunt clean/concat/copy/processhtml/watch | Hugo (Go) + `cp`/`rm` |
-| Vendor fetch | `napa` over retired `git://` | `bin/fetch-vendor.sh` (interim) → vendored, then removed |
+| Vendor fetch | `napa` over retired `git://` | removed (no vendor clones left) |
 | Runtime | Node 20 + Ruby + Java 8 + Python + Inkscape | Node 24 (+ `fnm` Rust / `bun` Zig alt), static native binaries only |
 | Hosting (prod) | `gh-pages` branch via GitHub Pages | Cloudflare Pages Direct Upload (`wrangler pages deploy public`) |
 | Hosting (staging) | — | `gh-pages` branch repurposed staging-only, path-based per PR |

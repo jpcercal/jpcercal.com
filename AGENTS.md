@@ -34,10 +34,9 @@
 - `grunt/` (23), `grunt-custom/` (10), `Gruntfile.js`, `grunt/aliases.yaml` —
   legacy build being replaced by Hugo Pipes + native binaries.
 - `design-system/` — repo-root staging-only docs (NOT under `content/`).
-- `bin/fetch-vendor.sh` — interim `napa` replacement (napa package itself
-  is gone). Remove per-consumer: `one-dark-*` clone lines die with the CSS
-  commit (Less port), `disqus-loader` line dies with the privacy commit.
-  `bin/watch.sh` is legacy Docker flow, deleted with the Grunt pipeline.
+- `bin/` holds `build-images.sh` only (`fetch-vendor.sh` deleted with the
+  last vendor clone in the privacy commit; `watch.sh` is legacy Docker
+  flow, deleted with the Grunt pipeline).
 - `.github/workflows/ci.yml` — jobs: `build`, `deploy` (prod Pages),
   `preview-staging` (PR → `gh-pages`), `cloudflare-pages` (blocking verify).
 
@@ -54,7 +53,10 @@
    optional. Java VNU is out.
 6. **Pagefind** (Rust) for search; no Cloudflare Workers/D1/Vectorize (would
    waste the 100k req/day free quota; site is fully static).
-7. **`giscus` + Cloudflare Web Analytics/Zaraz** for comments/analytics.
+7. **No third-party comments/analytics**: Disqus (`cercal-io`) + GA4
+   removed outright per user scope decision (`giscus` + Cloudflare Web
+   Analytics/Zaraz explicitly out of scope — do not re-add without new
+   instruction). Contact form likewise removed (static links page).
 8. **Prod-only blocking gates**; staging checks are non-blocking.
 9. **`br` or `zstd` accepted** for the compression gate (Pages negotiates).
 10. **Native-first order**: C/Rust binary > Go > Node/Bun everywhere.
@@ -105,8 +107,6 @@
 - `hugo server` MUST pass `--renderToMemory` — otherwise it writes dev
   rendering (localhost URLs, livereload) into `public/` and pollutes the
   production artifact.
-- Run `bin/fetch-vendor.sh` AFTER any `npm install/uninstall` — npm prunes
-  the extraneous vendor clones (e.g. `disqus-loader`).
 - `grunt-shell` production ≠ development (`--buildDrafts` only in dev);
   the same split applies to staging (`--buildDrafts` + PR baseURL) vs prod.
 

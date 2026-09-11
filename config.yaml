@@ -10,11 +10,6 @@ taxonomies:
   category:   "categories"
   authors:    "authors"
 
-services:
-  disqus:
-    shortname: cercal-io
-  googleAnalytics:
-    id: G-S1125GQLTK
 defaultExtension: "html"
 metaDataFormat:   "yaml"
 markup:

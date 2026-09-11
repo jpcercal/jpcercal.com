@@ -3,7 +3,3 @@
 {{ $search := resources.Get "js/search.js" | js.Build $jsOpts | fingerprint }}
 <script src="{{ $search.RelPermalink }}"></script>
 {{ end }}
-{{ if $.Scratch.Get "contactPage" }}
-{{ $contact := resources.Get "js/contact.js" | js.Build $jsOpts | fingerprint }}
-<script src="{{ $contact.RelPermalink }}"></script>
-{{ end }}

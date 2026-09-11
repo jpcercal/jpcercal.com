@@ -13,7 +13,6 @@ default:
   tasks:
     - 'main'
     - 'shell:development'
-    - 'copy:development'
     - 'processhtml:development'
     - 'notify_hooks'
 
@@ -22,9 +21,7 @@ production:
   tasks:
     - 'main'
     - 'shell:production'
-    - 'copy:production'
     - 'processhtml:production'
-    - 'uglify:disqus'
     - 'clean:unminified'
     - 'clean:public-posts-directory'
     - 'notify_hooks'

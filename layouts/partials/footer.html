@@ -13,31 +13,5 @@
     </div>
 </footer>
 {{ end }}
-
-{{ if $.Scratch.Get "singlePost" }}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var disqus_config = function () {
-        this.page.identifier = "{{ .Slug }}";
-        this.page.title = "{{ .Title }}";
-        this.page.url = {{ printf "%s" .Permalink }};
-    };
-
-    var options = {
-        scriptUrl: "//{{ site.Config.Services.Disqus.Shortname }}.disqus.com/embed.js",
-        disqusConfig: disqus_config
-    };
-
-    disqusLoader("#disqus", options);
-});
-</script>
-{{ "<!-- build:template" | safeHTML }}
-{{ "<% if (environment === 'production') { %>" | safeHTML }}
-<script src="{{ .Site.BaseURL }}vendor/js/disqus-loader.min.js"></script>
-{{ "<% } else { %>" | safeHTML }}
-<script src="{{ .Site.BaseURL }}vendor/js/disqus-loader.js"></script>
-{{ "<% } %>" | safeHTML }}
-{{ "/build -->" | safeHTML }}
-{{ end }}
 </body>
 </html>

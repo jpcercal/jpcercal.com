@@ -51,11 +51,6 @@ jobs:
       - name: Install npm dependencies
         run: npm ci --no-audit --no-fund
 
-      - name: Fetch vendor sources
-        # Replaces `npm run napa`, which clones over the retired git://
-        # protocol and can no longer connect to GitHub.
-        run: bin/fetch-vendor.sh
-
       - name: Production build
         run: npx grunt production
 
