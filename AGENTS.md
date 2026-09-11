@@ -10,6 +10,12 @@
   `search.js:31-46` and `contact.js:14-41` duplicate the `i18n` IIFE shape
   (different keys); `contact.js:48+` owns `notifier` — extract shared
   `i18n.js` (+`notifier.js`) ES modules in the JS commit.
+  DONE (JS commit): `i18n.js` + `notifier.js` shared modules, `index.js`
+  deleted (was dead: no references, prod dropped it via `drop_console`).
+  `js.Build` (esbuild) bundles + minifies + fingerprints; per-locale
+  variants (locale is a build param) mean 2 hashed files per bundle.
+  `fetch` replaced `axios` (dropped dep; fixed ~500ms TBT from axios
+  0.16.2); `lunr` CDN stays until the Pagefind commit.
 - `layouts/` (27 files) — `partials/head-assets.html`, `partials/footer.html`,
   `search/list.html`, `index.html`, `_default/`, shortcodes.
 - `static/` — `CNAME` (prod `jpcercal.com`; must NOT ship to staging branch),

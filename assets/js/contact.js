@@ -1,18 +1,22 @@
+import * as params from "@params";
+import { createTranslator } from "./i18n.js";
+import { createNotifier } from "./notifier.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-	var form = document.querySelector("#contact-form");
-	var email = document.querySelector("#email");
-	var name = document.querySelector("#name");
-	var message = document.querySelector("#message");
-	var submit = document.querySelector("#send");
-	var notification = document.querySelector("#notification-container");
+	const form = document.querySelector("#contact-form");
+	const email = document.querySelector("#email");
+	const name = document.querySelector("#name");
+	const message = document.querySelector("#message");
+	const submit = document.querySelector("#send");
+	const notification = document.querySelector("#notification-container");
 
 	/**
 	 * Internationalization keys and translations for each locale.
 	 *
 	 * @type {{trans}}
 	 */
-	var i18n = (() => {
-		var translations = {
+	const i18n = createTranslator(
+		{
 			missingData: {
 				pt: "Todos os campos são obrigatórios!",
 				en: "All fields are mandatory!",
@@ -33,62 +37,31 @@ document.addEventListener("DOMContentLoaded", () => {
 				pt: "Ops, alguma coisa deu errada com nosso serviço. =/",
 				en: "Ops, something is wrong with our service. =/",
 			},
-		};
-
-		return {
-			trans: (key) => translations[key][window.locale],
-		};
-	})();
+		},
+		params.locale,
+	);
 
 	/**
 	 * Notify the customer with a message.
 	 *
 	 * @type {{TYPE, notify}}
 	 */
-	var notifier = (() => {
-		var createElement = (tagName, classes) => {
-			var element = document.createElement(tagName);
-			element.setAttribute("class", classes.join(" "));
-
-			return element;
-		};
-
-		return {
-			TYPE: {
-				ERROR: "error",
-				SUCCESS: "success",
-			},
-			notify: function (message, type) {
-				var classes = ["notification"];
-
-				if (type === this.TYPE.ERROR || type === this.TYPE.SUCCESS) {
-					classes.push(`notification--${type}`);
-				}
-
-				var element = createElement("p", classes);
-
-				element.innerHTML = message;
-
-				notification.innerHTML = "";
-				notification.appendChild(element);
-			},
-		};
-	})();
+	const notifier = createNotifier(notification);
 
 	/**
 	 * Validation component to validate simple data that comes from the user.
 	 *
 	 * @type {{isValid}}
 	 */
-	var validator = (() => {
-		var isValidEmail = (email) => {
-			var regex =
+	const validator = (() => {
+		const isValidEmail = (email) => {
+			const regex =
 				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 			return regex.test(email.toLowerCase());
 		};
 
-		var isMissing = (name, email, message) => {
+		const isMissing = (name, email, message) => {
 			if (name.length === 0) {
 				return true;
 			}
@@ -104,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			return false;
 		};
 
-		var isValid = (name, email, message) => {
+		const isValid = (name, email, message) => {
 			if (isMissing(name, email, message)) {
 				return false;
 			}
@@ -122,14 +95,22 @@ document.addEventListener("DOMContentLoaded", () => {
 		};
 	})();
 
-	var userInfo = (() => {
-		var ip = "";
+	const userInfo = (() => {
+		let ip = "";
 
-		axios.get("//api.ipify.org?format=json").then((response) => {
-			if (response.status === 200) {
-				ip = response.data.ip;
-			}
-		});
+		fetch("//api.ipify.org?format=json")
+			.then((response) => {
+				if (response.status === 200) {
+					return response.json();
+				}
+
+				return null;
+			})
+			.then((data) => {
+				if (data) {
+					ip = data.ip;
+				}
+			});
 
 		return {
 			getIp: () => ip,
@@ -141,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	 *
 	 * @param event
 	 */
-	var listener = (event) => {
+	const listener = (event) => {
 		event.preventDefault();
 
 		submit.disabled = true;
@@ -160,25 +141,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		notifier.notify(i18n.trans("sendingData"));
 
-		var cc = ["jpcercal@gmail.com"];
+		const cc = ["jpcercal@gmail.com"];
 
-		var params = new URLSearchParams();
-		params.append("_cc", cc.join(","));
-		params.append("_subject", `[via @jpcercal.com] ${name.value}`);
-		params.append("email", email.value);
-		params.append("name", name.value);
-		params.append("message", message.value);
-		params.append("ip", userInfo.getIp());
+		const formParams = new URLSearchParams();
+		formParams.append("_cc", cc.join(","));
+		formParams.append("_subject", `[via @jpcercal.com] ${name.value}`);
+		formParams.append("email", email.value);
+		formParams.append("name", name.value);
+		formParams.append("message", message.value);
+		formParams.append("ip", userInfo.getIp());
 
-		var config = {
+		fetch("//formspree.io/contact@jpcercal.com", {
+			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/x-www-form-urlencoded",
 			},
-		};
-
-		axios
-			.post("//formspree.io/contact@jpcercal.com", params, config)
+			body: formParams,
+		})
 			.then((response) => {
 				if (response.status === 200) {
 					notifier.notify(i18n.trans("success"), notifier.TYPE.SUCCESS);

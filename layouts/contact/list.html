@@ -1,6 +1,8 @@
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
 
+{{ $.Scratch.Set "contactPage" true }}
+
 <section class="container">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
@@ -28,14 +30,6 @@
     </div>
 </section>
 
-{{ "<!-- build:template" | safeHTML }}
-{{ "<% if (environment === 'production') { %>" | safeHTML }}
-<script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/jpcercal.com.contact.min.js"></script>
-{{ "<% } else { %>" | safeHTML }}
-<script src="{{ .Site.BaseURL }}vendor/js/axios.js"></script>
-<script src="{{ .Site.BaseURL }}js/jpcercal.com.contact.js"></script>
-{{ "<% } %>" | safeHTML }}
-{{ "/build -->" | safeHTML }}
+{{ partial "js.html" . }}
 
 {{ partial "footer.html" . }}

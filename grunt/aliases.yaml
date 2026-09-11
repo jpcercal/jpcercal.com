@@ -7,7 +7,6 @@ main:
   description: 'Common tasks that will be executed independently of environment'
   tasks:
     - 'clean:dist'
-    - 'concat'
 
 default:
   description: 'Default task'
@@ -19,7 +18,6 @@ default:
     - 'copy-content-assets'
     - 'processhtml:development'
     - 'htmllint'
-    - 'google-serp-preview'
     - 'notify_hooks'
 
 production:
@@ -31,14 +29,12 @@ production:
     - 'copy:production'
     - 'copy-content-assets'
     - 'processhtml:production'
-    - 'uglify'
+    - 'uglify:disqus'
     - 'imagemin'
     - 'htmlmin'
     - 'xmlmin'
     - 'htmllint'
     - 'svg2png'
-    - 'google-serp-preview'
-    - 'clean:google-serp-preview'
     - 'clean:unminified'
     - 'clean:public-posts-directory'
     - 'notify_hooks'

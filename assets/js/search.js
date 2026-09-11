@@ -1,35 +1,38 @@
+import * as params from "@params";
+import { createTranslator } from "./i18n.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-	var config = {
+	const config = {
 		timer: null, // Store the timer
 		delay: 750, // Delay in ms to start processing the operation
 		minChars: 3, // Minimum quantity of characters that the user must input to perform the operation
 	};
 
-	var lunrIndex; // Store the Lunr index where the results will be compared with the term
-	var template; // Store the template that will be parsed
-	var source; // Store the data that will be be used to search for a term
+	let lunrIndex; // Store the Lunr index where the results will be compared with the term
+	let template; // Store the template that will be parsed
+	let source; // Store the data that will be be used to search for a term
 
 	/**
 	 * Input field where the user will put the terms that he wants search for.
 	 *
 	 * @type {Element}
 	 */
-	var inputField = document.querySelector("#search");
+	const inputField = document.querySelector("#search");
 
 	/**
 	 * Element that will contains all results (as know as container).
 	 *
 	 * @type {Element}
 	 */
-	var searchResults = document.querySelector("#search-results");
+	const searchResults = document.querySelector("#search-results");
 
 	/**
 	 * Internationalization keys and translations for each locale.
 	 *
 	 * @type {{trans}}
 	 */
-	var i18n = (() => {
-		var translations = {
+	const i18n = createTranslator(
+		{
 			createdBy: {
 				pt: "por",
 				en: "by",
@@ -38,19 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
 				pt: "Nenhum resultado encontrado",
 				en: "No results found",
 			},
-		};
-
-		return {
-			trans: (key) => translations[key][window.locale],
-		};
-	})();
+		},
+		params.locale,
+	);
 
 	/**
 	 * Create and configure the Lunr Index.
 	 *
 	 * @retuns {lunr.Index}
 	 */
-	var createLunrIndex = () =>
+	const createLunrIndex = () =>
 		lunr(function () {
 			this.field("title", {
 				boost: 50,
@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	 * @param term
 	 * @returns {Array}
 	 */
-	var search = (term) => {
-		var suggestions = [];
+	const search = (term) => {
+		const suggestions = [];
 
 		lunrIndex.search(`*${term}*`).forEach((result) => {
 			source.forEach((current) => {
@@ -113,10 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	 * @param suggestion
 	 * @returns {string}
 	 */
-	var renderHtml = (suggestion) => {
-		var baseUrl = window.baseUrl + (suggestion.language === "en" ? "en/" : "");
+	const renderHtml = (suggestion) => {
+		const baseUrl =
+			params.baseUrl + (suggestion.language === "en" ? "en/" : "");
 
-		var authorPrefix = i18n.trans("createdBy");
+		const authorPrefix = i18n.trans("createdBy");
 
 		return template
 			.split("__ID__")
@@ -148,18 +149,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	 *
 	 * @param event
 	 */
-	var listener = (event) => {
+	const listener = (event) => {
 		event.preventDefault();
 
-		var term = inputField.value;
+		const term = inputField.value;
 
 		if (config.timer != null) {
 			clearTimeout(config.timer);
 		}
 
 		config.timer = setTimeout(() => {
-			var suggestions = [];
-			var html = "";
+			let suggestions = [];
+			let html = "";
 
 			if (term.length >= config.minChars) {
 				suggestions = search(term);
@@ -185,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	 * @param searchTemplate
 	 * @param searchData
 	 */
-	var process = (searchTemplate, searchData) => {
+	const process = (searchTemplate, searchData) => {
 		template = searchTemplate.data.trim();
 		source = searchData.data;
 
@@ -196,12 +197,25 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	/**
-	 * Load dependencies (Promise.all works with both axios 0.x and 1.x;
-	 * axios.all / axios.spread were removed in axios 1.x).
+	 * Load dependencies with the fetch API (response shapes are adapted to
+	 * the { data } objects process() expects, matching the old axios
+	 * behavior including rejection on HTTP errors).
 	 */
-	var promises = Promise.all([
-		axios.get(`${window.baseUrl}search-template.html`),
-		axios.get(`${window.baseUrl}search.json`),
+	const promises = Promise.all([
+		fetch(`${params.baseUrl}search-template.html`).then((response) => {
+			if (!response.ok) {
+				throw new Error(`search template: ${response.status}`);
+			}
+
+			return response.text().then((text) => ({ data: text }));
+		}),
+		fetch(`${params.baseUrl}search.json`).then((response) => {
+			if (!response.ok) {
+				throw new Error(`search index: ${response.status}`);
+			}
+
+			return response.json().then((json) => ({ data: json }));
+		}),
 	]);
 
 	/**

@@ -14,14 +14,6 @@
 </footer>
 {{ end }}
 
-{{ "<!-- build:template" | safeHTML }}
-{{ "<% if (environment === 'production') { %>" | safeHTML }}
-<script async src="{{ .Site.BaseURL }}js/jpcercal.com.min.js"></script>
-{{ "<% } else { %>" | safeHTML }}
-<script async src="{{ .Site.BaseURL }}js/jpcercal.com.js"></script>
-{{ "<% } %>" | safeHTML }}
-{{ "/build -->" | safeHTML }}
-
 {{ if $.Scratch.Get "singlePost" }}
 <script>
 document.addEventListener('DOMContentLoaded', function() {

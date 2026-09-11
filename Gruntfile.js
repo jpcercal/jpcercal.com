@@ -6,7 +6,6 @@ module.exports = function (grunt) {
     require('./grunt-custom/copy-content-assets')(grunt);
     require('./grunt-custom/lunr')(grunt);
     require('./grunt-custom/svg2png')(grunt);
-    require('./grunt-custom/google-serp-preview')(grunt);
 
     var paths = require('./grunt-custom/paths')(grunt);
 

@@ -4,11 +4,6 @@ dist:
       dot: true
       src:
         - "<%= dist_path %>/**/*"
-google-serp-preview:
-  files:
-    -
-      src:
-        - "<%= dist_path %>/google.html"
 public-posts-directory:
   files:
     -
@@ -25,6 +20,3 @@ unminified:
         - "<%= dist_css_path %>/syntax-highlight.css.map"
         - "<%= dist_css_path %>/vendor.css"
         - "<%= dist_css_path %>/vendor.css.map"
-        - "<%= concat.js.dest %>"
-        - "<%= concat.search.dest %>"
-        - "<%= concat.contact.dest %>"
