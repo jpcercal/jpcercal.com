@@ -1,435 +1,122 @@
-// One Dark syntax theme, ported from Less to SCSS.
-// Sources (no longer cloned; values inlined, see bin/fetch-vendor.sh history):
-//   - https://github.com/atom/one-dark-syntax (styles/colors.less)
-//   - https://github.com/mgyongyosi/OneDarkJekyll (syntax.less)
-// NOTE: selectors target Pygments markup (.highlighttable/.linenos). Hugo now
-// renders Chroma markup, so most of this is dormant; the highlight commit
-// replaces it with a generated Chroma theme. Kept byte-identical meanwhile.
+// One Dark syntax theme for Chroma (Hugo's built-in Go highlighter).
+//
+// Token colors: generated verbatim via `hugo gen chromastyles --style=onedark`
+// (regenerate with that command; container chrome below is ours).
+// Container chrome: ported from the old OneDarkJekyll Less block
+// (.highlighttable), adapted from Pygments to Chroma selectors.
+// Hugo wraps code fences in div.highlight > (.chroma | table.lntable).
 
-// Monochrome
-$mono-1: hsl(220, 14%, 71%);
-$mono-3: hsl(220, 10%, 40%);
+$syntax-bg: #282c34;
+$syntax-edge: #191f2b;
 
-// Hues
-$hue-1: hsl(187, 47%, 55%);
-$hue-2: hsl(207, 82%, 66%);
-$hue-3: hsl(286, 60%, 67%);
-$hue-4: hsl(95, 38%, 62%);
-$hue-5: hsl(355, 65%, 65%);
-$hue-6: hsl(29, 54%, 61%);
-$hue-6-2: hsl(39, 67%, 69%);
+div.highlight {
+	overflow: auto;
+	display: block;
+	width: 100%;
+	padding: 12px 0;
+	margin: 12px 0;
+	background-color: $syntax-bg;
+	border-left: 15px solid $syntax-edge;
+	border-right: 2px solid $syntax-edge;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
 
-// Base
-$syntax-fg: $mono-1;
-$syntax-bg: hsl(220, 13%, 18%);
-$syntax-gutter: hsl(220, 14%, 45%);
-$syntax-guide: hsla(220, 14%, 71%, 0.15);
-$syntax-accent: hsl(220, 100%, 66%);
-$syntax-selection-color: hsl(220, 13%, 28%);
-$syntax-color-removed: hsl(0, 70%, 60%);
-$syntax-color-added: hsl(150, 60%, 54%);
-$syntax-illegal-fg: white;
-$syntax-illegal-bg: $syntax-color-removed;
+	code,
+	span {
+		font-family: "Fira Mono", monospace;
+	}
 
-pre.highlight,
-.highlight {
-  background: $syntax-bg;
-  color: $mono-1;
+	// article.scss paints inline <code> light (#f8f9fa); inside code
+	// blocks the container provides the background, so opt out here.
+	// (Loads after the app bundle, equal specificity wins.)
+	code {
+		background-color: transparent;
+	}
+
+	pre {
+		margin-bottom: 0;
+		font-size: 1em;
+	}
 }
 
-.highlight {
-  pre {
-    background: $syntax-bg;
-  }
-
-  .hll {
-    background: $syntax-bg;
-  }
-
-  .c {
-    color: $mono-3;
-    font-style: italic;
-  }
-
-  /* Error */
-  .err {
-    color: $syntax-illegal-fg;
-    background-color: $syntax-illegal-bg;
-  }
-
-  /* Keyword */
-  .k {
-    color: $hue-3;
-  }
-
-  /* Literal */
-  .l {
-    color: $hue-4;
-  }
-
-  /* Name */
-  .n {
-    color: $mono-1;
-  }
-
-  /* Operator */
-  .o {
-    color: $mono-1;
-  }
-
-  /* Punctuation */
-  .p {
-    color: $mono-1;
-  }
-
-  /* Comment.Multiline */
-  .cm {
-    color: $mono-3;
-    font-style: italic;
-  }
-
-  /* Comment.Preproc */
-  .cp {
-    color: $mono-3;
-    font-style: italic;
-  }
-
-  /* Comment.Single */
-  .c1 {
-    color: $mono-3;
-    font-style: italic;
-  }
-
-  /* Comment.Special */
-  .cs {
-    color: $mono-3;
-    font-style: italic;
-  }
-
-  /* Generic.Emph */
-  .ge {
-    font-style: italic;
-  }
-
-  /* Generic.Strong */
-  .gs {
-    font-weight: bold;
-  }
-
-  /* Keyword.Constant */
-  .kc {
-    color: $hue-3;
-  }
-
-  /* Keyword.Declaration */
-  .kd {
-    color: $hue-3;
-  }
-
-  /* Keyword.Namespace */
-  .kn {
-    color: $hue-3;
-  }
-
-  /* Keyword.Pseudo */
-  .kp {
-    color: $hue-3;
-  }
-
-  /* Keyword.Reserved */
-  .kr {
-    color: $hue-3;
-  }
-
-  /* Keyword.Type */
-  .kt {
-    color: $hue-3;
-  }
-
-  /* Literal.Date */
-  .ld {
-    color: $hue-4;
-  }
-
-  /* Literal.Number */
-  .m {
-    color: $hue-6;
-  }
-
-  /* Literal.String */
-  .s {
-    color: $hue-4;
-  }
-
-  /* Name.Attribute */
-  .na {
-    color: $hue-6;
-  }
-
-  /* Name.Builtin */
-  .nb {
-    color: $hue-6-2;
-  }
-
-  /* Name.Class */
-  .nc {
-    color: $hue-6-2;
-  }
-
-  /* Name.Constant */
-  .no {
-    color: $hue-6-2;
-  }
-
-  /* Name.Decorator */
-  .nd {
-    color: $hue-6-2;
-  }
-
-  /* Name.Entity */
-  .ni {
-    color: $hue-6-2;
-  }
-
-  /* Name.Exception */
-  .ne {
-    color: $hue-6-2;
-  }
-
-  /* Name.Function */
-  .nf {
-    color: $mono-1;
-  }
-
-  /* Name.Label */
-  .nl {
-    color: $hue-6-2;
-  }
-
-  /* Name.Namespace */
-  .nn {
-    color: $mono-1;
-  }
-
-  /* Name.Other */
-  .nx {
-    color: $mono-1;
-  }
-
-  /* Name.Property */
-  .py {
-    color: $hue-6-2;
-  }
-
-  /* Name.Tag */
-  .nt {
-    color: $hue-5;
-  }
-
-  /* Name.Variable */
-  .nv {
-    color: $hue-6-2;
-  }
-
-  /* Operator.Word */
-  .ow {
-    font-weight: bold;
-  }
-
-  /* Text.Whitespace */
-  .w {
-    color: #f8f8f2;
-  }
-
-  /* Literal.Number.Float */
-  .mf {
-    color: $hue-6;
-  }
-
-  /* Literal.Number.Hex */
-  .mh {
-    color: $hue-6;
-  }
-
-  /* Literal.Number.Integer */
-  .mi {
-    color: $hue-6;
-  }
-
-  /* Literal.Number.Oct */
-  .mo {
-    color: $hue-6;
-  }
-
-  /* Literal.String.Backtick */
-  .sb {
-    color: $hue-4;
-  }
-
-  /* Literal.String.Char */
-  .sc {
-    color: $hue-4;
-  }
-
-  /* Literal.String.Doc */
-  .sd {
-    color: $hue-4;
-  }
-
-  /* Literal.String.Double */
-  .s2 {
-    color: $hue-4;
-  }
-
-  /* Literal.String.Escape */
-  .se {
-    color: $hue-4;
-  }
-
-  /* Literal.String.Heredoc */
-  .sh {
-    color: $hue-4;
-  }
-
-  /* Literal.String.Interpol */
-  .si {
-    color: $hue-4;
-  }
-
-  /* Literal.String.Other */
-  .sx {
-    color: $hue-4;
-  }
-
-  /* Literal.String.Regex */
-  .sr {
-    color: $hue-1;
-  }
-
-  /* Literal.String.Single */
-  .s1 {
-    color: $hue-4;
-  }
-
-  /* Literal.String.Symbol */
-  .ss {
-    color: $hue-1;
-  }
-
-  /* Name.Builtin.Pseudo */
-  .bp {
-    color: $hue-6-2;
-  }
-
-  /* Name.Variable.Class */
-  .vc {
-    color: $hue-6-2;
-  }
-
-  /* Name.Variable.Global */
-  .vg {
-    color: $hue-6-2;
-  }
-
-  /* Name.Variable.Instance */
-  .vi {
-    color: $hue-5;
-  }
-
-  /* Literal.Number.Integer.Long */
-  .il {
-    color: $hue-6;
-  }
-
-  /* Generic Heading & Diff Header */
-  .gh {
-  }
-
-  /* Generic.Subheading & Diff Unified/Comment? */
-  .gu {
-    color: #75715e;
-  }
-
-  /* Generic.Deleted & Diff Deleted */
-  .gd {
-    color: $syntax-color-removed;
-  }
-
-  /* Generic.Inserted & Diff Inserted */
-  .gi {
-    color: $syntax-color-added;
-  }
-
-  ::selection {
-    background-color: $syntax-selection-color;
-  }
-
-  .language-json {
-    .w + .s2 {
-      color: $hue-5;
-    }
-
-    .kc {
-      color: $hue-1;
-    }
-  }
-}
-
-.highlighttable {
-  overflow: auto;
-  display: block;
-  width: 100%;
-  padding: 12px 0;
-  margin: 12px 0;
-  background-color: $syntax-bg;
-  border-left: 15px solid #191f2b;
-  border-right: 2px solid #191f2b;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-
-  code,
-  span {
-    font-family: "Fira Mono", monospace;
-  }
-
-  .linenos {
-    display: block;
-    width: 50px;
-    text-align: right;
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-right-color: #abb2bf;
-    border-right-color: $syntax-guide;
-
-    pre {
-      padding-right: 10px;
-      margin-bottom: 0;
-
-      code {
-        color: $syntax-gutter;
-        padding: 0;
-        font-size: 1em;
-        background-color: transparent;
-      }
-    }
-  }
-
-  .code {
-    .highlight {
-      padding: 0 10px;
-
-      pre {
-        margin-bottom: 0;
-        font-size: 1em;
-      }
-    }
-  }
-}
+/* Generated using: hugo gen chromastyles --style=onedark */
+
+/* Background */ .bg { color:#abb2bf;background-color:#282c34; }
+/* PreWrapper */ .chroma { color:#abb2bf;background-color:#282c34;-webkit-text-size-adjust:none; }
+/* LineLink */ .chroma .lnlinks { outline:none;text-decoration:none;color:inherit }
+/* LineTableTD */ .chroma .lntd { vertical-align:top;padding:0;margin:0;border:0; }
+/* LineTable */ .chroma .lntable { border-spacing:0;padding:0;margin:0;border:0; }
+/* LineHighlight */ .chroma .hl { background-color:#3d4148 }
+/* LineNumbersTable */ .chroma .lnt { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f }
+/* LineNumbers */ .chroma .ln { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f }
+/* Line */ .chroma .line { display:flex; }
+/* Keyword */ .chroma .k { color:#c678dd }
+/* KeywordConstant */ .chroma .kc { color:#e5c07b }
+/* KeywordDeclaration */ .chroma .kd { color:#c678dd }
+/* KeywordNamespace */ .chroma .kn { color:#c678dd }
+/* KeywordPseudo */ .chroma .kp { color:#c678dd }
+/* KeywordReserved */ .chroma .kr { color:#c678dd }
+/* KeywordType */ .chroma .kt { color:#e5c07b }
+/* Name */ .chroma .n { color:#e06c75 }
+/* NameAttribute */ .chroma .na { color:#e06c75 }
+/* NameClass */ .chroma .nc { color:#e5c07b }
+/* NameConstant */ .chroma .no { color:#e06c75 }
+/* NameDecorator */ .chroma .nd { color:#61afef }
+/* NameEntity */ .chroma .ni { color:#e06c75 }
+/* NameException */ .chroma .ne { color:#e06c75 }
+/* NameLabel */ .chroma .nl { color:#e06c75 }
+/* NameNamespace */ .chroma .nn { color:#e06c75 }
+/* NameOther */ .chroma .nx { color:#e06c75 }
+/* NameProperty */ .chroma .py { color:#e06c75 }
+/* NameTag */ .chroma .nt { color:#e06c75 }
+/* NameBuiltin */ .chroma .nb { color:#e5c07b }
+/* NameBuiltinPseudo */ .chroma .bp { color:#e5c07b }
+/* NameVariable */ .chroma .nv { color:#e06c75 }
+/* NameVariableClass */ .chroma .vc { color:#e06c75 }
+/* NameVariableGlobal */ .chroma .vg { color:#e06c75 }
+/* NameVariableInstance */ .chroma .vi { color:#e06c75 }
+/* NameVariableMagic */ .chroma .vm { color:#e06c75 }
+/* NameFunction */ .chroma .nf { color:#61afef;font-weight:bold }
+/* NameFunctionMagic */ .chroma .fm { color:#56b6c2;font-weight:bold }
+/* LiteralString */ .chroma .s { color:#98c379 }
+/* LiteralStringAffix */ .chroma .sa { color:#98c379 }
+/* LiteralStringBacktick */ .chroma .sb { color:#98c379 }
+/* LiteralStringChar */ .chroma .sc { color:#98c379 }
+/* LiteralStringDelimiter */ .chroma .dl { color:#98c379 }
+/* LiteralStringDoc */ .chroma .sd { color:#98c379 }
+/* LiteralStringDouble */ .chroma .s2 { color:#98c379 }
+/* LiteralStringEscape */ .chroma .se { color:#98c379 }
+/* LiteralStringHeredoc */ .chroma .sh { color:#98c379 }
+/* LiteralStringInterpol */ .chroma .si { color:#98c379 }
+/* LiteralStringOther */ .chroma .sx { color:#98c379 }
+/* LiteralStringRegex */ .chroma .sr { color:#98c379 }
+/* LiteralStringSingle */ .chroma .s1 { color:#98c379 }
+/* LiteralStringSymbol */ .chroma .ss { color:#98c379 }
+/* LiteralNumber */ .chroma .m { color:#d19a66 }
+/* LiteralNumberBin */ .chroma .mb { color:#d19a66 }
+/* LiteralNumberFloat */ .chroma .mf { color:#d19a66 }
+/* LiteralNumberHex */ .chroma .mh { color:#d19a66 }
+/* LiteralNumberInteger */ .chroma .mi { color:#d19a66 }
+/* LiteralNumberIntegerLong */ .chroma .il { color:#d19a66 }
+/* LiteralNumberOct */ .chroma .mo { color:#d19a66 }
+/* Operator */ .chroma .o { color:#56b6c2 }
+/* OperatorWord */ .chroma .ow { color:#56b6c2 }
+/* OperatorReserved */ .chroma .or { color:#56b6c2 }
+/* Punctuation */ .chroma .p { color:#abb2bf }
+/* Comment */ .chroma .c { color:#7f848e }
+/* CommentHashbang */ .chroma .ch { color:#7f848e }
+/* CommentMultiline */ .chroma .cm { color:#7f848e }
+/* CommentSingle */ .chroma .c1 { color:#7f848e }
+/* CommentSpecial */ .chroma .cs { color:#7f848e }
+/* CommentPreproc */ .chroma .cp { color:#7f848e }
+/* CommentPreprocFile */ .chroma .cpf { color:#7f848e }
+/* GenericDeleted */ .chroma .gd { color:#e06c75 }
+/* GenericInserted */ .chroma .gi { color:#98c379;font-weight:bold }

@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     make \
     nasm \
-    python3-pygments \
     && rm -rf /var/lib/apt/lists/*
 
 # Install global npm tools
