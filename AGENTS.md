@@ -4,18 +4,15 @@
 
 - `content/posts/<slug>/` — 70 post bundles (avg 3.2 files), 6 `index.en.md`
   (EN translations). `content/search/`, `content/contact/`, `content/404.html`.
-- `assets/scss/` — `vendor.scss` (Bootstrap slim import), `index.scss` (app),
-  syntax-highlight theme (ported from `assets/less/syntax-highlight.less`).
-- `assets/js/` — exactly 3 files: `search.js`, `contact.js`, `index.js`.
-  `search.js:31-46` and `contact.js:14-41` duplicate the `i18n` IIFE shape
-  (different keys); `contact.js:48+` owns `notifier` — extract shared
-  `i18n.js` (+`notifier.js`) ES modules in the JS commit.
-  DONE (JS commit): `i18n.js` + `notifier.js` shared modules, `index.js`
-  deleted (was dead: no references, prod dropped it via `drop_console`).
-  `js.Build` (esbuild) bundles + minifies + fingerprints; per-locale
-  variants (locale is a build param) mean 2 hashed files per bundle.
-  `fetch` replaced `axios` (dropped dep; fixed ~500ms TBT from axios
-  0.16.2); `lunr` CDN stays until the Pagefind commit.
+- `assets/scss/` — app styles (Dart Sass `@use` modules) +
+  `syntax-highlight.scss` (Chroma onedark tokens verbatim from
+  `hugo gen chromastyles`, own container chrome). `assets/less/` +
+  Bootstrap slim + Ruby Sass chain long gone.
+- `assets/js/` — exactly 2 files: `search.js` (Pagefind) + shared
+  `i18n.js`. (`contact.js`/`notifier.js`/`index.js` deleted with the
+  contact form; `axios`/`lunr` deps long gone.) `js.Build` (esbuild)
+  bundles + minifies + fingerprints; per-locale variants (locale is a
+  build param) mean 2 hashed files per bundle.
   DONE (Pagefind commit): `lunr` + `search.json` + `search-template.html`
   + `grunt-custom/{lunr,post,author,category,tag}-*` + `paths.js` gone;
   `pagefind --site public` (Rust, `cargo install pagefind`) indexes the
@@ -25,14 +22,19 @@
   module — classic `<script src>` fails with `import.meta` error.
   Search works only in built output (+`pagefind --site`); `hugo server`
   dev has no index, results area stays empty (silent, old parity).
-- `layouts/` (27 files) — `partials/head-assets.html`, `partials/footer.html`,
-  `search/list.html`, `index.html`, `_default/`, shortcodes.
+- `layouts/` (33 files) — `partials/head-assets.html`, `partials/footer.html`,
+  `partials/css.html` + `partials/js.html` (Hugo Pipes), `search/list.html`,
+  `index.html`, `_default/` (+`_markup/render-image.html`), `design-system/`,
+  `robots.txt`, shortcodes.
 - `static/` — `CNAME` (prod `jpcercal.com`; must NOT ship to staging branch),
   `search-template.html` (removed with Pagefind), favicons, `_headers`
   (Pages; replaces `_config.yml` semantics).
 - `config.yaml` — Hugo `0.166.0`, `publishDir: public`, Pygments → Chroma.
-- `grunt/` (23), `grunt-custom/` (10), `Gruntfile.js`, `grunt/aliases.yaml` —
-  legacy build being replaced by Hugo Pipes + native binaries.
+- Grunt is fully deleted (Gruntfile + `grunt/` + `grunt-custom/` +
+  `bin/watch.sh` gone in the deploy commit). Build = npm scripts:
+  `npm run clean/build` (hugo) → `bin/build-images.sh` →
+  `pagefind --site public` → gates (`lint`, `validate:*`, `links`,
+  `lhci`, `e2e`). `BASE_URL` env is required for `npm run build`.
 - `design-system/` — repo-root staging-only docs (NOT under `content/`).
 - `bin/` holds `build-images.sh` only (`fetch-vendor.sh` deleted with the
   last vendor clone in the privacy commit; `watch.sh` is legacy Docker
@@ -107,8 +109,9 @@
 - `hugo server` MUST pass `--renderToMemory` — otherwise it writes dev
   rendering (localhost URLs, livereload) into `public/` and pollutes the
   production artifact.
-- `grunt-shell` production ≠ development (`--buildDrafts` only in dev);
-  the same split applies to staging (`--buildDrafts` + PR baseURL) vs prod.
+- `npm run build` ≠ staging (`--buildDrafts` only in staging, plus the
+  design-system copy + PR baseURL — same split the old grunt-shell
+  dev/prod builds had).
 
 ## Agent rules
 

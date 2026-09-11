@@ -47,7 +47,8 @@ Toolchain preference order: **native C/Rust binary > Go > Node/Bun**.
 See [AGENTS.md](AGENTS.md) for the locked decisions and rationale.
 
 Baseline repo size: 384 tracked files (`content` 234 — 70 post bundles,
-`assets` 53, `layouts` 27, `grunt` 23, `grunt-custom` 10).
+`assets` 53, `layouts` 27, `grunt` 23, `grunt-custom` 10; Grunt is fully
+deleted in the final state).
 At ~1 post/day the deployed file count stays ~1.5–2k/yr — far below the
 Cloudflare Pages 20k-file limit.
 
@@ -76,15 +77,24 @@ cp -r design-system content/design-system && hugo server --buildDrafts
 
 ## Deploy
 
-- **Production** (`push` to `master` only): CI builds (`hugo --minify` +
-  `pagefind`), the blocking `cloudflare-pages` verification job runs, then
+- **Production** (`push` to `master` only): CI builds (`npm run build` +
+  `bin/build-images.sh` + `pagefind --site public`), the blocking
+  `cloudflare-pages` job (`bin/verify-pages.sh`) runs, then
   `wrangler pages deploy public --project-name=jpcercal-com` publishes to
-  `jpcercal.com`. Unlimited static deploys — no Pages build quota consumed.
-- **Staging** (every PR): CI builds with
-  `--baseURL https://staging.jpcercal.com/pr-<n>/` and publishes that path to
-  the `gh-pages` branch. Never touches the Pages project or production.
-- **DNS** (Cloudflare): apex → Pages project; `CNAME staging → <user>.github.io`
-  (proxied) with the `gh-pages` custom domain set to `staging.jpcercal.com`.
+  `jpcercal.com`. Direct Upload — no Pages build quota consumed.
+- **Staging** (every PR): CI rebuilds with `--buildDrafts`,
+  `content/design-system` copied in, `--baseURL
+  https://staging.jpcercal.com/pr-<n>/`, and publishes that path to the
+  `gh-pages` branch (`keep_files`, prod `CNAME` stripped). Never touches
+  the Pages project or production.
+- **DNS** (Cloudflare, one-time repo-admin setup): apex → Pages project;
+  `CNAME staging → <user>.github.io` (proxied) with the `gh-pages`
+  custom domain set to `staging.jpcercal.com`.
+- **Secrets** (repo settings → Actions): `CLOUDFLARE_API_TOKEN` (Pages
+  deploy token) + `CLOUDFLARE_ACCOUNT_ID`.
+- **Local Docker build**: `docker build -t jpcercal-com:slim .`, then run
+  the same pipeline (`npm ci`, `npm run build` with `BASE_URL`,
+  `bin/build-images.sh`, `pagefind --site public`).
 
 ## Verification
 
