@@ -9,7 +9,7 @@ on:
 
 env:
   HUGO_VERSION: 0.166.0
-  NODE_VERSION: "20"
+  NODE_VERSION: "24"
   RUBY_VERSION: "3.3"
   BASE_URL: https://jpcercal.com/
 

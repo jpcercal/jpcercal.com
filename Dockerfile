@@ -1,4 +1,4 @@
-FROM node:20-bookworm
+FROM node:24-bookworm
 
 # Install system dependencies for the build:
 # - ruby + build tools for Ruby Sass (grunt-contrib-sass)
