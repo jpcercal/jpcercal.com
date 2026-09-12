@@ -56,7 +56,7 @@ Another advantage of this approach is that there’s no script/data processing o
 
 A disadvantage, but not really, is that there’s no way to perform *queries* in a relational database to search for a post,  right? So, what happens in case a visitor searches for something? Good question by the way, another tool came in to solve this specific problem, take a close look into [Lunr](https://lunrjs.com/).
 
-> An index file is created during the build time by this [grunt](https://gruntjs.com/) [task](https://github.com/jpcercal/jpcercal.com/blob/master/grunt-custom/lunr.js), after [a JS file implements the search module](https://github.com/jpcercal/jpcercal.com/blob/master/assets/js/search.js), uses the search index created before, defines scores to each content field and, finally it searches for your search terms. Beautiful! 
+> An index file is created during the build time by this [grunt](https://gruntjs.com/) [task](https://github.com/jpcercal/jpcercal.com/blob/bd202fbfa90721b50a1c1f7f11cace755fdfb3c4/grunt-custom/lunr.js), after [a JS file implements the search module](https://github.com/jpcercal/jpcercal.com/blob/bd202fbfa90721b50a1c1f7f11cace755fdfb3c4/assets/js/search.js), uses the search index created before, defines scores to each content field and, finally it searches for your search terms. Beautiful! 
 
 ## Markdown files
 

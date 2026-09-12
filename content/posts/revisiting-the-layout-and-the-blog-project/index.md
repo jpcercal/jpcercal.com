@@ -58,7 +58,7 @@ Outra vantagem é que não há processamento de dados no *server-side*, os arqui
 
 Uma desvantagem, mas nem tanto, é que não há como fazer *queries* num servidor e possibilitar buscas em um banco de dados de conteúdo, então caso algum visitante queira buscar algo no site o que acontece? Bem, exatamente aqui que entra em cena o [Lunr](https://lunrjs.com/).
 
-> Um arquivo de índice é criado em tempo de *build* por essa [task](https://github.com/jpcercal/jpcercal.com/blob/master/grunt-custom/lunr.js) do [grunt](https://gruntjs.com/), depois disso, um [arquivo JS implementa o módulo de busca](https://github.com/jpcercal/jpcercal.com/blob/master/assets/js/search.js) e faz uso do índice, atribuí peso para diferentes campos de conteúdo e faz a pesquisa. Lindo!
+> Um arquivo de índice é criado em tempo de *build* por essa [task](https://github.com/jpcercal/jpcercal.com/blob/bd202fbfa90721b50a1c1f7f11cace755fdfb3c4/grunt-custom/lunr.js) do [grunt](https://gruntjs.com/), depois disso, um [arquivo JS implementa o módulo de busca](https://github.com/jpcercal/jpcercal.com/blob/bd202fbfa90721b50a1c1f7f11cace755fdfb3c4/assets/js/search.js) e faz uso do índice, atribuí peso para diferentes campos de conteúdo e faz a pesquisa. Lindo!
 
 ## Arquivos Markdown
 

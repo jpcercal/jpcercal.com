@@ -144,11 +144,21 @@ else
 fi
 
 # 8. LHCI (perf + SEO blocking per lighthouserc.json, live URLs).
+# LHCI_CHROME_FLAGS (space-separated, e.g. "--no-sandbox" for rootful
+# containers) is unset in normal runs, keeping the Chrome sandbox on.
 echo "-- LHCI --"
+LHCI_CHROME_FLAGS_ARR=()
+if [ -n "${LHCI_CHROME_FLAGS:-}" ]; then
+	# shellcheck disable=SC2206
+	for flag in ${LHCI_CHROME_FLAGS}; do
+		LHCI_CHROME_FLAGS_ARR+=(--collect.settings.chromeFlags="$flag")
+	done
+fi
 if ./node_modules/.bin/lhci autorun \
 	--collect.url="$BASE_URL/" \
 	--collect.url="$BASE_URL/en/" \
-	--collect.url="$BASE_URL/revisitando-o-layout-e-o-projeto-do-blog/"; then
+	--collect.url="$BASE_URL/revisitando-o-layout-e-o-projeto-do-blog/" \
+	${LHCI_CHROME_FLAGS_ARR[@]+"${LHCI_CHROME_FLAGS_ARR[@]}"}; then
 	pass "LHCI assertions"
 else
 	fail "LHCI assertions"

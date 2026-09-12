@@ -13,45 +13,69 @@ env:
   BASE_URL: https://jpcercal.com/
   STAGING_HOST: https://staging.jpcercal.com
   CLOUDFLARE_PROJECT_NAME: cloudflare-pages
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ghcr.io/jpcercal/jpcercal.com-ci
 
 jobs:
-  build:
-    name: Build
+  image:
+    name: CI image (GHCR)
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
         with:
-          hugo-version: ${{ env.HUGO_VERSION }}
-          extended: true
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      # Always runs first (every other job needs it): with a warm Buildx GHA
+      # cache this is a seconds-long no-op (no compilation) when the
+      # Dockerfile is untouched; when it is touched the rebuild+push lands
+      # before any downstream job starts, pinned by commit SHA below.
+      - name: Build and push CI image
+        uses: docker/build-push-action@v6
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/jpcercal/jpcercal.com-ci:latest
+            ghcr.io/jpcercal/jpcercal.com-ci:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
-      - name: Setup Rust (for oxipng/oxvg/resvg/pagefind)
-        uses: dtolnay/rust-toolchain@stable
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: image
+    permissions:
+      contents: read
+      packages: read
+    container:
+      image: ghcr.io/jpcercal/jpcercal.com-ci:${{ github.sha }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Install native image tools
-        # oxipng (PNG) + oxvg (SVG) + resvg (SVG->PNG covers) + pagefind
-        # via cargo; mozjpeg (JPEG) has no apt/cargo binary, so build it.
+      # node_modules is baked into the image (/opt/ci); linking is instant
+      # and no npm install runs in any job.
+      - name: Link baked dependencies (zero-install)
         run: |
-          cargo install oxipng oxvg resvg pagefind
-          sudo apt-get update && sudo apt-get install -y --no-install-recommends nasm cmake libxml2-utils libpng-dev zlib1g-dev
-          curl -fLO https://github.com/mozilla/mozjpeg/archive/v4.1.5.tar.gz
-          tar xf v4.1.5.tar.gz
-          cmake -B mozjpeg-4.1.5/build -DCMAKE_INSTALL_PREFIX=/usr/local mozjpeg-4.1.5
-          cmake --build mozjpeg-4.1.5/build -j
-          sudo cmake --install mozjpeg-4.1.5/build
-          /usr/local/bin/jpegtran -version
-
-      - name: Install npm dependencies
-        run: npm ci --no-audit --no-fund
+          ln -s /opt/ci/node_modules node_modules
+          node --version
+          hugo version
 
       - name: Production build
         run: npm run build
@@ -72,11 +96,12 @@ jobs:
         run: npm run validate:xml
 
       - name: Check links (lychee)
-        uses: lycheeverse/lychee-action@v2
-        with:
-          # Remap prod URLs to the fresh local build (absolute path required;
-          # without it lychee checks stale prod and 404s on new routes).
-          args: --config .lychee.toml --no-progress --remap "https://jpcercal.com file://${{ github.workspace }}/public" "public/**/index.html"
+        # Remap prod URLs to the fresh local build (absolute path required;
+        # without it lychee checks stale prod and 404s on new routes).
+        # NOTE: $PWD, not ${{ github.workspace }} — inside the container the
+        # workspace lives at /__w/... while the expression yields the host
+        # path (/home/runner/work/...), which does not exist in the container.
+        run: lychee --config .lychee.toml --no-progress --remap "https://jpcercal.com file://$PWD/public" "public/**/index.html"
 
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
@@ -93,6 +118,12 @@ jobs:
     if: github.event_name == 'pull_request'
     permissions:
       contents: write
+      packages: read
+    container:
+      image: ghcr.io/jpcercal/jpcercal.com-ci:${{ github.sha }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     env:
       # NOTE: job-level env cannot use ${{ env.* }} (GitHub validation
       # rejects it), so the staging host is hardcoded here to match
@@ -102,33 +133,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: ${{ env.HUGO_VERSION }}
-          extended: true
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-
-      - name: Setup Rust (for oxipng/oxvg/resvg/pagefind)
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Install native tools
+      - name: Link baked dependencies (zero-install)
         run: |
-          cargo install oxipng oxvg resvg pagefind
-          sudo apt-get update && sudo apt-get install -y --no-install-recommends nasm cmake libpng-dev zlib1g-dev
-          curl -fLO https://github.com/mozilla/mozjpeg/archive/v4.1.5.tar.gz
-          tar xf v4.1.5.tar.gz
-          cmake -B mozjpeg-4.1.5/build -DCMAKE_INSTALL_PREFIX=/usr/local mozjpeg-4.1.5
-          cmake --build mozjpeg-4.1.5/build -j
-          sudo cmake --install mozjpeg-4.1.5/build
-
-      - name: Install npm dependencies
-        run: npm ci --no-audit --no-fund
+          ln -s /opt/ci/node_modules node_modules
+          node --version
+          hugo version
 
       - name: Staging build (drafts + design system + PR baseURL)
         # design-system/ lives outside content/ so it can never leak to
@@ -192,31 +201,32 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    permissions:
+      contents: read
+      packages: read
+    container:
+      image: ghcr.io/jpcercal/jpcercal.com-ci:${{ github.sha }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout (verify script + configs)
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-
-      - name: Setup Chrome (for LHCI)
-        id: setup-chrome
-        uses: browser-actions/setup-chrome@latest
-
-      - name: Install check tools
+      - name: Link baked dependencies (zero-install)
         run: |
-          npm ci --no-audit --no-fund
-          sudo apt-get update && sudo apt-get install -y --no-install-recommends libxml2-utils
-          LYCHEE_VER=$(curl -fsSL https://api.github.com/repos/lycheeverse/lychee/releases/latest | grep '"tag_name"' | cut -d'"' -f4)
-          curl -fSL "https://github.com/lycheeverse/lychee/releases/download/${LYCHEE_VER}/lychee-x86_64-unknown-linux-gnu.tar.gz" | tar xz
-          sudo mv lychee /usr/local/bin/lychee
-          lychee --version
+          ln -s /opt/ci/node_modules node_modules
+          node --version
+
+      # LHCI runs as root in the container, so Chrome needs --no-sandbox;
+      # verify-pages.sh forwards LHCI_CHROME_FLAGS for exactly this case
+      # (unset locally, where the sandbox stays on).
+      - name: Resolve baked Chromium for LHCI
+        run: echo "CHROME_PATH=$(node -p "require('@playwright/test').chromium.executablePath()")" >> "$GITHUB_ENV"
 
       - name: Run Pages verification suite
         run: bin/verify-pages.sh
         env:
           BASE_URL: ${{ env.BASE_URL }}
-          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+          CHROME_PATH: ${{ env.CHROME_PATH }}
+          LHCI_CHROME_FLAGS: "--no-sandbox --disable-dev-shm-usage"

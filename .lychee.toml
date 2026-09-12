@@ -46,6 +46,10 @@ exclude = [
   # Dead historical host (Yahoo Brazil search retired; the post keeps the
   # reference as written).
   "br.search.yahoo.com",
+  # Bot-blocking host (verified manually with a browser UA: 200 after
+  # redirect to mlsvicente.blogspot.com; CI egress IPs get a Google sorry
+  # page with 429). The post keeps the reference as written.
+  "mlsvicente.blogspot.com.br",
 ]
 
 # Resolve root-relative links against the built site.

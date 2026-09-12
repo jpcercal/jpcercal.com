@@ -1,0 +1,11 @@
+# Keep the CI image build context small: only the Dockerfile needs the
+# manifests; job checkouts provide the site source at run time.
+public/
+resources/
+node_modules/
+test-results/
+playwright-report/
+.git/
+.hugo_build.lock
+hugo.log
+.DS_Store
