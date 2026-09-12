@@ -144,21 +144,33 @@ else
 fi
 
 # 8. LHCI (perf + SEO blocking per lighthouserc.json, live URLs).
+# Live verification must NOT use `staticDistDir` (local ./public build):
+# it starts a static server and rewrites --collect.url into host:port
+# mush (seen as https://jpcercal.com:45777//). Generate a live config
+# without it. chromeFlags is a single space-joined string; repeated CLI
+# flags last-win, so set it in the config instead.
 # LHCI_CHROME_FLAGS (space-separated, e.g. "--no-sandbox" for rootful
 # containers) is unset in normal runs, keeping the Chrome sandbox on.
 echo "-- LHCI --"
-LHCI_CHROME_FLAGS_ARR=()
-if [ -n "${LHCI_CHROME_FLAGS:-}" ]; then
-	# shellcheck disable=SC2206
-	for flag in ${LHCI_CHROME_FLAGS}; do
-		LHCI_CHROME_FLAGS_ARR+=(--collect.settings.chromeFlags="$flag")
-	done
-fi
-if ./node_modules/.bin/lhci autorun \
-	--collect.url="$BASE_URL/" \
-	--collect.url="$BASE_URL/en/" \
-	--collect.url="$BASE_URL/revisitando-o-layout-e-o-projeto-do-blog/" \
-	${LHCI_CHROME_FLAGS_ARR[@]+"${LHCI_CHROME_FLAGS_ARR[@]}"}; then
+LHCI_LIVE_CONFIG="$HTML_DIR/lighthouserc.live.json"
+BASE_URL="$BASE_URL" LHCI_CHROME_FLAGS="${LHCI_CHROME_FLAGS:-}" LHCI_LIVE_CONFIG="$LHCI_LIVE_CONFIG" node -e "
+const fs = require('fs');
+const base = JSON.parse(fs.readFileSync('lighthouserc.json', 'utf8'));
+const baseUrl = process.env.BASE_URL;
+const chromeFlags = (process.env.LHCI_CHROME_FLAGS || '').trim();
+const collect = { ...(base.ci.collect || {}) };
+delete collect.staticDistDir;
+delete collect.startServerCommand;
+delete collect.startServerReadyPattern;
+delete collect.startServerReadyTimeout;
+collect.url = [baseUrl, baseUrl + 'en/', baseUrl + 'revisitando-o-layout-e-o-projeto-do-blog/'];
+if (chromeFlags) {
+  collect.settings = { ...(collect.settings || {}), chromeFlags };
+}
+const live = { ci: { ...base.ci, collect } };
+fs.writeFileSync(process.env.LHCI_LIVE_CONFIG, JSON.stringify(live, null, 2));
+"
+if ./node_modules/.bin/lhci autorun --config="$LHCI_LIVE_CONFIG"; then
 	pass "LHCI assertions"
 else
 	fail "LHCI assertions"

@@ -126,7 +126,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         git \
         libpng16-16 \
         libxml2-utils \
-        python3-minimal \
+        python3 \
     && node /opt/ci/node_modules/@playwright/test/cli.js install --with-deps chromium \
     && rm -rf /var/lib/apt/lists/* \
     && chmod -R a+rX /opt/ci /opt/ms-playwright
@@ -135,6 +135,7 @@ RUN set -eux; \
     oxipng --version; oxvg --version; resvg --version; pagefind --version; lychee --version; \
     jpegtran -version 2>&1 | grep -i mozjpeg; \
     xmllint --version; python3 --version; \
+    python3 -c "import json; print('json ok')"; \
     test -x /opt/ci/node_modules/.bin/biome; \
     test -x /opt/ci/node_modules/.bin/html-validate; \
     test -x /opt/ci/node_modules/.bin/lhci; \
