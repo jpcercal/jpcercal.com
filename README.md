@@ -81,7 +81,7 @@ cp -r design-system content/design-system && hugo server --buildDrafts
   `bin/build-images.sh` + `pagefind --site public`), the blocking
   `cloudflare-pages` job (`bin/verify-pages.sh`) runs, then
   `wrangler pages deploy public --project-name="$CLOUDFLARE_PROJECT_NAME"` publishes to
-  `jpcercal.com` (`CLOUDFLARE_PROJECT_NAME=cloudflare-pages` in CI env). Direct Upload — no Pages build quota consumed.
+  `jpcercal.com` (`CLOUDFLARE_PROJECT_NAME=jpcercal-dot-com` in CI env). Direct Upload — no Pages build quota consumed.
 - **Staging** (every PR): CI rebuilds with `--buildDrafts`,
   `content/design-system` copied in, `--baseURL
   https://staging.jpcercal.com/pr-<n>/`, and publishes that path to the
