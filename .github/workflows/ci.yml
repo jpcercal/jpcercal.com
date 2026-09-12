@@ -92,7 +92,10 @@ jobs:
     permissions:
       contents: write
     env:
-      PR_BASE_URL: ${{ env.STAGING_HOST }}/pr-${{ github.event.number }}/
+      # NOTE: job-level env cannot use ${{ env.* }} (GitHub validation
+      # rejects it), so the staging host is hardcoded here to match
+      # top-level STAGING_HOST.
+      PR_BASE_URL: https://staging.jpcercal.com/pr-${{ github.event.number }}/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
