@@ -56,10 +56,12 @@ RUN set -eux; \
         "https://github.com/Pagefind/pagefind/releases/download/v${PAGEFIND_VERSION}/pagefind_extended-v${PAGEFIND_VERSION}-${BIN_ARCH}-unknown-linux-musl.tar.gz"; \
     tar xzf pagefind.tgz pagefind_extended; rm pagefind.tgz; \
     mv pagefind_extended pagefind; \
+    # NOTE: lychee's gnu build requires glibc 2.38+ (bookworm ships 2.36),
+    # so use the static musl build.
     curl -fsSL --retry 3 -o lychee.tgz \
-        "https://github.com/lycheeverse/lychee/releases/download/lychee-v${LYCHEE_VERSION}/lychee-${BIN_ARCH}-unknown-linux-gnu.tar.gz"; \
+        "https://github.com/lycheeverse/lychee/releases/download/lychee-v${LYCHEE_VERSION}/lychee-${BIN_ARCH}-unknown-linux-musl.tar.gz"; \
     tar xzf lychee.tgz --strip-components=1 \
-        "lychee-${BIN_ARCH}-unknown-linux-gnu/lychee"; rm lychee.tgz; \
+        "lychee-${BIN_ARCH}-unknown-linux-musl/lychee"; rm lychee.tgz; \
     ls -l /out
 
 # ----------------------------------------------------------- native-builder
