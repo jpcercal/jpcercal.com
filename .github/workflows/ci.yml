@@ -134,7 +134,11 @@ jobs:
         # design-system/ lives outside content/ so it can never leak to
         # prod; staging copies it in and builds drafts (same split the
         # old grunt-shell dev/prod builds had).
+        # NOTE: Hugo Pipes (Dart Sass, TailwindCSS) resolves binaries via
+        # node_modules/.bin on PATH — npm scripts provide it automatically,
+        # but this step calls hugo directly, so export it explicitly.
         run: |
+          export PATH="$PWD/node_modules/.bin:$PATH"
           cp -r design-system content/design-system
           hugo --buildDrafts --minify --baseURL "$PR_BASE_URL"
           bin/build-images.sh
