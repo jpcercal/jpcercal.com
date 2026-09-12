@@ -74,7 +74,9 @@ jobs:
       - name: Check links (lychee)
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --config .lychee.toml --no-progress "public/**/index.html"
+          # Remap prod URLs to the fresh local build (absolute path required;
+          # without it lychee checks stale prod and 404s on new routes).
+          args: --config .lychee.toml --no-progress --remap "https://jpcercal.com file://${{ github.workspace }}/public" "public/**/index.html"
 
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
