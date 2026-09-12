@@ -200,6 +200,17 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages project list
 
+      - name: Create Pages project if missing (idempotent)
+        # First deploy from this pipeline: the project may not exist yet
+        # (8000007). Creating it is safe to repeat — when it already
+        # exists this step errors and is ignored, and deploy proceeds.
+        uses: cloudflare/wrangler-action@v3
+        continue-on-error: true
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project create ${{ env.CLOUDFLARE_PROJECT_NAME }} --production-branch master
+
       - name: Publish with Wrangler (Direct Upload, no build quota)
         uses: cloudflare/wrangler-action@v3
         with:
