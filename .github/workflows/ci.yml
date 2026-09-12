@@ -98,7 +98,10 @@ jobs:
       - name: Check links (lychee)
         # Remap prod URLs to the fresh local build (absolute path required;
         # without it lychee checks stale prod and 404s on new routes).
-        run: lychee --config .lychee.toml --no-progress --remap "https://jpcercal.com file://${{ github.workspace }}/public" "public/**/index.html"
+        # NOTE: $PWD, not ${{ github.workspace }} — inside the container the
+        # workspace lives at /__w/... while the expression yields the host
+        # path (/home/runner/work/...), which does not exist in the container.
+        run: lychee --config .lychee.toml --no-progress --remap "https://jpcercal.com file://$PWD/public" "public/**/index.html"
 
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
