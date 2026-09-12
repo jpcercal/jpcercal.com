@@ -81,8 +81,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         cmake \
         curl \
         g++ \
+        libpng-dev \
         make \
         nasm \
+        zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 RUN set -eux; \
     curl -fsSL --retry 3 -o mozjpeg.tar.gz \
