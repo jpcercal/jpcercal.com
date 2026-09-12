@@ -50,6 +50,9 @@ exclude = [
   # redirect to mlsvicente.blogspot.com; CI egress IPs get a Google sorry
   # page with 429). The post keeps the reference as written.
   "mlsvicente.blogspot.com.br",
+  # Host unreachable from CI egress (consistent timeouts after all retries;
+  # verified manually: 200 in ~1s). The post keeps the reference as written.
+  "www.clem.ufba.br",
 ]
 
 # Resolve root-relative links against the built site.
