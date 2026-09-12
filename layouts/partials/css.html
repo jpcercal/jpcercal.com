@@ -1,0 +1,9 @@
+{{ $sassOpts := dict "transpiler" "dartsass" }}
+{{ $twOpts := dict "minify" true }}
+{{ $app := resources.Get "scss/index.scss" | css.Sass $sassOpts }}
+{{ $bundle := slice (resources.Get "css/vendor.css") $app | resources.Concat "css/vendor.css" | css.TailwindCSS $twOpts | fingerprint }}
+<link rel="stylesheet" type="text/css" href="{{ $bundle.RelPermalink }}">
+{{ if $.Scratch.Get "singlePost" }}
+{{ $highlight := resources.Get "scss/syntax-highlight.scss" | css.Sass $sassOpts | minify | resources.Copy "css/syntax-highlight.css" | fingerprint }}
+<link rel="stylesheet" type="text/css" href="{{ $highlight.RelPermalink }}">
+{{ end }}

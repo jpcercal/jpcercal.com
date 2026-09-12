@@ -12,8 +12,8 @@ tags:
 ---
 
 O Viral do momento já atingiu 1 bilhão de visualizações em 40 dias, o número de visualizações não foi obtido apenas 
-com um vídeo postado, mas sim pelas cenas de outros vídeos, segundo a companhia 
-[_Visible Measures_](http://corp.visiblemeasures.com/news-and-events/blog/bid/96850/The-Harlem-Shake-Hits-1-Billion-Views "Visible Measures"), 
+com um vídeo postado, mas sim pelas cenas de outros vídeos, segundo a companhia
+_Visible Measures_,
 apenas dez versões mais populares de "_Harlem Shake_" atribuem um total de 336 milhões de visualizações.
 
 ![O viral Harlem Shake](nasa-harlem-shake-300x163.jpg "O viral Harlem Shake")

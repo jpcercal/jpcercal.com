@@ -1,41 +1,25 @@
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
 
+{{ $author := index site.Data.authors "jpcercal@gmail.com" }}
+
 <section class="container">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <h1>{{ i18n "contact" }}</h1>
+            <h1 class="mb-2">{{ i18n "contact" }}</h1>
 
-            <div id="notification-container">
-                <p class="notification">{{ i18n "contactInfo" }}.</p>
-            </div>
+            <p class="mb-2">{{ i18n "contactInfo" }}.</p>
 
-            <form id="contact-form" class="row">
-                <div class="col col-lg-6">
-                    <input type="text" class="mt-3" id="name" name="name" placeholder="Name">
-                </div>
-                <div class="col col-lg-6">
-                    <input type="email" class="mt-3" id="email" name="email" placeholder="E-mail">
-                </div>
-                <div class="col-12">
-                    <textarea name="message" class="mt-3" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                </div>
-                <div class="col-12">
-                    <input type="submit" id="send" class="mt-3 float-right" value="Send">
-                </div>
-            </form>
+            <ul class="list-none flex gap-2">
+                <li>
+                    <a href="mailto:jpcercal@gmail.com">E-mail</a>
+                </li>
+                {{ range $socialNetwork, $profile := $author.socialNetworks }}
+                    {{ partial "author-social-network.html" (dict "socialNetwork" $socialNetwork "profile" $profile ) }}
+                {{ end }}
+            </ul>
         </div>
     </div>
 </section>
-
-{{ "<!-- build:template" | safeHTML }}
-{{ "<% if (environment === 'production') { %>" | safeHTML }}
-<script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/jpcercal.com.contact.min.js"></script>
-{{ "<% } else { %>" | safeHTML }}
-<script src="{{ .Site.BaseURL }}vendor/js/axios.js"></script>
-<script src="{{ .Site.BaseURL }}js/jpcercal.com.contact.js"></script>
-{{ "<% } %>" | safeHTML }}
-{{ "/build -->" | safeHTML }}
 
 {{ partial "footer.html" . }}

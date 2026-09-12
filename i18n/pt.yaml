@@ -9,7 +9,7 @@ noResultsFound:
 contact:
   other: "Contato"
 contactInfo:
-  other: "Preencha o formulário abaixo para entrar em contato conosco"
+  other: "Você pode entrar em contato por e-mail ou através de nossos perfis sociais"
 searchFor: 
   other: "Procurar por"
 searchForInfo:
@@ -63,3 +63,7 @@ readingTime:
   other: "{{ .Count }} min de leitura"
 githubCorner:
   other: "Ver código-fonte no GitHub"
+paginationNav:
+  other: "Paginação de posts"
+localeNav:
+  other: "Seleção de idioma"

@@ -1,3 +1,7 @@
+@use "sass:color" as *;
+@use "variables" as *;
+@use "mixins" as *;
+
 article,
 section {
   header {
@@ -11,7 +15,7 @@ section {
     .author-position,
     .author-biography {
       color: #808080;
-      color: lighten($fontColor, 50%);
+      color: adjust($fontColor, $lightness: 50%);
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 400;
       margin: 0;
@@ -25,7 +29,7 @@ section {
         time,
         span {
           color: #808080;
-          color: lighten($fontColor, 50%);
+          color: adjust($fontColor, $lightness: 50%);
           font-family: 'Barlow Condensed', sans-serif;
           font-weight: 400;
         }
@@ -41,7 +45,7 @@ section {
         display: inline;
         content: '\00B7';
         color: #808080;
-        color: lighten($fontColor, 50%);
+        color: adjust($fontColor, $lightness: 50%);
         margin-right: 2px;
       }
     }
@@ -57,10 +61,13 @@ section {
   }
 
   .article-tags {
+    // Reboot parity (see .article-content above).
+    margin-bottom: 1rem;
+
     .article-tag {
       a {
         color: #808080;
-        color: lighten($fontColor, 50%);
+        color: adjust($fontColor, $lightness: 50%);
         text-decoration: underline;
       }
     }
@@ -71,6 +78,25 @@ section {
     font-weight: 400;
     text-align: left;
     overflow: hidden;
+
+    // Reboot parity: Tailwind preflight zeroes margins that Bootstrap
+    // reboot used to provide inside article content.
+    p,
+    pre,
+    blockquote,
+    ul,
+    ol {
+      margin-bottom: 1rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 0.5rem;
+    }
 
     /**
      * Hack to get just table elements without the class attribute
@@ -83,12 +109,12 @@ section {
       border-width: 1px;
       border-style: solid;
       border-color: #b3b3b3d6;
-      border-color: lighten($fontColor, 70%);
+      border-color: adjust($fontColor, $lightness: 70%);
       margin: 0 0 15px 0;
 
       thead {
         background-color: #b3b3b3d6;
-        background-color: lighten($fontColor, 90%);
+        background-color: adjust($fontColor, $lightness: 90%);
       }
 
       tr {
@@ -127,28 +153,22 @@ section {
         display: inline;
         font-style: italic;
         color: #333333d6;
-        color: lighten($fontColor, 20%);
+        color: adjust($fontColor, $lightness: 20%);
       }
 
       &::before {
         display: inline;
         content: '\201C';
         color: #333333d6;
-        color: lighten($fontColor, 20%);
+        color: adjust($fontColor, $lightness: 20%);
       }
 
       &::after {
         display: inline;
         content: '\201D';
         color: #333333d6;
-        color: lighten($fontColor, 20%);
+        color: adjust($fontColor, $lightness: 20%);
       }
     }
-  }
-
-  #disqus_thread {
-    border-top: 1px solid #eee;
-    margin-top: 30px;
-    padding-top: 20px;
   }
 }

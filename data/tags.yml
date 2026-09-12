@@ -2,6 +2,10 @@ android:
   title:
     en: Android
     pt: Android
+architecture:
+  title:
+    en: Architecture
+    pt: Arquitetura
 apple:
   title:
     en: Apple
@@ -46,6 +50,10 @@ ecommerce:
   title:
     en: E-commerce
     pt: "Loja virtual"
+engineering:
+  title:
+    en: Engineering
+    pt: Engenharia
 english:
   title:
     en: English
@@ -86,6 +94,10 @@ linux:
   title:
     en: Linux
     pt: Linux
+lessons-learned:
+  title:
+    en: "Lessons learned"
+    pt: "Lições aprendidas"
 living_abroad:
   title:
     en: "Living abroad"

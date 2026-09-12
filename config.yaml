@@ -10,16 +10,16 @@ taxonomies:
   category:   "categories"
   authors:    "authors"
 
-services:
-  disqus:
-    shortname: cercal-io
-  googleAnalytics:
-    id: G-S1125GQLTK
 defaultExtension: "html"
 metaDataFormat:   "yaml"
-pygmentsUseClasses: true
-pygmentsCodeFences: true
-pygmentsOptions:    "linenos=true"
+markup:
+  highlight:
+    style:        "onedark"
+    noClasses:    false
+    guessSyntax:  false
+    lineNos:      true
+    lineNumbersInTable: true
+    tabWidth:     4
 
 defaultContentLanguage: "pt"
 defaultContentLanguageInSubdir: false
@@ -64,6 +64,16 @@ watch:                      true
 enableRobotsTXT:            true
 disableHugoGeneratorInject: true
 enableEmoji:                false
+
+security:
+  exec:
+    allow:
+      - "^(dart-)?sass$"
+      - "^go$"
+      - "^git$"
+      - "^node$"
+      - "^postcss$"
+      - "^tailwindcss$"
 
 footnoteAnchorPrefix:       ""
 footnoteReturnLinkContents: ""

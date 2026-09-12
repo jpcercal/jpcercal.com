@@ -13,8 +13,8 @@ tags:
 
 O sonho dos visionários de TI do Brasil, está mais perto de se tornar realidade, no dia 15 de abril um programa de 
 _StartUp_ que foi criado pelo Ministério da Ciência Tecnologia e Inovação (MCTI) foi lançado pelo governo, o edital 
-para inscrições dos _startups_ interessados está no site 
-[http://startupbrasil.mcti.gov.br/inscricoes/](http://startupbrasil.mcti.gov.br/inscricoes/).
+para inscrições dos _startups_ interessados está no site
+do programa Start-Up Brasil (edital de 2013, hoje fora do ar).
 
 Estarão na disputa cerca de 30% de _startups_ internacionais, as inscrições se iniciam no dia 25 de abril e terminam 
 no dia 31 de maio, os resultados desta primeira etapa serão divulgados a partir de 25 de junho no site do _CNPq_ e no 

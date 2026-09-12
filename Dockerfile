@@ -1,37 +1,51 @@
-FROM node:20-bookworm
+# Reproducible build image: Node 24 slim + Hugo extended + Rust + mozjpeg.
+# Native-first toolchain (C/Rust > Go > Node): oxipng/oxvg/resvg/pagefind/
+# lychee via cargo, mozjpeg (JPEG) built from source (no apt package),
+# Hugo extended binary from GitHub releases. No Ruby/Java/Python/Inkscape,
+# no Grunt — the build is `npm ci && npm run build && bin/build-images.sh`.
+FROM node:24-slim
 
-# Install system dependencies for the build:
-# - ruby + build tools for Ruby Sass (grunt-contrib-sass)
-# - git for fetching vendor sources (bin/fetch-vendor.sh)
-# - image tooling used by grunt imagemin/svg2png tasks
-ENV HUGO_VERSION=0.166.0
+ENV HUGO_VERSION=0.166.0 \
+    DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
+    cmake \
     curl \
     file \
     g++ \
     gcc \
     git \
-    inkscape \
-    libjpeg-dev \
     libpng-dev \
+    libxml2-utils \
     make \
-    ruby-full \
-    python3-pygments \
+    nasm \
+    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/* \
-    && gem install sass -v 3.7.4
+    && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+        | sh -s -- -y --profile minimal
 
-# Install global npm tools
-RUN npm install -g grunt-cli
+ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Download and install hugo (extended)
-RUN curl -sSL -o /tmp/hugo.tar.gz \
-      https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz && \
-    tar xvfz /tmp/hugo.tar.gz -C /tmp && \
+RUN cargo install oxipng oxvg resvg pagefind lychee \
+    && curl -fLO https://github.com/mozilla/mozjpeg/archive/v4.1.5.tar.gz \
+    && tar xf v4.1.5.tar.gz \
+    && cmake -B mozjpeg-4.1.5/build -DCMAKE_INSTALL_PREFIX=/usr/local mozjpeg-4.1.5 \
+    && cmake --build mozjpeg-4.1.5/build -j \
+    && cmake --install mozjpeg-4.1.5/build \
+    && rm -rf v4.1.5.tar.gz mozjpeg-4.1.5 \
+    && /usr/local/bin/jpegtran -version
+
+# Download and install hugo (extended, matching the image architecture)
+RUN HUGO_ARCH="$(uname -m)"; \
+    case "$HUGO_ARCH" in x86_64) HUGO_ARCH=amd64 ;; aarch64|arm64) HUGO_ARCH=arm64 ;; esac; \
+    curl -sSL -o /tmp/hugo.tar.gz \
+      https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-${HUGO_ARCH}.tar.gz && \
+    tar xfz /tmp/hugo.tar.gz -C /tmp && \
     chmod +x /tmp/hugo && \
     mv /tmp/hugo /usr/local/bin/hugo && \
-    rm /tmp/hugo.tar.gz
+    rm /tmp/hugo.tar.gz && \
+    hugo version
 
 # Create and define working directory
 RUN mkdir -p /usr/share/blog/public
@@ -40,8 +54,9 @@ WORKDIR /usr/share/blog
 # Expose default hugo port
 EXPOSE 1313
 
-# Install npm dependencies, fetch vendor sources and build with:
-#   npm ci && bin/fetch-vendor.sh && BASE_URL=https://jpcercal.com/ grunt production
+# Install npm dependencies and build with:
+#   npm ci --no-audit --no-fund && BASE_URL=https://jpcercal.com/ npm run build \
+#     && bin/build-images.sh && pagefind --site public
 
 # Define default command
 CMD ["/bin/bash", "-l"]

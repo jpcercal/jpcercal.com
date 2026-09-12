@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /search/
+Disallow: /contact/
+Disallow: /en/search/
+Disallow: /en/contact/
+
+Sitemap: {{ "sitemap.xml" | absURL }}

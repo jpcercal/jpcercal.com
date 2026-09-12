@@ -1,0 +1,52 @@
+# Link checker config. Runs against built output (CI runs build-images.sh
+# first, then):
+#   lychee --config .lychee.toml --remap "https://jpcercal.com file://$PWD/public" --no-progress "public/**/index.html"
+# The --remap resolves absolute production URLs against the fresh local
+# build; without it lychee hits stale prod and 404s on every new route.
+# lychee itself is a Rust binary, installed in CI (not via npm).
+exclude_private = true
+exclude_loopback = true
+include_mail = false
+max_retries = 2
+timeout = 20
+
+exclude = [
+  "https://jpcercal.local",
+  "http://jpcercal.local",
+  # Favicon pipeline not ported yet (owned by the images commit); sources live
+  # in assets/images/favicon/ and currently 404 in Hugo-only builds.
+  "https://jpcercal.com/images/favicon/favicon.ico",
+  "https://jpcercal.com/images/favicon/manifest.json",
+  # Bot-blocking hosts (verified manually with a browser UA): LinkedIn 999,
+  # MySQL/Codex/Joomla/Flaticon/Freepik 403, Facebook sharer 500.
+  # Profiles and pages exist; they reject non-browser clients.
+  "https://www.facebook.com/sharer/sharer.php",
+  "http://codex.wordpress.org",
+  "https://codex.wordpress.org",
+  "http://www.freepik.com",
+  "https://www.freepik.com",
+  "http://www.flaticon.com",
+  "https://www.flaticon.com",
+  "https://www.linkedin.com",
+  "http://www.linkedin.com",
+  "https://www.mysql.com",
+  "http://www.mysql.com",
+  "https://docs.joomla.org",
+  "http://docs.joomla.org",
+  "https://www.cloudflare.com/learning/",
+  # External repo state owned outside this project; verify manually.
+  "https://raw.githubusercontent.com/jpcercal/resume/main/resume.pdf",
+  # Historical references to files/URLs intentionally removed from this repo.
+  "https://github.com/jpcercal/jpcercal.com/blob/master/.travis.yml",
+  # Author resume PDFs live in the external resume repo (see the
+  # raw.githubusercontent.com URL above); this pipeline builds no local
+  # copies. Matched on the filename so it applies before and after the
+  # CI --remap of prod URLs to local public/ files.
+  "resume.(en|pt).pdf",
+  # Dead historical host (Yahoo Brazil search retired; the post keeps the
+  # reference as written).
+  "br.search.yahoo.com",
+]
+
+# Resolve root-relative links against the built site.
+root_dir = "public"

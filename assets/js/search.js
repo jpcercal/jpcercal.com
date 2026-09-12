@@ -1,201 +1,124 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var config = {
-        timer: null, // Store the timer
-        delay: 750,  // Delay in ms to start processing the operation
-        minChars: 3  // Minimum quantity of characters that the user must input to perform the operation
-    };
+import * as params from "@params";
+import { createTranslator } from "./i18n.js";
 
-    var lunrIndex;   // Store the Lunr index where the results will be compared with the term
-    var template;    // Store the template that will be parsed
-    var source;      // Store the data that will be be used to search for a term
+document.addEventListener("DOMContentLoaded", () => {
+	const config = {
+		timer: null, // Store the timer
+		delay: 750, // Delay in ms to start processing the operation
+		minChars: 3, // Minimum quantity of characters that the user must input to perform the operation
+	};
 
-    /**
-     * Input field where the user will put the terms that he wants search for.
-     *
-     * @type {Element}
-     */
-    var inputField = document.querySelector("#search");
+	/**
+	 * Input field where the user will put the terms that he wants search for.
+	 *
+	 * @type {Element}
+	 */
+	const inputField = document.querySelector("#search");
 
-    /**
-     * Element that will contains all results (as know as container).
-     *
-     * @type {Element}
-     */
-    var searchResults = document.querySelector("#search-results");
+	/**
+	 * Element that will contains all results (as know as container).
+	 *
+	 * @type {Element}
+	 */
+	const searchResults = document.querySelector("#search-results");
 
-    /**
-     * Internationalization keys and translations for each locale.
-     *
-     * @type {{trans}}
-     */
-    var i18n = (function () {
-        var translations = {
-            'createdBy': {
-                'pt': 'por',
-                'en': 'by'
-            },
-            'noResults': {
-                'pt': 'Nenhum resultado encontrado',
-                'en': 'No results found'
-            }
-        };
+	/**
+	 * Internationalization keys and translations for each locale.
+	 *
+	 * @type {{trans}}
+	 */
+	const i18n = createTranslator(
+		{
+			createdBy: {
+				pt: "por",
+				en: "by",
+			},
+			noResults: {
+				pt: "Nenhum resultado encontrado",
+				en: "No results found",
+			},
+		},
+		params.locale,
+	);
 
-        return {
-            trans: function (key) {
-                return translations[key][window.locale];
-            }
-        };
-    })();
+	/**
+	 * Pagefind ships as an ES module (public/pagefind/pagefind.js); import
+	 * it dynamically and point it at the bundle directory (staging serves
+	 * under /pr-<n>/) so it fetches its fragments from the right place.
+	 */
+	const pagefindReady = import(`${params.baseUrl}pagefind/pagefind.js`).then(
+		(pagefind) =>
+			pagefind
+				.options({
+					basePath: new URL("pagefind/", params.baseUrl).pathname,
+				})
+				.then(() => pagefind),
+	);
 
-    /**
-     * Create and configure the Lunr Index.
-     *
-     * @retuns {lunr.Index}
-     */
-    var createLunrIndex = function () {
-        return lunr(function () {
-            this.field("title", {
-                boost: 50
-            });
+	// Silent failure keeps parity with the old fetch behavior: nothing
+	// renders until results arrive (also covers `hugo server` dev, which
+	// has no pagefind index — search only works in built output).
+	pagefindReady.catch(() => {});
 
-            this.field("description", {
-                boost: 25
-            });
+	/**
+	 * Render a result card (same shape as the post-card partial).
+	 *
+	 * @param result Pagefind result data ({url, meta, excerpt})
+	 * @returns {string}
+	 */
+	const renderHtml = (result) => {
+		const authorPrefix = i18n.trans("createdBy");
+		const image = result.meta.image || `${params.baseUrl}images/icons/tag.svg`;
 
-            this.field("categoryTitle", {
-                boost: 20
-            });
+		return (
+			`<article class="post-card mb-6">` +
+			`<div class="flex"><div class="flex-col m-4">` +
+			`<img class="rounded" src="${image}" alt="${result.meta.title}" height="60" width="60">` +
+			`</div><header class="flex-col m-0">` +
+			`<h2 class="mt-0 mb-0 font-size-h4">` +
+			`<a class="mt-4 mb-1 post-card--title" href="${result.url}">${result.meta.title}</a>` +
+			`</h2>` +
+			`<ul class="flex list-none gap-2"><li><span>${authorPrefix} ${result.meta.author}</span></li></ul>` +
+			`<p class="mt-2 mb-4 mr-2">${result.excerpt}</p>` +
+			`</header></div></article>`
+		);
+	};
 
-            this.field("tags", {
-                boost: 15
-            });
+	/**
+	 * Event Listener.
+	 *
+	 * @param event
+	 */
+	const listener = (event) => {
+		event.preventDefault();
 
-            this.field("content", {
-                boost: 10
-            });
+		const term = inputField.value;
 
-            this.field("author", {
-                boost: 5
-            });
+		if (config.timer != null) {
+			clearTimeout(config.timer);
+		}
 
-            this.field("language", {
-                boost: 2
-            });
+		config.timer = setTimeout(() => {
+			if (term.length >= config.minChars) {
+				pagefindReady
+					.then((pagefind) =>
+						pagefind.search(term, { filters: { type: ["post"] } }),
+					)
+					.then(async (search) => {
+						const data = await Promise.all(
+							search.results.map((result) => result.data()),
+						);
 
-            this.ref("id");
+						if (data.length === 0) {
+							searchResults.innerHTML = `<p>“${i18n.trans("noResults")}.”</p>`;
+						} else {
+							searchResults.innerHTML = data.map(renderHtml).join("");
+						}
+					});
+			}
+		}, config.delay);
+	};
 
-            source.forEach(function (doc) {
-                this.add(doc);
-            }, this);
-        });
-    };
-
-    /**
-     * Search in the whole collection if there is a match with the current term.
-     *
-     * @param term
-     * @returns {Array}
-     */
-    var search = function (term) {
-        var suggestions = [];
-
-        lunrIndex.search('*' + term + '*').map(function(result) {
-            source.filter(function (current) {
-                if (current.id == result.ref) {
-                    suggestions.push(current);
-                }
-            });
-        });
-
-        return suggestions;
-    };
-
-    /**
-     * Render a HTML replacing values from template according to the suggestion that was received.
-     *
-     * @param suggestion
-     * @returns {string}
-     */
-    var renderHtml = function (suggestion) {
-        var baseUrl = window.baseUrl + (suggestion.language == 'en' ? 'en/' : '');
-
-        var authorPrefix = i18n.trans('createdBy');
-
-        return template
-            .split('__ID__').join(suggestion.id)
-            .split('__TITLE__').join(suggestion.title)
-            .split('__AUTHOR__').join(authorPrefix + ' ' + suggestion.author)
-            .split('__DESCRIPTION__').join(suggestion.description)
-            .split('__LANGUAGE__').join(suggestion.language)
-            .split('__TAGS__').join(suggestion.tags.join(', '))
-            .split('__IMAGE__').join(baseUrl + suggestion.image)
-            .split('__CATEGORYURL__').join(baseUrl + 'categories/' + suggestion.categoryUrl)
-            .split('__CATEGORYTITLE__').join(suggestion.categoryTitle)
-            .split('__CONTENT__').join(suggestion.content)
-            .split('__HREF__').join(baseUrl + suggestion.slug)
-        ;
-    };
-
-    /**
-     * Event Listener.
-     *
-     * @param event
-     */
-    var listener = function (event) {
-        event.preventDefault();
-
-        var term = inputField.value;
-
-        if (config.timer != null) {
-            clearTimeout(config.timer);
-        }
-
-        config.timer = setTimeout(function() {
-            if (term.length >= config.minChars) {
-                var suggestions = search(term);
-                var html = '';
-
-                searchResults.innerHTML = html;
-
-                if (suggestions.length === 0) {
-                    html = '<p>“' + i18n.trans('noResults') + '.”</p>';
-                } else {
-                    for (var i = 0; i < suggestions.length; i++) {
-                        html += renderHtml(suggestions[i]);
-                    }
-                }
-
-                searchResults.innerHTML = html;
-            }
-        }, config.delay);
-    };
-
-    /**
-     * Process the template file and source data that contains searchable results.
-     *
-     * @param searchTemplate
-     * @param searchData
-     */
-    var process = function (searchTemplate, searchData) {
-        template  = searchTemplate.data.trim();
-        source    = searchData.data;
-
-        lunrIndex = createLunrIndex();
-
-        inputField.addEventListener('keyup', listener);
-        inputField.addEventListener('input', listener);
-    };
-
-    /**
-     * Load dependencies.
-     */
-    var promises = axios.all([
-        axios.get(window.baseUrl + 'search-template.html'),
-        axios.get(window.baseUrl + 'search.json')
-    ]);
-
-    /**
-     * Start processing.
-     */
-    promises.then(axios.spread(process));
+	inputField.addEventListener("keyup", listener);
+	inputField.addEventListener("input", listener);
 });

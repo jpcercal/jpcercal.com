@@ -25,3 +25,15 @@
         <meta itemprop="keywords" content="{{ $seoKeywords }}">
     {{- end -}}
 {{- end -}}
+
+<script type="application/ld+json">
+{{- if eq .Section "posts" -}}
+{{- $author := "jpcercal" -}}
+{{- with .Params.author }}{{ $author = (index site.Data.authors .).name }}{{ end -}}
+{{- $ld := dict "@context" "https://schema.org" "@type" "BlogPosting" "headline" ($.Scratch.Get "seoTitle") "description" $seoDescription "image" $seoImage "author" (dict "@type" "Person" "name" $author) "publisher" (dict "@type" "Organization" "name" "jpcercal.com") "mainEntityOfPage" ($.Scratch.Get "seoCanonical") -}}
+{{- with .Date }}{{ if not .IsZero }}{{ $ld = merge $ld (dict "datePublished" (.Format "2006-01-02T15:04:05-07:00")) }}{{ end }}{{ end -}}
+{{ $ld | jsonify | safeJS }}
+{{- else -}}
+{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" "jpcercal.com" "url" $baseURL | jsonify | safeJS }}
+{{- end -}}
+</script>

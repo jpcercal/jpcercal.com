@@ -1,7 +1,0 @@
-options:
-  stderr: true
-  stdout: true
-development:
-  command: "hugo --buildDrafts --baseURL <%= baseUrl %>"
-production:
-  command: "hugo --baseURL <%= baseUrl %>"

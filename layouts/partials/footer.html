@@ -2,7 +2,7 @@
 <footer class="container mt-2 mb-2">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <div class="row align-items-center">
+            <div class="row items-center">
                 <div class="col">
                     <div class="text-center m-0 icon-credits">
                         Icon made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">www.flaticon.com</a>
@@ -12,40 +12,6 @@
         </div>
     </div>
 </footer>
-{{ end }}
-
-{{ "<!-- build:template" | safeHTML }}
-{{ "<% if (environment === 'production') { %>" | safeHTML }}
-<script async src="{{ .Site.BaseURL }}js/jpcercal.com.min.js"></script>
-{{ "<% } else { %>" | safeHTML }}
-<script async src="{{ .Site.BaseURL }}js/jpcercal.com.js"></script>
-{{ "<% } %>" | safeHTML }}
-{{ "/build -->" | safeHTML }}
-
-{{ if $.Scratch.Get "singlePost" }}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var disqus_config = function () {
-        this.page.identifier = "{{ .Slug }}";
-        this.page.title = "{{ .Title }}";
-        this.page.url = {{ printf "%s" .Permalink }};
-    };
-
-    var options = {
-        scriptUrl: "//{{ site.Config.Services.Disqus.Shortname }}.disqus.com/embed.js",
-        disqusConfig: disqus_config
-    };
-
-    disqusLoader("#disqus", options);
-});
-</script>
-{{ "<!-- build:template" | safeHTML }}
-{{ "<% if (environment === 'production') { %>" | safeHTML }}
-<script src="{{ .Site.BaseURL }}vendor/js/disqus-loader.min.js"></script>
-{{ "<% } else { %>" | safeHTML }}
-<script src="{{ .Site.BaseURL }}vendor/js/disqus-loader.js"></script>
-{{ "<% } %>" | safeHTML }}
-{{ "/build -->" | safeHTML }}
 {{ end }}
 </body>
 </html>

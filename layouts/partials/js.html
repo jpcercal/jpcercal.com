@@ -1,0 +1,5 @@
+{{ $jsOpts := dict "minify" true "params" (dict "baseUrl" $.Site.BaseURL "locale" $.Site.Language.Lang) }}
+{{ if $.Scratch.Get "searchPage" }}
+{{ $search := resources.Get "js/search.js" | js.Build $jsOpts | fingerprint }}
+<script src="{{ $search.RelPermalink }}"></script>
+{{ end }}

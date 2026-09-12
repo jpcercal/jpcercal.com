@@ -1,3 +1,7 @@
+@use "sass:color" as *;
+@use "variables" as *;
+@use "mixins" as *;
+
 body {
   background-color: #FFFFFF;
   color: #000000d6;
@@ -16,7 +20,7 @@ nav {
   .next::after {
     display: inline;
     color: #1a1a1ad6;
-    color: lighten($fontColor, 10%);
+    color: adjust($fontColor, $lightness: 10%);
   }
 
   .previous {

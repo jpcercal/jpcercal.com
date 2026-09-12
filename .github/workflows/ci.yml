@@ -9,9 +9,10 @@ on:
 
 env:
   HUGO_VERSION: 0.166.0
-  NODE_VERSION: "20"
-  RUBY_VERSION: "3.3"
+  NODE_VERSION: "24"
   BASE_URL: https://jpcercal.com/
+  STAGING_HOST: https://staging.jpcercal.com
+  CLOUDFLARE_PROJECT_NAME: cloudflare-pages
 
 jobs:
   build:
@@ -33,33 +34,49 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
-      - name: Setup Ruby (for grunt-contrib-sass)
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Setup Rust (for oxipng/oxvg/resvg/pagefind)
+        uses: dtolnay/rust-toolchain@stable
 
-      - name: Install Ruby Sass
-        run: gem install sass -v 3.7.4
-
-      - name: Setup Java 8 (for grunt-html validator)
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "8"
-
-      - name: Install inkscape (for svg2png task)
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends inkscape
+      - name: Install native image tools
+        # oxipng (PNG) + oxvg (SVG) + resvg (SVG->PNG covers) + pagefind
+        # via cargo; mozjpeg (JPEG) has no apt/cargo binary, so build it.
+        run: |
+          cargo install oxipng oxvg resvg pagefind
+          sudo apt-get update && sudo apt-get install -y --no-install-recommends nasm cmake libxml2-utils libpng-dev zlib1g-dev
+          curl -fLO https://github.com/mozilla/mozjpeg/archive/v4.1.5.tar.gz
+          tar xf v4.1.5.tar.gz
+          cmake -B mozjpeg-4.1.5/build -DCMAKE_INSTALL_PREFIX=/usr/local mozjpeg-4.1.5
+          cmake --build mozjpeg-4.1.5/build -j
+          sudo cmake --install mozjpeg-4.1.5/build
+          /usr/local/bin/jpegtran -version
 
       - name: Install npm dependencies
         run: npm ci --no-audit --no-fund
 
-      - name: Fetch vendor sources
-        # Replaces `npm run napa`, which clones over the retired git://
-        # protocol and can no longer connect to GitHub.
-        run: bin/fetch-vendor.sh
-
       - name: Production build
-        run: npx grunt production
+        run: npm run build
+
+      - name: Build images (native pipeline)
+        run: bin/build-images.sh
+
+      - name: Index search (Pagefind)
+        run: pagefind --site public
+
+      - name: Lint (Biome)
+        run: npm run lint
+
+      - name: Validate HTML
+        run: npm run validate:html
+
+      - name: Validate XML/SVG
+        run: npm run validate:xml
+
+      - name: Check links (lychee)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Remap prod URLs to the fresh local build (absolute path required;
+          # without it lychee checks stale prod and 404s on new routes).
+          args: --config .lychee.toml --no-progress --remap "https://jpcercal.com file://${{ github.workspace }}/public" "public/**/index.html"
 
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
@@ -68,14 +85,94 @@ jobs:
           path: public
           retention-days: 7
 
+  preview-staging:
+    name: Preview on staging (gh-pages, PR path)
+    runs-on: ubuntu-latest
+    needs: build
+    # PRs only — never touches the Cloudflare Pages project or production.
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: write
+    env:
+      # NOTE: job-level env cannot use ${{ env.* }} (GitHub validation
+      # rejects it), so the staging host is hardcoded here to match
+      # top-level STAGING_HOST.
+      PR_BASE_URL: https://staging.jpcercal.com/pr-${{ github.event.number }}/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Setup Rust (for oxipng/oxvg/resvg/pagefind)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install native tools
+        run: |
+          cargo install oxipng oxvg resvg pagefind
+          sudo apt-get update && sudo apt-get install -y --no-install-recommends nasm cmake libpng-dev zlib1g-dev
+          curl -fLO https://github.com/mozilla/mozjpeg/archive/v4.1.5.tar.gz
+          tar xf v4.1.5.tar.gz
+          cmake -B mozjpeg-4.1.5/build -DCMAKE_INSTALL_PREFIX=/usr/local mozjpeg-4.1.5
+          cmake --build mozjpeg-4.1.5/build -j
+          sudo cmake --install mozjpeg-4.1.5/build
+
+      - name: Install npm dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Staging build (drafts + design system + PR baseURL)
+        # design-system/ lives outside content/ so it can never leak to
+        # prod; staging copies it in and builds drafts (same split the
+        # old grunt-shell dev/prod builds had).
+        # NOTE: Hugo Pipes (Dart Sass, TailwindCSS) resolves binaries via
+        # node_modules/.bin on PATH — npm scripts provide it automatically,
+        # but this step calls hugo directly, so export it explicitly.
+        run: |
+          export PATH="$PWD/node_modules/.bin:$PATH"
+          cp -r design-system content/design-system
+          hugo --buildDrafts --minify --baseURL "$PR_BASE_URL"
+          bin/build-images.sh
+          pagefind --site public
+          # The prod CNAME (jpcercal.com) must never ship to staging.
+          rm -f public/CNAME
+
+      - name: Staging presence check (non-blocking)
+        continue-on-error: true
+        run: |
+          test -f public/index.html
+          test -f public/design-system/index.html
+          test ! -f public/CNAME
+
+      - name: Publish PR path to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          destination_dir: pr-${{ github.event.number }}
+          keep_files: true
+          # Custom domain for the staging branch (apex stays on Pages).
+          cname: staging.jpcercal.com
+
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy to Cloudflare Pages (prod)
     runs-on: ubuntu-latest
     needs: build
     # Only deploy from master pushes, never from PRs.
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     permissions:
-      contents: write
+      contents: read
+      deployments: write
     steps:
       - name: Download site artifact
         uses: actions/download-artifact@v4
@@ -83,9 +180,43 @@ jobs:
           name: public
           path: public
 
-      - name: Publish to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Publish with Wrangler (Direct Upload, no build quota)
+        uses: cloudflare/wrangler-action@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=${{ env.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
+
+  cloudflare-pages:
+    name: Verify Cloudflare Pages (prod, blocking)
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout (verify script + configs)
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Setup Chrome (for LHCI)
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@latest
+
+      - name: Install check tools
+        run: |
+          npm ci --no-audit --no-fund
+          sudo apt-get update && sudo apt-get install -y --no-install-recommends libxml2-utils
+          LYCHEE_VER=$(curl -fsSL https://api.github.com/repos/lycheeverse/lychee/releases/latest | grep '"tag_name"' | cut -d'"' -f4)
+          curl -fSL "https://github.com/lycheeverse/lychee/releases/download/${LYCHEE_VER}/lychee-x86_64-unknown-linux-gnu.tar.gz" | tar xz
+          sudo mv lychee /usr/local/bin/lychee
+          lychee --version
+
+      - name: Run Pages verification suite
+        run: bin/verify-pages.sh
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}

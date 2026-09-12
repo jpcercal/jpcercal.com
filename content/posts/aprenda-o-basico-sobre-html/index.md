@@ -99,6 +99,4 @@ Siga os passos abaixo:
 
 **Fontes de Pesquisa:**
 
-* _http://www.criarwebsite.com/tutoriais/html/introducao.html_
-* _http://www.ufpa.br/dicas/htmmozi/htm-intr.htm_
 * _http://www.clem.ufba.br/tuts/html/c02.htm_

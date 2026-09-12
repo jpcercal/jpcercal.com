@@ -9,7 +9,7 @@ noResultsFound:
 contact:
   other: "Contact"
 contactInfo:
-  other: "Fill out the form below to contact us"
+  other: "You can reach us by email or through our social profiles"
 searchFor:
   other: "Search for"
 searchForInfo:
@@ -63,3 +63,7 @@ readingTime:
   other: "{{ .Count }} min read"
 githubCorner:
   other: "View source on GitHub"
+paginationNav:
+  other: "Posts pagination"
+localeNav:
+  other: "Language selection"

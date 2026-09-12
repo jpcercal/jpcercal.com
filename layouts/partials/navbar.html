@@ -11,10 +11,10 @@
 <header class="container">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <div class="row align-items-center header">
+            <div class="row items-center header">
                 <div class="col search">
-                    <a class="search-link" href='{{ $baseURL }}{{ if eq $locale "en" }}en/{{ end }}search'>
-                        <span class="search-icon"></span> <span class="d-none d-sm-inline">{{ i18n "searchFor" }}</span>
+                    <a class="search-link" href='{{ $baseURL }}{{ if eq $locale "en" }}en/{{ end }}search' aria-label='{{ i18n "searchFor" }}'>
+                        <span class="search-icon"></span> <span class="hidden sm:inline">{{ i18n "searchFor" }}</span>
                     </a>
                 </div>
 
@@ -23,15 +23,15 @@
                 </div>
 
                 <div class="col clearfix">
-                    <nav class="float-right">
-                        <ul class="list-unstyled list-inline m-0 locale-list">
-                            <li class='list-inline-item locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
-                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="d-none d-lg-inline">{{ index $localePt.title $locale }}</a>
-                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="d-lg-none" title="{{ index $localePt.title $locale }}">PT</a>
+                    <nav class="float-right" aria-label='{{ i18n "localeNav" }}'>
+                        <ul class="list-none flex gap-2 m-0 locale-list">
+                            <li class='locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
+                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="hidden lg:inline">{{ index $localePt.title $locale }}</a>
+                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="lg:hidden" title="{{ index $localePt.title $locale }}">PT</a>
                             </li>
-                            <li class='list-inline-item locale-list-item {{ if eq $locale "en" }}locale-list-item--active{{ end }}'>
-                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="d-none d-lg-inline">{{ index $localeEn.title $locale }}</a>
-                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="d-lg-none" title="{{ index $localeEn.title $locale }}">EN</a>
+                            <li class='locale-list-item {{ if eq $locale "en" }}locale-list-item--active{{ end }}'>
+                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="hidden lg:inline">{{ index $localeEn.title $locale }}</a>
+                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="lg:hidden" title="{{ index $localeEn.title $locale }}">EN</a>
                             </li>
                         </ul>
                     </nav>
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <a href="https://github.com/jpcercal/jpcercal.com" class="d-none d-lg-inline github-corner" title="{{ $githubTitle }}" aria-label="{{ $githubTitle }}">
+    <a href="https://github.com/jpcercal/jpcercal.com" class="hidden lg:inline github-corner" title="{{ $githubTitle }}" aria-label="{{ $githubTitle }}">
         <img src="{{ $githubImg }}" alt="{{ $githubTitle }}" />
     </a>
 </header>

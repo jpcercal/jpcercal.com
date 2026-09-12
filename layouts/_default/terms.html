@@ -12,14 +12,14 @@
 <section class="container post-list">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <h1>{{ i18n (lower .Title) }}</h1>
+            <h1 class="mb-2">{{ i18n (lower .Title) }}</h1>
 
             {{ if $results }}
                 {{ range $key, $value := $results }}
                     {{ $category := index $categories $value.Name }}
                     {{ $tag := index $tags $value.Name }}
 
-                    <h2 class="mt-3">
+                    <h2 class="mt-4 mb-2">
                         {{ if $category }}
                             <a class="post-list--title" href='{{ $localeBaseURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}'>{{ index (index $category "title") $locale }}</a>
                         {{ else if $tag }}
@@ -38,7 +38,7 @@
                     </ul>
             {{ end }}
             {{ else }}
-                <p>“{{ i18n "noResultsFound" }}”.</p>
+                <p class="mb-2">“{{ i18n "noResultsFound" }}”.</p>
             {{ end }}
         </div>
     </div>

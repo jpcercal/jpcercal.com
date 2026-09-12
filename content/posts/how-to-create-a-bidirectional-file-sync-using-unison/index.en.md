@@ -69,7 +69,7 @@ choco install unison
 ```
 
 > There are also the pre-compiled binaries page which can help you to install it directly, but manually. Sorry.
-> Check it out on [http://unison-binaries.inria.fr](http://unison-binaries.inria.fr).
+> Check it out on [https://github.com/bcpierce00/unison](https://github.com/bcpierce00/unison).
 
 ## How to enable (two-way) bidirectional sync of two directories
 

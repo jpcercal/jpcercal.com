@@ -8,25 +8,25 @@
 <section class="container">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            <h1>{{ i18n "latestPosts" }}</h1>
+            <h1 class="mb-2">{{ i18n "latestPosts" }}</h1>
 
             {{ if $paginator.Pages }}
                 {{ range $paginator.Pages }}
                     {{ partial "post-card.html" . }}
                 {{ end }}
             {{ else }}
-                <p>“{{ i18n "noResultsFound" }}”.</p>
+                <p class="mb-2">“{{ i18n "noResultsFound" }}”.</p>
             {{ end }}
 
-            <nav class="d-flex mt-2 mb-4">
+            <nav class="flex mt-2 mb-6" aria-label='{{ i18n "paginationNav" }}'>
                 {{ if .Paginator.HasPrev }}
-                    <a class="d-inline-flex previous" href="{{ .Paginator.Prev.URL }}">
+                    <a class="inline-flex previous" href="{{ .Paginator.Prev.URL }}">
                         {{ i18n "previous" }}
                     </a>
                 {{ end }}
 
                 {{ if .Paginator.HasNext }}
-                    <a class="ml-auto d-inline-flex next" href="{{ .Paginator.Next.URL }}">
+                    <a class="ml-auto inline-flex next" href="{{ .Paginator.Next.URL }}">
                         {{ i18n "next" }}
                     </a>
                 {{ end }}

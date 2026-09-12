@@ -80,4 +80,3 @@ Veja a seguir um exemplo de uma página HTML:
 **Fontes de Pesquisa**:
 
 * _http://www.ic.unicamp.br/~celio/inf533/docs/markup.html_
-* _http://cdcc.sc.usp.br/tutorial/index.htm_

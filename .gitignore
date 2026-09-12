@@ -1,6 +1,9 @@
 public/
 node_modules/
 cache/
+.lighthouseci/
+test-results/
+playwright-report/
 .sass-cache/
 .idea/
 fontpatcher/
