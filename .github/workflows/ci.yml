@@ -12,7 +12,7 @@ env:
   NODE_VERSION: "24"
   BASE_URL: https://jpcercal.com/
   STAGING_HOST: https://staging.jpcercal.com
-  CLOUDFLARE_PROJECT_NAME: cloudflare-pages
+  CLOUDFLARE_PROJECT_NAME: jpcercal-dot-com
   REGISTRY: ghcr.io
   IMAGE_NAME: ghcr.io/jpcercal/jpcercal.com-ci
 
