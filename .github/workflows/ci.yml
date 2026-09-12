@@ -190,18 +190,21 @@ jobs:
           path: public
 
       - name: List Pages projects (diagnostic)
-        # Shows which projects the API token can see; deploy below 404s
-        # (8000007) when the project is absent here. No explicit accountId:
-        # the token sees a single account, so wrangler uses it by default.
+        # Shows which projects CLOUDFLARE_ACCOUNT_ID + API token can see;
+        # deploy below 404s (8000007) when the project is absent here.
+        # NOTE: accountId is required — wrangler 3.90 cannot infer the
+        # default account and calls /accounts//... (7003) without it.
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages project list
 
       - name: Publish with Wrangler (Direct Upload, no build quota)
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy public --project-name=${{ env.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
 
   cloudflare-pages:
