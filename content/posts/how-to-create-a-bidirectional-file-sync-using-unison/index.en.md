@@ -43,7 +43,7 @@ As I'm a big fan of automation so I wanted to write on my iPhone or iPad while o
 
 The problem I had was that I wanted to save the articles content on my iPad, but when I was on the PC I wanted to commit the file to the repository and see how would it looks like in a preview mode of the blog post locally (before sending to production).
 
-In order to achieve this, I decided that I wanted to sync my [iCloud](https://www.icloud.com) subfolder (the one containing all the blog posts synchronized by iA Writer) with one specific folder from the [git repository `./content/posts/`](https://github.com/jpcercal/jpcercal.com/tree/master/content/posts). And, it worked like a charm. Check it out how to do that below.
+In order to achieve this, I decided that I wanted to sync my [iCloud](https://www.icloud.com) subfolder (the one containing all the blog posts synchronized by iA Writer) with one specific folder from the [git repository `./content/posts/`](https://github.com/jpcercal/jpcercal.com/tree/main/content/posts). And, it worked like a charm. Check it out how to do that below.
 
 ## How to install Unison
 
@@ -90,7 +90,7 @@ A basic understanding on what the command above is doing:
 - `-repeat watch` says to `unison` that we want it to watch for changes and to sync those changes incrementally as needed.
 - `-copyonconflict -prefer newer` tells that we want the conflicts to be solved automatically and that we prefer the newer version if it happens to occur.
 - `-ignore` as the name suggests ignore all changes related to the pattern `'Name {.DS_Store}'`.
-- `"/Users/jpcercal/projects/jpcercal.com/content/posts"` is my git repository pointing to the [./content/posts/](https://github.com/jpcercal/jpcercal.com/tree/master/content/posts).
+- `"/Users/jpcercal/projects/jpcercal.com/content/posts"` is my git repository pointing to the [./content/posts/](https://github.com/jpcercal/jpcercal.com/tree/main/content/posts).
 - `"/Users/jpcercal/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/jpcercal.com"` is my iCloud folder, allowing me to sync any content from the iCloud directory with my local dir.
 
 > `-ignore` could be interesting to you if you plan to sync a root folder of a project which usually has third-party dependencies like the `vendor` folder on PHP projects or `node_modules` on Javascript. For example if you want to ignore additionally both of them you can do something like:
@@ -99,7 +99,7 @@ A basic understanding on what the command above is doing:
 The command above will start doing the synchronization of the files and it will look like this:
 
 ```bash
-jpcercal@Joaos-MBP: ~/projects/jpcercal.com (master ●●●)
+jpcercal@Joaos-MBP: ~/projects/jpcercal.com (main ●●●)
 →3 $ unison \
   -repeat watch \
   -copyonconflict \

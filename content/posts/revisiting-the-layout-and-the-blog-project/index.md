@@ -70,13 +70,13 @@ Já que este formato é tão popular e fluído, porque manter um banco de dados?
 
 Perfeito, não? Melhor ainda, é que posso criar o conteúdo no idioma que eu quiser, basta abrir um novo arquivo e começar a tradução, veja mais sobre isso no repositório, onde há arquivos estáticos de tradução que apresentam, menus, links, etc:
 
-- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/master/i18n/en.yaml)
-- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/master/i18n/en.yaml)
+- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/main/i18n/en.yaml)
+- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/main/i18n/en.yaml)
 
 E, conteúdos traduzidos:
 
-- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.en.md](https://github.com/jpcercal/jpcercal.com/blob/master/content/posts/composer-clear-cache/index.en.md)
-- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.md](https://github.com/jpcercal/jpcercal.com/blob/master/content/posts/composer-clear-cache/index.md)
+- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.en.md](https://github.com/jpcercal/jpcercal.com/blob/main/content/posts/composer-clear-cache/index.en.md)
+- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.md](https://github.com/jpcercal/jpcercal.com/blob/main/content/posts/composer-clear-cache/index.md)
 
 ## Ambiente de desenvolvimento e testes
 
@@ -90,7 +90,7 @@ Como todo bom desenvolvedor, eu criei uma *pipeline* que automatiza o *deploy* d
 
 > Se você estiver curioso sobre como a *pipeline* funciona a cada *commit* ou *pull-request*, não deixe de dar uma passada no [Travis-CI deste repo jpcercal/jpcercal.com](https://travis-ci.org/jpcercal/jpcercal.com).
 
-Basicamente o TravisCI abre o arquivo [.travis.yml](https://github.com/jpcercal/jpcercal.com/blob/master/.travis.yml) definido na raíz do repositório e executa as *tasks* ali definidas. As partes mais importantes estão listadas abaixo:
+Basicamente o TravisCI abre o arquivo [.travis.yml](https://github.com/jpcercal/jpcercal.com/blob/main/.travis.yml) definido na raíz do repositório e executa as *tasks* ali definidas. As partes mais importantes estão listadas abaixo:
 
 - Instala as dependências
 - Faz a build no modo de produção (isso incluí dentre outras coisas a otimização dos *assets*)
