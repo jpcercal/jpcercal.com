@@ -42,7 +42,7 @@ Mobile rendering is captured in `homepage-mobile.png`.
 | Theming | — | Medium-style dark theme (`themes.scss` CSS vars + `data-theme`, OS default, header toggle persisted in `localStorage`, no-flash init) |
 | File ops | grunt clean/concat/copy/processhtml/watch | Hugo (Go) + `cp`/`rm` |
 | Vendor fetch | `napa` over retired `git://` | removed (no vendor clones left) |
-| Runtime | Node 20 + Ruby + Java 8 + Python + Inkscape | Node 26.8.2 pinned (`.node-version`, `fnm`), static native binaries only (+ `python3` for `verify-pages.sh` checks) |
+| Runtime | Node 20 + Ruby + Java 8 + Python + Inkscape (old Grunt-era dev machine) | Node 26.8.2 pinned (`.node-version`, `fnm`), static native binaries only (+ `python3` for `verify-pages.sh` checks) |
 | Hosting (prod) | `gh-pages` branch via GitHub Pages | Cloudflare Pages Direct Upload (`wrangler pages deploy public`) |
 | Hosting (staging) | — | `gh-pages` branch repurposed staging-only, path-based per PR |
 
