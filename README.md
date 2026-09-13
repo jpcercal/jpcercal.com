@@ -39,7 +39,7 @@ Well, nothing better than a picture showing how the blog is rendered today, righ
 | E2E | — | Playwright |
 | File ops | grunt clean/concat/copy/processhtml/watch | Hugo (Go) + `cp`/`rm` |
 | Vendor fetch | `napa` over retired `git://` | removed (no vendor clones left) |
-| Runtime | Node 20 + Ruby + Java 8 + Python + Inkscape | Node 24 (+ `fnm` Rust / `bun` Zig alt), static native binaries only |
+| Runtime | Node 20 + Ruby + Java 8 + Python + Inkscape | Node 26 (+ `fnm` Rust / `bun` Zig alt), static native binaries only |
 | Hosting (prod) | `gh-pages` branch via GitHub Pages | Cloudflare Pages Direct Upload (`wrangler pages deploy public`) |
 | Hosting (staging) | — | `gh-pages` branch repurposed staging-only, path-based per PR |
 
@@ -54,11 +54,11 @@ Cloudflare Pages 20k-file limit.
 
 ## Local development
 
-Prerequisites: [fnm](https://github.com/Schniz/fnm) (or Node 24+), Hugo
+Prerequisites: [fnm](https://github.com/Schniz/fnm) (or Node 26+), Hugo
 extended 0.166.0, optionally [bun](https://bun.sh/).
 
 ```shell
-fnm use          # pins Node 24 (see .node-version)
+fnm use          # pins Node 26 (see .node-version)
 npm ci           # or: bun install
 hugo server      # live preview at http://localhost:1313
 ```
