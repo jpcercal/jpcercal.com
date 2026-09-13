@@ -1,0 +1,29 @@
+// Semantic color contract for jpcercal.com.
+//
+// Light values are compiled from the same expressions the modules used
+// before ($fontColor + color.adjust steps, #eee borders, #f8f9fa code),
+// so the default render is unchanged. Dark (Medium-style) values are
+// defined under [data-theme="dark"] further below; structure, spacing and
+// typography are intentionally untouched — only color tokens switch.
+@use "sass:color" as *;
+@use "variables" as *;
+
+:root {
+  color-scheme: light dark;
+  --color-canvas: #ffffff;
+  --color-surface: #ffffff;
+  --color-ink: #{$fontColor};
+  --color-ink-arrow: #{adjust($fontColor, $lightness: 10%)};
+  --color-ink-active-hover: #{adjust($fontColor, $lightness: 15%)};
+  --color-ink-soft: #{adjust($fontColor, $lightness: 20%)};
+  --color-locale-hover: #{adjust($fontColor, $lightness: 25%)};
+  --color-muted: #{adjust($fontColor, $lightness: 50%)};
+  --color-locale-idle: #{adjust($fontColor, $lightness: 55%)};
+  --color-faint: #{adjust($fontColor, $lightness: 60%)};
+  --color-table-border: #{adjust($fontColor, $lightness: 70%)};
+  --color-table-head: #{adjust($fontColor, $lightness: 90%)};
+  --color-border: #eee;
+  --color-code-bg: #f8f9fa;
+  --color-code-fg: #bd4147;
+  --color-credit: #ddd;
+}

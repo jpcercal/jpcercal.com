@@ -3,12 +3,12 @@
 footer {
   .icon-credits {
     font-size: em(12px);
-    color: #ddd;
+    color: var(--color-credit);
 
     a,
     a:hover,
     a:active {
-      color: #ddd;
+      color: var(--color-credit);
       font-weight: 700;
       text-decoration: none;
     }

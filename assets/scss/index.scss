@@ -2,6 +2,7 @@
 // moved to assets/css/vendor.css which is now Tailwind v4 based)
 @use "mixins" as *;
 @use "variables" as *;
+@use "themes";
 @use "fonts";
 @use "header";
 @use "footer";
