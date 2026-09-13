@@ -25,13 +25,13 @@ jobs:
       packages: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -42,7 +42,7 @@ jobs:
       # Dockerfile is untouched; when it is touched the rebuild+push lands
       # before any downstream job starts, pinned by commit SHA below.
       - name: Build and push CI image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           platforms: linux/amd64
@@ -67,7 +67,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # node_modules is baked into the image (/opt/ci); linking is instant
       # and no npm install runs in any job.
@@ -104,7 +104,7 @@ jobs:
         run: lychee --config .lychee.toml --no-progress --remap "https://jpcercal.com file://$PWD/public" "public/**/index.html"
 
       - name: Upload site artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: public
           path: public
@@ -131,7 +131,7 @@ jobs:
       PR_BASE_URL: https://staging.jpcercal.com/pr-${{ github.event.number }}/
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Link baked dependencies (zero-install)
         run: |
@@ -184,7 +184,7 @@ jobs:
       deployments: write
     steps:
       - name: Download site artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: public
           path: public
@@ -194,28 +194,32 @@ jobs:
         # deploy below 404s (8000007) when the project is absent here.
         # NOTE: accountId is required — wrangler 3.90 cannot infer the
         # default account and calls /accounts//... (7003) without it.
-        uses: cloudflare/wrangler-action@v3
+        # Kept on wrangler v4 (re-verify if the CLI ever infers it).
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
           command: pages project list
 
       - name: Create Pages project if missing (idempotent)
         # First deploy from this pipeline: the project may not exist yet
         # (8000007). Creating it is safe to repeat — when it already
         # exists this step errors and is ignored, and deploy proceeds.
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         continue-on-error: true
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
           command: pages project create ${{ env.CLOUDFLARE_PROJECT_NAME }} --production-branch master
 
       - name: Publish with Wrangler (Direct Upload, no build quota)
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
           command: pages deploy public --project-name=${{ env.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
 
   cloudflare-pages:
@@ -233,7 +237,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout (verify script + configs)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Link baked dependencies (zero-install)
         run: |
