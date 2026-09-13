@@ -82,6 +82,24 @@ header {
     }
   }
 
+  .theme-toggle {
+    border: 1px solid var(--color-faint);
+    border-radius: 8px;
+    padding: 7px 9px;
+    background-color: transparent;
+    color: var(--color-locale-idle);
+    cursor: pointer;
+    line-height: 1;
+
+    &:hover {
+      color: var(--color-locale-hover);
+    }
+
+    .theme-toggle--icon::before {
+      content: '\263E';
+    }
+  }
+
   .github-corner {
     position: absolute;
     top: 0;
