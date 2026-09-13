@@ -106,3 +106,24 @@ header {
     right: 0;
   }
 }
+
+// Dark chrome fixes (colors only; post covers and photos are never filtered):
+// the search glyph is a near-black SVG background and the GitHub corner is
+// dark-on-transparent, so both are inverted on the dark canvas. The toggle
+// shows a sun once dark mode is active.
+[data-theme="dark"] header .search .search-icon,
+[data-theme="dark"] header .github-corner img {
+  filter: invert(0.92);
+}
+
+[data-theme="dark"] header .theme-toggle .theme-toggle--icon::before {
+  content: '\2600';
+}
+
+// Same fixes for the no-JS OS-dark fallback (no data-theme attribute set).
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) header .search .search-icon,
+  :root:not([data-theme]) header .github-corner img {
+    filter: invert(0.92);
+  }
+}

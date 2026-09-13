@@ -1,14 +1,15 @@
 // Semantic color contract for jpcercal.com.
 //
-// Light values are compiled from the same expressions the modules used
-// before ($fontColor + color.adjust steps, #eee borders, #f8f9fa code),
-// so the default render is unchanged. Dark (Medium-style) values are
-// defined under [data-theme="dark"] further below; structure, spacing and
-// typography are intentionally untouched — only color tokens switch.
+// :root carries the light values (compiled from the same expressions the
+// modules used before: $fontColor + color.adjust steps, #eee borders,
+// #f8f9fa code), so the default render is unchanged. [data-theme="dark"]
+// carries the Medium-style dark reading surface: near-black warm canvas,
+// off-white ink, muted secondary text, subtle borders. Structure, spacing
+// and typography are intentionally untouched — only color tokens switch.
 @use "sass:color" as *;
 @use "variables" as *;
 
-:root {
+@mixin light-tokens {
   color-scheme: light dark;
   --color-canvas: #ffffff;
   --color-surface: #ffffff;
@@ -26,4 +27,50 @@
   --color-code-bg: #f8f9fa;
   --color-code-fg: #bd4147;
   --color-credit: #ddd;
+}
+
+// Medium Dark Mode Pro style: warm near-black canvas (#191919, the same
+// near-black Medium uses for ink), lifted surfaces (#242424), off-white
+// text and quiet borders. Code blocks are already One Dark and stay as-is.
+@mixin dark-tokens {
+  color-scheme: dark;
+  --color-canvas: #191919;
+  --color-surface: #242424;
+  --color-ink: rgba(255, 255, 255, 0.92);
+  --color-ink-arrow: rgba(255, 255, 255, 0.75);
+  --color-ink-active-hover: rgba(255, 255, 255, 0.85);
+  --color-ink-soft: rgba(255, 255, 255, 0.68);
+  --color-locale-hover: rgba(255, 255, 255, 0.75);
+  --color-muted: rgba(255, 255, 255, 0.6);
+  --color-locale-idle: rgba(255, 255, 255, 0.55);
+  --color-faint: rgba(255, 255, 255, 0.45);
+  --color-table-border: #3a3a3a;
+  --color-table-head: #242424;
+  --color-border: #2e2e2e;
+  --color-code-bg: #2a2a2a;
+  --color-code-fg: #e8a0a7;
+  --color-credit: rgba(255, 255, 255, 0.4);
+}
+
+:root {
+  @include light-tokens;
+}
+
+[data-theme="dark"] {
+  @include dark-tokens;
+}
+
+// No-JS fallback: honor the OS setting with pure CSS until the init script
+// (or the toggle) sets an explicit data-theme attribute.
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    @include dark-tokens;
+  }
+}
+
+// Print stays ink-on-white regardless of the on-screen theme.
+@media print {
+  :root[data-theme="dark"] {
+    @include light-tokens;
+  }
 }

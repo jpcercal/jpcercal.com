@@ -36,4 +36,23 @@
       color: var(--color-muted);
     }
   }
+
+  // Pagefind wraps query matches in <mark>: keep them readable on both
+  // canvases (browser default yellow fails on the dark surface).
+  #search-results mark {
+    background-color: #fff3b0;
+    color: inherit;
+  }
+}
+
+[data-theme="dark"] .search #search-results mark {
+  background-color: #5c4d00;
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .search #search-results mark {
+    background-color: #5c4d00;
+    color: #ffffff;
+  }
 }
