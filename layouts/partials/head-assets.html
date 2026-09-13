@@ -5,4 +5,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{{ $font }}" rel="stylesheet">
+{{/* Theme init: resolves light/dark before CSS paints (stored choice, else OS
+  setting, else light) so there is no flash. assets/js/theme.js keeps
+  data-theme, colorScheme and theme-color in sync afterwards. */}}
+<script>
+(function(){try{var s=localStorage.getItem("theme");var t=(s==="light"||s==="dark")?s:((window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;var tags=document.querySelectorAll('meta[name="theme-color"]');if(tags.length){tags[0].setAttribute("content",t==="dark"?"#191919":"#ffffff");tags[0].removeAttribute("media");for(var i=1;i<tags.length;i++){tags[i].remove()}}}catch(e){}})();
+</script>
 {{ partial "css.html" . }}
