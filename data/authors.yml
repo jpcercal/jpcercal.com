@@ -2,14 +2,14 @@ jpcercal@gmail.com:
   slug: jpcercal
   name: João Paulo Cercal
   position:
-    en: Software Engineer at Spectrm in Berlin, Germany
-    pt: Software Engineer na Spectrm em Berlim, Alemanha
+    en: Staff Security Engineer at LastPass
+    pt: Staff Security Engineer na LastPass
   picture:
     thumbnail: authors/jpcercal/thumbnail.jpg
     original: authors/jpcercal/picture.jpg
   biography:
-    en: Zend Certified PHP Engineer, I'm passionate for open-source, patterns, tests and source code well written.
-    pt: Zend Certified PHP Engineer, apaixonado por open-source, padrões, testes e código bem escrito.
+    en: Turning complex, cross-functional challenges into scalable systems, leading with AI-driven workflows and security-by-default engineering.
+    pt: Transformando desafios complexos e multifuncionais em sistemas escaláveis, liderando com fluxos de engenharia com IA e segurança por padrão.
   resume:
     en: resume.en.pdf
     pt: resume.pt.pdf

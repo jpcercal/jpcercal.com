@@ -85,7 +85,7 @@
   `preview-staging` (PRs only: drafts + design-system + PR baseURL build,
   `public/CNAME` removed, `peaceiris/actions-gh-pages` publishes `pr-<n>/`
   with `cname: staging.jpcercal.com`; presence check is a
-  `continue-on-error` file-existence assertion) + `deploy` (master pushes
+  `continue-on-error` file-existence assertion) + `deploy` (main pushes
   only: downloads the artifact, idempotent project-create, wrangler v4
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;

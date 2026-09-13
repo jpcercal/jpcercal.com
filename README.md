@@ -94,7 +94,7 @@ cp -r design-system content/design-system && hugo server --buildDrafts --renderT
 
 ## Deploy
 
-- **Production** (`push` to `master` only): the `image` job builds the
+- **Production** (`push` to `main` only): the `image` job builds the
   self-sufficient CI image (`Dockerfile`, pushed to GHCR and pinned by
   commit SHA — Hugo extended + Node 26 + native image toolchain +
   baked `node_modules` + Playwright Chromium, so jobs do zero installs).

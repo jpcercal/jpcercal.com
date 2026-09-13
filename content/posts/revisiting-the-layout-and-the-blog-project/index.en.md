@@ -68,13 +68,13 @@ As this format is popular, why should we insist in maintaining a relational data
 
 Perfect, isn’t it? Even better, I can create content in the language that I want, I just have to open the post content in the language that I want to and start typing, if you got interested in take a look into the repo where you can see translation for “static” parts of the site like menus, links, etc:
 
-- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/master/i18n/en.yaml)
-- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/master/i18n/en.yaml)
+- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/main/i18n/en.yaml)
+- [jpcercal/jpcercal.com/i18n/en.yaml](https://github.com/jpcercal/jpcercal.com/blob/main/i18n/en.yaml)
 
 And translated post content:
 
-- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.en.md](https://github.com/jpcercal/jpcercal.com/blob/master/content/posts/composer-clear-cache/index.en.md)
-- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.md](https://github.com/jpcercal/jpcercal.com/blob/master/content/posts/composer-clear-cache/index.md)
+- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.en.md](https://github.com/jpcercal/jpcercal.com/blob/main/content/posts/composer-clear-cache/index.en.md)
+- [jpcercal/jpcercal.com/content/posts/composer-clear-cache/index.md](https://github.com/jpcercal/jpcercal.com/blob/main/content/posts/composer-clear-cache/index.md)
 
 ## Development environment and tests
 
@@ -88,7 +88,7 @@ As any other great developer, I created a pipeline to automate the deployment pr
 
 > If you got seriously curious about how the pipeline looks like and what it does, pass by and check it out on [Travis-CI  jpcercal/jpcercal.com](https://travis-ci.org/jpcercal/jpcercal.com).
 
-What happens there in a nutshell, Travis opens the file  [.travis.yml](https://github.com/jpcercal/jpcercal.com/blob/master/.travis.yml) defined on the repository root folder and it runs the tasks that got defined there. The most important steps are listed below:
+What happens there in a nutshell, Travis opens the file  [.travis.yml](https://github.com/jpcercal/jpcercal.com/blob/main/.travis.yml) defined on the repository root folder and it runs the tasks that got defined there. The most important steps are listed below:
 
 - Install dependencies
 - Generate the static site in production mode (it includes among other things the assets optimization)
