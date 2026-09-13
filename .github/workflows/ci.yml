@@ -9,7 +9,7 @@ on:
 
 env:
   HUGO_VERSION: 0.166.0
-  NODE_VERSION: "24"
+  NODE_VERSION: "26"
   BASE_URL: https://jpcercal.com/
   STAGING_HOST: https://staging.jpcercal.com
   CLOUDFLARE_PROJECT_NAME: jpcercal-dot-com

@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-# Self-sufficient CI image: Hugo extended + Node 24 + native image toolchain
+# Self-sufficient CI image: Hugo extended + Node 26 + native image toolchain
 # (oxipng/oxvg/resvg/mozjpeg/pagefind/lychee) + baked npm dependencies +
 # Playwright Chromium. CI jobs run in this image with zero installs:
 # no cargo/apt/npm compilation, only a `ln -s` of the baked node_modules.
@@ -102,13 +102,13 @@ RUN set -eux; \
     /out/usr/local/bin/jpegtran -version
 
 # ---------------------------------------------------------------- node-deps
-FROM node:24-trixie-slim AS node-deps
+FROM node:26-trixie-slim AS node-deps
 WORKDIR /srv/site
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund && npm cache clean --force
 
 # -------------------------------------------------------------------- final
-FROM node:24-trixie-slim
+FROM node:26-trixie-slim
 ENV DEBIAN_FRONTEND=noninteractive \
     PLAYWRIGHT_BROWSERS_PATH=/opt/ms-playwright \
     PATH="/opt/ci/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
