@@ -39,6 +39,7 @@ Mobile rendering is captured in `homepage-mobile.png`.
 | Link check | — | `lychee` (Rust) |
 | Perf audit | grunt-pagespeed (dead API) | `lhci` via Node |
 | E2E | — | Playwright |
+| Theming | — | Medium-style dark theme (`themes.scss` CSS vars + `data-theme`, OS default, header toggle persisted in `localStorage`, no-flash init) |
 | File ops | grunt clean/concat/copy/processhtml/watch | Hugo (Go) + `cp`/`rm` |
 | Vendor fetch | `napa` over retired `git://` | removed (no vendor clones left) |
 | Runtime | Node 20 + Ruby + Java 8 + Python + Inkscape | Node 26.8.2 pinned (`.node-version`, `fnm`), static native binaries only |
@@ -172,5 +173,5 @@ image with zero-install jobs, Wrangler deploy/project fixes (existing
 `jpcercal-dot-com` project, account inference, idempotent create),
 `lychee` egress/bot excludes with prod→local `--remap`, live-URL LHCI
 without the static server, layout-centering/icon-rhythm fixes with
-regenerated visual snapshots, Debian trixie + dependency upgrades, and
-the Node 24 → 26 upgrade.
+regenerated visual snapshots, Debian trixie + dependency upgrades, the
+Medium-style dark theme, and the Node 24 → 26 upgrade.
