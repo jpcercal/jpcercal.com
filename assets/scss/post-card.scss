@@ -38,4 +38,18 @@
   p {
     line-height: 26px;
   }
+
+  // Cover icon: pinned to the 60x60 HTML attrs. Tailwind preflight forces
+  // img{max-width:100%;height:auto}, which collapses viewBox-only SVGs to
+  // ~half size inside the flex row (percentage max-width against an
+  // indefinite flex base), so size must come from CSS, not the attrs.
+  .post-card--cover {
+    flex: none;
+  }
+
+  img.post-card--icon {
+    width: 60px;
+    height: 60px;
+    max-width: none;
+  }
 }
