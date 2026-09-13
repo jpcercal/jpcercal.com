@@ -16,13 +16,14 @@
 # CI builds linux/amd64 (runner arch); arm64 builds work via the fallbacks.
 ARG HUGO_VERSION=0.166.0
 ARG OXIPNG_VERSION=10.2.1
+ARG OXVG_VERSION=0.0.7
 ARG RESVG_VERSION=0.48.1
 ARG PAGEFIND_VERSION=1.5.2
 ARG LYCHEE_VERSION=0.24.2
 ARG MOZJPEG_VERSION=4.1.5
 
 # ------------------------------------------------------------ tools-fetcher
-FROM debian:bookworm-slim AS tools-fetcher
+FROM debian:trixie-slim AS tools-fetcher
 ARG HUGO_VERSION
 ARG OXIPNG_VERSION
 ARG RESVG_VERSION
@@ -56,8 +57,8 @@ RUN set -eux; \
         "https://github.com/Pagefind/pagefind/releases/download/v${PAGEFIND_VERSION}/pagefind_extended-v${PAGEFIND_VERSION}-${BIN_ARCH}-unknown-linux-musl.tar.gz"; \
     tar xzf pagefind.tgz pagefind_extended; rm pagefind.tgz; \
     mv pagefind_extended pagefind; \
-    # NOTE: lychee's gnu build requires glibc 2.38+ (bookworm ships 2.36),
-    # so use the static musl build.
+    # NOTE: lychee's gnu build requires glibc 2.38+. Trixie ships it, but
+    # the static musl build is kept (smaller, no libc coupling).
     curl -fsSL --retry 3 -o lychee.tgz \
         "https://github.com/lycheeverse/lychee/releases/download/lychee-v${LYCHEE_VERSION}/lychee-${BIN_ARCH}-unknown-linux-musl.tar.gz"; \
     tar xzf lychee.tgz --strip-components=1 \
@@ -65,18 +66,20 @@ RUN set -eux; \
     ls -l /out
 
 # ----------------------------------------------------------- native-builder
-FROM rust:1-bookworm AS native-builder
+FROM rust:1-trixie AS native-builder
 ARG TARGETARCH
+ARG OXVG_VERSION
+ARG RESVG_VERSION
 ENV CARGO_NET_RETRY=10
 RUN set -eux; \
-    cargo install oxvg; \
+    cargo install oxvg --version "${OXVG_VERSION}" --locked; \
     mkdir -p /out; cp /usr/local/cargo/bin/oxvg /out/; \
     if [ "$TARGETARCH" = "arm64" ]; then \
-        cargo install resvg; cp /usr/local/cargo/bin/resvg /out/; \
+        cargo install resvg --version "${RESVG_VERSION}" --locked; cp /usr/local/cargo/bin/resvg /out/; \
     fi
 
 # ---------------------------------------------------------- mozjpeg-builder
-FROM debian:bookworm-slim AS mozjpeg-builder
+FROM debian:trixie-slim AS mozjpeg-builder
 ARG MOZJPEG_VERSION
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
@@ -99,13 +102,13 @@ RUN set -eux; \
     /out/usr/local/bin/jpegtran -version
 
 # ---------------------------------------------------------------- node-deps
-FROM node:24-bookworm-slim AS node-deps
+FROM node:24-trixie-slim AS node-deps
 WORKDIR /srv/site
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund && npm cache clean --force
 
 # -------------------------------------------------------------------- final
-FROM node:24-bookworm-slim
+FROM node:24-trixie-slim
 ENV DEBIAN_FRONTEND=noninteractive \
     PLAYWRIGHT_BROWSERS_PATH=/opt/ms-playwright \
     PATH="/opt/ci/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
