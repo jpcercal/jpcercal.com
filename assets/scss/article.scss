@@ -98,6 +98,33 @@ section {
       margin-bottom: 0.5rem;
     }
 
+    // Vertical rhythm: headings that follow content need breathing room
+    // above them (Bootstrap reboot never provided margin-top, so without
+    // this ## subtitles glue themselves to the previous paragraph/block).
+    h1,
+    h2 {
+      margin-top: 1.5rem;
+    }
+
+    h3,
+    h4 {
+      margin-top: 1.25rem;
+    }
+
+    h5,
+    h6 {
+      margin-top: 1rem;
+    }
+
+    h1:first-child,
+    h2:first-child,
+    h3:first-child,
+    h4:first-child,
+    h5:first-child,
+    h6:first-child {
+      margin-top: 0;
+    }
+
     /**
      * Hack to get just table elements without the class attribute
      * just because, we have table for syntax-highlight too.
