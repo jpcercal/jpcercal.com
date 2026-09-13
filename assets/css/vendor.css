@@ -2,19 +2,38 @@
 
 @source "../layouts";
 
+/* Bootstrap 4 breakpoints: keeps sm:/md:/lg: variants equivalent.
+ * xl is pinned to 1200px so Tailwind's xl: variants agree with the
+ * col-xl-*/offset-xl-* grid rules below (Tailwind default is 80rem). */
 @theme {
-	/* Bootstrap 5 breakpoints: keeps sm:/md:/lg: variants equivalent. */
 	--breakpoint-sm: 576px;
 	--breakpoint-md: 768px;
 	--breakpoint-lg: 992px;
+	--breakpoint-xl: 1200px;
 }
 
 /*
- * Grid skeleton: exact Bootstrap 5 values for the classes used in layouts/.
- * (vendor.css baseline, 28.1KB slim import, reduced to what the site uses.)
- * .container and .clearfix are intentionally unstyled: the slim Bootstrap
- * build never shipped rules for them, so they render as plain blocks.
+ * Grid skeleton: Bootstrap 4 values for the classes used in layouts/.
+ * .container centers the page (auto margins) and its horizontal padding
+ * absorbs the .row negative margins so content never bleeds past the
+ * viewport edge. Breakpoint max-widths come from Tailwind's own
+ * .container utility (wider modern scale); the rules below only add the
+ * centering + padding that Tailwind leaves out.
  */
+.container {
+	width: 100%;
+	padding-right: 0.75rem;
+	padding-left: 0.75rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.clearfix::after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
 .row {
 	--bs-gutter-x: 1.5rem;
 	--bs-gutter-y: 0;
@@ -38,17 +57,7 @@
 	flex: 1 0 0;
 }
 
-.col-12 {
-	flex: 0 0 auto;
-	width: 100%;
-}
-
 @media (min-width: 992px) {
-	.col-lg-6 {
-		flex: 0 0 auto;
-		width: 50%;
-	}
-
 	.col-lg-10 {
 		flex: 0 0 auto;
 		width: 83.33333333%;
