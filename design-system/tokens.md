@@ -20,6 +20,34 @@ sitemap:
 Derived grays come from `color.adjust($fontColor, …)` in `assets/scss/`
 (e.g. author meta at 50% lightness, locale switcher borders at 60%).
 
+## Dark theme
+
+Dark mode is Medium Dark Mode Pro style (near-black warm canvas,
+off-white ink) and changes **only** the color contract — layout, type and
+spacing are identical. Tokens live in `assets/scss/themes.scss` as CSS
+custom properties (`--color-*`); every module consumes `var(--…)` and
+never raw colors (code blocks stay One Dark in both themes).
+
+| Token | Light | Dark | Usage |
+|---|---|---|---|
+| `--color-canvas` | `#ffffff` | `#191919` | `body` background |
+| `--color-surface` | `#ffffff` | `#242424` | search input fill, table head |
+| `--color-ink` | `rgba(0,0,0,.84)` | `rgba(255,255,255,.92)` | body, brand, titles |
+| `--color-ink-soft` | `+20% lightness` | `rgba(255,255,255,.68)` | blockquote text, counters |
+| `--color-muted` | `+50% lightness` | `rgba(255,255,255,.60)` | author meta, dates, tags |
+| `--color-faint` | `+60% lightness` | `rgba(255,255,255,.45)` | brand `</>`, locale borders |
+| `--color-border` | `#eee` | `#2e2e2e` | header rule, cards, inputs |
+| `--color-code-bg` / `--color-code-fg` | `#f8f9fa` / `#bd4147` | `#2a2a2a` / `#e8a0a7` | inline `<code>` only |
+| `--color-credit` | `#ddd` | `rgba(255,255,255,.40)` | footer credit line |
+
+Activation: `data-theme` on `<html>` (stored `localStorage` choice, else
+OS `prefers-color-scheme`, else light). An inline script in
+`layouts/partials/head-assets.html` resolves it before CSS paints (no
+flash); `assets/js/theme.js` wires the header toggle (`themeToggle`
+i18n key), persists the choice and follows OS changes until one is
+stored. No-JS visitors get the OS theme via a `prefers-color-scheme`
+fallback; print always renders light.
+
 ## Typography
 
 | Token | Value | Usage |
