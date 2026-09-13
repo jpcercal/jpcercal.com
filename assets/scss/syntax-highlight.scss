@@ -34,16 +34,41 @@ div.highlight {
 		font-family: "Fira Mono", monospace;
 	}
 
-	// article.scss paints inline <code> light (#f8f9fa); inside code
-	// blocks the container provides the background, so opt out here.
-	// (Loads after the app bundle, equal specificity wins.)
+	// article.scss paints inline <code> light (#f8f9fa) with padding; inside
+	// code blocks the container provides the background and the table
+	// cells provide the padding, so opt out of both here (otherwise the
+	// code column starts a line below the gutter). Loads after the app
+	// bundle; higher specificity wins regardless of order.
 	code {
 		background-color: transparent;
+		padding: 0;
+		// Block so the gutter numbers sit flush with the code lines: as an
+		// inline box, <code> baseline-aligns Fira Mono against the <pre>'s
+		// PT Serif strut and sinks ~6px below the (block-level) .line boxes.
+		display: block;
 	}
 
 	pre {
 		margin-bottom: 0;
 		font-size: 1em;
+	}
+
+	// Gutter parity with the old Pygments block: right-aligned numbers in
+	// a fixed column with a divider, code padded away from the divider.
+	.chroma .lntd:first-child {
+		width: 50px;
+		text-align: right;
+		border-right-width: 1px;
+		border-right-style: solid;
+		border-right-color: #abb2bf;
+	}
+
+	.chroma .lntd:first-child pre {
+		padding-right: 10px;
+	}
+
+	.chroma .lntd:last-child pre {
+		padding: 0 10px;
 	}
 }
 
