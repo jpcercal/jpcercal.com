@@ -23,7 +23,10 @@
                 </div>
 
                 <div class="col clearfix">
-                    <nav class="float-right" aria-label='{{ i18n "localeNav" }}'>
+                    <nav class="float-right flex items-center gap-2" aria-label='{{ i18n "localeNav" }}'>
+                        <button type="button" class="theme-toggle" data-theme-toggle hidden aria-pressed="false" aria-label='{{ i18n "themeToggle" }}' title='{{ i18n "themeToggle" }}'>
+                            <span class="theme-toggle--icon" aria-hidden="true"></span>
+                        </button>
                         <ul class="list-none flex gap-2 m-0 locale-list">
                             <li class='locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
                                 <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="hidden lg:inline">{{ index $localePt.title $locale }}</a>

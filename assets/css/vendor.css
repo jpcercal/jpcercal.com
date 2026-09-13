@@ -2,6 +2,12 @@
 
 @source "../layouts";
 
+/* Dark variant follows the `data-theme="dark"` contract set by the
+ * pre-CSS init script (OS setting by default, toggle override persisted
+ * in localStorage). No `dark:` utilities are used yet; this keeps the
+ * variant available for future color-only tweaks. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* Bootstrap 4 breakpoints: keeps sm:/md:/lg: variants equivalent.
  * xl is pinned to 1200px so Tailwind's xl: variants agree with the
  * col-xl-*/offset-xl-* grid rules below (Tailwind default is 80rem). */

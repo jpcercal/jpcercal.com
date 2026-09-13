@@ -1,22 +1,18 @@
-@use "sass:color" as *;
 @use "variables" as *;
 
 .post-list {
   a {
-    color: #000000d6;
-    color: $fontColor;
+    color: var(--color-ink);
     text-decoration: none;
   }
 
   .counter {
-    color: #333333d6;
-    color: adjust($fontColor, $lightness: 20%);
+    color: var(--color-ink-soft);
 
     &::before,
     &::after {
       display: inline;
-      color: #333333d6;
-      color: adjust($fontColor, $lightness: 20%);
+      color: var(--color-ink-soft);
     }
 
     &::before {
@@ -35,8 +31,7 @@
 
     &::after {
       display: inline;
-      color: #1a1a1ad6;
-      color: adjust($fontColor, $lightness: 10%);
+      color: var(--color-ink-arrow);
       content: '\2192';
       margin-left: 5px;
     }

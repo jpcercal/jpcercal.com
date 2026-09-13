@@ -1,26 +1,22 @@
-@use "sass:color" as *;
 @use "variables" as *;
 @use "mixins" as *;
 
 body {
-  background-color: #FFFFFF;
-  color: #000000d6;
-  color: $fontColor;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
 }
 
 nav {
   .previous,
   .next {
-    color: #000000d6;
-    color: $fontColor;
+    color: var(--color-ink);
     text-decoration: none;
   }
 
   .previous::before,
   .next::after {
     display: inline;
-    color: #1a1a1ad6;
-    color: adjust($fontColor, $lightness: 10%);
+    color: var(--color-ink-arrow);
   }
 
   .previous {

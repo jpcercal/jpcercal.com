@@ -1,9 +1,8 @@
-@use "sass:color" as *;
 @use "variables" as *;
 
 .post-card {
   position: relative;
-  border: 1px solid #eee;
+  border: 1px solid var(--color-border);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 
@@ -15,8 +14,7 @@
     font-family: 'Fjalla One';
     font-weight: normal;
     font-style: normal;
-    color: #000000d6;
-    color: $fontColor;
+    color: var(--color-ink);
     line-height: 30px;
     display: block;
   }
@@ -24,14 +22,13 @@
   .post-card--category {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 400;
-    color: #808080d6;
-    color: adjust($fontColor, $lightness: 50%);
+    color: var(--color-muted);
     position: absolute;
     top: 0;
     right: 0;
     padding: 7px 15px;
-    border-bottom: 1px solid #eee;
-    border-left: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border);
+    border-left: 1px solid var(--color-border);
     border-bottom-left-radius: 4px;
   }
 
