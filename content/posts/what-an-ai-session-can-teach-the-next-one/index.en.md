@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: what-an-ai-session-can-teach-the-next-one
 title: What an AI Session Can Teach the Next One
