@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">A decision routed to action or review</title>
+  <desc id="description">A message enters a decision node, then branches toward a green action card and an amber review card.</desc>
+  <circle cx="256" cy="256" r="245" fill="#69cdff"/>
+  <path d="M112 256h80m128 0h38m-38 0 38-92m-38 92 38 92" fill="none" stroke="#293d7c" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/>
+  <rect x="52" y="208" width="110" height="96" rx="18" fill="#fff"/>
+  <rect x="72" y="231" width="70" height="10" rx="5" fill="#5dc1d8"/>
+  <rect x="72" y="251" width="56" height="10" rx="5" fill="#c3ddf4"/>
+  <rect x="72" y="271" width="64" height="10" rx="5" fill="#c3ddf4"/>
+  <path d="m256 190 66 66-66 66-66-66z" fill="#fff"/>
+  <circle cx="256" cy="256" r="25" fill="#445ea0"/>
+  <circle cx="256" cy="256" r="9" fill="#fff"/>
+  <rect x="354" y="95" width="105" height="115" rx="18" fill="#fff"/>
+  <circle cx="389" cy="131" r="12" fill="#71de56"/>
+  <path d="m383 131 5 5 9-11" fill="none" stroke="#293d7c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <rect x="378" y="156" width="58" height="9" rx="4.5" fill="#c3ddf4"/>
+  <rect x="378" y="173" width="42" height="9" rx="4.5" fill="#c3ddf4"/>
+  <rect x="354" y="302" width="105" height="115" rx="18" fill="#fff"/>
+  <circle cx="389" cy="338" r="12" fill="#ffaf10"/>
+  <path d="M389 331v9m0 5v1" fill="none" stroke="#293d7c" stroke-linecap="round" stroke-width="4"/>
+  <rect x="378" y="363" width="58" height="9" rx="4.5" fill="#c3ddf4"/>
+  <rect x="378" y="380" width="42" height="9" rx="4.5" fill="#c3ddf4"/>
+</svg>
