@@ -3,7 +3,7 @@ draft: false
 author: jpcercal@gmail.com
 slug: gpt-6-astra-is-an-operator-not-a-chatbot
 title: GPT-6 Astra Is an Operator, Not a Chatbot
-date: 2026-09-24T00:00:00+00:00
+date: 2026-09-23T00:00:00+00:00
 description: GPT-6 Astra is offered as a model that acts inside existing software. The scores I would read first are the ones that show where it stays inside the task, and where it does not win.
 categories:
   - other
