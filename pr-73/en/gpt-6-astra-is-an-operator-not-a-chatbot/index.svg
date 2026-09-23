@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">A computer task held at a gate</title>
+  <desc id="description">A screen connects to a gate. The path stops at the gate instead of passing through.</desc>
+  <circle cx="256" cy="256" r="245" fill="#69cdff"/>
+  <path d="M196 256h70" fill="none" stroke="#293d7c" stroke-linecap="round" stroke-width="14"/>
+  <rect x="62" y="168" width="134" height="104" rx="16" fill="#fff"/>
+  <rect x="78" y="184" width="102" height="58" rx="8" fill="#445ea0"/>
+  <rect x="90" y="198" width="62" height="8" rx="4" fill="#c3ddf4"/>
+  <rect x="90" y="214" width="46" height="8" rx="4" fill="#5dc1d8"/>
+  <rect x="108" y="272" width="42" height="10" rx="4" fill="#fff"/>
+  <rect x="292" y="156" width="28" height="200" rx="8" fill="#fff"/>
+  <rect x="320" y="228" width="92" height="56" rx="12" fill="#fff"/>
+  <circle cx="348" cy="256" r="12" fill="#ffaf10"/>
+  <path d="M348 249v9m0 5v1" fill="none" stroke="#293d7c" stroke-linecap="round" stroke-width="4"/>
+  <rect x="368" y="242" width="32" height="8" rx="4" fill="#c3ddf4"/>
+  <rect x="368" y="258" width="24" height="8" rx="4" fill="#c3ddf4"/>
+  <path d="M266 256h26" fill="none" stroke="#293d7c" stroke-linecap="round" stroke-width="14"/>
+</svg>
