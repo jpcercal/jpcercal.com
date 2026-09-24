@@ -1,15 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Empresas e Redes Sociais</title>
   <desc id="description">Customers speak to companies on social networks</desc>
-  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
-  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
-  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
-  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 37h72v52H14zM9 19h82l-5 18H14zM24 37v12m18-12v12m18-12v12m18-12v12M39 88V61h22v27"/></g>
-  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
-  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
-  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15h76v59H48L25 91V74H12zM27 38h46M27 53h31"/></g>
-  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
-  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="248" fill="#B8A3F0"/>
+  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
+  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#383362" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 37h72v52H14zM9 19h82l-5 18H14zM24 37v12m18-12v12m18-12v12m18-12v12M39 88V61h22v27"/></g>
+  <circle cx="397" cy="397" r="87" fill="#FFCC7E" stroke="#B8A3F0" stroke-width="11"/>
+  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#383362" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15h76v59H48L25 91V74H12zM27 38h46M27 53h31"/></g>
 </svg>

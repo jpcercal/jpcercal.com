@@ -1,15 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Como recriar .deb a partir de pacote instalado</title>
   <desc id="description">Repacking an installed Debian package</desc>
-  <rect x="12" y="12" width="488" height="488" rx="72" fill="#172B30"/>
-  <rect x="32" y="32" width="448" height="448" rx="54" fill="#20373C" stroke="#3C5960" stroke-width="4"/>
-  <path d="M256 48v30M256 434v30" stroke="#3C5960" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="256" cy="231" r="125" fill="#172B30"/>
-  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#DBECE9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="20" width="64" height="65" rx="6"/><path d="M18 37h64M42 20v65m13-47v15m-4 4h8"/></g>
-  <path d="M256 365v34" stroke="#63DDC4" stroke-width="9" stroke-linecap="round"/>
-  <path d="m244 388 12 12 12-12" fill="none" stroke="#63DDC4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="58" y="337" width="110" height="110" rx="28" fill="#2C9D87"/>
-  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#DBECE9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M82 42a32 32 0 0 0-57-16l-7 9m0-19v19h20M18 58a32 32 0 0 0 57 16l7-9m0 19V65H62"/></g>
-  <circle cx="362" cy="397" r="8" fill="#EAB37F"/>
-  <path d="M382 397h36" stroke="#A3BFBD" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="248" fill="#422D40"/>
+  <circle cx="246" cy="246" r="205" fill="#FFE8E3" opacity=".14"/>
+  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#FFE8E3" x="18" y="20" width="64" height="65" rx="6"/><path d="M18 37h64M42 20v65m13-47v15m-4 4h8"/></g>
+  <circle cx="397" cy="130" r="87" fill="#A2E8EF" stroke="#422D40" stroke-width="11"/>
+  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M82 42a32 32 0 0 0-57-16l-7 9m0-19v19h20M18 58a32 32 0 0 0 57 16l7-9m0 19V65H62"/></g>
 </svg>

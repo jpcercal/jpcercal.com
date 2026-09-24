@@ -1,19 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">A family's planned move to Munich</title>
-  <desc id="description">A route from a packed home to a Munich skyline, with three checked travellers on the family's moving list.</desc>
-  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
-  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
-  <path d="m82 220 75-66 75 66v124H82z" fill="#E8F1EC" stroke="#17353B" stroke-width="9" stroke-linejoin="round"/>
-  <rect x="130" y="274" width="52" height="70" rx="8" fill="#E9A86C"/>
-  <path d="M98 250h46m58 0h12" stroke="#6B878A" stroke-width="8" stroke-linecap="round"/>
-  <path d="M226 244c38-60 72-64 112-10" fill="none" stroke="#087F72" stroke-width="9" stroke-linecap="round" stroke-dasharray="2 20"/>
-  <path d="m321 224 20 12-20 12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M334 314v-82h38v-52h34v52h26v82" fill="#E8F1EC" stroke="#17353B" stroke-width="9" stroke-linejoin="round"/>
-  <path d="M382 180v-36m-18 18h36" stroke="#17353B" stroke-width="8" stroke-linecap="round"/>
-  <path d="M356 260h18m20 0h18m-56 26h18m20 0h18" stroke="#6B878A" stroke-width="7" stroke-linecap="round"/>
-  <rect x="112" y="362" width="288" height="70" rx="17" fill="#17353B"/>
-  <circle cx="160" cy="397" r="16" fill="#4ED5B7"/>
-  <circle cx="256" cy="397" r="16" fill="#4ED5B7"/>
-  <circle cx="352" cy="397" r="12" fill="#E9A86C"/>
-  <path d="m151 397 6 6 12-13m78 7 6 6 12-13" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <title id="title">Vamos morar em Munique na Alemanha</title>
+  <desc id="description">A family plans its move to Munich</desc>
+  <circle cx="256" cy="256" r="248" fill="#B8A3F0"/>
+  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
+  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#383362" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#FFFFFF" x="13" y="30" width="74" height="58" rx="7"/><path d="M34 30V17h32v13M13 54h74M43 52h14v10H43z"/></g>
+  <circle cx="397" cy="397" r="87" fill="#FFCC7E" stroke="#B8A3F0" stroke-width="11"/>
+  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#383362" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 90S18 59 18 37a32 32 0 0 1 64 0C82 59 50 90 50 90z"/><circle fill="#FFFFFF" cx="50" cy="37" r="12"/></g>
 </svg>
