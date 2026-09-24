@@ -1,9 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Mulheres Brasileiras em Munique</title>
-  <desc id="description">Brazilian women find a support network in Munich</desc>
-  <circle cx="256" cy="256" r="248" fill="#FFD276"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFFFFF" cx="35" cy="31" r="13"/><circle fill="#FFFFFF" cx="69" cy="35" r="11"/><path d="M8 86c0-25 11-38 27-38s27 13 27 38zm56 0h28c0-20-7-32-20-35"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FC8190" stroke="#FFD276" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 86 14 53C-3 34 12 8 34 16c8 2 13 8 16 14 3-6 8-12 16-14 22-8 37 18 20 37z"/></g>
+  <desc id="description">German flag, representing the Brazilian women's community in Munich</desc>
+  <defs>
+    <clipPath id="flag"><rect x="76" y="148" width="360" height="216" rx="18"/></clipPath>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g clip-path="url(#flag)">
+    <path fill="#000000" d="M76 148h360v72H76z"/>
+    <path fill="#dd0000" d="M76 220h360v72H76z"/>
+    <path fill="#ffce00" d="M76 292h360v72H76z"/>
+  </g>
+  <rect x="76" y="148" width="360" height="216" rx="18" fill="none" stroke="#353535" stroke-width="8"/>
 </svg>
