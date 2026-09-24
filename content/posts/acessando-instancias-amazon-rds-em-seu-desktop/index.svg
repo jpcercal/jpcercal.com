@@ -1,9 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Acessando Instâncias Amazon RDS em seu Desktop</title>
-  <desc id="description">RDS database reached through an SSH tunnel</desc>
-  <circle cx="256" cy="256" r="248" fill="#62CDF3"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#163A58" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><ellipse fill="#FFFFFF" cx="50" cy="22" rx="34" ry="12"/><path d="M16 22v54c0 16 68 16 68 0V22M16 48c0 16 68 16 68 0"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FF9874" stroke="#62CDF3" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#163A58" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 66c20-35 34-35 42 0s22 35 42 0M7 79h86"/><circle fill="#FFFFFF" cx="50" cy="65" r="7"/></g>
+  <desc id="description">Five orange isometric cubes from the supplied Amazon RDS reference</desc>
+  <defs>
+    <g id="cube" stroke="#875114" stroke-width="3" stroke-linejoin="round">
+      <path d="M0 12 34 1l34 11-34 12z" fill="#ffbf57"/>
+      <path d="M0 20 30 31v42L0 62z" fill="#f6a429"/>
+      <path d="M38 31 68 20v42L38 73z" fill="#e98c16"/>
+    </g>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g transform="translate(-51 -49) scale(1.2)">
+    <use href="#cube" x="130" y="208"/>
+    <use href="#cube" x="204" y="208"/>
+    <use href="#cube" x="167" y="278"/>
+    <use href="#cube" x="241" y="138"/>
+    <use href="#cube" x="315" y="138"/>
+  </g>
 </svg>
