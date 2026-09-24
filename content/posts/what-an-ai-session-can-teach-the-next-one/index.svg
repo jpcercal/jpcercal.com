@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">One session teaches the next</title>
-  <desc id="description">Session notes passing into the next loop.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="70" y="170" width="150" height="120" rx="18" fill="#FFFFFF"/><rect x="92" y="200" width="90" height="10" rx="5" fill="#2EC4B6"/><rect x="92" y="222" width="106" height="10" rx="5" fill="#CBD5E1"/><rect x="250" y="170" width="150" height="120" rx="18" fill="#FFFFFF"/><rect x="272" y="200" width="90" height="10" rx="5" fill="#2EC4B6"/><rect x="272" y="222" width="106" height="10" rx="5" fill="#CBD5E1"/><path d="M220 230h30M400 230l30 26-30 26" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="200" cy="340" r="30" fill="#2EC4B6"/><path d="M190 340l8 8 15-17" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/><rect x="250" y="330" width="150" height="10" rx="5" fill="#CBD5E1"/>
+  <title id="title">What an AI Session Can Teach the Next One</title>
+  <desc id="description">Lessons from one AI session pass to the next</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 87C36 78 20 77 8 81V17c16-5 31-1 42 7 11-8 26-12 42-7v64c-12-4-28-3-42 6zm0-63v63"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="342" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(357 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M82 42a32 32 0 0 0-57-16l-7 9m0-19v19h20M18 58a32 32 0 0 0 57 16l7-9m0 19V65H62"/></g>
+  <circle cx="82" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M102 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

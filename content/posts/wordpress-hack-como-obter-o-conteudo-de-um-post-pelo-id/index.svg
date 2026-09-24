@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Getting post content by ID</title>
-  <desc id="description">A document fetched by its numeric ID.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="110" y="140" width="200" height="240" rx="18" fill="#FFFFFF"/><rect x="136" y="180" width="120" height="10" rx="5" fill="#56CCF2"/><rect x="136" y="206" width="148" height="10" rx="5" fill="#CBD5E1"/><rect x="136" y="232" width="110" height="10" rx="5" fill="#CBD5E1"/><rect x="300" y="240" width="120" height="120" rx="16" fill="#56CCF2"/><path d="M322 300h76" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M340 280v50" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  <title id="title">WordPress Hack: Como obter o conteúdo de um Post pelo ID</title>
+  <desc id="description">Looking up a post by its ID</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8h42l17 17v67H22zM64 8v17h17M34 44h33M34 58h33M34 72h23"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="342" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(357 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="33" cy="39" r="20"/><path d="m48 54 35 34m-14-14 9-9m-1 17 8-8"/></g>
+  <circle cx="82" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M102 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

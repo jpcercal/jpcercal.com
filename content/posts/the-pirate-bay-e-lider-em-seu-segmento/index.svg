@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">A sharing bay takes the lead</title>
-  <desc id="description">A sail cresting above sharing waves.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <path d="M256 120c60 40 90 100 90 170H256z" fill="#FFFFFF"/><path d="M240 160c-50 32-74 80-74 130h74z" fill="#56CCF2"/><path d="M110 330c40 24 260 24 300 0M140 370c40 20 200 20 240 0" fill="none" stroke="#56CCF2" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  <title id="title">The Pirate Bay é líder em seu segmento</title>
+  <desc id="description">A file sharing ship leads a ranking</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 62h84L75 85H25zM51 16v45M47 18 20 57h27m8-37 23 37H55M10 91c13 5 23 5 36 0 13 5 23 5 36 0"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="342" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(357 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 84V54h16v30m11 0V35h16v49m11 0V17h16v67M7 84h86"/></g>
+  <circle cx="82" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M102 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

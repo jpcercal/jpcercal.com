@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">A family's planned move to Munich</title>
+  <desc id="description">A route from a packed home to a Munich skyline, with three checked travellers on the family's moving list.</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#172B30"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#20373C" stroke="#3C5960" stroke-width="4"/>
+  <path d="m82 220 75-66 75 66v124H82z" fill="#172B30" stroke="#DBECE9" stroke-width="9" stroke-linejoin="round"/>
+  <rect x="130" y="274" width="52" height="70" rx="8" fill="#EAB37F"/>
+  <path d="M98 250h46m58 0h12" stroke="#A3BFBD" stroke-width="8" stroke-linecap="round"/>
+  <path d="M226 244c38-60 72-64 112-10" fill="none" stroke="#63DDC4" stroke-width="9" stroke-linecap="round" stroke-dasharray="2 20"/>
+  <path d="m321 224 20 12-20 12" fill="none" stroke="#63DDC4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M334 314v-82h38v-52h34v52h26v82" fill="#172B30" stroke="#DBECE9" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M382 180v-36m-18 18h36" stroke="#DBECE9" stroke-width="8" stroke-linecap="round"/>
+  <path d="M356 260h18m20 0h18m-56 26h18m20 0h18" stroke="#A3BFBD" stroke-width="7" stroke-linecap="round"/>
+  <rect x="112" y="362" width="288" height="70" rx="17" fill="#DBECE9"/>
+  <circle cx="160" cy="397" r="16" fill="#2C9D87"/>
+  <circle cx="256" cy="397" r="16" fill="#2C9D87"/>
+  <circle cx="352" cy="397" r="12" fill="#EAB37F"/>
+  <path d="m151 397 6 6 12-13m78 7 6 6 12-13" fill="none" stroke="#DBECE9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

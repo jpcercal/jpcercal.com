@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Climbing search results with SEO</title>
-  <desc id="description">A magnifier over a rising ranking chart.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <circle cx="190" cy="230" r="80" fill="none" stroke="#FFFFFF" stroke-width="16"/><path d="M248 288l70 70" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="300" y="300" width="150" height="110" rx="18" fill="#FFFFFF"/><path d="M320 370l24-30 18 16 40-52" fill="none" stroke="#2EC4B6" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><path d="M376 304h26v26" fill="none" stroke="#2EC4B6" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+  <title id="title">Otimização dos Mecanismos de Busca (SEO)</title>
+  <desc id="description">Search optimization lifts a page in rankings</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="42" cy="41" r="28"/><path d="m63 62 27 27"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="342" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(357 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 84V18m-21 22 21-22 21 22M17 85h66"/></g>
+  <circle cx="82" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M102 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

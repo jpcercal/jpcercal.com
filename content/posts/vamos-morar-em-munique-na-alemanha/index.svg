@@ -1,7 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Moving to Munich Germany</title>
-  <desc id="description">A house pinned in Munich with a checklist.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <path d="M256 130l130 110v140a16 16 0 0 1-16 16H142a16 16 0 0 1-16-16V240z" fill="#FFFFFF"/><rect x="216" y="280" width="80" height="116" rx="8" fill="#56CCF2"/><circle cx="316" cy="220" r="30" fill="#56CCF2"/><circle cx="316" cy="220" r="12" fill="#FFFFFF"/><path d="M390 300c-22 0-36 16-36 34 0 26 36 60 36 60s36-34 36-60c0-18-14-34-36-34z" fill="#56CCF2"/><circle cx="390" cy="336" r="11" fill="#FFFFFF"/>
+  <title id="title">A family's planned move to Munich</title>
+  <desc id="description">A route from a packed home to a Munich skyline, with three checked travellers on the family's moving list.</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="m82 220 75-66 75 66v124H82z" fill="#E8F1EC" stroke="#17353B" stroke-width="9" stroke-linejoin="round"/>
+  <rect x="130" y="274" width="52" height="70" rx="8" fill="#E9A86C"/>
+  <path d="M98 250h46m58 0h12" stroke="#6B878A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M226 244c38-60 72-64 112-10" fill="none" stroke="#087F72" stroke-width="9" stroke-linecap="round" stroke-dasharray="2 20"/>
+  <path d="m321 224 20 12-20 12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M334 314v-82h38v-52h34v52h26v82" fill="#E8F1EC" stroke="#17353B" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M382 180v-36m-18 18h36" stroke="#17353B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M356 260h18m20 0h18m-56 26h18m20 0h18" stroke="#6B878A" stroke-width="7" stroke-linecap="round"/>
+  <rect x="112" y="362" width="288" height="70" rx="17" fill="#17353B"/>
+  <circle cx="160" cy="397" r="16" fill="#4ED5B7"/>
+  <circle cx="256" cy="397" r="16" fill="#4ED5B7"/>
+  <circle cx="352" cy="397" r="12" fill="#E9A86C"/>
+  <path d="m151 397 6 6 12-13m78 7 6 6 12-13" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
