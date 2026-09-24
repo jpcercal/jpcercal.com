@@ -49,4 +49,26 @@
     height: 60px;
     max-width: none;
   }
+
+  .theme-cover--dark {
+    display: none;
+  }
+}
+
+:root[data-theme="dark"] .post-card .theme-cover--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .post-card .theme-cover--dark {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .post-card .theme-cover--light {
+    display: none;
+  }
+
+  :root:not([data-theme]) .post-card .theme-cover--dark {
+    display: block;
+  }
 }

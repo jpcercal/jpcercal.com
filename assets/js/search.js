@@ -50,7 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		(pagefind) =>
 			pagefind
 				.options({
-					basePath: new URL("pagefind/", params.baseUrl).pathname,
+					basePath: new URL(
+						"pagefind/",
+						new URL(params.baseUrl, window.location.href),
+					).pathname,
 				})
 				.then(() => pagefind),
 	);
@@ -69,11 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
 	const renderHtml = (result) => {
 		const authorPrefix = i18n.trans("createdBy");
 		const image = result.meta.image || `${params.baseUrl}images/icons/tag.svg`;
+		const darkImage = image.endsWith("/index.svg")
+			? image.replace(/index\.svg$/, "index.dark.svg")
+			: null;
 
 		return (
 			`<article class="post-card mb-6">` +
 			`<div class="flex"><div class="flex-col m-4">` +
-			`<img class="rounded" src="${image}" alt="${result.meta.title}" height="60" width="60">` +
+			`<img class="rounded post-card--icon theme-cover--light" src="${image}" alt="${result.meta.title}" height="60" width="60">` +
+			(darkImage
+				? `<img class="rounded post-card--icon theme-cover--dark" src="${darkImage}" alt="" aria-hidden="true" height="60" width="60">`
+				: "") +
 			`</div><header class="flex-col m-0">` +
 			`<h2 class="mt-0 mb-0 font-size-h4">` +
 			`<a class="mt-4 mb-1 post-card--title" href="${result.url}">${result.meta.title}</a>` +
