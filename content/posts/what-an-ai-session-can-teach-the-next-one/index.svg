@@ -1,45 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="cover" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<circle style="fill:#69CDFF;" cx="256" cy="256" r="245"/>
-<rect x="56" y="396" style="fill:#293D7C;" width="220" height="14" rx="7"/>
-<rect x="56" y="396" style="fill:#1A2B63;" width="74" height="14" rx="7"/>
-<g>
-  <rect x="64" y="98" style="fill:#FFFFFF;" width="158" height="74" rx="10"/>
-  <rect x="64" y="98" style="fill:#D9EAFC;" width="34" height="74" rx="10"/>
-  <rect x="112" y="118" style="fill:#5DC1D8;" width="80" height="10" rx="5"/>
-  <rect x="112" y="136" style="fill:#C3DDF4;" width="58" height="10" rx="5"/>
-  <rect x="64" y="220" style="fill:#FFFFFF;" width="158" height="74" rx="10"/>
-  <rect x="64" y="220" style="fill:#D9EAFC;" width="34" height="74" rx="10"/>
-  <rect x="112" y="240" style="fill:#5DC1D8;" width="80" height="10" rx="5"/>
-  <rect x="112" y="258" style="fill:#C3DDF4;" width="58" height="10" rx="5"/>
-  <rect x="64" y="342" style="fill:#FFFFFF;" width="158" height="74" rx="10"/>
-  <rect x="64" y="342" style="fill:#D9EAFC;" width="34" height="74" rx="10"/>
-  <rect x="112" y="362" style="fill:#5DC1D8;" width="80" height="10" rx="5"/>
-  <rect x="112" y="380" style="fill:#C3DDF4;" width="58" height="10" rx="5"/>
-</g>
-<g>
-  <rect x="138" y="172" style="fill:#445EA0;" width="12" height="48"/>
-  <polygon style="fill:#445EA0;" points="144,214 134,214 144,226"/>
-  <rect x="138" y="294" style="fill:#445EA0;" width="12" height="48"/>
-  <polygon style="fill:#445EA0;" points="144,336 134,336 144,348"/>
-</g>
-<g>
-  <circle style="fill:none;stroke:#FFFFFF;stroke-width:10;opacity:0.55;" cx="366" cy="254" r="106"/>
-  <circle style="fill:#FFFFFF;" cx="366" cy="254" r="84"/>
-  <path style="fill:none;stroke:#445EA0;stroke-width:12;stroke-linecap:round;" d="M 366,170 A 84,84 0 0 1 444,224"/>
-  <polygon style="fill:#445EA0;" points="438,204 449,226 425,222"/>
-  <path style="fill:none;stroke:#5DC1D8;stroke-width:12;stroke-linecap:round;" d="M 444,280 A 84,84 0 0 1 366,338"/>
-  <polygon style="fill:#5DC1D8;" points="385,333 364,343 370,319"/>
-  <path style="fill:none;stroke:#FFAF10;stroke-width:12;stroke-linecap:round;" d="M 310,300 A 84,84 0 0 1 288,224"/>
-  <polygon style="fill:#FFAF10;" points="298,238 286,216 310,220"/>
-  <circle style="fill:#71DE56;" cx="366" cy="218" r="12"/>
-  <circle style="fill:#445EA0;" cx="402" cy="254" r="12"/>
-  <circle style="fill:#FFAF10;" cx="366" cy="290" r="12"/>
-  <circle style="fill:#5DC1D8;" cx="330" cy="254" r="12"/>
-</g>
-<g>
-  <circle style="fill:#FFAF10;" cx="222" cy="256" r="14"/>
-  <circle style="fill:#FFFFFF;" cx="222" cy="256" r="5"/>
-  <circle style="fill:none;stroke:#FFFFFF;stroke-width:4;" cx="222" cy="256" r="21"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">One session teaches the next</title>
+  <desc id="description">Session notes passing into the next loop.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="70" y="170" width="150" height="120" rx="18" fill="#FFFFFF"/><rect x="92" y="200" width="90" height="10" rx="5" fill="#2EC4B6"/><rect x="92" y="222" width="106" height="10" rx="5" fill="#CBD5E1"/><rect x="250" y="170" width="150" height="120" rx="18" fill="#FFFFFF"/><rect x="272" y="200" width="90" height="10" rx="5" fill="#2EC4B6"/><rect x="272" y="222" width="106" height="10" rx="5" fill="#CBD5E1"/><path d="M220 230h30M400 230l30 26-30 26" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="200" cy="340" r="30" fill="#2EC4B6"/><path d="M190 340l8 8 15-17" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/><rect x="250" y="330" width="150" height="10" rx="5" fill="#CBD5E1"/>
 </svg>
