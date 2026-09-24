@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">The IT talent gap in Brazil</title>
+  <desc id="description">People silhouettes beside an unfilled hiring chart.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="160" cy="210" r="44" fill="#FFFFFF"/><path d="M96 330c8-40 34-60 64-60s56 20 64 60z" fill="#FFFFFF"/><circle cx="280" cy="230" r="36" fill="#E84855"/><path d="M226 330c6-32 28-48 54-48s48 16 54 48z" fill="#E84855"/><rect x="340" y="220" width="110" height="130" rx="18" fill="#FFFFFF"/><rect x="356" y="244" width="78" height="10" rx="5" fill="#E84855"/><rect x="356" y="264" width="60" height="10" rx="5" fill="#CBD5E1"/><rect x="356" y="284" width="70" height="10" rx="5" fill="#CBD5E1"/>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">The CamelCase pattern</title>
+  <desc id="description">Words joined with a capital hump and no spaces.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="170" cy="256" r="80" fill="#FFFFFF"/><circle cx="340" cy="256" r="80" fill="#FFC53D"/><path d="M132 296l38-84 38 84" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M146 272h48" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="340" cy="262" r="26" fill="none" stroke="#FFFFFF" stroke-width="11"/><path d="M366 232v64" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"/><path d="M250 140v-30m0 0l-16 16m16-16l16 16" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+</svg>

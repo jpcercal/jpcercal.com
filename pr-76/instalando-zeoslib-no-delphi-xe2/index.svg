@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Connecting ZeosLib in Delphi</title>
+  <desc id="description">A database cylinder plugged into the IDE.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <ellipse cx="180" cy="200" rx="70" ry="24" fill="#FFFFFF"/><path d="M110 200v110c0 14 32 24 70 24s70-10 70-24V200" fill="none" stroke="#2EC4B6" stroke-width="12"/><path d="M250 255h60v-40" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><rect x="310" y="170" width="40" height="90" rx="12" fill="#2EC4B6"/><path d="M318 200h24M318 220h24" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+</svg>

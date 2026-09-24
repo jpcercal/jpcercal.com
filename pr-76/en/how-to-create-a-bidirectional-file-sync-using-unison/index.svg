@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Files synced both ways</title>
+  <desc id="description">Two folders exchanging updates in both directions.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="90" y="150" width="140" height="110" rx="18" fill="#FFFFFF"/><rect x="112" y="180" width="80" height="10" rx="5" fill="#2EC4B6"/><rect x="112" y="202" width="96" height="10" rx="5" fill="#CBD5E1"/><rect x="282" y="250" width="140" height="110" rx="18" fill="#FFFFFF"/><rect x="304" y="280" width="80" height="10" rx="5" fill="#2EC4B6"/><rect x="304" y="302" width="96" height="10" rx="5" fill="#CBD5E1"/><path d="M230 190h90l-20-20m20 20l-20 20" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M282 320h-90l20-20m-20 20l20 20" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+</svg>

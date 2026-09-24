@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Inserting users with code</title>
+  <desc id="description">A user silhouette added with a code plus.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="200" cy="220" r="60" fill="#FFFFFF"/><path d="M110 380c10-52 48-80 90-80s80 28 90 80z" fill="#FFFFFF"/><circle cx="320" cy="330" r="40" fill="#6FCF97"/><path d="M320 312v36M302 330h36" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+</svg>

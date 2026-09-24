@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Facebook Home on your phone</title>
+  <desc id="description">A house merged with a phone home screen.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <path d="M256 130l130 110v140a16 16 0 0 1-16 16H142a16 16 0 0 1-16-16V240z" fill="#FFFFFF"/><rect x="216" y="280" width="80" height="116" rx="8" fill="#56CCF2"/><circle cx="316" cy="220" r="30" fill="#56CCF2"/><circle cx="316" cy="220" r="12" fill="#FFFFFF"/>
+</svg>

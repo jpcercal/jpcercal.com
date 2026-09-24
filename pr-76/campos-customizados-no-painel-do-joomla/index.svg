@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Custom Joomla fields</title>
+  <desc id="description">An admin panel with custom form fields.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="90" y="130" width="330" height="250" rx="18" fill="#FFFFFF"/><rect x="120" y="160" width="180" height="10" rx="5" fill="#2EC4B6"/><rect x="120" y="190" width="270" height="44" rx="10" fill="#F1F5F9"/><rect x="120" y="248" width="270" height="44" rx="10" fill="#F1F5F9"/><rect x="136" y="206" width="120" height="10" rx="5" fill="#CBD5E1"/><rect x="136" y="264" width="90" height="10" rx="5" fill="#CBD5E1"/><circle cx="380" cy="330" r="44" fill="#2EC4B6"/><path d="M368 330h24" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+</svg>

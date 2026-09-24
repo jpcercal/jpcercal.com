@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">A cheaper loop still passes</title>
+  <desc id="description">A circular path meets a checkpoint beside a cost bar.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="220" cy="250" r="100" fill="none" stroke="#FFFFFF" stroke-width="18"/><path d="M220 150a100 100 0 0 1 87 50" fill="none" stroke="#FFC53D" stroke-width="18" stroke-linecap="round"/><path d="M295 180l18 24-28 5z" fill="#FFC53D"/><rect x="300" y="300" width="140" height="100" rx="18" fill="#FFFFFF"/><rect x="320" y="326" width="80" height="10" rx="5" fill="#FFC53D"/><rect x="320" y="348" width="60" height="10" rx="5" fill="#CBD5E1"/>
+</svg>

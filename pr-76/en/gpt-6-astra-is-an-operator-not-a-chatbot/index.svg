@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">A computer task held at a gate</title>
+  <desc id="description">A screen connects to a gate; the path stops at the gate.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="60" y="170" width="140" height="110" rx="16" fill="#FFFFFF"/><rect x="78" y="188" width="104" height="56" rx="8" fill="#1B2340"/><rect x="92" y="202" width="62" height="8" rx="5" fill="#FFC53D"/><rect x="92" y="220" width="44" height="8" rx="5" fill="#56CCF2"/><path d="M200 225h60" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><rect x="260" y="140" width="28" height="180" rx="8" fill="#FFFFFF"/><rect x="296" y="200" width="130" height="70" rx="12" fill="#FFFFFF"/><circle cx="322" cy="235" r="12" fill="#FFC53D"/><rect x="344" y="228" width="60" height="8" rx="5" fill="#CBD5E1"/>
+</svg>

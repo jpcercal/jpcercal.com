@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Moving country, where to start</title>
+  <desc id="description">A suitcase tagged with a map pin and checklist.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="110" y="190" width="220" height="160" rx="20" fill="#FFFFFF"/><rect x="180" y="160" width="80" height="40" rx="12" fill="none" stroke="#FFC53D" stroke-width="12"/><rect x="204" y="190" width="32" height="160" fill="#CBD5E1"/><rect x="130" y="380" width="150" height="10" rx="5" fill="#FFC53D"/><path d="M390 230c-26 0-44 19-44 42 0 32 44 72 44 72s44-40 44-72c0-23-18-42-44-42z" fill="#FFC53D"/><circle cx="390" cy="274" r="14" fill="#FFFFFF"/>
+</svg>

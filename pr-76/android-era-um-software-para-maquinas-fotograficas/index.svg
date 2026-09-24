@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">A phone system born as a camera</title>
+  <desc id="description">A camera body with a phone signal rising from its lens.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="86" y="176" width="340" height="160" rx="18" fill="#FFFFFF"/><rect x="110" y="200" width="292" height="112" rx="14" fill="#1B2340"/><circle cx="256" cy="256" r="52" fill="#6FCF97"/><circle cx="256" cy="256" r="24" fill="#FFFFFF"/><rect x="216" y="150" width="80" height="26" rx="10" fill="#6FCF97"/><path d="M426 336l40 40" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><circle cx="474" cy="384" r="16" fill="#6FCF97"/>
+</svg>

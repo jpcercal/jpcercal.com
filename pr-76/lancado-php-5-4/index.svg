@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">PHP 5.4 launches</title>
+  <desc id="description">A rocket carrying the new release.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <path d="M256 110c44 30 60 84 44 140l-44 44-44-44c-16-56 0-110 44-140z" fill="#FFFFFF"/><circle cx="256" cy="200" r="26" fill="#FFC53D"/><path d="M212 250l-40 70 50-20zM300 250l40 70-50-20z" fill="#FFC53D"/><path d="M256 294v60" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="170" cy="360" r="20" fill="#FFC53D"/><circle cx="342" cy="360" r="20" fill="#FFC53D"/>
+</svg>

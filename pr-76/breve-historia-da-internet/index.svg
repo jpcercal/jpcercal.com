@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">From ARPAnet to the Internet</title>
+  <desc id="description">A globe wired to early research network nodes.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="200" cy="256" r="110" fill="#FFFFFF"/><path d="M110 236h180M112 278h176" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/><ellipse cx="200" cy="256" rx="52" ry="110" fill="none" stroke="#1B2340" stroke-width="7"/><path d="M286 236L340 170" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><circle cx="340" cy="170" r="26" fill="#56CCF2"/><circle cx="340" cy="170" r="9" fill="#FFFFFF"/><path d="M300 280L370 260" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><circle cx="370" cy="260" r="26" fill="#56CCF2"/><circle cx="370" cy="260" r="9" fill="#FFFFFF"/><path d="M300 280L330 350" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><circle cx="330" cy="350" r="26" fill="#56CCF2"/><circle cx="330" cy="350" r="9" fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Pruning local Git branches</title>
+  <desc id="description">Stale branches cut into a trash bin.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="150" cy="170" r="24" fill="#E84855"/><circle cx="150" cy="340" r="24" fill="#FFFFFF"/><circle cx="300" cy="255" r="24" fill="#E84855"/><path d="M150 194v122M165 185c60 0 60 46 111 55" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><rect x="330" y="280" width="90" height="100" rx="10" fill="#FFFFFF"/><rect x="322" y="266" width="106" height="18" rx="8" fill="#E84855"/><path d="M360 300v50M380 300v50" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+</svg>

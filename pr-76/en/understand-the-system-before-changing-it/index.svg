@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Map the system before changing it</title>
+  <desc id="description">A request flow mapped before a single change.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="60" y="210" width="110" height="90" rx="16" fill="#FFFFFF"/><rect x="78" y="240" width="74" height="8" rx="5" fill="#CBD5E1"/><rect x="78" y="258" width="54" height="8" rx="5" fill="#CBD5E1"/><path d="M170 255h46" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><path d="M216 190l60 65-60 65-60-65z" fill="#FFFFFF"/><circle cx="216" cy="255" r="22" fill="#2EC4B6"/><circle cx="216" cy="255" r="8" fill="#FFFFFF"/><path d="M276 255h120" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"/><rect x="396" y="210" width="60" height="90" rx="12" fill="#2EC4B6"/><path d="M410 255h32" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+</svg>

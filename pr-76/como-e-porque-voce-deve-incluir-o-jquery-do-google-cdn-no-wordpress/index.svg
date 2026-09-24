@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">jQuery served from the cloud</title>
+  <desc id="description">A cloud delivering a script file to a page.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <path d="M150 300c-40 0-70-26-70-60 0-30 24-54 54-58 10-30 42-50 76-50 40 0 72 26 78 62 8-2 16-4 26-4 36 0 64 26 64 58 0 32-28 52-64 52z" fill="#FFFFFF"/><path d="M200 250l-24 24 24 24" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><path d="M288 250l24 24-24 24" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><path d="M252 240l-16 68" fill="none" stroke="#FFC53D" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+</svg>

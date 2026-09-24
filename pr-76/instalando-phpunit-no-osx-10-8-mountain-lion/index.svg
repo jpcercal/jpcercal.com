@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Installing PHPUnit on OSX</title>
+  <desc id="description">A terminal reporting a passing test check.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="70" y="150" width="372" height="220" rx="18" fill="#FFFFFF"/><rect x="70" y="150" width="372" height="52" rx="18" fill="#6FCF97"/><circle cx="104" cy="176" r="10" fill="#FFFFFF"/><circle cx="132" cy="176" r="10" fill="#FFFFFF"/><path d="M110 250l30 26-30 26" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M170 290h90" fill="none" stroke="#6FCF97" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="380" cy="320" r="44" fill="#6FCF97"/><path d="M362 320l12 12 24-26" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">The Harlem Shake viral</title>
+  <desc id="description">A play button riding a viral wave.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="200" cy="256" r="100" fill="#FFFFFF"/><path d="M180 200l80 56-80 56z" fill="#E84855"/><path d="M330 200c30 20 30 92 0 112M368 170c45 30 45 142 0 172" fill="none" stroke="#E84855" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+</svg>

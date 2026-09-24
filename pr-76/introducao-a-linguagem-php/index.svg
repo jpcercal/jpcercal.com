@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Introduction to PHP</title>
+  <desc id="description">Server-side code flowing into a page.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="70" y="150" width="220" height="220" rx="18" fill="#FFFFFF"/><rect x="94" y="330" width="150" height="10" rx="5" fill="#CBD5E1"/><rect x="94" y="348" width="110" height="10" rx="5" fill="#CBD5E1"/><rect x="310" y="150" width="130" height="130" rx="18" fill="#FFFFFF"/><path d="M340 200h70M340 222h50" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><path d="M290 250h20" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><circle cx="375" cy="300" r="30" fill="#2EC4B6"/><path d="M365 300l8 8 16-18" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">GitHub passes three million users</title>
+  <desc id="description">Branch nodes multiplying into users.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="150" cy="170" r="24" fill="#6FCF97"/><circle cx="150" cy="340" r="24" fill="#FFFFFF"/><circle cx="300" cy="255" r="24" fill="#6FCF97"/><path d="M150 194v122M165 185c60 0 60 46 111 55" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="400" cy="180" r="30" fill="#FFFFFF"/><circle cx="400" cy="330" r="30" fill="#FFFFFF"/><path d="M322 240l56-40M322 270l56 40" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+</svg>

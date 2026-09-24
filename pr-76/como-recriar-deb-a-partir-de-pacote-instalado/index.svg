@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Repacking an installed deb</title>
+  <desc id="description">An installed package cycling back into a deb box.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <path d="M176 150l80 40 80-40-80-40z" fill="#FFC53D"/><path d="M96 190l80 40v90l-80-40z" fill="#FFFFFF"/><path d="M256 190l-80 40v90l80-40z" fill="#CBD5E1"/><path d="M96 190l80-40 80 40-80 40z" fill="none" stroke="#FFFFFF" stroke-width="6"/><path d="M336 210c40 0 40 50 0 50m0-50c-40 0-40 50 0 50" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="336" cy="300" r="22" fill="#FFC53D"/>
+</svg>

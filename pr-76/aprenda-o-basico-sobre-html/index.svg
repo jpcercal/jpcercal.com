@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">First steps in HTML</title>
+  <desc id="description">A document showing the angle brackets of a first page.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="70" y="150" width="220" height="220" rx="18" fill="#FFFFFF"/><rect x="94" y="330" width="150" height="10" rx="5" fill="#CBD5E1"/><rect x="94" y="348" width="110" height="10" rx="5" fill="#CBD5E1"/><path d="M150 210l-40 40 40 40" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M190 200l0 100" fill="none" stroke="#FFC53D" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M230 210l40 40-40 40" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+</svg>

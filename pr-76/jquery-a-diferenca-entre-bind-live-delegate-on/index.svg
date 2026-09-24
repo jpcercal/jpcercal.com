@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">bind live delegate on compared</title>
+  <desc id="description">Four event handlers converging on one element.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="256" cy="150" r="36" fill="#FFFFFF"/><circle cx="110" cy="330" r="44" fill="#FFFFFF"/><circle cx="220" cy="330" r="44" fill="#FFC53D"/><circle cx="330" cy="330" r="44" fill="#FFFFFF"/><circle cx="420" cy="330" r="44" fill="#FFFFFF"/><path d="M256 186v60M150 300l60-60M256 286v-40M362 300l-60-60" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><path d="M220 330l0 1" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+</svg>

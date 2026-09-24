@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Stay on the loop with agents</title>
+  <desc id="description">A human checkpoint kept inside the agent loop.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="220" cy="250" r="100" fill="none" stroke="#FFFFFF" stroke-width="18"/><path d="M220 150a100 100 0 0 1 87 50" fill="none" stroke="#2EC4B6" stroke-width="18" stroke-linecap="round"/><path d="M295 180l18 24-28 5z" fill="#2EC4B6"/><circle cx="380" cy="300" r="44" fill="#FFFFFF"/><circle cx="380" cy="288" r="14" fill="#2EC4B6"/><path d="M352 330c6-20 16-28 28-28s22 8 28 28z" fill="#2EC4B6"/>
+</svg>

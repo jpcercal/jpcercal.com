@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Linux and Windows sharing</title>
+  <desc id="description">Two servers exchanging files over a share.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="90" y="150" width="150" height="220" rx="14" fill="#FFFFFF"/><circle cx="120" cy="190" r="9" fill="#2EC4B6"/><rect x="142" y="186" width="70" height="8" rx="5" fill="#2EC4B6"/><circle cx="120" cy="230" r="9" fill="#2EC4B6"/><rect x="142" y="226" width="70" height="8" rx="5" fill="#CBD5E1"/><circle cx="120" cy="270" r="9" fill="#2EC4B6"/><rect x="142" y="266" width="70" height="8" rx="5" fill="#CBD5E1"/><rect x="272" y="150" width="150" height="220" rx="14" fill="#2EC4B6"/><circle cx="302" cy="190" r="9" fill="#FFFFFF"/><rect x="324" y="186" width="70" height="8" rx="5" fill="#FFFFFF"/><circle cx="302" cy="230" r="9" fill="#FFFFFF"/><rect x="324" y="226" width="70" height="8" rx="5" fill="#FFFFFF"/><path d="M240 220h32M240 300h32" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+</svg>

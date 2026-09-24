@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Installing Apache on Linux</title>
+  <desc id="description">A web server answering with a serving check.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="90" y="150" width="150" height="220" rx="14" fill="#FFFFFF"/><circle cx="120" cy="190" r="9" fill="#E84855"/><rect x="142" y="186" width="70" height="8" rx="5" fill="#E84855"/><circle cx="120" cy="230" r="9" fill="#E84855"/><rect x="142" y="226" width="70" height="8" rx="5" fill="#CBD5E1"/><circle cx="120" cy="270" r="9" fill="#E84855"/><rect x="142" y="266" width="70" height="8" rx="5" fill="#CBD5E1"/><path d="M240 260h60l30-50" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><circle cx="360" cy="210" r="40" fill="#E84855"/><path d="M348 210l8 8 16-18" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+</svg>

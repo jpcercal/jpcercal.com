@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Most threats target one phone</title>
+  <desc id="description">A shield guards a phone marked with a warning.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="296" y="140" width="140" height="220" rx="18" fill="#FFFFFF"/><rect x="316" y="316" width="100" height="10" rx="5" fill="#CBD5E1"/><rect x="316" y="334" width="70" height="10" rx="5" fill="#CBD5E1"/><path d="M176 120l96 34v74c0 66-40 110-96 132-56-22-96-66-96-132v-74z" fill="#E84855"/><path d="M176 200v56m0 26v4" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M262 250h34" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/>
+</svg>

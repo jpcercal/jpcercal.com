@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Backing up MySQL with mysqldump</title>
+  <desc id="description">A database pouring into a backup file.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <ellipse cx="180" cy="180" rx="70" ry="24" fill="#FFFFFF"/><path d="M110 180v80c0 14 32 24 70 24s70-10 70-24v-80" fill="none" stroke="#2EC4B6" stroke-width="12"/><path d="M180 290v60m0 0l-26-26m26 26l26-26" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><rect x="120" y="360" width="120" height="60" rx="12" fill="#FFFFFF"/><rect x="138" y="382" width="84" height="8" rx="5" fill="#2EC4B6"/>
+</svg>

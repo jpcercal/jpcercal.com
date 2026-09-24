@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Getting a page permalink</title>
+  <desc id="description">A chain link resolving to a page.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="80" y="200" width="170" height="120" rx="18" fill="#FFFFFF"/><path d="M120 260h90" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><rect x="262" y="200" width="170" height="120" rx="60" fill="#2EC4B6"/><path d="M302 260h90" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M250 220l30 40-30 40" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+</svg>

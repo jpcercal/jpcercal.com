@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Shoppers choose online stores</title>
+  <desc id="description">A shopping cart with a trust badge.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="270" y="150" width="170" height="150" rx="18" fill="#FFFFFF"/><rect x="292" y="180" width="110" height="10" rx="5" fill="#6FCF97"/><rect x="292" y="202" width="80" height="10" rx="5" fill="#CBD5E1"/><circle cx="322" cy="262" r="20" fill="#6FCF97"/><path d="M322 262l0 1" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><path d="M90 180h40l30 110h150l30-80H130" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><circle cx="160" cy="340" r="14" fill="#6FCF97"/><circle cx="290" cy="340" r="14" fill="#6FCF97"/>
+</svg>

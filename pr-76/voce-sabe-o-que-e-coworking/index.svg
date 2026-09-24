@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">What coworking means</title>
+  <desc id="description">Shared desks gathered under one roof.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="70" y="220" width="170" height="120" rx="18" fill="#FFFFFF"/><rect x="94" y="250" width="100" height="10" rx="5" fill="#2EC4B6"/><rect x="272" y="220" width="170" height="120" rx="18" fill="#FFFFFF"/><rect x="296" y="250" width="100" height="10" rx="5" fill="#2EC4B6"/><circle cx="160" cy="170" r="30" fill="#FFFFFF"/><circle cx="352" cy="170" r="30" fill="#2EC4B6"/><path d="M190 170h132" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+</svg>

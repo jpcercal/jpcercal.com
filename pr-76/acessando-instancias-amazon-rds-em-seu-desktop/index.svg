@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Database reached through a tunnel</title>
+  <desc id="description">A laptop connects through an SSH tunnel to a database cylinder.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="56" y="196" width="120" height="120" rx="18" fill="#FFFFFF"/><circle cx="116" cy="232" r="26" fill="#56CCF2"/><path d="M90 258h52M90 276h52M90 294h36" stroke="#8A94A6" stroke-width="8" stroke-linecap="round"/><path d="M176 256h60" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><rect x="236" y="196" width="220" height="120" rx="18" fill="#FFFFFF"/><ellipse cx="346" cy="232" rx="52" ry="18" fill="none" stroke="#1B2340" stroke-width="8"/><path d="M294 232v52c0 10 23 18 52 18s52-8 52-18v-52" fill="none" stroke="#56CCF2" stroke-width="8"/><rect x="300" y="282" width="92" height="10" rx="5" fill="#CBD5E1"/>
+</svg>

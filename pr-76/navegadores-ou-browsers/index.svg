@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">What browsers do</title>
+  <desc id="description">Browser windows rendering a shared page.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="120" y="150" width="272" height="200" rx="18" fill="#FFFFFF"/><rect x="150" y="185" width="120" height="10" rx="5" fill="#56CCF2"/><rect x="150" y="213" width="180" height="10" rx="5" fill="#CBD5E1"/><rect x="150" y="241" width="140" height="10" rx="5" fill="#CBD5E1"/><circle cx="330" cy="300" r="34" fill="#56CCF2"/><path d="M320 300l8 8 14-16" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+</svg>

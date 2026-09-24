@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">IE falls below half the market</title>
+  <desc id="description">A pie chart with a shrinking browser slice.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="220" cy="260" r="110" fill="#FFFFFF"/><path d="M220 260L220 150a110 110 0 0 1 95 55z" fill="#56CCF2"/><circle cx="220" cy="260" r="16" fill="#1B2340"/><rect x="330" y="180" width="120" height="150" rx="18" fill="#FFFFFF"/><rect x="348" y="210" width="84" height="10" rx="5" fill="#56CCF2"/><rect x="348" y="232" width="60" height="10" rx="5" fill="#CBD5E1"/><rect x="348" y="254" width="70" height="10" rx="5" fill="#CBD5E1"/>
+</svg>

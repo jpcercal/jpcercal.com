@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Swapping the SVN user</title>
+  <desc id="description">A user badge with a credentials refresh arrow.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <circle cx="200" cy="220" r="60" fill="#FFFFFF"/><path d="M110 380c10-52 48-80 90-80s80 28 90 80z" fill="#FFFFFF"/><path d="M300 340c30 0 50 20 50 46" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="368" cy="340" r="30" fill="#56CCF2"/><path d="M358 340h20M368 330v20" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+</svg>
