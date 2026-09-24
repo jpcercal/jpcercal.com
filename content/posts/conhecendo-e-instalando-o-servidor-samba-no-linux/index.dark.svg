@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Conhecendo e Instalando o servidor SAMBA no LINUX</title>
+  <desc id="description">A Samba server shares across a local network</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#172B30"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#20373C" stroke="#3C5960" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#3C5960" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#172B30"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#DBECE9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="11" width="74" height="78" rx="6"/><path d="M13 36h74M13 62h74"/><circle cx="28" cy="24" r="4"/><circle cx="28" cy="49" r="4"/><circle cx="28" cy="75" r="4"/></g>
+  <path d="M256 365v34" stroke="#63DDC4" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#63DDC4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#2C9D87"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#DBECE9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="15" r="10"/><circle cx="18" cy="72" r="10"/><circle cx="82" cy="72" r="10"/><path d="M45 25 23 62m32-37 22 37M28 72h44"/></g>
+  <circle cx="362" cy="397" r="8" fill="#EAB37F"/>
+  <path d="M382 397h36" stroke="#A3BFBD" stroke-width="9" stroke-linecap="round"/>
+</svg>

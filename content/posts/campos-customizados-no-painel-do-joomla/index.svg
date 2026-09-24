@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Custom Joomla fields</title>
-  <desc id="description">An admin panel with custom form fields.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="90" y="130" width="330" height="250" rx="18" fill="#FFFFFF"/><rect x="120" y="160" width="180" height="10" rx="5" fill="#2EC4B6"/><rect x="120" y="190" width="270" height="44" rx="10" fill="#F1F5F9"/><rect x="120" y="248" width="270" height="44" rx="10" fill="#F1F5F9"/><rect x="136" y="206" width="120" height="10" rx="5" fill="#CBD5E1"/><rect x="136" y="264" width="90" height="10" rx="5" fill="#CBD5E1"/><circle cx="380" cy="330" r="44" fill="#2EC4B6"/><path d="M368 330h24" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+  <title id="title">Campos Customizados no painel do Joomla</title>
+  <desc id="description">A custom field fitted into an administration panel</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="15" width="84" height="70" rx="6"/><path d="M8 32h84M35 32v53M16 23h4m10 0h4"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16h27c-3 14 13 20 19 9 2-3 2-6 1-9h25v28c-14-3-20 13-9 19 3 2 6 2 9 1v22H58c3-14-13-20-19-9-2 3-2 6-1 9H14V60c14 3 20-13 9-19-3-2-6-2-9-1z"/></g>
+  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

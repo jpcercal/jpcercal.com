@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Clearing the Composer cache</title>
-  <desc id="description">A terminal sweeping a corrupt cache away.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="70" y="150" width="372" height="220" rx="18" fill="#FFFFFF"/><rect x="70" y="150" width="372" height="52" rx="18" fill="#E84855"/><circle cx="104" cy="176" r="10" fill="#FFFFFF"/><circle cx="132" cy="176" r="10" fill="#FFFFFF"/><path d="M110 250l30 26-30 26" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M170 290h90" fill="none" stroke="#E84855" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M300 330h90" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="410" cy="330" r="20" fill="#E84855"/>
+  <title id="title">Composer clear cache</title>
+  <desc id="description">Clearing a damaged Composer cache</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="20" width="64" height="65" rx="6"/><path d="M18 37h64M42 20v65m13-47v15m-4 4h8"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="23" cy="76" r="13"/><circle cx="77" cy="76" r="13"/><path d="M31 67 83 18M69 67 17 18"/></g>
+  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

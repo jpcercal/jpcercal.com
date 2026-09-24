@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Case matters</title>
-  <desc id="description">Uppercase A and lowercase a kept apart.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <circle cx="170" cy="256" r="80" fill="#FFFFFF"/><circle cx="340" cy="256" r="80" fill="#FFC53D"/><path d="M132 296l38-84 38 84" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M146 272h48" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="340" cy="262" r="26" fill="none" stroke="#FFFFFF" stroke-width="11"/><path d="M366 232v64" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"/><path d="M250 140v-30m0 0l-16 16m16-16l16 16" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+  <title id="title">Case Sensitive</title>
+  <desc id="description">Letter case weighed as a meaningful difference</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="27" width="88" height="48" rx="5"/><path d="M15 39h7m9 0h7m9 0h7m9 0h7m9 0h7M15 51h7m9 0h7m9 0h7m9 0h7m9 0h7M25 63h50"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="342" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(357 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 12v72M22 28h56M14 86h72M22 28 9 60h26zm56 0L65 60h26z"/></g>
+  <circle cx="82" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M102 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

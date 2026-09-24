@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">A sharp laptop display</title>
-  <desc id="description">An open laptop with a vivid retina screen.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="106" y="150" width="300" height="190" rx="16" fill="#FFFFFF"/><rect x="126" y="170" width="260" height="130" rx="10" fill="#1B2340"/><rect x="86" y="340" width="340" height="22" rx="11" fill="#56CCF2"/><rect x="236" y="346" width="40" height="10" rx="5" fill="#1B2340"/><rect x="150" y="200" width="150" height="10" rx="5" fill="#56CCF2"/><rect x="150" y="226" width="110" height="10" rx="5" fill="#CBD5E1"/><circle cx="340" cy="262" r="20" fill="#56CCF2"/><path d="M426 250h30" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/>
+  <title id="title">Apple Macbook Pro 15&quot; com Tela Retina</title>
+  <desc id="description">A laptop display under a sharp eye</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="16" width="76" height="54" rx="5"/><path d="M4 76h92l-9 9H13z"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="342" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(357 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 50c24-33 62-33 86 0-24 33-62 33-86 0z"/><circle cx="50" cy="50" r="14"/></g>
+  <circle cx="82" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M102 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

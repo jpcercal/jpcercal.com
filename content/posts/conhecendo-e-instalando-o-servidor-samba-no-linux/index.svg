@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Linux and Windows sharing</title>
-  <desc id="description">Two servers exchanging files over a share.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="90" y="150" width="150" height="220" rx="14" fill="#FFFFFF"/><circle cx="120" cy="190" r="9" fill="#2EC4B6"/><rect x="142" y="186" width="70" height="8" rx="5" fill="#2EC4B6"/><circle cx="120" cy="230" r="9" fill="#2EC4B6"/><rect x="142" y="226" width="70" height="8" rx="5" fill="#CBD5E1"/><circle cx="120" cy="270" r="9" fill="#2EC4B6"/><rect x="142" y="266" width="70" height="8" rx="5" fill="#CBD5E1"/><rect x="272" y="150" width="150" height="220" rx="14" fill="#2EC4B6"/><circle cx="302" cy="190" r="9" fill="#FFFFFF"/><rect x="324" y="186" width="70" height="8" rx="5" fill="#FFFFFF"/><circle cx="302" cy="230" r="9" fill="#FFFFFF"/><rect x="324" y="226" width="70" height="8" rx="5" fill="#FFFFFF"/><path d="M240 220h32M240 300h32" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+  <title id="title">Conhecendo e Instalando o servidor SAMBA no LINUX</title>
+  <desc id="description">A Samba server shares across a local network</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="11" width="74" height="78" rx="6"/><path d="M13 36h74M13 62h74"/><circle cx="28" cy="24" r="4"/><circle cx="28" cy="49" r="4"/><circle cx="28" cy="75" r="4"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="15" r="10"/><circle cx="18" cy="72" r="10"/><circle cx="82" cy="72" r="10"/><path d="M45 25 23 62m32-37 22 37M28 72h44"/></g>
+  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>
