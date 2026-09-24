@@ -1,18 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">A typed decision routes a support request</title>
-  <desc id="description">A message feeds a three-choice decision; a clear route proceeds while an uncertain route waits for review.</desc>
-  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
-  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
-  <rect x="76" y="182" width="124" height="148" rx="20" fill="#E8F1EC" stroke="#17353B" stroke-width="8"/>
-  <path d="M102 218h70M102 246h58M102 274h40" stroke="#6B878A" stroke-width="10" stroke-linecap="round"/>
-  <path d="M200 256h44m-10-10 12 10-12 10" fill="none" stroke="#17353B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="252" y="130" width="100" height="252" rx="26" fill="#17353B"/>
-  <circle cx="302" cy="185" r="20" fill="#4ED5B7"/>
-  <circle cx="302" cy="256" r="20" fill="#E9A86C"/>
-  <circle cx="302" cy="327" r="20" fill="#8FA8A7"/>
-  <path d="M352 185h42v-30h28M352 327h42v30h28" fill="none" stroke="#17353B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="428" cy="155" r="22" fill="#4ED5B7"/>
-  <path d="m418 154 7 7 13-14" fill="none" stroke="#17353B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="428" cy="357" r="22" fill="#E9A86C"/>
-  <path d="M428 344v15m0 8v1" fill="none" stroke="#17353B" stroke-width="6" stroke-linecap="round"/>
+  <title id="title">When AI Decisions Become Software Inputs</title>
+  <desc id="description">A support message enters a bounded decision and review route</desc>
+  <circle cx="256" cy="256" r="248" fill="#9CD5FF"/>
+  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
+  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#253E65" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15h76v59H48L25 91V74H12zM27 38h46M27 53h31"/></g>
+  <circle cx="397" cy="130" r="87" fill="#FFB975" stroke="#9CD5FF" stroke-width="11"/>
+  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#253E65" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFFFFF" cx="21" cy="18" r="10"/><circle fill="#FFFFFF" cx="78" cy="18" r="10"/><circle fill="#FFFFFF" cx="50" cy="81" r="10"/><path d="M21 28v17c0 17 29 17 29 26m28-43v17c0 17-28 17-28 26"/></g>
 </svg>

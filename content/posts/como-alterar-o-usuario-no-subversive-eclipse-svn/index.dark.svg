@@ -1,15 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Como alterar o usuário no Subversive (Eclipse SVN)</title>
   <desc id="description">Changing the authenticated SVN user in an IDE</desc>
-  <rect x="12" y="12" width="488" height="488" rx="72" fill="#172B30"/>
-  <rect x="32" y="32" width="448" height="448" rx="54" fill="#20373C" stroke="#3C5960" stroke-width="4"/>
-  <path d="M256 48v30M256 434v30" stroke="#3C5960" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="256" cy="231" r="125" fill="#172B30"/>
-  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#DBECE9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="30" r="17"/><path d="M17 89c0-27 16-39 33-39s33 12 33 39z"/></g>
-  <path d="M256 365v34" stroke="#63DDC4" stroke-width="9" stroke-linecap="round"/>
-  <path d="m244 388 12 12 12-12" fill="none" stroke="#63DDC4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="58" y="337" width="110" height="110" rx="28" fill="#2C9D87"/>
-  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#DBECE9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="33" cy="39" r="20"/><path d="m48 54 35 34m-14-14 9-9m-1 17 8-8"/></g>
-  <circle cx="362" cy="397" r="8" fill="#EAB37F"/>
-  <path d="M382 397h36" stroke="#A3BFBD" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="248" fill="#163449"/>
+  <circle cx="246" cy="246" r="205" fill="#E3F6FA" opacity=".14"/>
+  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#EAF7FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#E3F6FA" cx="50" cy="30" r="17"/><path d="M17 89c0-27 16-39 33-39s33 12 33 39z"/></g>
+  <circle cx="397" cy="397" r="87" fill="#FFB091" stroke="#163449" stroke-width="11"/>
+  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#EAF7FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#E3F6FA" cx="33" cy="39" r="20"/><path d="m48 54 35 34m-14-14 9-9m-1 17 8-8"/></g>
 </svg>
