@@ -1,42 +1,7 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
-<g>
-	<g>
-		<path d="M506.231,75.508c-7.689-7.69-20.158-7.69-27.849,0l-319.21,319.211L33.617,269.163c-7.689-7.691-20.158-7.691-27.849,0
-			c-7.69,7.69-7.69,20.158,0,27.849l139.481,139.481c7.687,7.687,20.16,7.689,27.849,0l333.133-333.136
-			C513.921,95.666,513.921,83.198,506.231,75.508z"/>
-	</g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Validating forms with jQuery</title>
+  <desc id="description">A form stamped with a validation check.</desc>
+  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
+  <rect x="90" y="130" width="330" height="250" rx="18" fill="#FFFFFF"/><rect x="120" y="160" width="180" height="10" rx="5" fill="#6FCF97"/><rect x="120" y="190" width="270" height="44" rx="10" fill="#F1F5F9"/><rect x="120" y="248" width="270" height="44" rx="10" fill="#F1F5F9"/><rect x="136" y="206" width="120" height="10" rx="5" fill="#CBD5E1"/><rect x="136" y="264" width="90" height="10" rx="5" fill="#CBD5E1"/><circle cx="380" cy="330" r="44" fill="#6FCF97"/><path d="M362 330l12 12 24-26" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
 </svg>
