@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">The Cost of the Loop Matters More Than the Score</title>
-  <desc id="description">The time cost of an AI work loop outweighs a score</desc>
-  <circle cx="256" cy="256" r="248" fill="#B8A3F0"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#383362" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFFFFF" cx="50" cy="50" r="40"/><path d="M50 22v31l22 12"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FFCC7E" stroke="#B8A3F0" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#383362" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 86V15M12 86h78M24 67l20-19 17 9 24-31"/><circle fill="#FFFFFF" cx="85" cy="26" r="4"/></g>
+  <desc id="description">A centered coral sunburst based on the Claude Opus 5.5 reference image</desc>
+  <circle cx="256" cy="256" r="248" fill="#F8F9FA"/>
+  <path d="M256 110v292M110 256h292M130 329l252-146M183 382l146-252M183 130l146 252M130 183l252 146" fill="none" stroke="#C86548" stroke-width="20" stroke-linecap="square"/>
 </svg>
