@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Moving country, where to start</title>
-  <desc id="description">A suitcase tagged with a map pin and checklist.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="110" y="190" width="220" height="160" rx="20" fill="#FFFFFF"/><rect x="180" y="160" width="80" height="40" rx="12" fill="none" stroke="#FFC53D" stroke-width="12"/><rect x="204" y="190" width="32" height="160" fill="#CBD5E1"/><rect x="130" y="380" width="150" height="10" rx="5" fill="#FFC53D"/><path d="M390 230c-26 0-44 19-44 42 0 32 44 72 44 72s44-40 44-72c0-23-18-42-44-42z" fill="#FFC53D"/><circle cx="390" cy="274" r="14" fill="#FFFFFF"/>
+  <title id="title">Decidimos mudar de país, por onde começar?</title>
+  <desc id="description">Planning the first steps of an international move</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="39"/><path d="m63 37-8 20-20 8 8-20z"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="30" width="74" height="58" rx="7"/><path d="M34 30V17h32v13M13 54h74M43 52h14v10H43z"/></g>
+  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">iTerm2 plus Zplug productivity</title>
-  <desc id="description">A terminal with plugin tabs and prompt.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="70" y="150" width="372" height="220" rx="18" fill="#FFFFFF"/><rect x="70" y="150" width="372" height="52" rx="18" fill="#6FCF97"/><circle cx="104" cy="176" r="10" fill="#FFFFFF"/><circle cx="132" cy="176" r="10" fill="#FFFFFF"/><path d="M110 250l30 26-30 26" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M170 290h90" fill="none" stroke="#6FCF97" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  <title id="title">iTerm2 + Zplug = Productivity</title>
+  <desc id="description">Terminal productivity through a shell plugin</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="17" width="84" height="66" rx="7"/><path d="M9 33h82m-68 16 12 11-12 11m24 0h22"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16h27c-3 14 13 20 19 9 2-3 2-6 1-9h25v28c-14-3-20 13-9 19 3 2 6 2 9 1v22H58c3-14-13-20-19-9-2 3-2 6-1 9H14V60c14 3 20-13 9-19-3-2-6-2-9-1z"/></g>
+  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

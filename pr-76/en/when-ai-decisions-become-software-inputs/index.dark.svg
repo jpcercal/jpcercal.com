@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">A typed decision routes a support request</title>
+  <desc id="description">A message feeds a three-choice decision; a clear route proceeds while an uncertain route waits for review.</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#172B30"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#20373C" stroke="#3C5960" stroke-width="4"/>
+  <rect x="76" y="182" width="124" height="148" rx="20" fill="#172B30" stroke="#DBECE9" stroke-width="8"/>
+  <path d="M102 218h70M102 246h58M102 274h40" stroke="#A3BFBD" stroke-width="10" stroke-linecap="round"/>
+  <path d="M200 256h44m-10-10 12 10-12 10" fill="none" stroke="#DBECE9" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="252" y="130" width="100" height="252" rx="26" fill="#DBECE9"/>
+  <circle cx="302" cy="185" r="20" fill="#2C9D87"/>
+  <circle cx="302" cy="256" r="20" fill="#EAB37F"/>
+  <circle cx="302" cy="327" r="20" fill="#90AFAE"/>
+  <path d="M352 185h42v-30h28M352 327h42v30h28" fill="none" stroke="#DBECE9" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="428" cy="155" r="22" fill="#2C9D87"/>
+  <path d="m418 154 7 7 13-14" fill="none" stroke="#DBECE9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="428" cy="357" r="22" fill="#EAB37F"/>
+  <path d="M428 344v15m0 8v1" fill="none" stroke="#DBECE9" stroke-width="6" stroke-linecap="round"/>
+</svg>

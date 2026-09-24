@@ -1,7 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">A decision routed to action or review</title>
-  <desc id="description">A message enters a node then branches to action or review.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="60" y="210" width="110" height="90" rx="16" fill="#FFFFFF"/><rect x="78" y="240" width="74" height="8" rx="5" fill="#CBD5E1"/><rect x="78" y="258" width="54" height="8" rx="5" fill="#CBD5E1"/><path d="M170 255h46" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><path d="M216 190l60 65-60 65-60-65z" fill="#FFFFFF"/><circle cx="216" cy="255" r="22" fill="#6FCF97"/><circle cx="216" cy="255" r="8" fill="#FFFFFF"/><path d="M276 255h30l0-80h40" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"/><path d="M276 255h30l0 80h40" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"/><rect x="346" y="120" width="110" height="100" rx="18" fill="#FFFFFF"/><circle cx="372" cy="152" r="12" fill="#6FCF97"/><path d="M367 152l4 4 8-9" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/><rect x="392" y="180" width="44" height="8" rx="5" fill="#CBD5E1"/><rect x="346" y="290" width="110" height="100" rx="18" fill="#FFFFFF"/><circle cx="372" cy="322" r="12" fill="#FFC53D"/><path d="M372 316v9m0 4v1" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/><rect x="392" y="350" width="44" height="8" rx="5" fill="#CBD5E1"/>
+  <title id="title">A typed decision routes a support request</title>
+  <desc id="description">A message feeds a three-choice decision; a clear route proceeds while an uncertain route waits for review.</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <rect x="76" y="182" width="124" height="148" rx="20" fill="#E8F1EC" stroke="#17353B" stroke-width="8"/>
+  <path d="M102 218h70M102 246h58M102 274h40" stroke="#6B878A" stroke-width="10" stroke-linecap="round"/>
+  <path d="M200 256h44m-10-10 12 10-12 10" fill="none" stroke="#17353B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="252" y="130" width="100" height="252" rx="26" fill="#17353B"/>
+  <circle cx="302" cy="185" r="20" fill="#4ED5B7"/>
+  <circle cx="302" cy="256" r="20" fill="#E9A86C"/>
+  <circle cx="302" cy="327" r="20" fill="#8FA8A7"/>
+  <path d="M352 185h42v-30h28M352 327h42v30h28" fill="none" stroke="#17353B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="428" cy="155" r="22" fill="#4ED5B7"/>
+  <path d="m418 154 7 7 13-14" fill="none" stroke="#17353B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="428" cy="357" r="22" fill="#E9A86C"/>
+  <path d="M428 344v15m0 8v1" fill="none" stroke="#17353B" stroke-width="6" stroke-linecap="round"/>
 </svg>

@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Fixing CakePHP rewrites</title>
-  <desc id="description">A gear meshing with a rewrite arrow.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <circle cx="200" cy="256" r="80" fill="#FFFFFF"/><circle cx="200" cy="256" r="34" fill="#E84855"/><circle cx="200" cy="256" r="12" fill="#FFFFFF"/><circle cx="295" cy="256" r="20" fill="#E84855"/><circle cx="105" cy="351" r="20" fill="#E84855"/><circle cx="295" cy="256" r="20" fill="#E84855"/><circle cx="105" cy="161" r="20" fill="#E84855"/><circle cx="295" cy="256" r="20" fill="#E84855"/><circle cx="200" cy="351" r="20" fill="#E84855"/><circle cx="295" cy="256" r="20" fill="#E84855"/><circle cx="200" cy="161" r="20" fill="#E84855"/><path d="M300 256h40l20-44" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><rect x="330" y="160" width="120" height="110" rx="18" fill="#FFFFFF"/><rect x="348" y="190" width="84" height="10" rx="5" fill="#E84855"/><rect x="348" y="210" width="60" height="10" rx="5" fill="#CBD5E1"/>
+  <title id="title">CakePHP problema com mod_rewrite</title>
+  <desc id="description">A broken URL rewrite is repaired in server settings</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M39 34 50 23c14-14 36 7 22 22L61 56M39 66 28 77C14 91-8 70 6 55l11-11M30 69l40-40"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="342" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(357 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="27"/><circle cx="50" cy="50" r="9"/><path d="M50 8v13m0 58v13M8 50h13m58 0h13M20 20l10 10m40 40 10 10M80 20 70 30M30 70 20 80"/></g>
+  <circle cx="82" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M102 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

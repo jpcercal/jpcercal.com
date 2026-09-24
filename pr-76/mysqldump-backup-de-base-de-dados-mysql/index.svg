@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Backing up MySQL with mysqldump</title>
-  <desc id="description">A database pouring into a backup file.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <ellipse cx="180" cy="180" rx="70" ry="24" fill="#FFFFFF"/><path d="M110 180v80c0 14 32 24 70 24s70-10 70-24v-80" fill="none" stroke="#2EC4B6" stroke-width="12"/><path d="M180 290v60m0 0l-26-26m26 26l26-26" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><rect x="120" y="360" width="120" height="60" rx="12" fill="#FFFFFF"/><rect x="138" y="382" width="84" height="8" rx="5" fill="#2EC4B6"/>
+  <title id="title">MySQLDump - Backup de base de dados MySQL</title>
+  <desc id="description">A MySQL database becomes a portable backup</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="50" cy="22" rx="34" ry="12"/><path d="M16 22v54c0 16 68 16 68 0V22M16 48c0 16 68 16 68 0"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="342" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(357 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="20" width="64" height="65" rx="6"/><path d="M18 37h64M42 20v65m13-47v15m-4 4h8"/></g>
+  <circle cx="82" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M102 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

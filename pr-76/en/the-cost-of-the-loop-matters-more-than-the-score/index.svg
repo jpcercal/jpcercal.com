@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">A cheaper loop still passes</title>
-  <desc id="description">A circular path meets a checkpoint beside a cost bar.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <circle cx="220" cy="250" r="100" fill="none" stroke="#FFFFFF" stroke-width="18"/><path d="M220 150a100 100 0 0 1 87 50" fill="none" stroke="#FFC53D" stroke-width="18" stroke-linecap="round"/><path d="M295 180l18 24-28 5z" fill="#FFC53D"/><rect x="300" y="300" width="140" height="100" rx="18" fill="#FFFFFF"/><rect x="320" y="326" width="80" height="10" rx="5" fill="#FFC53D"/><rect x="320" y="348" width="60" height="10" rx="5" fill="#CBD5E1"/>
+  <title id="title">The Cost of the Loop Matters More Than the Score</title>
+  <desc id="description">The time cost of an AI work loop outweighs a score</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="40"/><path d="M50 22v31l22 12"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 86V15M12 86h78M24 67l20-19 17 9 24-31"/><circle cx="85" cy="26" r="4"/></g>
+  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>
