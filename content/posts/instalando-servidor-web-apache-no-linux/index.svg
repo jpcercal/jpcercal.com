@@ -1,7 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Installing Apache on Linux</title>
-  <desc id="description">A web server answering with a serving check.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="90" y="150" width="150" height="220" rx="14" fill="#FFFFFF"/><circle cx="120" cy="190" r="9" fill="#E84855"/><rect x="142" y="186" width="70" height="8" rx="5" fill="#E84855"/><circle cx="120" cy="230" r="9" fill="#E84855"/><rect x="142" y="226" width="70" height="8" rx="5" fill="#CBD5E1"/><circle cx="120" cy="270" r="9" fill="#E84855"/><rect x="142" y="266" width="70" height="8" rx="5" fill="#CBD5E1"/><path d="M240 260h60l30-50" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><circle cx="360" cy="210" r="40" fill="#E84855"/><path d="M348 210l8 8 16-18" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+  <title id="title">Installing Apache from source on Linux</title>
+  <desc id="description">A source archive descends into a terminal, then an arrow leads to a browser showing a working server.</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <rect x="80" y="100" width="130" height="110" rx="18" fill="#E8F1EC" stroke="#17353B" stroke-width="8"/>
+  <path d="M122 100v110M103 126h17m-17 24h17m-17 24h17" stroke="#6B878A" stroke-width="7"/>
+  <path d="m154 154 18 18 25-34" fill="none" stroke="#087F72" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M145 210v30m-11-10 11 12 11-12" fill="none" stroke="#17353B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="80" y="256" width="242" height="144" rx="20" fill="#17353B"/>
+  <path d="M82 290h238" stroke="#8FA8A7" stroke-width="5"/>
+  <circle cx="108" cy="274" r="6" fill="#E9A86C"/>
+  <circle cx="128" cy="274" r="6" fill="#4ED5B7"/>
+  <path d="m110 327 21 16-21 16m40 0h58" fill="none" stroke="#4ED5B7" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M322 328h34v-82h32m-10-11 12 11-12 11" fill="none" stroke="#17353B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="356" y="130" width="92" height="116" rx="16" fill="#E8F1EC" stroke="#17353B" stroke-width="8"/>
+  <path d="M358 164h88" stroke="#17353B" stroke-width="7"/>
+  <circle cx="375" cy="148" r="5" fill="#E9A86C"/>
+  <path d="m380 207 13 12 29-32" fill="none" stroke="#087F72" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

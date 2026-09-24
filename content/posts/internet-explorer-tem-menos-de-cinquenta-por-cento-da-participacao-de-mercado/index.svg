@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">IE falls below half the market</title>
-  <desc id="description">A pie chart with a shrinking browser slice.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <circle cx="220" cy="260" r="110" fill="#FFFFFF"/><path d="M220 260L220 150a110 110 0 0 1 95 55z" fill="#56CCF2"/><circle cx="220" cy="260" r="16" fill="#1B2340"/><rect x="330" y="180" width="120" height="150" rx="18" fill="#FFFFFF"/><rect x="348" y="210" width="84" height="10" rx="5" fill="#56CCF2"/><rect x="348" y="232" width="60" height="10" rx="5" fill="#CBD5E1"/><rect x="348" y="254" width="70" height="10" rx="5" fill="#CBD5E1"/>
+  <title id="title">Internet Explorer tem menos de 50% do mercado</title>
+  <desc id="description">A browser loses half of its market share</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="16" width="86" height="68" rx="7"/><path d="M8 32h84M19 24h2m9 0h2M24 48h52M24 62h37"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="342" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(357 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M46 8a41 41 0 1 0 46 46H46zM56 8v36h36A41 41 0 0 0 56 8z"/></g>
+  <circle cx="82" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M102 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

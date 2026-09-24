@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Installing Apache from source on Linux</title>
+  <desc id="description">A source archive descends into a terminal, then an arrow leads to a browser showing a working server.</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#172B30"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#20373C" stroke="#3C5960" stroke-width="4"/>
+  <rect x="80" y="100" width="130" height="110" rx="18" fill="#172B30" stroke="#DBECE9" stroke-width="8"/>
+  <path d="M122 100v110M103 126h17m-17 24h17m-17 24h17" stroke="#A3BFBD" stroke-width="7"/>
+  <path d="m154 154 18 18 25-34" fill="none" stroke="#63DDC4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M145 210v30m-11-10 11 12 11-12" fill="none" stroke="#DBECE9" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="80" y="256" width="242" height="144" rx="20" fill="#DBECE9"/>
+  <path d="M82 290h238" stroke="#90AFAE" stroke-width="5"/>
+  <circle cx="108" cy="274" r="6" fill="#EAB37F"/>
+  <circle cx="128" cy="274" r="6" fill="#2C9D87"/>
+  <path d="m110 327 21 16-21 16m40 0h58" fill="none" stroke="#2C9D87" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M322 328h34v-82h32m-10-11 12 11-12 11" fill="none" stroke="#DBECE9" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="356" y="130" width="92" height="116" rx="16" fill="#172B30" stroke="#DBECE9" stroke-width="8"/>
+  <path d="M358 164h88" stroke="#DBECE9" stroke-width="7"/>
+  <circle cx="375" cy="148" r="5" fill="#EAB37F"/>
+  <path d="m380 207 13 12 29-32" fill="none" stroke="#63DDC4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

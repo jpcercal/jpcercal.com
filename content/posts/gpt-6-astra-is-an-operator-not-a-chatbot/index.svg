@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">A computer task held at a gate</title>
-  <desc id="description">A screen connects to a gate; the path stops at the gate.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="60" y="170" width="140" height="110" rx="16" fill="#FFFFFF"/><rect x="78" y="188" width="104" height="56" rx="8" fill="#1B2340"/><rect x="92" y="202" width="62" height="8" rx="5" fill="#FFC53D"/><rect x="92" y="220" width="44" height="8" rx="5" fill="#56CCF2"/><path d="M200 225h60" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><rect x="260" y="140" width="28" height="180" rx="8" fill="#FFFFFF"/><rect x="296" y="200" width="130" height="70" rx="12" fill="#FFFFFF"/><circle cx="322" cy="235" r="12" fill="#FFC53D"/><rect x="344" y="228" width="60" height="8" rx="5" fill="#CBD5E1"/>
+  <title id="title">GPT-6 Astra Is an Operator, Not a Chatbot</title>
+  <desc id="description">An AI operator takes action inside software</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10v70l18-20 13 29 15-7-13-28 27-4z"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="27"/><circle cx="50" cy="50" r="9"/><path d="M50 8v13m0 58v13M8 50h13m58 0h13M20 20l10 10m40 40 10 10M80 20 70 30M30 70 20 80"/></g>
+  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

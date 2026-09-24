@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Installing PHPUnit on OSX</title>
-  <desc id="description">A terminal reporting a passing test check.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <rect x="70" y="150" width="372" height="220" rx="18" fill="#FFFFFF"/><rect x="70" y="150" width="372" height="52" rx="18" fill="#6FCF97"/><circle cx="104" cy="176" r="10" fill="#FFFFFF"/><circle cx="132" cy="176" r="10" fill="#FFFFFF"/><path d="M110 250l30 26-30 26" fill="none" stroke="#1B2340" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><path d="M170 290h90" fill="none" stroke="#6FCF97" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="380" cy="320" r="44" fill="#6FCF97"/><path d="M362 320l12 12 24-26" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+  <title id="title">Instalando PHPUnit no OSX 10.8 Mountain Lion</title>
+  <desc id="description">A PHP test runner installed on a Mac</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M37 10h26m-20 0v34L17 82c-5 7 1 11 9 11h48c8 0 14-4 9-11L57 44V10M30 69h40"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="16" width="76" height="54" rx="5"/><path d="M4 76h92l-9 9H13z"/></g>
+  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>

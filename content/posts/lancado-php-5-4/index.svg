@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">PHP 5.4 launches</title>
-  <desc id="description">A rocket carrying the new release.</desc>
-  <circle cx="256" cy="256" r="245" fill="#1B2340"/>
-  <path d="M256 110c44 30 60 84 44 140l-44 44-44-44c-16-56 0-110 44-140z" fill="#FFFFFF"/><circle cx="256" cy="200" r="26" fill="#FFC53D"/><path d="M212 250l-40 70 50-20zM300 250l40 70-50-20z" fill="#FFC53D"/><path d="M256 294v60" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/><circle cx="170" cy="360" r="20" fill="#FFC53D"/><circle cx="342" cy="360" r="20" fill="#FFC53D"/>
+  <title id="title">Lançamento do PHP 5.4</title>
+  <desc id="description">A newly released PHP version brings features</desc>
+  <rect x="12" y="12" width="488" height="488" rx="72" fill="#E8F1EC"/>
+  <rect x="32" y="32" width="448" height="448" rx="54" fill="#FFFFFF" stroke="#CADCD6" stroke-width="4"/>
+  <path d="M256 48v30M256 434v30" stroke="#CADCD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="231" r="125" fill="#E8F1EC"/>
+  <g transform="translate(156 131) scale(2.00)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 25 10 50l22 25m36-50 22 25-22 25M60 17 41 83"/></g>
+  <path d="M256 365v34" stroke="#087F72" stroke-width="9" stroke-linecap="round"/>
+  <path d="m244 388 12 12 12-12" fill="none" stroke="#087F72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="337" width="110" height="110" rx="28" fill="#4ED5B7"/>
+  <g transform="translate(73 352) scale(0.80)" fill="none" stroke="#17353B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 6 59 40 94 50 59 60 50 94 41 60 6 50 41 40z"/></g>
+  <circle cx="362" cy="397" r="8" fill="#E9A86C"/>
+  <path d="M382 397h36" stroke="#6B878A" stroke-width="9" stroke-linecap="round"/>
 </svg>
