@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Windows for PHPUnit</title>
-  <desc id="description">The four pane Windows mark representing the operating system in the PHPUnit installation guide.</desc>
+  <title id="title">Windows desktop monitor</title>
+  <desc id="description">A desktop monitor containing the four-pane Windows logo, representing the Windows PHPUnit installation guide.</desc>
   <circle cx="256" cy="256" r="248" fill="#242424"/>
-  <path d="M142 142q41-10 89 4l-15 105q-44-13-94-3Zm122 11q54 17 126 1l-26 104q-62 16-124-1ZM118 278q49-13 94 0l-15 103q-49-14-101-1Zm119 6q62 18 122 3l-25 101q-61 16-112-4Z" fill="#e6eef5"/>
+  <rect x="78" y="93" width="356" height="276" rx="37" fill="#e6eef5"/><rect x="109" y="124" width="294" height="190" rx="10" fill="#242424"/><circle cx="396" cy="342" r="10" fill="#242424"/><path d="M220 368v30h72v-30M171 421h170" fill="none" stroke="#e6eef5" stroke-width="27" stroke-linecap="round" stroke-linejoin="round"/><path d="M191 180q25-10 55 0l-10 50q-25-9-60 0Zm72 3q31 11 66 0l-11 52q-34 10-68-1Zm-90 65q35-10 60 0l-10 49q-29-9-61 0Zm74 3q34 10 68 0l-10 48q-34 11-69-1Z" fill="#e6eef5"/>
 </svg>
