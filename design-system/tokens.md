@@ -15,7 +15,6 @@ sitemap:
 | `$colorRed` | `#D9534F` | error notifications |
 | `$syntax-bg` | `#282c34` | code block background (One Dark) |
 | `$syntax-edge` | `#191f2b` | code block border |
-| icon credits | `#ddd` | footer credit line |
 
 Derived grays come from `color.adjust($fontColor, …)` in `assets/scss/`
 (e.g. author meta at 50% lightness, locale switcher borders at 60%).
@@ -52,24 +51,19 @@ fallback; print always renders light.
 
 Post covers are standalone SVG assets, so their colors are set in each file
 rather than read from CSS variables. Keep the light `index.svg` and dark
-`index.dark.svg` shapes identical. For the GPT-6 Astra cover, the light
-circle uses `#f8f9fa` (the site's light code surface), and the dark circle
-uses `#242424` (`--color-surface` in dark mode). The green emblem uses
-`#1c9b7d` on light and the brighter `#47cbaa` on dark. This keeps the
-reference logo's green identity legible against the site's white and
+`index.dark.svg` shapes identical. The light circle uses `#f8f9fa` (the
+site's light code surface), and the dark circle uses `#242424`
+(`--color-surface` in dark mode). Adapt the icon colors to each surface while
+keeping the reference recognizable and legible against the site's white and
 near-black reading canvases.
 
 For a supplied PNG reference, use [PNGToSVG](https://github.com/mayuso/PNGToSVG)
-to make a vector starting point (`cargo install pngtosvg --version 0.6.2
---locked`, then `pngtosvg image.png`). Inspect its SVG at 512 px and the
-card's 60 px size. Isolate the useful subject, remove unwanted whitespace
-and text, and simplify traced pixel edges before putting it into the cover
-pair. The Astra reference PNG produced a 179 KB SVG with 32 layered paths;
-its raw trace had visibly stepped edges at 512 px. For this brand mark,
-the finished cover uses the clean
-[OpenAI symbol vector](https://commons.wikimedia.org/wiki/File:OpenAI_logo_2025_(symbol).svg)
-after checking its shape against the PNGToSVG result. Use the converted
-paths directly when they render cleanly, and refine them when they do not.
+to make a vector starting point (`pngtosvg image.png`). `pngtosvg` is expected
+to be installed on the system. If it is unavailable, tell the user how to
+install it with `cargo install pngtosvg --version 0.6.2 --locked`; never
+install it yourself. Inspect its SVG at 512 px and the card's 60 px size.
+Isolate the useful subject, remove unwanted whitespace and text, and simplify
+traced pixel edges before putting it into the cover pair.
 
 ## Typography
 
