@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">WordPress Hack: Como obter o conteúdo de um Post pelo ID</title>
-  <desc id="description">Looking up a post by its ID</desc>
-  <circle cx="256" cy="256" r="248" fill="#FFD276"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8h42l17 17v67H22zM64 8v17h17M34 44h33M34 58h33M34 72h23"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FC8190" stroke="#FFD276" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFFFFF" cx="33" cy="39" r="20"/><path d="m48 54 35 34m-14-14 9-9m-1 17 8-8"/></g>
+  <title id="title">WordPress post content</title>
+  <desc id="description">The WordPress W from the reference marks post content retrieval.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#a51430" stroke-width="15"/><path d="M129 195h246m-193 0 60 190m88-190-63 190m-73-190 73 190m40-190 38 132" fill="none" stroke="#a51430" stroke-width="18" stroke-linejoin="round"/><circle cx="252" cy="151" r="9" fill="#a51430"/>
 </svg>

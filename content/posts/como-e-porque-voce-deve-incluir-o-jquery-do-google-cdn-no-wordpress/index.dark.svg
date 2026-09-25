@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Como e Porque você deve incluir o jQuery do Google CDN no WP</title>
-  <desc id="description">A JavaScript library served from a CDN</desc>
-  <circle cx="256" cy="256" r="248" fill="#422D40"/>
-  <circle cx="246" cy="246" r="205" fill="#FFE8E3" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 76h56a16 16 0 0 0 1-32 26 26 0 0 0-49-11A22 22 0 0 0 23 76z"/></g>
-  <circle cx="397" cy="130" r="87" fill="#A2E8EF" stroke="#422D40" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 25 10 50l22 25m36-50 22 25-22 25M60 17 41 83"/></g>
+  <title id="title">WordPress via Google CDN</title>
+  <desc id="description">A WordPress W from the supplied logo denotes the site loading jQuery from a CDN.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <rect x="97" y="97" width="318" height="318" rx="74" fill="#6acfff"/><circle cx="256" cy="256" r="119" fill="none" stroke="#111d30" stroke-width="11"/><path d="M156 199h200m-169 0 49 145m89-145-50 145m-74-145 73 145m28-145 32 105" fill="none" stroke="#111d30" stroke-width="15" stroke-linejoin="round"/>
 </svg>

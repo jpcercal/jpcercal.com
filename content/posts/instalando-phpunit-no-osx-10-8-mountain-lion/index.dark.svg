@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Instalando PHPUnit no OSX 10.8 Mountain Lion</title>
-  <desc id="description">A PHP test runner installed on a Mac</desc>
-  <circle cx="256" cy="256" r="248" fill="#422D40"/>
-  <circle cx="246" cy="246" r="205" fill="#FFE8E3" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M37 10h26m-20 0v34L17 82c-5 7 1 11 9 11h48c8 0 14-4 9-11L57 44V10M30 69h40"/></g>
-  <circle cx="397" cy="130" r="87" fill="#A2E8EF" stroke="#422D40" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#FFE8E3" x="12" y="16" width="76" height="54" rx="5"/><path d="M4 76h92l-9 9H13z"/></g>
+  <title id="title">macOS Finder</title>
+  <desc id="description">The two-tone Finder face from the reference marks PHPUnit installation on Mac.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <rect x="108" y="112" width="296" height="288" rx="34" fill="#68bbff"/><path d="M250 112h120c19 0 34 15 34 34v220c0 19-15 34-34 34H250Z" fill="#242424"/><path d="M256 114c-17 72-28 137-17 179" fill="none" stroke="#17314a" stroke-width="12"/><path d="M178 210v28m154-28v28" stroke="#17314a" stroke-width="13" stroke-linecap="round"/><path d="M181 306c39 43 112 47 156-1" fill="none" stroke="#17314a" stroke-width="13" stroke-linecap="round"/>
 </svg>

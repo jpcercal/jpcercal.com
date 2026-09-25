@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Como alterar o usuário no Subversive (Eclipse SVN)</title>
-  <desc id="description">Changing the authenticated SVN user in an IDE</desc>
-  <circle cx="256" cy="256" r="248" fill="#163449"/>
-  <circle cx="246" cy="246" r="205" fill="#E3F6FA" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#EAF7FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#E3F6FA" cx="50" cy="30" r="17"/><path d="M17 89c0-27 16-39 33-39s33 12 33 39z"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FFB091" stroke="#163449" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#EAF7FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#E3F6FA" cx="33" cy="39" r="20"/><path d="m48 54 35 34m-14-14 9-9m-1 17 8-8"/></g>
+  <title id="title">Subversion user change</title>
+  <desc id="description">Angular blue Subversion stripes follow the supplied SVN logo.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M102 170h307v62H102Zm0 111h307v62H102Z" fill="#9cc3ff"/><path d="M144 232c89-69 171-41 220-102M144 343c89-68 171-41 220-102" fill="none" stroke="#242424" stroke-width="30" stroke-linecap="round"/>
 </svg>

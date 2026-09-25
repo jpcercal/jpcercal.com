@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Como era programar em 1985</title>
-  <desc id="description">Program code written on paper in 1985</desc>
-  <circle cx="256" cy="256" r="248" fill="#223550"/>
-  <circle cx="246" cy="246" r="205" fill="#E3F2FF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#EAF6FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h65v84H17zM29 28h41M29 43h41M29 58h41M29 73h27"/></g>
-  <circle cx="397" cy="130" r="87" fill="#FFD09A" stroke="#223550" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#EAF6FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 79 5-21 48-48 16 16-48 48zM22 58l16 16M12 88h76"/></g>
+  <title id="title">C programming in 1985</title>
+  <desc id="description">The C language letter from the reference recalls writing code in 1985.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M256 88 390 166v180L256 424 122 346V166Z" fill="#75baff"/><path d="M321 212a82 82 0 1 0 0 88l-35-21a42 42 0 1 1 0-46Z" fill="#242424"/>
 </svg>

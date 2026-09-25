@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Instalação e Configuração Conio2.h</title>
-  <desc id="description">A console library added to a development setup</desc>
-  <circle cx="256" cy="256" r="248" fill="#61DAB8"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#153E3A" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#FFFFFF" x="8" y="17" width="84" height="66" rx="7"/><path d="M9 33h82m-68 16 12 11-12 11m24 0h22"/></g>
-  <circle cx="397" cy="130" r="87" fill="#FFC56E" stroke="#61DAB8" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#153E3A" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#FFFFFF" x="6" y="27" width="88" height="48" rx="5"/><path d="M15 39h7m9 0h7m9 0h7m9 0h7m9 0h7M15 51h7m9 0h7m9 0h7m9 0h7m9 0h7M25 63h50"/></g>
+  <desc id="description">Realize a instalação do pacote Conio2.h para o IDE Dev-C++. Este pacote adiciona funcionalidades para o desenvolvimento de aplicativos escritos em C/C++.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <rect x="98" y="171" width="316" height="170" rx="17" fill="#bb4e41"/>
+<path d="M177 216c-24-14-57 0-57 40s33 54 57 40M212 299v-85h39c47 0 47 60 0 60h-39M297 299v-85h39c47 0 47 60 0 60h-39" fill="none" stroke="#ffffff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M195 325h18m-9-9v18m91-9h18m-9-9v18" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
 </svg>

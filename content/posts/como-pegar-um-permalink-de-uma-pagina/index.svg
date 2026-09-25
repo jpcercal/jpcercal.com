@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Como pegar um Permalink de uma Página</title>
-  <desc id="description">Extracting a permanent link from a page</desc>
-  <circle cx="256" cy="256" r="248" fill="#62CDF3"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#163A58" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M39 34 50 23c14-14 36 7 22 22L61 56M39 66 28 77C14 91-8 70 6 55l11-11M30 69l40-40"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FF9874" stroke="#62CDF3" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#163A58" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8h42l17 17v67H22zM64 8v17h17M34 44h33M34 58h33M34 72h23"/></g>
+  <desc id="description">Aprenda como obter um permalink de uma página no Wordpress, cujo post_type é "page". Combinando as funções get_permalink() e get_page_by_path().</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g fill="none" stroke="#22a9ae" stroke-width="39" stroke-linecap="round"><path d="M252 197 209 154c-30-30-77-30-107 0s-30 77 0 107l73 73c30 30 77 30 107 0l30-30"/><path d="m260 315 43 43c30 30 77 30 107 0s30-77 0-107l-73-73c-30-30-77-30-107 0l-30 30"/></g>
+<path d="m188 320 136-136" stroke="#172c3d" stroke-width="20" stroke-linecap="round"/>
+<path d="M371 116v30m-15-15h30M402 164v19m-10-10h19" stroke="#ae4f00" stroke-width="12" stroke-linecap="round"/>
 </svg>

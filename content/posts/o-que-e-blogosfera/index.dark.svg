@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">O que é Blogosfera?</title>
-  <desc id="description">Blogs linked in a conversational network</desc>
-  <circle cx="256" cy="256" r="248" fill="#223550"/>
-  <circle cx="246" cy="246" r="205" fill="#E3F2FF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#EAF6FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15h76v59H48L25 91V74H12zM27 38h46M27 53h31"/></g>
-  <circle cx="397" cy="130" r="87" fill="#FFD09A" stroke="#223550" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#EAF6FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#E3F2FF" cx="50" cy="15" r="10"/><circle fill="#E3F2FF" cx="18" cy="72" r="10"/><circle fill="#E3F2FF" cx="82" cy="72" r="10"/><path d="M45 25 23 62m32-37 22 37M28 72h44"/></g>
+  <desc id="description">Talvez você já tenha ouvido falar no termo "Blogosfera", mas seu real significado ainda pode não estar claro para você. Descubra o que significa este termo.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M154 153h204c26 0 40 15 40 40v127c0 25-14 40-40 40H239l-81 52v-52h-4c-26 0-40-15-40-40V193c0-25 14-40 40-40z" fill="none" stroke="#ffad66" stroke-width="23" stroke-linejoin="round"/>
+<path d="M169 253h175m-175 49h133" stroke="#eaf5f8" stroke-width="19" stroke-linecap="round"/>
+<path d="m321 144 34-34 47 46-34 34z" fill="#ffad66" stroke="#eaf5f8" stroke-width="8"/><path d="m321 144-11 52 58-6" fill="#ffad66" stroke="#eaf5f8" stroke-width="8"/>
 </svg>

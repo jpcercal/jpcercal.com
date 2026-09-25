@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">WordPress Dica: Como verificar se um plugin está ativo?</title>
-  <desc id="description">Inspecting whether a WordPress plugin is active</desc>
-  <circle cx="256" cy="256" r="248" fill="#62CDF3"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#163A58" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16h27c-3 14 13 20 19 9 2-3 2-6 1-9h25v28c-14-3-20 13-9 19 3 2 6 2 9 1v22H58c3-14-13-20-19-9-2 3-2 6-1 9H14V60c14 3 20-13 9-19-3-2-6-2-9-1z"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FF9874" stroke="#62CDF3" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#163A58" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 50c24-33 62-33 86 0-24 33-62 33-86 0z"/><circle fill="#FFFFFF" cx="50" cy="50" r="14"/></g>
+  <title id="title">Active WordPress plugin</title>
+  <desc id="description">A plug-shaped block follows the supplied plugin icon.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <rect x="111" y="110" width="290" height="292" rx="30" fill="none" stroke="#474747" stroke-width="13"/><path d="M190 222h45v-33c0-21 31-21 31 0v33h45v-33c0-21 31-21 31 0v33h25v100H145V222Z" fill="#474747"/><path d="M189 354h133" stroke="#474747" stroke-width="14" stroke-linecap="round"/>
 </svg>

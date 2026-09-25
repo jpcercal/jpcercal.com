@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Otimização dos Mecanismos de Busca (SEO)</title>
-  <desc id="description">Search optimization lifts a page in rankings</desc>
-  <circle cx="256" cy="256" r="248" fill="#422D40"/>
-  <circle cx="246" cy="246" r="205" fill="#FFE8E3" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFE8E3" cx="42" cy="41" r="28"/><path d="m63 62 27 27"/></g>
-  <circle cx="397" cy="130" r="87" fill="#A2E8EF" stroke="#422D40" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 84V18m-21 22 21-22 21 22M17 85h66"/></g>
+  <desc id="description">SEO é o conjunto de técnicas que visam potencializar e melhorar o posicionamento de um site nos sites de resultados da busca orgânica, como o Google.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M115 217c29-33 91-18 84 27-5 36-77 10-75 45 2 28 49 39 78 14" fill="none" stroke="#69b9fa" stroke-width="25" stroke-linecap="round"/>
+<path d="M248 207h-50v99h50m-50-49h42" fill="none" stroke="#ffca50" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="313" cy="254" r="48" fill="none" stroke="#56d99b" stroke-width="24"/>
+<path d="m348 288 39 38" stroke="#eaf5f8" stroke-width="24" stroke-linecap="round"/>
+<path d="m303 246 23 18 46-53" fill="none" stroke="#ff8070" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
