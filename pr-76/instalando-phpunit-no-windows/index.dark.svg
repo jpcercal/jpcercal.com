@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Windows desktop monitor</title>
-  <desc id="description">A desktop monitor containing the four-pane Windows logo, representing the Windows PHPUnit installation guide.</desc>
+  <title id="title">Old PC for PHPUnit on Windows</title>
+  <desc id="description">A boxy desktop computer with a dark monitor, drive slot, and red power button, based on the supplied old PC icon.</desc>
   <circle cx="256" cy="256" r="248" fill="#242424"/>
-  <rect x="78" y="93" width="356" height="276" rx="37" fill="#e6eef5"/><rect x="109" y="124" width="294" height="190" rx="10" fill="#242424"/><circle cx="396" cy="342" r="10" fill="#242424"/><path d="M220 368v30h72v-30M171 421h170" fill="none" stroke="#e6eef5" stroke-width="27" stroke-linecap="round" stroke-linejoin="round"/><path d="M191 180q25-10 55 0l-10 50q-25-9-60 0Zm72 3q31 11 66 0l-11 52q-34 10-68-1Zm-90 65q35-10 60 0l-10 49q-29-9-61 0Zm74 3q34 10 68 0l-10 48q-34 11-69-1Z" fill="#e6eef5"/>
+  <rect x="90" y="85" width="332" height="220" rx="7" fill="#bfc9cf" stroke="#e6eef5" stroke-width="14"/>
+  <rect x="118" y="111" width="276" height="153" fill="#30424d"/>
+  <path d="M216 306v22h80v-22m-102 22h124" fill="none" stroke="#e6eef5" stroke-width="14" stroke-linejoin="round"/>
+  <rect x="70" y="339" width="372" height="91" rx="7" fill="#bfc9cf" stroke="#e6eef5" stroke-width="14"/>
+  <rect x="104" y="363" width="122" height="21" fill="#30424d"/>
+  <circle cx="394" cy="384" r="18" fill="#ff6969"/>
 </svg>
