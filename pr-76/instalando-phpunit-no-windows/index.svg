@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Instalando PHPUnit no Windows</title>
-  <desc id="description">Desenvolvimento orientado a testes (TDD) com PHP. Aprenda a realizar a instalação do PHPUnit no sistema operacional da Microsoft, o Windows Seven.</desc>
+  <desc id="description">Software testing puzzle and checkmark for installing PHPUnit on Windows</desc>
   <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
-  <path d="M165 152h92c1 0 3 0 4 1 12-25 47-15 47 13s-35 38-47 13h-27v56h-54v-17c-24-12-44 1-44 22s20 34 44 22v-13h54v78h-69c-13-25-48-15-48 13s35 38 48 13h70v-27h42c8 27 46 25 46-6s-38-33-46-6h-42v-82h-69v-66z" fill="#7779dc" stroke="#172c3d" stroke-width="8" stroke-linejoin="round"/>
+<path d="M165 152h92c1 0 3 0 4 1 12-25 47-15 47 13s-35 38-47 13h-27v56h-54v-17c-24-12-44 1-44 22s20 34 44 22v-13h54v78h-69c-13-25-48-15-48 13s35 38 48 13h70v-27h42c8 27 46 25 46-6s-38-33-46-6h-42v-82h-69v-66z" fill="#6366d6" stroke="#27323a" stroke-width="8" stroke-linejoin="round"/>
 <path d="m290 273 23 23 45-50" fill="none" stroke="#ffffff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
