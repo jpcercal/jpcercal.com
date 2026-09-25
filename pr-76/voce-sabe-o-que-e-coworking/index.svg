@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Você sabe o que é Coworking?</title>
-  <desc id="description">Independent workers share an office</desc>
-  <circle cx="256" cy="256" r="248" fill="#FFD276"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFFFFF" cx="35" cy="31" r="13"/><circle fill="#FFFFFF" cx="69" cy="35" r="11"/><path d="M8 86c0-25 11-38 27-38s27 13 27 38zm56 0h28c0-20-7-32-20-35"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FC8190" stroke="#FFD276" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 47 50 13l42 34M17 41v47h66V41M40 88V59h20v29"/></g>
+  <title id="title">Coworking at a desk</title>
+  <desc id="description">A person working beside a laptop, based on the supplied coworking icon.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <circle cx="185" cy="161" r="38" fill="#151515"/><path d="M166 215h44c22 0 40 18 40 40v77h-50v-62h-15v62h-47v-87c0-17 11-30 28-30Z" fill="#151515"/><path d="M192 255l55 43h76" fill="none" stroke="#151515" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/><path d="M271 221h121l-22 100H286Z" fill="#151515"/><path d="M242 331h165" fill="none" stroke="#151515" stroke-width="18" stroke-linecap="round"/>
 </svg>

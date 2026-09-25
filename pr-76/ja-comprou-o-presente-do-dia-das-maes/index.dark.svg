@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Já comprou o Presente do dia das Mães?</title>
-  <desc id="description">Checking online gift shopping for malicious links</desc>
-  <circle cx="256" cy="256" r="248" fill="#2D2C50"/>
-  <circle cx="246" cy="246" r="205" fill="#EEE8FF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#F6F0FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#EEE8FF" x="14" y="34" width="72" height="54"/><path d="M10 32h80v15H10zM50 32v56M50 32c-12-28-32-24-32-11 0 9 19 11 32 11zm0 0c12-28 32-24 32-11 0 9-19 11-32 11z"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FFE0A7" stroke="#2D2C50" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#F6F0FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 7 84 20v26c0 23-17 39-34 48C33 85 16 69 16 46V20z"/><path d="m35 50 11 11 23-26"/></g>
+  <title id="title">Mother’s Day gift</title>
+  <desc id="description">A wrapped present follows the supplied gift icon.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M150 246h212v146H150Z" fill="#ff6571"/><rect x="132" y="218" width="248" height="50" rx="9" fill="#242424"/><path d="M242 220h28v172h-28Z" fill="#242424"/><path d="M256 216c-68-9-105-35-83-76 21-42 78-8 83 76Zm0 0c68-9 105-35 83-76-21-42-78-8-83 76Z" fill="none" stroke="#ff6571" stroke-width="20"/>
 </svg>

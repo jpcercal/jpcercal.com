@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">jQuery a diferença entre bind, live, delegate, on</title>
-  <desc id="description">Browser events attach and propagate among elements</desc>
-  <circle cx="256" cy="256" r="248" fill="#422D40"/>
-  <circle cx="246" cy="246" r="205" fill="#FFE8E3" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10v70l18-20 13 29 15-7-13-28 27-4z"/></g>
-  <circle cx="397" cy="130" r="87" fill="#A2E8EF" stroke="#422D40" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#FFF0E9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFE8E3" cx="50" cy="15" r="10"/><circle fill="#FFE8E3" cx="18" cy="72" r="10"/><circle fill="#FFE8E3" cx="82" cy="72" r="10"/><path d="M45 25 23 62m32-37 22 37M28 72h44"/></g>
+  <desc id="description">"A biblioteca jQuery permite registrar eventos utilizando os seguintes métodos: bind, live, delegate, on. Conheça a diferença entre eles."</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <rect x="118" y="118" width="276" height="276" rx="24" fill="#d8a521"/>
+<path d="M250 185v119c0 48-52 57-83 26M285 319c21 19 61 23 69-4 10-32-61-29-60-66 0-35 45-42 70-23" fill="none" stroke="#eaf5f8" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="182" cy="347" r="9" fill="#eaf5f8"/><circle cx="359" cy="351" r="9" fill="#eaf5f8"/>
 </svg>

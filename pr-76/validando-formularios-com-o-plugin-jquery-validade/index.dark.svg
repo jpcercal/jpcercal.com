@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Validando formulários com o plugin jQuery Validade</title>
-  <desc id="description">Validation checks form input</desc>
-  <circle cx="256" cy="256" r="248" fill="#2D2C50"/>
-  <circle cx="246" cy="246" r="205" fill="#EEE8FF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#F6F0FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#EEE8FF" x="17" y="10" width="66" height="82" rx="5"/><path d="m28 34 5 5 9-10m9 5h20m-43 23 5 5 9-10m9 5h20m-43 23 5 5 9-10m9 5h20"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FFE0A7" stroke="#2D2C50" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#F6F0FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#EEE8FF" x="6" y="27" width="88" height="48" rx="5"/><path d="M15 39h7m9 0h7m9 0h7m9 0h7m9 0h7M15 51h7m9 0h7m9 0h7m9 0h7m9 0h7M25 63h50"/></g>
+  <desc id="description">Aprenda a realizar a validação de formulários utilizando um excelente plugin, conheça o  jQuery Validade desenvolvido pela equipe http://bassistance.de.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M169 134c-43 47-43 93-3 119 44 28 77 9 99-12M211 140c-31 33-32 65-5 83 27 19 58 11 76-5M250 145c-17 19-18 38-3 50 14 12 34 9 48-3" fill="none" stroke="#68c4f4" stroke-width="17" stroke-linecap="round"/>
+<rect x="129" y="281" width="249" height="90" rx="13" fill="none" stroke="#eaf5f8" stroke-width="17"/>
+<path d="m165 321 30 29 53-54" fill="none" stroke="#56d99b" stroke-width="21" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M278 325h62" stroke="#eaf5f8" stroke-width="15" stroke-linecap="round"/>
 </svg>

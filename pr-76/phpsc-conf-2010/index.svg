@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">PHPSC Conf 2010</title>
-  <desc id="description">A PHP community gathers for a conference</desc>
-  <circle cx="256" cy="256" r="248" fill="#61DAB8"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#153E3A" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#FFFFFF" x="12" y="18" width="76" height="70" rx="5"/><path d="M12 37h76M32 8v21M68 8v21M29 54h13m15 0h13M29 71h13m15 0h13"/></g>
-  <circle cx="397" cy="130" r="87" fill="#FFC56E" stroke="#61DAB8" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#153E3A" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFFFFF" cx="35" cy="31" r="13"/><circle fill="#FFFFFF" cx="69" cy="35" r="11"/><path d="M8 86c0-25 11-38 27-38s27 13 27 38zm56 0h28c0-20-7-32-20-35"/></g>
+  <desc id="description">The PHPSC logo, with code brackets around its name, for the Santa Catarina PHP conference.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <circle cx="256" cy="256" r="205" fill="#087fbe"/>
+  <path d="M84 256 157 216v28l-27 12 27 12v28zM428 256l-73-40v28l27 12-27 12v28z" fill="#fff"/>
+  <text x="240" y="279" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="67" font-weight="800" text-anchor="middle" letter-spacing="-5">PHP</text>
+  <path d="M314 247h-22v15h22v16h-22" fill="none" stroke="#ed1c24" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M349 248h-17v30h17" fill="none" stroke="#14783e" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Déficit de profissionais de TI no Brasil</title>
-  <desc id="description">Open technology roles outnumber trained workers</desc>
-  <circle cx="256" cy="256" r="248" fill="#223550"/>
-  <circle cx="246" cy="246" r="205" fill="#E3F2FF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#EAF6FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#E3F2FF" cx="35" cy="31" r="13"/><circle fill="#E3F2FF" cx="69" cy="35" r="11"/><path d="M8 86c0-25 11-38 27-38s27 13 27 38zm56 0h28c0-20-7-32-20-35"/></g>
-  <circle cx="397" cy="130" r="87" fill="#FFD09A" stroke="#223550" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#EAF6FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#E3F2FF" x="23" y="23" width="54" height="54" rx="7"/><path d="M36 36h28v28H36zM35 8v15m15-15v15m15-15v15M35 77v15m15-15v15m15-15v15M8 35h15M8 50h15M8 65h15m54-30h15m-15 15h15m-15 15h15"/></g>
+  <desc id="description">A tecnologia da informação está em constante crescimento, por conta disso, está causando um grande problema, a falta de profissionais qualificados.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <circle cx="256" cy="256" r="178" fill="#d8574d"/>
+<rect x="152" y="140" width="208" height="240" rx="15" fill="#ffffff" stroke="#eaf5f8" stroke-width="13"/>
+<rect x="216" y="121" width="80" height="40" rx="12" fill="#ffca50"/>
+<circle cx="256" cy="141" r="8" fill="#d8574d"/>
+<path d="M190 212h132m-132 41h132m-132 41h106m-106 41h87" stroke="#eaf5f8" stroke-width="15" stroke-linecap="round" opacity=".65"/>
 </svg>

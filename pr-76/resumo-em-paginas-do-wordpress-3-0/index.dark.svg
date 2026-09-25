@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Resumo em páginas do WordPress 3.0+</title>
-  <desc id="description">A WordPress page gains a short excerpt</desc>
-  <circle cx="256" cy="256" r="248" fill="#173D3C"/>
-  <circle cx="246" cy="246" r="205" fill="#E3FCF3" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#E9FFF8" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8h42l17 17v67H22zM64 8v17h17M34 44h33M34 58h33M34 72h23"/></g>
-  <circle cx="397" cy="130" r="87" fill="#FFD697" stroke="#173D3C" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#E9FFF8" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#E3FCF3" cx="23" cy="76" r="13"/><circle fill="#E3FCF3" cx="77" cy="76" r="13"/><path d="M31 67 83 18M69 67 17 18"/></g>
+  <desc id="description">Adicione funcionalidades aos tipos de posts (Post Types) no Wordpress 3.0+ utilizando a API com a seguinte função add_post_type_support();</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <circle cx="256" cy="256" r="164" fill="none" stroke="#65c9ec" stroke-width="23"/>
+<path d="m128 194 44 4 69 181 47-113 44 113 66-181m-203 8 48 133m45-135 47 135" fill="none" stroke="#eaf5f8" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M137 194h101m38 0h99" stroke="#eaf5f8" stroke-width="19" stroke-linecap="round"/>
 </svg>

@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Conhecendo e Instalando o servidor SAMBA no LINUX</title>
-  <desc id="description">A Samba server shares across a local network</desc>
-  <circle cx="256" cy="256" r="248" fill="#FFD276"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#FFFFFF" x="13" y="11" width="74" height="78" rx="6"/><path d="M13 36h74M13 62h74"/><circle fill="#FFFFFF" cx="28" cy="24" r="4"/><circle fill="#FFFFFF" cx="28" cy="49" r="4"/><circle fill="#FFFFFF" cx="28" cy="75" r="4"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FC8190" stroke="#FFD276" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFFFFF" cx="50" cy="15" r="10"/><circle fill="#FFFFFF" cx="18" cy="72" r="10"/><circle fill="#FFFFFF" cx="82" cy="72" r="10"/><path d="M45 25 23 62m32-37 22 37M28 72h44"/></g>
+  <desc id="description">O SAMBA é um servidor e um conjunto de ferramentas que permite que máquinas Linux e Windows se comuniquem entre si, compartilhando serviços e arquivos.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <path d="M124 330c54 25 102 23 131-3 34-30-16-47-55-55-58-13-77-39-44-70 34-32 100-38 157-13" fill="none" stroke="#172c3d" stroke-width="31" stroke-linecap="round"/>
+<path d="m314 123-62 133h51l-33 135 115-173h-58l33-95z" fill="#edae22" stroke="#172c3d" stroke-width="5" stroke-linejoin="round"/>
 </svg>

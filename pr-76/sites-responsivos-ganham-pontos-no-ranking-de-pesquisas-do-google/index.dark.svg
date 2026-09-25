@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Sites Responsivos ganham pontos no ranking do Google</title>
-  <desc id="description">A responsive mobile page rises in search</desc>
-  <circle cx="256" cy="256" r="248" fill="#2D2C50"/>
-  <circle cx="246" cy="246" r="205" fill="#EEE8FF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#F6F0FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#EEE8FF" x="27" y="9" width="46" height="82" rx="9"/><path d="M28 22h44M28 76h44"/><circle fill="#EEE8FF" cx="50" cy="83" r="2"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FFE0A7" stroke="#2D2C50" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#F6F0FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 84V18m-21 22 21-22 21 22M17 85h66"/></g>
+  <desc id="description">Quer aparecer nos primeiros resultados de pesquisa do Google? Sabia que se o seu site for responsivo, ele ganhará pontos com os buscadores.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M353 162a142 142 0 0 0-101-40c-72 0-131 50-143 116" fill="none" stroke="#f27b6d" stroke-width="50"/>
+<path d="M109 238c-2 8-3 17-3 26 0 75 61 136 136 136 35 0 62-8 87-25" fill="none" stroke="#56d99b" stroke-width="50"/>
+<path d="M329 375c39-27 65-73 65-126 0-9-1-18-3-26h-141" fill="none" stroke="#69b9fa" stroke-width="50" stroke-linejoin="round"/>
+<path d="M151 151c-22 21-38 51-42 87" fill="none" stroke="#ffca50" stroke-width="50"/>
+<path d="M110 269c3 42 23 75 52 99" fill="none" stroke="#ff9d55" stroke-width="50"/>
 </svg>

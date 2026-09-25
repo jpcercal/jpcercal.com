@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">The Pirate Bay é líder em seu segmento</title>
-  <desc id="description">A file sharing ship leads a ranking</desc>
-  <circle cx="256" cy="256" r="248" fill="#FF9B8A"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#563347" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 62h84L75 85H25zM51 16v45M47 18 20 57h27m8-37 23 37H55M10 91c13 5 23 5 36 0 13 5 23 5 36 0"/></g>
-  <circle cx="397" cy="130" r="87" fill="#77D7E8" stroke="#FF9B8A" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#563347" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 84V54h16v30m11 0V35h16v49m11 0V17h16v67M7 84h86"/></g>
+  <desc id="description">Mudanças após a antipirataria levam The Pirate Bay a primeiro lugar no ranking de sites de compartilhamento de arquivos.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <path d="M153 102h156l77 77v215H153z" fill="#ffffff" stroke="#172c3d" stroke-width="16" stroke-linejoin="round"/>
+<path d="M309 102v77h77" fill="none" stroke="#172c3d" stroke-width="16"/>
+<path d="M121 229h270v100H121z" fill="#172c3d"/>
+<path d="M256 246v49m-25-22 25 25 25-25" fill="none" stroke="#ffffff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="172" cy="277" r="9" fill="#ffffff"/><circle cx="340" cy="277" r="9" fill="#ffffff"/>
 </svg>

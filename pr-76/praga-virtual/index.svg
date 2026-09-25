@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Praga virtual</title>
-  <desc id="description">Malware threatens online banking</desc>
-  <circle cx="256" cy="256" r="248" fill="#FFD276"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><ellipse fill="#FFFFFF" cx="50" cy="57" rx="23" ry="28"/><circle fill="#FFFFFF" cx="50" cy="26" r="11"/><path d="M29 43 13 31m14 28H8m21 15L13 87m58-44 16-12M73 59h19M71 74l16 13M50 37v48"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FC8190" stroke="#FFD276" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 28h75v57H12zM12 28v-8l63-9v17M62 49h30v20H62z"/><circle fill="#FFFFFF" cx="74" cy="59" r="3"/></g>
+  <title id="title">Computer virus</title>
+  <desc id="description">A spiked virus silhouette follows the supplied infection icon.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g fill="none" stroke="#148f5c" stroke-width="20" stroke-linecap="round"><path d="M256 94v55m0 214v55M94 256h55m214 0h55M142 142l39 39m150 150 39 39m0-228-39 39M181 331l-39 39"/></g><circle cx="256" cy="256" r="112" fill="#148f5c"/><circle cx="209" cy="229" r="12" fill="#ffffff"/><circle cx="282" cy="207" r="17" fill="#ffffff"/><circle cx="296" cy="284" r="13" fill="#ffffff"/><circle cx="222" cy="301" r="10" fill="#ffffff"/>
 </svg>
