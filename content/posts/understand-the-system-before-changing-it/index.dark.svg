@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Understand the System Before Changing It</title>
+  <desc id="description">A colorful tumble tower of interdependent wooden blocks, with a few pieces sliding loose.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <g stroke-linecap="round">
+    <g stroke="#9e4e3e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#f69784" d="M180 405l16 -8h52l-16 8z"/>
+      <path fill="#cc6550" d="M232 405l16 -8v32l-16 8z"/>
+      <rect x="180" y="405" width="52" height="32" fill="#f3785f"/>
+    </g>
+    <g stroke="#9e4e3e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#f69784" d="M232 405l16 -8h50l-16 8z"/>
+      <path fill="#cc6550" d="M282 405l16 -8v32l-16 8z"/>
+      <rect x="232" y="405" width="50" height="32" fill="#f3785f"/>
+    </g>
+    <g stroke="#9e4e3e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#f69784" d="M282 405l16 -8h50l-16 8z"/>
+      <path fill="#cc6550" d="M332 405l16 -8v32l-16 8z"/>
+      <rect x="282" y="405" width="50" height="32" fill="#f3785f"/>
+    </g>
+    <g stroke="#a66637" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#ffb47c" d="M180 370l16 -8h75l-16 8z"/>
+      <path fill="#d68447" d="M255 370l16 -8v32l-16 8z"/>
+      <rect x="180" y="370" width="75" height="32" fill="#ff9d55"/>
+    </g>
+    <g stroke="#a66637" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#ffb47c" d="M255 370l16 -8h77l-16 8z"/>
+      <path fill="#d68447" d="M332 370l16 -8v32l-16 8z"/>
+      <rect x="255" y="370" width="77" height="32" fill="#ff9d55"/>
+    </g>
+    <g stroke="#a66637" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#ffb47c" d="M180 335l16 -8h52l-16 8z"/>
+      <path fill="#d68447" d="M232 335l16 -8v32l-16 8z"/>
+      <rect x="180" y="335" width="52" height="32" fill="#ff9d55"/>
+    </g>
+    <g stroke="#a66637" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#ffb47c" d="M232 335l16 -8h50l-16 8z"/>
+      <path fill="#d68447" d="M282 335l16 -8v32l-16 8z"/>
+      <rect x="232" y="335" width="50" height="32" fill="#ff9d55"/>
+    </g>
+    <g stroke="#a66637" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#ffb47c" d="M282 335l16 -8h50l-16 8z"/>
+      <path fill="#d68447" d="M332 335l16 -8v32l-16 8z"/>
+      <rect x="282" y="335" width="50" height="32" fill="#ff9d55"/>
+    </g>
+    <g stroke="#a68735" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#ffdb7a" d="M180 300l16 -8h75l-16 8z"/>
+      <path fill="#d6af45" d="M255 300l16 -8v32l-16 8z"/>
+      <rect x="180" y="300" width="75" height="32" fill="#ffd052"/>
+    </g>
+    <g stroke="#a68735" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#ffdb7a" d="M255 300l16 -8h77l-16 8z"/>
+      <path fill="#d6af45" d="M332 300l16 -8v32l-16 8z"/>
+      <rect x="255" y="300" width="77" height="32" fill="#ffd052"/>
+    </g>
+    <g stroke="#58834e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#a3d597" d="M180 265l16 -8h52l-16 8z"/>
+      <path fill="#71a965" d="M232 265l16 -8v32l-16 8z"/>
+      <rect x="180" y="265" width="52" height="32" fill="#87c978"/>
+    </g>
+    <g stroke="#58834e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#a3d597" d="M232 265l16 -8h50l-16 8z"/>
+      <path fill="#71a965" d="M282 265l16 -8v32l-16 8z"/>
+      <rect x="232" y="265" width="50" height="32" fill="#87c978"/>
+    </g>
+    <g stroke="#58834e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#a3d597" d="M282 265l16 -8h50l-16 8z"/>
+      <path fill="#71a965" d="M332 265l16 -8v32l-16 8z"/>
+      <rect x="282" y="265" width="50" height="32" fill="#87c978"/>
+    </g>
+    <g stroke="#58834e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#a3d597" d="M180 230l16 -8h75l-16 8z"/>
+      <path fill="#71a965" d="M255 230l16 -8v32l-16 8z"/>
+      <rect x="180" y="230" width="75" height="32" fill="#87c978"/>
+    </g>
+    <g stroke="#58834e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#a3d597" d="M255 230l16 -8h77l-16 8z"/>
+      <path fill="#71a965" d="M332 230l16 -8v32l-16 8z"/>
+      <rect x="255" y="230" width="77" height="32" fill="#87c978"/>
+    </g>
+    <g stroke="#447a9a" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#8ccbf1" d="M180 195l16 -8h52l-16 8z"/>
+      <path fill="#589dc7" d="M232 195l16 -8v32l-16 8z"/>
+      <rect x="180" y="195" width="52" height="32" fill="#69bbed"/>
+    </g>
+    <g stroke="#447a9a" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#8ccbf1" d="M232 195l16 -8h50l-16 8z"/>
+      <path fill="#589dc7" d="M282 195l16 -8v32l-16 8z"/>
+      <rect x="232" y="195" width="50" height="32" fill="#69bbed"/>
+    </g>
+    <g stroke="#447a9a" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#8ccbf1" d="M282 195l16 -8h50l-16 8z"/>
+      <path fill="#589dc7" d="M332 195l16 -8v32l-16 8z"/>
+      <rect x="282" y="195" width="50" height="32" fill="#69bbed"/>
+    </g>
+    <g stroke="#447a9a" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#8ccbf1" d="M180 160l16 -8h75l-16 8z"/>
+      <path fill="#589dc7" d="M255 160l16 -8v32l-16 8z"/>
+      <rect x="180" y="160" width="75" height="32" fill="#69bbed"/>
+    </g>
+    <g stroke="#447a9a" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#8ccbf1" d="M255 160l16 -8h77l-16 8z"/>
+      <path fill="#589dc7" d="M332 160l16 -8v32l-16 8z"/>
+      <rect x="255" y="160" width="77" height="32" fill="#69bbed"/>
+    </g>
+    <g stroke="#766299" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c6aff0" d="M180 125l16 -8h52l-16 8z"/>
+      <path fill="#987fc5" d="M232 125l16 -8v32l-16 8z"/>
+      <rect x="180" y="125" width="52" height="32" fill="#b597eb"/>
+    </g>
+    <g stroke="#766299" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c6aff0" d="M232 125l16 -8h50l-16 8z"/>
+      <path fill="#987fc5" d="M282 125l16 -8v32l-16 8z"/>
+      <rect x="232" y="125" width="50" height="32" fill="#b597eb"/>
+    </g>
+    <g stroke="#766299" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c6aff0" d="M282 125l16 -8h50l-16 8z"/>
+      <path fill="#987fc5" d="M332 125l16 -8v32l-16 8z"/>
+      <rect x="282" y="125" width="50" height="32" fill="#b597eb"/>
+    </g>
+    <g stroke="#766299" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c6aff0" d="M180 90l16 -8h75l-16 8z"/>
+      <path fill="#987fc5" d="M255 90l16 -8v32l-16 8z"/>
+      <rect x="180" y="90" width="75" height="32" fill="#b597eb"/>
+    </g>
+    <g stroke="#766299" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c6aff0" d="M255 90l16 -8h77l-16 8z"/>
+      <path fill="#987fc5" d="M332 90l16 -8v32l-16 8z"/>
+      <rect x="255" y="90" width="77" height="32" fill="#b597eb"/>
+    </g>
+    <g stroke="#447a9a" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#8ccbf1" d="M145 214l16 -8h79l-16 8z"/>
+      <path fill="#589dc7" d="M224 214l16 -8v30l-16 8z"/>
+      <rect x="145" y="214" width="79" height="30" fill="#69bbed"/>
+    </g>
+    <g stroke="#58834e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#a3d597" d="M297 283l16 -8h70l-16 8z"/>
+      <path fill="#71a965" d="M367 283l16 -8v31l-16 8z"/>
+      <rect x="297" y="283" width="70" height="31" fill="#87c978"/>
+    </g>
+    <g stroke="#9e4e3e" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#f69784" d="M303 387l16 -8h74l-16 8z"/>
+      <path fill="#cc6550" d="M377 387l16 -8v31l-16 8z"/>
+      <rect x="303" y="387" width="74" height="31" fill="#f3785f"/>
+    </g>
+    <g stroke="#766299" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c6aff0" d="M117 454l16 -8h110l-16 8z"/>
+      <path fill="#987fc5" d="M227 454l16 -8v22l-16 8z"/>
+      <rect x="117" y="454" width="110" height="22" fill="#b597eb"/>
+    </g>
+    <g transform="rotate(20 280 447)"><g stroke="#766299" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c6aff0" d="M220 443l16 -8h118l-16 8z"/>
+      <path fill="#987fc5" d="M338 443l16 -8v22l-16 8z"/>
+      <rect x="220" y="443" width="118" height="22" fill="#b597eb"/>
+    </g></g>
+    <g stroke="#766299" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c6aff0" d="M226 68l16 -8h105l-16 8z"/>
+      <path fill="#987fc5" d="M331 68l16 -8v24l-16 8z"/>
+      <rect x="226" y="68" width="105" height="24" fill="#b597eb"/>
+    </g>
+  </g>
+</svg>

@@ -15,7 +15,6 @@ sitemap:
 | `$colorRed` | `#D9534F` | error notifications |
 | `$syntax-bg` | `#282c34` | code block background (One Dark) |
 | `$syntax-edge` | `#191f2b` | code block border |
-| icon credits | `#ddd` | footer credit line |
 
 Derived grays come from `color.adjust($fontColor, …)` in `assets/scss/`
 (e.g. author meta at 50% lightness, locale switcher borders at 60%).
@@ -47,6 +46,24 @@ flash); `assets/js/theme.js` wires the header toggle (`themeToggle`
 i18n key), persists the choice and follows OS changes until one is
 stored. No-JS visitors get the OS theme via a `prefers-color-scheme`
 fallback; print always renders light.
+
+## Post cover colors and PNG references
+
+Post covers are standalone SVG assets, so their colors are set in each file
+rather than read from CSS variables. Keep the light `index.svg` and dark
+`index.dark.svg` shapes identical. The light circle uses `#f8f9fa` (the
+site's light code surface), and the dark circle uses `#242424`
+(`--color-surface` in dark mode). Adapt the icon colors to each surface while
+keeping the reference recognizable and legible against the site's white and
+near-black reading canvases.
+
+For a supplied PNG reference, use [PNGToSVG](https://github.com/mayuso/PNGToSVG)
+to make a vector starting point (`pngtosvg image.png`). `pngtosvg` is expected
+to be installed on the system. If it is unavailable, tell the user how to
+install it with `cargo install pngtosvg --version 0.6.2 --locked`; never
+install it yourself. Inspect its SVG at 512 px and the card's 60 px size.
+Isolate the useful subject, remove unwanted whitespace and text, and simplify
+traced pixel edges before putting it into the cover pair.
 
 ## Typography
 

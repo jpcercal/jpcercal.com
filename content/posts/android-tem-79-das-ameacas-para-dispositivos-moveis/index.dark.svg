@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Android mobile threat</title>
+  <desc id="description">Android robot from the supplied reference stands for mobile malware exposure.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M174 197a82 82 0 0 1 164 0Z" fill="#a8e153"/><path d="m203 144-14-21m120 21 14-21" stroke="#a8e153" stroke-width="12" stroke-linecap="round"/><rect x="173" y="204" width="166" height="138" rx="16" fill="#a8e153"/><rect x="135" y="214" width="27" height="112" rx="13" fill="#a8e153"/><rect x="350" y="214" width="27" height="112" rx="13" fill="#a8e153"/><path d="M208 335v49m96-49v49" stroke="#a8e153" stroke-width="24" stroke-linecap="round"/><circle cx="219" cy="172" r="6" fill="#242424"/><circle cx="293" cy="172" r="6" fill="#242424"/>
+</svg>

@@ -1,48 +1,162 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="cover" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<circle style="fill:#69CDFF;" cx="256" cy="256" r="245"/>
-<rect x="56" y="396" style="fill:#293D7C;" width="220" height="14" rx="7"/>
-<rect x="56" y="396" style="fill:#1A2B63;" width="52" height="14" rx="7"/>
-<g>
-  <rect x="72" y="108" style="fill:#FFFFFF;" width="150" height="72" rx="10"/>
-  <rect x="72" y="108" style="fill:#D9EAFC;" width="34" height="72" rx="10"/>
-  <rect x="120" y="128" style="fill:#5DC1D8;" width="76" height="10" rx="5"/>
-  <rect x="120" y="146" style="fill:#C3DDF4;" width="56" height="10" rx="5"/>
-  <rect x="72" y="220" style="fill:#FFFFFF;" width="150" height="72" rx="10"/>
-  <rect x="72" y="220" style="fill:#D9EAFC;" width="34" height="72" rx="10"/>
-  <rect x="120" y="240" style="fill:#5DC1D8;" width="76" height="10" rx="5"/>
-  <rect x="120" y="258" style="fill:#C3DDF4;" width="56" height="10" rx="5"/>
-  <rect x="72" y="332" style="fill:#FFFFFF;" width="150" height="72" rx="10"/>
-  <rect x="72" y="332" style="fill:#D9EAFC;" width="34" height="72" rx="10"/>
-  <rect x="120" y="352" style="fill:#5DC1D8;" width="76" height="10" rx="5"/>
-  <rect x="120" y="370" style="fill:#C3DDF4;" width="56" height="10" rx="5"/>
-</g>
-<g>
-  <rect x="141" y="180" style="fill:#445EA0;" width="12" height="40"/>
-  <rect x="141" y="292" style="fill:#445EA0;" width="12" height="40"/>
-  <polygon style="fill:#445EA0;" points="147,210 137,210 147,222"/>
-  <polygon style="fill:#445EA0;" points="147,322 137,322 147,334"/>
-</g>
-<g>
-  <circle style="fill:none;stroke:#FFFFFF;stroke-width:10;opacity:0.55;" cx="376" cy="238" r="96"/>
-  <circle style="fill:#FFFFFF;" cx="376" cy="238" r="78"/>
-  <circle style="fill:#EFEFEF;" cx="376" cy="238" r="78"/>
-  <circle style="fill:#FFFFFF;" cx="376" cy="238" r="62"/>
-  <rect x="348" y="218" style="fill:#5DC1D8;" width="56" height="10" rx="5"/>
-  <rect x="348" y="234" style="fill:#C3DDF4;" width="40" height="10" rx="5"/>
-  <rect x="348" y="250" style="fill:#445EA0;" width="48" height="10" rx="5"/>
-  <circle style="fill:#71DE56;" cx="356" cy="282" r="10"/>
-  <circle style="fill:#445EA0;" cx="378" cy="282" r="10"/>
-  <circle style="fill:#FFAF10;" cx="400" cy="282" r="10"/>
-  <circle style="fill:none;stroke:#FFAF10;stroke-width:4;opacity:0.6;" cx="400" cy="282" r="17"/>
-</g>
-<g>
-  <rect x="418" y="296" style="fill:#293D7C;" width="22" height="80" rx="11" transform="rotate(-45 429 336)"/>
-  <rect x="418" y="296" style="fill:#1A2B63;" width="11" height="80" rx="5.5" transform="rotate(-45 429 336)"/>
-</g>
-<g>
-  <circle style="fill:#FFAF10;" cx="222" cy="256" r="14"/>
-  <circle style="fill:#FFFFFF;" cx="222" cy="256" r="5"/>
-  <circle style="fill:none;stroke:#FFFFFF;stroke-width:4;" cx="222" cy="256" r="21"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Understand the System Before Changing It</title>
+  <desc id="description">A colorful tumble tower of interdependent wooden blocks, with a few pieces sliding loose.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g stroke-linecap="round">
+    <g stroke="#772c1f" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c86f60" d="M180 405l16 -8h52l-16 8z"/>
+      <path fill="#9a3928" d="M232 405l16 -8v32l-16 8z"/>
+      <rect x="180" y="405" width="52" height="32" fill="#b74430"/>
+    </g>
+    <g stroke="#772c1f" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c86f60" d="M232 405l16 -8h50l-16 8z"/>
+      <path fill="#9a3928" d="M282 405l16 -8v32l-16 8z"/>
+      <rect x="232" y="405" width="50" height="32" fill="#b74430"/>
+    </g>
+    <g stroke="#772c1f" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c86f60" d="M282 405l16 -8h50l-16 8z"/>
+      <path fill="#9a3928" d="M332 405l16 -8v32l-16 8z"/>
+      <rect x="282" y="405" width="50" height="32" fill="#b74430"/>
+    </g>
+    <g stroke="#7a3a15" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#cb7f53" d="M180 370l16 -8h75l-16 8z"/>
+      <path fill="#9e4b1b" d="M255 370l16 -8v32l-16 8z"/>
+      <rect x="180" y="370" width="75" height="32" fill="#bc5920"/>
+    </g>
+    <g stroke="#7a3a15" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#cb7f53" d="M255 370l16 -8h77l-16 8z"/>
+      <path fill="#9e4b1b" d="M332 370l16 -8v32l-16 8z"/>
+      <rect x="255" y="370" width="77" height="32" fill="#bc5920"/>
+    </g>
+    <g stroke="#7a3a15" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#cb7f53" d="M180 335l16 -8h52l-16 8z"/>
+      <path fill="#9e4b1b" d="M232 335l16 -8v32l-16 8z"/>
+      <rect x="180" y="335" width="52" height="32" fill="#bc5920"/>
+    </g>
+    <g stroke="#7a3a15" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#cb7f53" d="M232 335l16 -8h50l-16 8z"/>
+      <path fill="#9e4b1b" d="M282 335l16 -8v32l-16 8z"/>
+      <rect x="232" y="335" width="50" height="32" fill="#bc5920"/>
+    </g>
+    <g stroke="#7a3a15" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#cb7f53" d="M282 335l16 -8h50l-16 8z"/>
+      <path fill="#9e4b1b" d="M332 335l16 -8v32l-16 8z"/>
+      <rect x="282" y="335" width="50" height="32" fill="#bc5920"/>
+    </g>
+    <g stroke="#6c4700" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#ba8f3b" d="M180 300l16 -8h75l-16 8z"/>
+      <path fill="#8b5c00" d="M255 300l16 -8v32l-16 8z"/>
+      <rect x="180" y="300" width="75" height="32" fill="#a66d00"/>
+    </g>
+    <g stroke="#6c4700" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#ba8f3b" d="M255 300l16 -8h77l-16 8z"/>
+      <path fill="#8b5c00" d="M332 300l16 -8v32l-16 8z"/>
+      <rect x="255" y="300" width="77" height="32" fill="#a66d00"/>
+    </g>
+    <g stroke="#2c5527" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#6ea069" d="M180 265l16 -8h52l-16 8z"/>
+      <path fill="#386e32" d="M232 265l16 -8v32l-16 8z"/>
+      <rect x="180" y="265" width="52" height="32" fill="#43833c"/>
+    </g>
+    <g stroke="#2c5527" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#6ea069" d="M232 265l16 -8h50l-16 8z"/>
+      <path fill="#386e32" d="M282 265l16 -8v32l-16 8z"/>
+      <rect x="232" y="265" width="50" height="32" fill="#43833c"/>
+    </g>
+    <g stroke="#2c5527" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#6ea069" d="M282 265l16 -8h50l-16 8z"/>
+      <path fill="#386e32" d="M332 265l16 -8v32l-16 8z"/>
+      <rect x="282" y="265" width="50" height="32" fill="#43833c"/>
+    </g>
+    <g stroke="#2c5527" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#6ea069" d="M180 230l16 -8h75l-16 8z"/>
+      <path fill="#386e32" d="M255 230l16 -8v32l-16 8z"/>
+      <rect x="180" y="230" width="75" height="32" fill="#43833c"/>
+    </g>
+    <g stroke="#2c5527" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#6ea069" d="M255 230l16 -8h77l-16 8z"/>
+      <path fill="#386e32" d="M332 230l16 -8v32l-16 8z"/>
+      <rect x="255" y="230" width="77" height="32" fill="#43833c"/>
+    </g>
+    <g stroke="#104f72" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#4d98c1" d="M180 195l16 -8h52l-16 8z"/>
+      <path fill="#146693" d="M232 195l16 -8v32l-16 8z"/>
+      <rect x="180" y="195" width="52" height="32" fill="#1879af"/>
+    </g>
+    <g stroke="#104f72" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#4d98c1" d="M232 195l16 -8h50l-16 8z"/>
+      <path fill="#146693" d="M282 195l16 -8v32l-16 8z"/>
+      <rect x="232" y="195" width="50" height="32" fill="#1879af"/>
+    </g>
+    <g stroke="#104f72" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#4d98c1" d="M282 195l16 -8h50l-16 8z"/>
+      <path fill="#146693" d="M332 195l16 -8v32l-16 8z"/>
+      <rect x="282" y="195" width="50" height="32" fill="#1879af"/>
+    </g>
+    <g stroke="#104f72" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#4d98c1" d="M180 160l16 -8h75l-16 8z"/>
+      <path fill="#146693" d="M255 160l16 -8v32l-16 8z"/>
+      <rect x="180" y="160" width="75" height="32" fill="#1879af"/>
+    </g>
+    <g stroke="#104f72" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#4d98c1" d="M255 160l16 -8h77l-16 8z"/>
+      <path fill="#146693" d="M332 160l16 -8v32l-16 8z"/>
+      <rect x="255" y="160" width="77" height="32" fill="#1879af"/>
+    </g>
+    <g stroke="#492e67" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#9271b5" d="M180 125l16 -8h52l-16 8z"/>
+      <path fill="#5f3c86" d="M232 125l16 -8v32l-16 8z"/>
+      <rect x="180" y="125" width="52" height="32" fill="#71479f"/>
+    </g>
+    <g stroke="#492e67" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#9271b5" d="M232 125l16 -8h50l-16 8z"/>
+      <path fill="#5f3c86" d="M282 125l16 -8v32l-16 8z"/>
+      <rect x="232" y="125" width="50" height="32" fill="#71479f"/>
+    </g>
+    <g stroke="#492e67" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#9271b5" d="M282 125l16 -8h50l-16 8z"/>
+      <path fill="#5f3c86" d="M332 125l16 -8v32l-16 8z"/>
+      <rect x="282" y="125" width="50" height="32" fill="#71479f"/>
+    </g>
+    <g stroke="#492e67" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#9271b5" d="M180 90l16 -8h75l-16 8z"/>
+      <path fill="#5f3c86" d="M255 90l16 -8v32l-16 8z"/>
+      <rect x="180" y="90" width="75" height="32" fill="#71479f"/>
+    </g>
+    <g stroke="#492e67" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#9271b5" d="M255 90l16 -8h77l-16 8z"/>
+      <path fill="#5f3c86" d="M332 90l16 -8v32l-16 8z"/>
+      <rect x="255" y="90" width="77" height="32" fill="#71479f"/>
+    </g>
+    <g stroke="#104f72" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#4d98c1" d="M145 214l16 -8h79l-16 8z"/>
+      <path fill="#146693" d="M224 214l16 -8v30l-16 8z"/>
+      <rect x="145" y="214" width="79" height="30" fill="#1879af"/>
+    </g>
+    <g stroke="#2c5527" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#6ea069" d="M297 283l16 -8h70l-16 8z"/>
+      <path fill="#386e32" d="M367 283l16 -8v31l-16 8z"/>
+      <rect x="297" y="283" width="70" height="31" fill="#43833c"/>
+    </g>
+    <g stroke="#772c1f" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#c86f60" d="M303 387l16 -8h74l-16 8z"/>
+      <path fill="#9a3928" d="M377 387l16 -8v31l-16 8z"/>
+      <rect x="303" y="387" width="74" height="31" fill="#b74430"/>
+    </g>
+    <g stroke="#492e67" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#9271b5" d="M117 454l16 -8h110l-16 8z"/>
+      <path fill="#5f3c86" d="M227 454l16 -8v22l-16 8z"/>
+      <rect x="117" y="454" width="110" height="22" fill="#71479f"/>
+    </g>
+    <g transform="rotate(20 280 447)"><g stroke="#492e67" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#9271b5" d="M220 443l16 -8h118l-16 8z"/>
+      <path fill="#5f3c86" d="M338 443l16 -8v22l-16 8z"/>
+      <rect x="220" y="443" width="118" height="22" fill="#71479f"/>
+    </g></g>
+    <g stroke="#492e67" stroke-width="1.6" stroke-linejoin="round">
+      <path fill="#9271b5" d="M226 68l16 -8h105l-16 8z"/>
+      <path fill="#5f3c86" d="M331 68l16 -8v24l-16 8z"/>
+      <rect x="226" y="68" width="105" height="24" fill="#71479f"/>
+    </g>
+  </g>
 </svg>

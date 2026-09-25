@@ -1,4 +1,10 @@
 const { defineConfig } = require("@playwright/test");
+const { existsSync } = require("node:fs");
+
+const localMozjpeg = [
+	"/opt/homebrew/opt/mozjpeg/bin/jpegtran",
+	"/usr/local/opt/mozjpeg/bin/jpegtran",
+].find(existsSync);
 
 module.exports = defineConfig({
 	testDir: "./e2e",
@@ -9,13 +15,17 @@ module.exports = defineConfig({
 		trace: "retain-on-failure",
 	},
 	webServer: {
-		// Hugo Pipes (Dart Sass, Tailwind) resolve their binaries from
-		// node_modules/.bin, which must be on PATH for the server too.
-		// --renderToMemory keeps the dev server from writing into public/.
+		// Build as staging does so English covers and site icons exist locally.
 		command:
-			"PATH='./node_modules/.bin:'$PATH hugo server --bind 127.0.0.1 --port 1313 --disableFastRender --renderToMemory",
+			"npm run build && npm run images && npm run search:index && python3 -m http.server 1313 --bind 127.0.0.1 --directory public",
+		env: {
+			BASE_URL: "http://127.0.0.1:1313/",
+			...(process.env.JPEGTRAN || localMozjpeg
+				? { JPEGTRAN: process.env.JPEGTRAN || localMozjpeg }
+				: {}),
+		},
 		url: "http://127.0.0.1:1313/",
-		reuseExistingServer: !process.env.CI,
+		reuseExistingServer: false,
 		timeout: 120 * 1000,
 	},
 });

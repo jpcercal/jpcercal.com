@@ -1,39 +1,13 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<path style="fill:#464655;" d="M400.005,0h-288.01C50.141,0.002,0,50.146,0,112v58.667h512V112C512,50.146,461.858,0.002,400.005,0z
-	"/>
-<path style="fill:#FFE15A;" d="M0,400c0,61.856,50.144,112,112,112h288c61.856,0,112-50.144,112-112v-58.667H0V400z"/>
-<rect y="170.67" style="fill:#FF4B55;" width="512" height="170.67"/>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Vamos morar em Munique na Alemanha</title>
+  <desc id="description">White and blue striped Bavarian flag, representing the move to Munich</desc>
+  <defs>
+    <clipPath id="flag"><rect x="64" y="141" width="384" height="230" rx="18"/></clipPath>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g clip-path="url(#flag)">
+    <path fill="#ffffff" d="M64 141h384v115H64z"/>
+    <path fill="#0098d4" d="M64 256h384v115H64z"/>
+  </g>
+  <rect x="64" y="141" width="384" height="230" rx="18" fill="none" stroke="#006b96" stroke-width="8"/>
 </svg>

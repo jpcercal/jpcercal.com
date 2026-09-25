@@ -7,13 +7,15 @@
 {{ $directory       := "content/" }}
 {{ $filename        := "index.svg" }}
 {{ $cover           := where (readDir (printf "%s%s" $directory .File.Dir)) "Name" $filename }}
+{{ $darkCover       := where (readDir (printf "%s%s" $directory .File.Dir)) "Name" "index.dark.svg" }}
 {{ $defaultCover    := printf "%s%s" $baseURL "images/icons/tag.svg" }}
 {{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
 <article class="post-card mb-6">
     <div class="flex">
         <div class="flex-col m-4 post-card--cover">
-            <img class="rounded post-card--icon" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
+            <img class="rounded post-card--icon theme-cover--light" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
+            {{ if $darkCover }}<img class="rounded post-card--icon theme-cover--dark" src="{{ .Permalink }}index.dark.svg" alt="" aria-hidden="true" height="60" width="60">{{ end }}
         </div>
         <header class="flex-col m-0">
             <h2 class="mt-0 mb-0 font-size-h4">

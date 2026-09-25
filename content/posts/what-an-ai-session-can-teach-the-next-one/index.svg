@@ -1,45 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="cover" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<circle style="fill:#69CDFF;" cx="256" cy="256" r="245"/>
-<rect x="56" y="396" style="fill:#293D7C;" width="220" height="14" rx="7"/>
-<rect x="56" y="396" style="fill:#1A2B63;" width="74" height="14" rx="7"/>
-<g>
-  <rect x="64" y="98" style="fill:#FFFFFF;" width="158" height="74" rx="10"/>
-  <rect x="64" y="98" style="fill:#D9EAFC;" width="34" height="74" rx="10"/>
-  <rect x="112" y="118" style="fill:#5DC1D8;" width="80" height="10" rx="5"/>
-  <rect x="112" y="136" style="fill:#C3DDF4;" width="58" height="10" rx="5"/>
-  <rect x="64" y="220" style="fill:#FFFFFF;" width="158" height="74" rx="10"/>
-  <rect x="64" y="220" style="fill:#D9EAFC;" width="34" height="74" rx="10"/>
-  <rect x="112" y="240" style="fill:#5DC1D8;" width="80" height="10" rx="5"/>
-  <rect x="112" y="258" style="fill:#C3DDF4;" width="58" height="10" rx="5"/>
-  <rect x="64" y="342" style="fill:#FFFFFF;" width="158" height="74" rx="10"/>
-  <rect x="64" y="342" style="fill:#D9EAFC;" width="34" height="74" rx="10"/>
-  <rect x="112" y="362" style="fill:#5DC1D8;" width="80" height="10" rx="5"/>
-  <rect x="112" y="380" style="fill:#C3DDF4;" width="58" height="10" rx="5"/>
-</g>
-<g>
-  <rect x="138" y="172" style="fill:#445EA0;" width="12" height="48"/>
-  <polygon style="fill:#445EA0;" points="144,214 134,214 144,226"/>
-  <rect x="138" y="294" style="fill:#445EA0;" width="12" height="48"/>
-  <polygon style="fill:#445EA0;" points="144,336 134,336 144,348"/>
-</g>
-<g>
-  <circle style="fill:none;stroke:#FFFFFF;stroke-width:10;opacity:0.55;" cx="366" cy="254" r="106"/>
-  <circle style="fill:#FFFFFF;" cx="366" cy="254" r="84"/>
-  <path style="fill:none;stroke:#445EA0;stroke-width:12;stroke-linecap:round;" d="M 366,170 A 84,84 0 0 1 444,224"/>
-  <polygon style="fill:#445EA0;" points="438,204 449,226 425,222"/>
-  <path style="fill:none;stroke:#5DC1D8;stroke-width:12;stroke-linecap:round;" d="M 444,280 A 84,84 0 0 1 366,338"/>
-  <polygon style="fill:#5DC1D8;" points="385,333 364,343 370,319"/>
-  <path style="fill:none;stroke:#FFAF10;stroke-width:12;stroke-linecap:round;" d="M 310,300 A 84,84 0 0 1 288,224"/>
-  <polygon style="fill:#FFAF10;" points="298,238 286,216 310,220"/>
-  <circle style="fill:#71DE56;" cx="366" cy="218" r="12"/>
-  <circle style="fill:#445EA0;" cx="402" cy="254" r="12"/>
-  <circle style="fill:#FFAF10;" cx="366" cy="290" r="12"/>
-  <circle style="fill:#5DC1D8;" cx="330" cy="254" r="12"/>
-</g>
-<g>
-  <circle style="fill:#FFAF10;" cx="222" cy="256" r="14"/>
-  <circle style="fill:#FFFFFF;" cx="222" cy="256" r="5"/>
-  <circle style="fill:none;stroke:#FFFFFF;stroke-width:4;" cx="222" cy="256" r="21"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">What an AI Session Can Teach the Next One</title>
+  <desc id="description">Five colorful layers of shared knowledge build on one another, inspired by the supplied stacked provisioning diagram.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g transform="translate(0 291)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#37404a"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#29313a"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#505b66"/>
+    <path d="M256 0 256 144 412 72Z" fill="#414c57"/>
+  </g>
+  <g transform="translate(0 235)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#a33b2d"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#8e3025"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#d7573d"/>
+    <path d="M256 0 256 144 412 72Z" fill="#bd4833"/>
+  </g>
+  <g transform="translate(0 179)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#8b5800"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#744900"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#b97a0e"/>
+    <path d="M256 0 256 144 412 72Z" fill="#a66b05"/>
+  </g>
+  <g transform="translate(0 123)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#086e6e"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#075d60"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#098b89"/>
+    <path d="M256 0 256 144 412 72Z" fill="#087c7b"/>
+  </g>
+  <g transform="translate(0 67)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#076992"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#075a7e"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#0989b9"/>
+    <path d="M256 0 256 144 412 72Z" fill="#0877a5"/>
+  </g>
 </svg>
