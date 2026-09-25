@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Instalando PHPUnit no Windows</title>
-  <desc id="description">Software testing puzzle and checkmark for installing PHPUnit on Windows</desc>
+  <title id="title">Windows for PHPUnit</title>
+  <desc id="description">The four pane Windows mark representing the operating system in the PHPUnit installation guide.</desc>
   <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
-<path d="M165 152h92c1 0 3 0 4 1 12-25 47-15 47 13s-35 38-47 13h-27v56h-54v-17c-24-12-44 1-44 22s20 34 44 22v-13h54v78h-69c-13-25-48-15-48 13s35 38 48 13h70v-27h42c8 27 46 25 46-6s-38-33-46-6h-42v-82h-69v-66z" fill="#6366d6" stroke="#27323a" stroke-width="8" stroke-linejoin="round"/>
-<path d="m290 273 23 23 45-50" fill="none" stroke="#ffffff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M142 142q41-10 89 4l-15 105q-44-13-94-3Zm122 11q54 17 126 1l-26 104q-62 16-124-1ZM118 278q49-13 94 0l-15 103q-49-14-101-1Zm119 6q62 18 122 3l-25 101q-61 16-112-4Z" fill="#172c3d"/>
 </svg>

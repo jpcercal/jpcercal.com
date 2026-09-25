@@ -1,10 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">The Pirate Bay é líder em seu segmento</title>
-  <desc id="description">Mudanças após a antipirataria levam The Pirate Bay a primeiro lugar no ranking de sites de compartilhamento de arquivos.</desc>
+  <title id="title">Torrent magnet</title>
+  <desc id="description">A magnet from the reference representing BitTorrent file sharing.</desc>
   <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
-  <path d="M153 102h156l77 77v215H153z" fill="#ffffff" stroke="#172c3d" stroke-width="16" stroke-linejoin="round"/>
-<path d="M309 102v77h77" fill="none" stroke="#172c3d" stroke-width="16"/>
-<path d="M121 229h270v100H121z" fill="#172c3d"/>
-<path d="M256 246v49m-25-22 25 25 25-25" fill="none" stroke="#ffffff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="172" cy="277" r="9" fill="#ffffff"/><circle cx="340" cy="277" r="9" fill="#ffffff"/>
+  <rect x="104" y="105" width="304" height="302" rx="40" fill="none" stroke="#172c3d" stroke-width="19"/><path d="M179 212v66a77 77 0 0 0 154 0v-66h-38v66a39 39 0 0 1-78 0v-66Z" fill="#172c3d"/><path d="M179 212h38m78 0h38" stroke="#172c3d" stroke-width="19" stroke-linecap="round"/>
 </svg>
