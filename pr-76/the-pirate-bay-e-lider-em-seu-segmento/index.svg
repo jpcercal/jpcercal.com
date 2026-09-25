@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
-  <title id="title">Torrent magnet</title>
-  <desc id="description">A magnet from the reference representing BitTorrent file sharing.</desc>
+  <title id="title">Download icon</title>
+  <desc id="description">A downward arrow entering a tray, representing downloads through The Pirate Bay.</desc>
   <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
-  <rect x="104" y="105" width="304" height="302" rx="40" fill="none" stroke="#172c3d" stroke-width="19"/><path d="M179 212v66a77 77 0 0 0 154 0v-66h-38v66a39 39 0 0 1-78 0v-66Z" fill="#172c3d"/><path d="M179 212h38m78 0h38" stroke="#172c3d" stroke-width="19" stroke-linecap="round"/>
+  <path d="M256 104v183m-78-66 78 65 78-65" fill="none" stroke="#172c3d" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/><path d="M111 338v61h290v-61" fill="none" stroke="#172c3d" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
