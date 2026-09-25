@@ -1,9 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">How to delete all your Git local branches</title>
-  <desc id="description">Old local code branches pruned away</desc>
-  <circle cx="256" cy="256" r="248" fill="#FF9B8A"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#563347" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFFFFF" cx="21" cy="18" r="10"/><circle fill="#FFFFFF" cx="78" cy="18" r="10"/><circle fill="#FFFFFF" cx="50" cy="81" r="10"/><path d="M21 28v17c0 17 29 17 29 26m28-43v17c0 17-28 17-28 26"/></g>
-  <circle cx="397" cy="130" r="87" fill="#77D7E8" stroke="#FF9B8A" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#563347" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#FFFFFF" cx="23" cy="76" r="13"/><circle fill="#FFFFFF" cx="77" cy="76" r="13"/><path d="M31 67 83 18M69 67 17 18"/></g>
+  <desc id="description">Four connected Git branch nodes matching the supplied Git Flow reference</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g transform="translate(34 17) scale(1.65)" fill="none" stroke-width="23" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M73 130c0 21 12 25 28 25 20 0 33 13 33 33" stroke="#46546e"/>
+    <path d="M196 130c0 21-12 25-28 25-20 0-33 13-33 33" stroke="#178c64"/>
+    <path d="M135 91v100" stroke="#0b64ef"/>
+    <path d="M135 179v22" stroke="#168967"/>
+    <circle cx="73" cy="106" r="27" fill="#46546e" stroke="none"/>
+    <circle cx="135" cy="68" r="27" fill="#0b64ef" stroke="none"/>
+    <circle cx="196" cy="106" r="27" fill="#178c64" stroke="none"/>
+    <circle cx="135" cy="221" r="27" fill="#168967" stroke="none"/>
+    <g fill="#f8f9fa" stroke="none">
+      <circle cx="73" cy="106" r="10"/>
+      <circle cx="135" cy="68" r="10"/>
+      <circle cx="196" cy="106" r="10"/>
+      <circle cx="135" cy="221" r="10"/>
+    </g>
+  </g>
 </svg>

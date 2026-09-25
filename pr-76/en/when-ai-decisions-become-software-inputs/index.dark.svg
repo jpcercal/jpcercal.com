@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">When AI Decisions Become Software Inputs</title>
-  <desc id="description">A support message enters a bounded decision and review route</desc>
-  <circle cx="256" cy="256" r="248" fill="#223550"/>
-  <circle cx="246" cy="246" r="205" fill="#E3F2FF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#EAF6FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15h76v59H48L25 91V74H12zM27 38h46M27 53h31"/></g>
-  <circle cx="397" cy="130" r="87" fill="#FFD09A" stroke="#223550" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#EAF6FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#E3F2FF" cx="21" cy="18" r="10"/><circle fill="#E3F2FF" cx="78" cy="18" r="10"/><circle fill="#E3F2FF" cx="50" cy="81" r="10"/><path d="M21 28v17c0 17 29 17 29 26m28-43v17c0 17-28 17-28 26"/></g>
+  <desc id="description">The centered geometric Jev mark, vectorized from the supplied logo</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <g transform="translate(16 16) scale(1.2)" fill="#F179D2">
+    <path d="M97,117L97,230L144,260L144,313L146,315L195,347L202,349L303,283L303,169L256,139L256,87L254,85L205,53L198,51ZM116,127L191,79L191,108L144,138L144,190L118,207L116,207ZM125,224L150,207L155,206L180,222L182,226L153,244L126,227ZM163,162L191,179L191,207L163,190ZM163,260L209,230L209,179L237,161L237,243L165,290L163,290ZM171,143L198,125L202,125L229,144L199,163ZM171,307L245,259L250,260L275,277L274,280L201,327L172,310ZM209,79L237,96L237,126L209,108ZM256,161L284,179L284,260L256,243Z"/>
+  </g>
 </svg>

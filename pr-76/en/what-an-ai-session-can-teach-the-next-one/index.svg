@@ -1,9 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">What an AI Session Can Teach the Next One</title>
-  <desc id="description">Lessons from one AI session pass to the next</desc>
-  <circle cx="256" cy="256" r="248" fill="#FFD276"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 87C36 78 20 77 8 81V17c16-5 31-1 42 7 11-8 26-12 42-7v64c-12-4-28-3-42 6zm0-63v63"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FC8190" stroke="#FFD276" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#503758" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M82 42a32 32 0 0 0-57-16l-7 9m0-19v19h20M18 58a32 32 0 0 0 57 16l7-9m0 19V65H62"/></g>
+  <desc id="description">Five colorful layers of shared knowledge build on one another, inspired by the supplied stacked provisioning diagram.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g transform="translate(0 291)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#37404a"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#29313a"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#505b66"/>
+    <path d="M256 0 256 144 412 72Z" fill="#414c57"/>
+  </g>
+  <g transform="translate(0 235)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#a33b2d"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#8e3025"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#d7573d"/>
+    <path d="M256 0 256 144 412 72Z" fill="#bd4833"/>
+  </g>
+  <g transform="translate(0 179)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#8b5800"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#744900"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#b97a0e"/>
+    <path d="M256 0 256 144 412 72Z" fill="#a66b05"/>
+  </g>
+  <g transform="translate(0 123)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#086e6e"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#075d60"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#098b89"/>
+    <path d="M256 0 256 144 412 72Z" fill="#087c7b"/>
+  </g>
+  <g transform="translate(0 67)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#076992"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#075a7e"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#0989b9"/>
+    <path d="M256 0 256 144 412 72Z" fill="#0877a5"/>
+  </g>
 </svg>

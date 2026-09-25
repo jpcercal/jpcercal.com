@@ -1,9 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Vamos morar em Munique na Alemanha</title>
-  <desc id="description">A family plans its move to Munich</desc>
-  <circle cx="256" cy="256" r="248" fill="#B8A3F0"/>
-  <circle cx="246" cy="246" r="205" fill="#FFFFFF" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#383362" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#FFFFFF" x="13" y="30" width="74" height="58" rx="7"/><path d="M34 30V17h32v13M13 54h74M43 52h14v10H43z"/></g>
-  <circle cx="397" cy="397" r="87" fill="#FFCC7E" stroke="#B8A3F0" stroke-width="11"/>
-  <g transform="translate(337 337) scale(1.20)" fill="none" stroke="#383362" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 90S18 59 18 37a32 32 0 0 1 64 0C82 59 50 90 50 90z"/><circle fill="#FFFFFF" cx="50" cy="37" r="12"/></g>
+  <desc id="description">White and blue striped Bavarian flag, representing the move to Munich</desc>
+  <defs>
+    <clipPath id="flag"><rect x="64" y="141" width="384" height="230" rx="18"/></clipPath>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g clip-path="url(#flag)">
+    <path fill="#ffffff" d="M64 141h384v115H64z"/>
+    <path fill="#0098d4" d="M64 256h384v115H64z"/>
+  </g>
+  <rect x="64" y="141" width="384" height="230" rx="18" fill="none" stroke="#006b96" stroke-width="8"/>
 </svg>

@@ -1,9 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
   <title id="title">Decidimos mudar de país, por onde começar?</title>
-  <desc id="description">Planning the first steps of an international move</desc>
-  <circle cx="256" cy="256" r="248" fill="#173D3C"/>
-  <circle cx="246" cy="246" r="205" fill="#E3FCF3" opacity=".14"/>
-  <g transform="translate(67 67) scale(3.60)" fill="none" stroke="#E9FFF8" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><circle fill="#E3FCF3" cx="50" cy="50" r="39"/><path d="m63 37-8 20-20 8 8-20z"/></g>
-  <circle cx="397" cy="130" r="87" fill="#FFD697" stroke="#173D3C" stroke-width="11"/>
-  <g transform="translate(337 70) scale(1.20)" fill="none" stroke="#E9FFF8" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><rect fill="#E3FCF3" x="13" y="30" width="74" height="58" rx="7"/><path d="M34 30V17h32v13M13 54h74M43 52h14v10H43z"/></g>
+  <desc id="description">Red passport with a gold globe, based on the supplied passport reference</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <g transform="rotate(-6 256 256)">
+    <rect x="151" y="111" width="254" height="330" rx="28" fill="#c74741"/>
+    <rect x="129" y="99" width="254" height="330" rx="28" fill="#fff8e7" stroke="#c74741" stroke-width="8"/>
+    <rect x="114" y="91" width="254" height="330" rx="28" fill="#c74741"/>
+    <circle cx="241" cy="205" r="72" fill="#f6dc86"/>
+    <g fill="none" stroke="#962824" stroke-width="8">
+      <ellipse cx="241" cy="205" rx="28" ry="72"/>
+      <path d="M170 205h142M185 164c34 22 78 22 112 0M185 246c34-22 78-22 112 0"/>
+    </g>
+    <rect x="160" y="313" width="162" height="20" rx="7" fill="#f6dc86"/>
+    <rect x="208" y="366" width="70" height="30" rx="8" fill="#f6dc86"/>
+    <circle cx="243" cy="381" r="10" fill="#962824"/>
+  </g>
 </svg>
