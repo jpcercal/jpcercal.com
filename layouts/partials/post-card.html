@@ -14,8 +14,28 @@
 <article class="post-card mb-6">
     <div class="flex">
         <div class="flex-col m-4 post-card--cover">
-            <img class="rounded post-card--icon theme-cover--light" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
-            {{ if $darkCover }}<img class="rounded post-card--icon theme-cover--dark" src="{{ .Permalink }}index.dark.svg" alt="" aria-hidden="true" height="60" width="60">{{ end }}
+            {{/* Theme-paired covers ship as two semantic <picture>s, one per
+              theme, each with its real source + <img> in the HTML. CSS
+              (data-theme, set before paint; prefers-color-scheme for no-JS)
+              decides which one renders, so no JS touches the images. The
+              hidden <picture> is display:none and its img is loading="lazy",
+              so the browser never fetches it. A single <picture> cannot do
+              this: <source media> can only see the OS, not the toggle, so it
+              would fetch the wrong file before any correction. */}}
+            {{ if $darkCover }}
+            <picture class="theme-cover--light">
+                <source media="(prefers-color-scheme: light)" srcset="{{ .Permalink }}index.svg">
+                <img class="rounded post-card--icon" src="{{ .Permalink }}index.svg" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+            </picture>
+            <picture class="theme-cover--dark">
+                <source media="(prefers-color-scheme: dark)" srcset="{{ .Permalink }}index.dark.svg">
+                <img class="rounded post-card--icon" src="{{ .Permalink }}index.dark.svg" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+            </picture>
+            {{ else }}
+            <picture>
+                <img class="rounded post-card--icon" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+            </picture>
+            {{ end }}
         </div>
         <header class="flex-col m-0">
             <h2 class="mt-0 mb-0 font-size-h4">

@@ -67,32 +67,70 @@ test("theme toggle switches to dark and persists", async ({ page }) => {
 test("os dark scheme renders dark theme by default", async ({ browser }) => {
 	const context = await browser.newContext({ colorScheme: "dark" });
 	const page = await context.newPage();
+	const lightRequests = [];
+	page.on("request", (request) => {
+		if (/\/index\.svg$/.test(request.url())) {
+			lightRequests.push(request.url());
+		}
+	});
 	await page.goto("/en/");
 	await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 	const card = page.locator(".post-card").filter({
 		has: page.locator('a[href*="when-ai-decisions-become-software-inputs"]'),
 	});
 	await expect(card.locator(".theme-cover--dark")).toBeVisible();
+	await expect(card.locator(".theme-cover--light")).toBeHidden();
+	await expect
+		.poll(() =>
+			card.locator(".theme-cover--dark img").evaluate((img) => img.currentSrc),
+		)
+		.toMatch(/index\.dark\.svg$/);
+	// The light <picture> is display:none + lazy, so it must never be fetched.
+	await page.waitForTimeout(300);
+	expect(lightRequests).toEqual([]);
 	await context.close();
 });
 
 test("post card cover follows the selected theme", async ({ page }) => {
+	const darkRequests = [];
+	page.on("request", (request) => {
+		if (/\/index\.dark\.svg$/.test(request.url())) {
+			darkRequests.push(request.url());
+		}
+	});
 	await page.goto("/en/");
 	const card = page.locator(".post-card").filter({
 		has: page.locator('a[href*="when-ai-decisions-become-software-inputs"]'),
 	});
 	await expect(card.locator(".theme-cover--light")).toBeVisible();
 	await expect(card.locator(".theme-cover--dark")).toBeHidden();
+	await expect
+		.poll(() =>
+			card.locator(".theme-cover--light img").evaluate((img) => img.currentSrc),
+		)
+		.toMatch(/index\.svg$/);
+	// Nothing may request the dark cover while the resolved theme is light.
+	await page.waitForTimeout(300);
+	expect(darkRequests).toEqual([]);
 	await page.locator("[data-theme-toggle]").click();
 	await expect(card.locator(".theme-cover--light")).toBeHidden();
 	await expect(card.locator(".theme-cover--dark")).toBeVisible();
 	await page.reload();
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 	await expect(card.locator(".theme-cover--dark")).toBeVisible();
+	await expect(card.locator(".theme-cover--light")).toBeHidden();
 });
 
 test("search result cover follows the selected theme", async ({ page }) => {
 	const image =
 		"http://127.0.0.1:1313/instalando-servidor-web-apache-no-linux/index.svg";
+	const darkImage = image.replace(/index\.svg$/, "index.dark.svg");
+	const darkRequests = [];
+	page.on("request", (request) => {
+		if (request.url() === darkImage) {
+			darkRequests.push(request.url());
+		}
+	});
 	await page.route("**/pagefind/pagefind.js", (route) =>
 		route.fulfill({
 			contentType: "text/javascript",
@@ -108,14 +146,24 @@ export async function search() {
 	);
 	await page.goto("/search/");
 	await page.locator("#search").fill("apache");
-	const card = page.locator("#search-results .post-card");
-	await expect(card.locator(".theme-cover--light")).toBeVisible();
-	await expect(card.locator(".theme-cover--dark")).toBeHidden();
+	const cover = page.locator("#search-results .post-card");
+	await expect(cover.locator(".theme-cover--light")).toBeVisible();
+	await expect(cover.locator(".theme-cover--dark")).toBeHidden();
+	await expect
+		.poll(() =>
+			cover
+				.locator(".theme-cover--light img")
+				.evaluate((img) => img.currentSrc),
+		)
+		.toBe(image);
+	// Nothing may request the dark cover while the resolved theme is light.
+	await page.waitForTimeout(300);
+	expect(darkRequests).toEqual([]);
 	await page.locator("[data-theme-toggle]").click();
-	await expect(card.locator(".theme-cover--light")).toBeHidden();
-	await expect(card.locator(".theme-cover--dark")).toBeVisible();
-	await expect(card.locator(".theme-cover--dark")).toHaveAttribute(
-		"src",
-		image.replace(/index\.svg$/, "index.dark.svg"),
-	);
+	await expect(cover.locator(".theme-cover--dark")).toBeVisible();
+	await expect
+		.poll(() =>
+			cover.locator(".theme-cover--dark img").evaluate((img) => img.currentSrc),
+		)
+		.toBe(darkImage);
 });
