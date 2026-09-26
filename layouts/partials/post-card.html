@@ -14,8 +14,20 @@
 <article class="post-card mb-6">
     <div class="flex">
         <div class="flex-col m-4 post-card--cover">
-            <img class="rounded post-card--icon theme-cover--light" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60">
-            {{ if $darkCover }}<img class="rounded post-card--icon theme-cover--dark" src="{{ .Permalink }}index.dark.svg" alt="" aria-hidden="true" height="60" width="60">{{ end }}
+            {{/* Theme-paired covers ship as one <picture>: the <source> media
+              query lets the OS setting pick the right file with zero JS (and
+              zero wasted request). theme.js rewrites the source media when a
+              stored override differs from the OS, mirroring the favicon
+              data-*-href swap. `loading="lazy"` keeps offscreen cards from
+              fetching; the in-viewport first card still loads immediately. */}}
+            {{ if $darkCover }}
+            <picture data-theme-picture>
+                <source media="(prefers-color-scheme: dark)" srcset="{{ .Permalink }}index.dark.svg">
+                <img class="rounded post-card--icon" src="{{ printf "%s%s" .Permalink $filename }}" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+            </picture>
+            {{ else }}
+            <img class="rounded post-card--icon" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+            {{ end }}
         </div>
         <header class="flex-col m-0">
             <h2 class="mt-0 mb-0 font-size-h4">

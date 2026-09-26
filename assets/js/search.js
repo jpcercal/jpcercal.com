@@ -75,14 +75,21 @@ document.addEventListener("DOMContentLoaded", () => {
 		const darkImage = image.endsWith("/index.svg")
 			? image.replace(/index\.svg$/, "index.dark.svg")
 			: null;
+		// Results can render after load, so translate the already-resolved
+		// data-theme into the <source> media here (theme.js re-queries every
+		// picture on later toggles).
+		const media =
+			document.documentElement.getAttribute("data-theme") === "dark"
+				? "all"
+				: "not all";
+		const cover = darkImage
+			? `<picture data-theme-picture><source media="${media}" srcset="${darkImage}"><img class="rounded post-card--icon" src="${image}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async"></picture>`
+			: `<img class="rounded post-card--icon" src="${image}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async">`;
 
 		return (
 			`<article class="post-card mb-6">` +
 			`<div class="flex"><div class="flex-col m-4">` +
-			`<img class="rounded post-card--icon theme-cover--light" src="${image}" alt="${result.meta.title}" height="60" width="60">` +
-			(darkImage
-				? `<img class="rounded post-card--icon theme-cover--dark" src="${darkImage}" alt="" aria-hidden="true" height="60" width="60">`
-				: "") +
+			cover +
 			`</div><header class="flex-col m-0">` +
 			`<h2 class="mt-0 mb-0 font-size-h4">` +
 			`<a class="mt-4 mb-1 post-card--title" href="${result.url}">${result.meta.title}</a>` +

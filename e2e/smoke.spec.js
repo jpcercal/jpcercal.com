@@ -72,7 +72,10 @@ test("os dark scheme renders dark theme by default", async ({ browser }) => {
 	const card = page.locator(".post-card").filter({
 		has: page.locator('a[href*="when-ai-decisions-become-software-inputs"]'),
 	});
-	await expect(card.locator(".theme-cover--dark")).toBeVisible();
+	const cover = card.locator("img.post-card--icon");
+	await expect
+		.poll(() => cover.evaluate((img) => img.currentSrc))
+		.toMatch(/index\.dark\.svg$/);
 	await context.close();
 });
 
@@ -81,13 +84,18 @@ test("post card cover follows the selected theme", async ({ page }) => {
 	const card = page.locator(".post-card").filter({
 		has: page.locator('a[href*="when-ai-decisions-become-software-inputs"]'),
 	});
-	await expect(card.locator(".theme-cover--light")).toBeVisible();
-	await expect(card.locator(".theme-cover--dark")).toBeHidden();
+	const cover = card.locator("img.post-card--icon");
+	await expect
+		.poll(() => cover.evaluate((img) => img.currentSrc))
+		.toMatch(/index\.svg$/);
 	await page.locator("[data-theme-toggle]").click();
-	await expect(card.locator(".theme-cover--light")).toBeHidden();
-	await expect(card.locator(".theme-cover--dark")).toBeVisible();
+	await expect
+		.poll(() => cover.evaluate((img) => img.currentSrc))
+		.toMatch(/index\.dark\.svg$/);
 	await page.reload();
-	await expect(card.locator(".theme-cover--dark")).toBeVisible();
+	await expect
+		.poll(() => cover.evaluate((img) => img.currentSrc))
+		.toMatch(/index\.dark\.svg$/);
 });
 
 test("search result cover follows the selected theme", async ({ page }) => {
@@ -108,14 +116,10 @@ export async function search() {
 	);
 	await page.goto("/search/");
 	await page.locator("#search").fill("apache");
-	const card = page.locator("#search-results .post-card");
-	await expect(card.locator(".theme-cover--light")).toBeVisible();
-	await expect(card.locator(".theme-cover--dark")).toBeHidden();
+	const cover = page.locator("#search-results .post-card img.post-card--icon");
+	await expect.poll(() => cover.evaluate((img) => img.currentSrc)).toBe(image);
 	await page.locator("[data-theme-toggle]").click();
-	await expect(card.locator(".theme-cover--light")).toBeHidden();
-	await expect(card.locator(".theme-cover--dark")).toBeVisible();
-	await expect(card.locator(".theme-cover--dark")).toHaveAttribute(
-		"src",
-		image.replace(/index\.svg$/, "index.dark.svg"),
-	);
+	await expect
+		.poll(() => cover.evaluate((img) => img.currentSrc))
+		.toBe(image.replace(/index\.svg$/, "index.dark.svg"));
 });
