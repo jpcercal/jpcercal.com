@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">What an AI Session Can Teach the Next One</title>
+  <desc id="description">Five colorful layers of shared knowledge build on one another, inspired by the supplied stacked provisioning diagram.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <g transform="translate(0 291)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#89949f"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#77828e"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#b7c0c9"/>
+    <path d="M256 0 256 144 412 72Z" fill="#a2adb8"/>
+  </g>
+  <g transform="translate(0 235)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#c85c47"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#b84e3a"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#ff8064"/>
+    <path d="M256 0 256 144 412 72Z" fill="#e86d52"/>
+  </g>
+  <g transform="translate(0 179)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#c89028"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#b57e19"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#ffd06b"/>
+    <path d="M256 0 256 144 412 72Z" fill="#edb94c"/>
+  </g>
+  <g transform="translate(0 123)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#2a9e9a"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#248c8a"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#50d4c9"/>
+    <path d="M256 0 256 144 412 72Z" fill="#3fc2b9"/>
+  </g>
+  <g transform="translate(0 67)">
+    <path d="M100 72 256 144 412 72 412 86 256 158 100 86Z" fill="#328db2"/>
+    <path d="M256 144 412 72 412 86 256 158Z" fill="#2b7fa3"/>
+    <path d="M256 0 100 72 256 144 412 72Z" fill="#55bee6"/>
+    <path d="M256 0 256 144 412 72Z" fill="#42a9d3"/>
+  </g>
+</svg>
