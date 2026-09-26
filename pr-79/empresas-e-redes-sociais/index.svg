@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Social network</title>
+  <desc id="description">Connected people and nodes reflect the supplied network diagram.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g fill="none" stroke="#294760" stroke-width="18" stroke-linecap="round"><path d="m256 125 115 67v128l-115 67-115-67V192Zm0 0v85m115-18-70 42m70 86-70-41m-45 108v-81m-115 14 72-41m-72-87 71 42"/></g><g fill="#ffffff" stroke="#294760" stroke-width="9"><circle cx="256" cy="125" r="18"/><circle cx="371" cy="192" r="18"/><circle cx="371" cy="320" r="18"/><circle cx="256" cy="387" r="18"/><circle cx="141" cy="320" r="18"/><circle cx="141" cy="192" r="18"/></g><circle cx="256" cy="256" r="51" fill="#294760"/><circle cx="256" cy="242" r="16" fill="#ffffff"/><path d="M226 284c7-29 53-29 60 0" fill="#ffffff"/>
+</svg>
