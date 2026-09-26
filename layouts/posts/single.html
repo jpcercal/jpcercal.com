@@ -18,7 +18,9 @@
     <header class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
             <div class="float-left">
-                <img class="rounded-full" src="{{ $baseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60" width="60" loading="lazy" decoding="async">
+                <picture>
+                    <img class="rounded-full" src="{{ $baseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60" width="60" loading="lazy" decoding="async">
+                </picture>
             </div>
 
             <div class="float-left ml-2">
