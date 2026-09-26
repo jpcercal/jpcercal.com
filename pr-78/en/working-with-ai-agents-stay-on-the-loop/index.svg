@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Working With AI Agents: Stay on the Loop</title>
+  <desc id="description">Two code chevrons connected by a feedback line on a blue-to-magenta gradient</desc>
+  <defs>
+    <linearGradient id="code-gradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#155ca8"/>
+      <stop offset="1" stop-color="#aa278b"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <circle cx="256" cy="256" r="190" fill="url(#code-gradient)"/>
+  <g fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m238 173-83 83 83 83"/>
+    <path d="m274 173 83 83-83 83"/>
+  </g>
+  <path d="M164 256h184" fill="none" stroke="#152239" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#fff" stroke="#152239" stroke-width="6" stroke-linejoin="round">
+    <path d="m155 247 9 9-9 9-9-9z"/>
+    <path d="m357 247 9 9-9 9-9-9z"/>
+  </g>
+</svg>
