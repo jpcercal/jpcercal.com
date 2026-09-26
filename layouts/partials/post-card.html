@@ -14,19 +14,27 @@
 <article class="post-card mb-6">
     <div class="flex">
         <div class="flex-col m-4 post-card--cover">
-            {{/* Theme-paired covers ship as one <picture>: the <source> media
-              query lets the OS setting pick the right file with zero JS (and
-              zero wasted request). theme.js rewrites the source media when a
-              stored override differs from the OS, mirroring the favicon
-              data-*-href swap. `loading="lazy"` keeps offscreen cards from
-              fetching; the in-viewport first card still loads immediately. */}}
+            {{/* Theme-paired covers ship as two semantic <picture>s, one per
+              theme, each with its real source + <img> in the HTML. CSS
+              (data-theme, set before paint; prefers-color-scheme for no-JS)
+              decides which one renders, so no JS touches the images. The
+              hidden <picture> is display:none and its img is loading="lazy",
+              so the browser never fetches it. A single <picture> cannot do
+              this: <source media> can only see the OS, not the toggle, so it
+              would fetch the wrong file before any correction. */}}
             {{ if $darkCover }}
-            <picture data-theme-picture>
+            <picture class="theme-cover--light">
+                <source media="(prefers-color-scheme: light)" srcset="{{ .Permalink }}index.svg">
+                <img class="rounded post-card--icon" src="{{ .Permalink }}index.svg" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+            </picture>
+            <picture class="theme-cover--dark">
                 <source media="(prefers-color-scheme: dark)" srcset="{{ .Permalink }}index.dark.svg">
-                <img class="rounded post-card--icon" src="{{ printf "%s%s" .Permalink $filename }}" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+                <img class="rounded post-card--icon" src="{{ .Permalink }}index.dark.svg" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
             </picture>
             {{ else }}
-            <img class="rounded post-card--icon" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+            <picture>
+                <img class="rounded post-card--icon" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+            </picture>
             {{ end }}
         </div>
         <header class="flex-col m-0">

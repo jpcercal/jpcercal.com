@@ -45,15 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			asset.setAttribute("content", asset.getAttribute(assetContent));
 		}
 
-		// <picture> covers: the <source> media follows the OS, so translate a
-		// stored override into an explicit all/not-all media query. A later
-		// OS change (while nothing is stored) re-runs apply() and re-syncs.
-		for (const source of document.querySelectorAll(
-			"picture[data-theme-picture] > source",
-		)) {
-			source.media = theme === "dark" ? "all" : "not all";
-		}
-
 		const tag = document.querySelector('meta[name="theme-color"]');
 		if (tag) {
 			tag.setAttribute(

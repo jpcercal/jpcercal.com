@@ -75,16 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		const darkImage = image.endsWith("/index.svg")
 			? image.replace(/index\.svg$/, "index.dark.svg")
 			: null;
-		// Results can render after load, so translate the already-resolved
-		// data-theme into the <source> media here (theme.js re-queries every
-		// picture on later toggles).
-		const media =
-			document.documentElement.getAttribute("data-theme") === "dark"
-				? "all"
-				: "not all";
 		const cover = darkImage
-			? `<picture data-theme-picture><source media="${media}" srcset="${darkImage}"><img class="rounded post-card--icon" src="${image}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async"></picture>`
-			: `<img class="rounded post-card--icon" src="${image}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async">`;
+			? `<picture class="theme-cover--light"><source media="(prefers-color-scheme: light)" srcset="${image}"><img class="rounded post-card--icon" src="${image}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async"></picture>` +
+				`<picture class="theme-cover--dark"><source media="(prefers-color-scheme: dark)" srcset="${darkImage}"><img class="rounded post-card--icon" src="${darkImage}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async"></picture>`
+			: `<picture><img class="rounded post-card--icon" src="${image}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async"></picture>`;
 
 		return (
 			`<article class="post-card mb-6">` +
