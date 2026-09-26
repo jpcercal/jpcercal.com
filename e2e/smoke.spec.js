@@ -57,9 +57,11 @@ test("theme toggle switches to dark and persists", async ({ page }) => {
 		"href",
 		/images\/favicon\/manifest\.dark\.json$/,
 	);
-	await expect(
-		page.locator('link[rel="icon"][type="image/x-icon"]'),
-	).toHaveAttribute("sizes", "48x48 32x32 16x16");
+	const icoSizes = await page
+		.locator('link[rel="icon"][type="image/x-icon"]')
+		.getAttribute("sizes");
+	expect(icoSizes).toBeTruthy();
+	expect(icoSizes).not.toMatch(/(^|\s)(16x16|32x32)(\s|$)/);
 });
 
 test("os dark scheme renders dark theme by default", async ({ browser }) => {

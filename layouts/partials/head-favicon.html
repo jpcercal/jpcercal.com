@@ -5,8 +5,15 @@
      copies. resources.Match self-prunes as files are added/removed.
    - favicon.ico is additionally published at root for implicit
      browser/crawler /favicon.ico requests.
-   - The ICO link carries sizes="48x48 32x32 16x16" so Chromium prefers the
-     SVG icon over the ICO fallback.
+   - The ICO link declares sizes="48x48" only. Chromium scores icon
+     candidates by exact-match against the 16/32px tab request: declaring
+     16x16/32x32 would tie the ICO with the SVG (1.0) and the ICO would win
+     on document order, so the adaptive SVG would never be fetched.
+     sizes="48x48" sits below tab sizes, so the ICO scores lower and the
+     SVG (sizes="any") wins. Note WHATWG breaks ties by last declared
+     while Chromium effectively uses first among equal scores, so lowering
+     the ICO score (not reordering) is the fix. Do not re-add 16x16/32x32
+     to this value.
    - The SVGs carry embedded prefers-color-scheme overrides for non-DOM
      contexts (bookmarks/history/readers); the data-* swap via theme.js stays
      authoritative in-tab for stored theme overrides.
@@ -23,7 +30,7 @@
 {{- end }}
 {{- $faviconBase := printf "%simages/favicon/" .Site.BaseURL -}}
 <!-- BEGIN Favicon -->
-<link rel="icon" type="image/x-icon" sizes="48x48 32x32 16x16" href="{{ $faviconBase }}favicon.ico" data-light-href="{{ $faviconBase }}favicon.ico" data-dark-href="{{ $faviconBase }}favicon.dark.ico">
+<link rel="icon" type="image/x-icon" sizes="48x48" href="{{ $faviconBase }}favicon.ico" data-light-href="{{ $faviconBase }}favicon.ico" data-dark-href="{{ $faviconBase }}favicon.dark.ico">
 <link rel="icon" type="image/png" sizes="48x48" href="{{ $faviconBase }}favicon-48x48.png" data-light-href="{{ $faviconBase }}favicon-48x48.png" data-dark-href="{{ $faviconBase }}favicon-48x48.dark.png">
 <link rel="icon" type="image/svg+xml" sizes="any" href="{{ $faviconBase }}favicon-light.svg" data-light-href="{{ $faviconBase }}favicon-light.svg" data-dark-href="{{ $faviconBase }}favicon-dark.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ $faviconBase }}apple-icon-180x180.png" data-light-href="{{ $faviconBase }}apple-icon-180x180.png" data-dark-href="{{ $faviconBase }}apple-icon-180x180.dark.png">
