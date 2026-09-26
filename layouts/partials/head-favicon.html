@@ -1,3 +1,11 @@
+{{/* Publish favicon assets via Hugo Pipes so Hugo-only builds contain
+   public/images/favicon/* and lychee verifies favicon.ico + manifest.json
+   without excludes (bin/build-images.sh later overwrites with optimized
+   copies). resources.Match covers current + future light/dark variants. */}}
+{{- range $res := resources.Match "images/favicon/*" }}
+  {{- $pub := $res | resources.Copy $res.Name }}
+  {{- $noop := $pub.RelPermalink }}
+{{- end }}
 {{- $faviconBase := printf "%simages/favicon/" .Site.BaseURL -}}
 <!-- BEGIN Favicon -->
 <link rel="icon" type="image/x-icon" href="{{ $faviconBase }}favicon.ico" data-light-href="{{ $faviconBase }}favicon.ico" data-dark-href="{{ $faviconBase }}favicon.dark.ico">
