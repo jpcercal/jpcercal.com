@@ -58,8 +58,8 @@ test("theme toggle switches to dark and persists", async ({ page }) => {
 		/images\/favicon\/manifest\.dark\.json$/,
 	);
 	await expect(
-		page.locator('meta[name="msapplication-config"]'),
-	).toHaveAttribute("content", /images\/favicon\/browserconfig\.dark\.xml$/);
+		page.locator('link[rel="icon"][type="image/x-icon"]'),
+	).toHaveAttribute("sizes", "48x48 32x32 16x16");
 });
 
 test("os dark scheme renders dark theme by default", async ({ browser }) => {

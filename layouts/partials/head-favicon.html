@@ -1,33 +1,33 @@
-{{/* Publish favicon assets via Hugo Pipes so Hugo-only builds contain
-   public/images/favicon/* and lychee verifies favicon.ico + manifest.json
-   without excludes (bin/build-images.sh later overwrites with optimized
-   copies). resources.Match covers current + future light/dark variants. */}}
+{{/* Favicon contract (2026 best-practice set, theme-aware):
+   - Hugo Pipes publishes assets/images/favicon/* so Hugo-only builds contain
+     public/images/favicon/* and lychee verifies favicon.ico + manifest.json
+     without excludes; bin/build-images.sh later overwrites with optimized
+     copies. resources.Match self-prunes as files are added/removed.
+   - favicon.ico is additionally published at root for implicit
+     browser/crawler /favicon.ico requests.
+   - The ICO link carries sizes="48x48 32x32 16x16" so Chromium prefers the
+     SVG icon over the ICO fallback.
+   - The SVGs carry embedded prefers-color-scheme overrides for non-DOM
+     contexts (bookmarks/history/readers); the data-* swap via theme.js stays
+     authoritative in-tab for stored theme overrides.
+   - Never re-add lychee excludes for favicon URLs: they must verify.
+   - Manifests keep relative id/scope/start_url ("../../") so installs work
+     under staging pr-NN/ subpaths; do not root them. */}}
 {{- range $res := resources.Match "images/favicon/*" }}
   {{- $pub := $res | resources.Copy $res.Name }}
   {{- $noop := $pub.RelPermalink }}
 {{- end }}
+{{- with resources.Get "images/favicon/favicon.ico" }}
+  {{- $rootIco := . | resources.Copy "favicon.ico" }}
+  {{- $noop := $rootIco.RelPermalink }}
+{{- end }}
 {{- $faviconBase := printf "%simages/favicon/" .Site.BaseURL -}}
 <!-- BEGIN Favicon -->
-<link rel="icon" type="image/x-icon" href="{{ $faviconBase }}favicon.ico" data-light-href="{{ $faviconBase }}favicon.ico" data-dark-href="{{ $faviconBase }}favicon.dark.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ $faviconBase }}favicon-16x16.png" data-light-href="{{ $faviconBase }}favicon-16x16.png" data-dark-href="{{ $faviconBase }}favicon-16x16.dark.png">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ $faviconBase }}favicon-32x32.png" data-light-href="{{ $faviconBase }}favicon-32x32.png" data-dark-href="{{ $faviconBase }}favicon-32x32.dark.png">
+<link rel="icon" type="image/x-icon" sizes="48x48 32x32 16x16" href="{{ $faviconBase }}favicon.ico" data-light-href="{{ $faviconBase }}favicon.ico" data-dark-href="{{ $faviconBase }}favicon.dark.ico">
 <link rel="icon" type="image/png" sizes="48x48" href="{{ $faviconBase }}favicon-48x48.png" data-light-href="{{ $faviconBase }}favicon-48x48.png" data-dark-href="{{ $faviconBase }}favicon-48x48.dark.png">
-<link rel="icon" type="image/png" sizes="96x96" href="{{ $faviconBase }}favicon-96x96.png" data-light-href="{{ $faviconBase }}favicon-96x96.png" data-dark-href="{{ $faviconBase }}favicon-96x96.dark.png">
-<link rel="icon" type="image/png" sizes="192x192" href="{{ $faviconBase }}android-icon-192x192.png" data-light-href="{{ $faviconBase }}android-icon-192x192.png" data-dark-href="{{ $faviconBase }}android-icon-192x192.dark.png">
 <link rel="icon" type="image/svg+xml" sizes="any" href="{{ $faviconBase }}favicon-light.svg" data-light-href="{{ $faviconBase }}favicon-light.svg" data-dark-href="{{ $faviconBase }}favicon-dark.svg">
-<link rel="apple-touch-icon" sizes="57x57" href="{{ $faviconBase }}apple-icon-57x57.png" data-light-href="{{ $faviconBase }}apple-icon-57x57.png" data-dark-href="{{ $faviconBase }}apple-icon-57x57.dark.png">
-<link rel="apple-touch-icon" sizes="60x60" href="{{ $faviconBase }}apple-icon-60x60.png" data-light-href="{{ $faviconBase }}apple-icon-60x60.png" data-dark-href="{{ $faviconBase }}apple-icon-60x60.dark.png">
-<link rel="apple-touch-icon" sizes="72x72" href="{{ $faviconBase }}apple-icon-72x72.png" data-light-href="{{ $faviconBase }}apple-icon-72x72.png" data-dark-href="{{ $faviconBase }}apple-icon-72x72.dark.png">
-<link rel="apple-touch-icon" sizes="76x76" href="{{ $faviconBase }}apple-icon-76x76.png" data-light-href="{{ $faviconBase }}apple-icon-76x76.png" data-dark-href="{{ $faviconBase }}apple-icon-76x76.dark.png">
-<link rel="apple-touch-icon" sizes="114x114" href="{{ $faviconBase }}apple-icon-114x114.png" data-light-href="{{ $faviconBase }}apple-icon-114x114.png" data-dark-href="{{ $faviconBase }}apple-icon-114x114.dark.png">
-<link rel="apple-touch-icon" sizes="120x120" href="{{ $faviconBase }}apple-icon-120x120.png" data-light-href="{{ $faviconBase }}apple-icon-120x120.png" data-dark-href="{{ $faviconBase }}apple-icon-120x120.dark.png">
-<link rel="apple-touch-icon" sizes="144x144" href="{{ $faviconBase }}apple-icon-144x144.png" data-light-href="{{ $faviconBase }}apple-icon-144x144.png" data-dark-href="{{ $faviconBase }}apple-icon-144x144.dark.png">
-<link rel="apple-touch-icon" sizes="152x152" href="{{ $faviconBase }}apple-icon-152x152.png" data-light-href="{{ $faviconBase }}apple-icon-152x152.png" data-dark-href="{{ $faviconBase }}apple-icon-152x152.dark.png">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ $faviconBase }}apple-icon-180x180.png" data-light-href="{{ $faviconBase }}apple-icon-180x180.png" data-dark-href="{{ $faviconBase }}apple-icon-180x180.dark.png">
 <link rel="manifest" href="{{ $faviconBase }}manifest.json" data-light-href="{{ $faviconBase }}manifest.json" data-dark-href="{{ $faviconBase }}manifest.dark.json">
-<meta name="msapplication-config" content="{{ $faviconBase }}browserconfig.xml" data-light-content="{{ $faviconBase }}browserconfig.xml" data-dark-content="{{ $faviconBase }}browserconfig.dark.xml">
-<meta name="msapplication-TileColor" content="#ffffff" data-light-content="#ffffff" data-dark-content="#191919">
-<meta name="msapplication-TileImage" content="{{ $faviconBase }}ms-icon-144x144.png" data-light-content="{{ $faviconBase }}ms-icon-144x144.png" data-dark-content="{{ $faviconBase }}ms-icon-144x144.dark.png">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#191919">
 <!-- END Favicon -->
