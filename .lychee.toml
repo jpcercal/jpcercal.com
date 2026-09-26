@@ -13,10 +13,6 @@ timeout = 20
 exclude = [
   "https://jpcercal.local",
   "http://jpcercal.local",
-  # Favicon pipeline not ported yet (owned by the images commit); sources live
-  # in assets/images/favicon/ and currently 404 in Hugo-only builds.
-  "https://jpcercal.com/images/favicon/favicon.ico",
-  "https://jpcercal.com/images/favicon/manifest.json",
   # Bot-blocking hosts (verified manually with a browser UA): LinkedIn 999,
   # MySQL/Codex/Joomla/Flaticon/Freepik 403, Facebook sharer 500.
   # Profiles and pages exist; they reject non-browser clients.

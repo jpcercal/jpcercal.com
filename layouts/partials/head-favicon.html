@@ -1,22 +1,40 @@
+{{/* Favicon contract (2026 best-practice set, theme-aware):
+   - Hugo Pipes publishes assets/images/favicon/* so Hugo-only builds contain
+     public/images/favicon/* and lychee verifies favicon.ico + manifest.json
+     without excludes; bin/build-images.sh later overwrites with optimized
+     copies. resources.Match self-prunes as files are added/removed.
+   - favicon.ico is additionally published at root for implicit
+     browser/crawler /favicon.ico requests.
+   - The ICO link declares sizes="48x48" only. Chromium scores icon
+     candidates by exact-match against the 16/32px tab request: declaring
+     16x16/32x32 would tie the ICO with the SVG (1.0) and the ICO would win
+     on document order, so the adaptive SVG would never be fetched.
+     sizes="48x48" sits below tab sizes, so the ICO scores lower and the
+     SVG (sizes="any") wins. Note WHATWG breaks ties by last declared
+     while Chromium effectively uses first among equal scores, so lowering
+     the ICO score (not reordering) is the fix. Do not re-add 16x16/32x32
+     to this value.
+   - The SVGs carry embedded prefers-color-scheme overrides for non-DOM
+     contexts (bookmarks/history/readers); the data-* swap via theme.js stays
+     authoritative in-tab for stored theme overrides.
+   - Never re-add lychee excludes for favicon URLs: they must verify.
+   - Manifests keep relative id/scope/start_url ("../../") so installs work
+     under staging pr-NN/ subpaths; do not root them. */}}
+{{- range $res := resources.Match "images/favicon/*" }}
+  {{- $pub := $res | resources.Copy $res.Name }}
+  {{- $noop := $pub.RelPermalink }}
+{{- end }}
+{{- with resources.Get "images/favicon/favicon.ico" }}
+  {{- $rootIco := . | resources.Copy "favicon.ico" }}
+  {{- $noop := $rootIco.RelPermalink }}
+{{- end }}
+{{- $faviconBase := printf "%simages/favicon/" .Site.BaseURL -}}
 <!-- BEGIN Favicon -->
-<link rel="apple-touch-icon" sizes="57x57" href="{{ .Site.BaseURL }}images/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="{{ .Site.BaseURL }}images/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="{{ .Site.BaseURL }}images/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="{{ .Site.BaseURL }}images/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="{{ .Site.BaseURL }}images/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="{{ .Site.BaseURL }}images/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="{{ .Site.BaseURL }}images/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="{{ .Site.BaseURL }}images/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}images/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="{{ .Site.BaseURL }}images/favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.BaseURL }}images/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="{{ .Site.BaseURL }}images/favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.BaseURL }}images/favicon/favicon-16x16.png">
-<link rel="manifest" href="{{ .Site.BaseURL }}images/favicon/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="{{ .Site.BaseURL }}images/favicon/ms-icon-144x144.png">
+<link rel="icon" type="image/x-icon" sizes="48x48" href="{{ $faviconBase }}favicon.ico" data-light-href="{{ $faviconBase }}favicon.ico" data-dark-href="{{ $faviconBase }}favicon.dark.ico">
+<link rel="icon" type="image/png" sizes="48x48" href="{{ $faviconBase }}favicon-48x48.png" data-light-href="{{ $faviconBase }}favicon-48x48.png" data-dark-href="{{ $faviconBase }}favicon-48x48.dark.png">
+<link rel="icon" type="image/svg+xml" sizes="any" href="{{ $faviconBase }}favicon-light.svg" data-light-href="{{ $faviconBase }}favicon-light.svg" data-dark-href="{{ $faviconBase }}favicon-dark.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ $faviconBase }}apple-icon-180x180.png" data-light-href="{{ $faviconBase }}apple-icon-180x180.png" data-dark-href="{{ $faviconBase }}apple-icon-180x180.dark.png">
+<link rel="manifest" href="{{ $faviconBase }}manifest.json" data-light-href="{{ $faviconBase }}manifest.json" data-dark-href="{{ $faviconBase }}manifest.dark.json">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#191919">
-
-<link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon/favicon.ico">
 <!-- END Favicon -->
