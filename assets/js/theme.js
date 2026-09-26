@@ -30,6 +30,21 @@ document.addEventListener("DOMContentLoaded", () => {
 		root.style.colorScheme = theme;
 		toggle.setAttribute("aria-pressed", String(theme === "dark"));
 
+		const assetHref = theme === "dark" ? "data-dark-href" : "data-light-href";
+		for (const asset of document.querySelectorAll(
+			"[data-light-href][data-dark-href]",
+		)) {
+			asset.setAttribute("href", asset.getAttribute(assetHref));
+		}
+
+		const assetContent =
+			theme === "dark" ? "data-dark-content" : "data-light-content";
+		for (const asset of document.querySelectorAll(
+			"[data-light-content][data-dark-content]",
+		)) {
+			asset.setAttribute("content", asset.getAttribute(assetContent));
+		}
+
 		const tag = document.querySelector('meta[name="theme-color"]');
 		if (tag) {
 			tag.setAttribute(
