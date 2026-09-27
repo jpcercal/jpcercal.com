@@ -1,8 +1,8 @@
 {{ $categories  := .Site.Taxonomies.categories }}
-{{ $data        := site.Data.categories }}
+{{ $data        := hugo.Data.categories }}
 {{ $baseURL     := .Site.BaseURL }}
 {{ $locale      := .Site.Language.Lang }}
-{{ $locales     := site.Data.locales }}
+{{ $locales     := hugo.Data.locales }}
 {{ $localeEn    := index $locales "en" }}
 {{ $localePt    := index $locales "pt" }}
 {{ $githubTitle := i18n "githubCorner" }}
