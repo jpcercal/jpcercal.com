@@ -20,6 +20,10 @@ error404Title:
   other: "Erro 404"
 error404Message:
   other: "A página solicitada não foi encontrada em nossos servidores"
+error404Description:
+  other: 'O endereço <code class="error404--path" data-error404-path>…</code> que você tentou acessar não foi encontrado em nossos servidores. Ele pode ter sido movido, renomeado ou removido. Confira se o endereço foi digitado corretamente.'
+error404Suggestions:
+  other: "Esta página não foi encontrada, mas que tal dar uma olhada nos artigos mais recentes?"
 wordCount:
   other: "{{ .WordCount }} palavras"
 resume:

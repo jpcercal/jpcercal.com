@@ -48,3 +48,13 @@ ul:not([class]) {
     }
   }
 }
+
+.error404--path {
+  font-family: 'Fira Mono', monospace;
+  font-size: em(15px);
+  padding: 0.2rem 0.4rem;
+  color: var(--color-code-fg);
+  background-color: var(--color-code-bg);
+  border-radius: 0.25rem;
+  word-break: break-all;
+}
