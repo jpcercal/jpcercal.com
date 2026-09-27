@@ -13,7 +13,8 @@
   `assets/less/` + Bootstrap slim + Ruby Sass chain long gone.
 - `assets/css/vendor.css` — Tailwind v4 entry (`@import "tailwindcss"`,
   CSS-first, no tailwind/postcss config): Bootstrap-4 grid skeleton
-  (container/row/col) + `@theme` breakpoints (xl pinned to 1200px) +
+  (container/row/col, explicit-px lg/xl media queries; Tailwind's default
+  breakpoint scale drives the `sm:`/`md:`/`lg:` variants) +
   `@custom-variant dark` bound to `[data-theme="dark"]` (reserved for
   future color-only tweaks; no `dark:` utilities used yet).
 - `assets/images/` — `favicon/` + `icons/` sources (copied to
