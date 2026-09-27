@@ -86,7 +86,7 @@ test("os dark scheme renders dark theme by default", async ({ browser }) => {
 		)
 		.toMatch(/index\.dark\.svg$/);
 	// The light <picture> is display:none + lazy, so it must never be fetched.
-	await page.waitForTimeout(300);
+	await page.waitForLoadState("networkidle");
 	expect(lightRequests).toEqual([]);
 	await context.close();
 });
@@ -110,7 +110,7 @@ test("post card cover follows the selected theme", async ({ page }) => {
 		)
 		.toMatch(/index\.svg$/);
 	// Nothing may request the dark cover while the resolved theme is light.
-	await page.waitForTimeout(300);
+	await page.waitForLoadState("networkidle");
 	expect(darkRequests).toEqual([]);
 	await page.locator("[data-theme-toggle]").click();
 	await expect(card.locator(".theme-cover--light")).toBeHidden();
@@ -157,7 +157,7 @@ export async function search() {
 		)
 		.toBe(image);
 	// Nothing may request the dark cover while the resolved theme is light.
-	await page.waitForTimeout(300);
+	await page.waitForLoadState("networkidle");
 	expect(darkRequests).toEqual([]);
 	await page.locator("[data-theme-toggle]").click();
 	await expect(cover.locator(".theme-cover--dark")).toBeVisible();
