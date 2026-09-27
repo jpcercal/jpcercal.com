@@ -14,9 +14,11 @@
      while Chromium effectively uses first among equal scores, so lowering
      the ICO score (not reordering) is the fix. Do not re-add 16x16/32x32
      to this value.
-   - The SVGs carry embedded prefers-color-scheme overrides for non-DOM
-     contexts (bookmarks/history/readers); the data-* swap via theme.js stays
-     authoritative in-tab for stored theme overrides.
+   - favicon.svg is intentionally static light artwork: it carries no
+     prefers-color-scheme override and renders light in every context.
+     favicon-dark.svg keeps its embedded light-scheme override for non-DOM
+     contexts (bookmarks/history/readers); the data-* swap via theme.js
+     stays authoritative in-tab for stored theme overrides.
    - Never re-add lychee excludes for favicon URLs: they must verify.
    - Manifests keep relative id/scope/start_url ("../../") so installs work
      under staging pr-NN/ subpaths; do not root them. */}}
@@ -32,7 +34,7 @@
 <!-- BEGIN Favicon -->
 <link rel="icon" type="image/x-icon" sizes="48x48" href="{{ $faviconBase }}favicon.ico" data-light-href="{{ $faviconBase }}favicon.ico" data-dark-href="{{ $faviconBase }}favicon.dark.ico">
 <link rel="icon" type="image/png" sizes="48x48" href="{{ $faviconBase }}favicon-48x48.png" data-light-href="{{ $faviconBase }}favicon-48x48.png" data-dark-href="{{ $faviconBase }}favicon-48x48.dark.png">
-<link rel="icon" type="image/svg+xml" sizes="any" href="{{ $faviconBase }}favicon-light.svg" data-light-href="{{ $faviconBase }}favicon-light.svg" data-dark-href="{{ $faviconBase }}favicon-dark.svg">
+<link rel="icon" type="image/svg+xml" sizes="any" href="{{ $faviconBase }}favicon.svg" data-light-href="{{ $faviconBase }}favicon.svg" data-dark-href="{{ $faviconBase }}favicon-dark.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ $faviconBase }}apple-icon-180x180.png" data-light-href="{{ $faviconBase }}apple-icon-180x180.png" data-dark-href="{{ $faviconBase }}apple-icon-180x180.dark.png">
 <link rel="manifest" href="{{ $faviconBase }}manifest.json" data-light-href="{{ $faviconBase }}manifest.json" data-dark-href="{{ $faviconBase }}manifest.dark.json">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
