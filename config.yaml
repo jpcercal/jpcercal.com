@@ -49,19 +49,6 @@ languages:
 rssLimit: 15
 paginate: 10
 paginatePath: "page"
-
-# Post covers: the source svgs are pixel-traces whose <img> payload is
-# dominated by thousands of 1px subpaths (brotli already collapses those,
-# so oxvg gains little). Covers whose source svg is at least
-# coverRasterMinBytes are also rendered to a 128px raster thumbnail
-# (index.cover.png / index.dark.cover.png) and served as <img>: the
-# brotli'd svg is the smaller payload below this size, so lighter covers
-# keep shipping as svg. This key is the single source of truth —
-# bin/build-images.sh (renders the rasters) and the post-card/single
-# templates (choose the src) both read it.
-params:
-  coverRasterMinBytes: 16384
-
 permalinks:
   posts:   /:slug/
   authors: /authors/:slug/

@@ -123,8 +123,8 @@ test("post card cover follows the selected theme", async ({ page }) => {
 
 test("search result cover follows the selected theme", async ({ page }) => {
 	const image =
-		"http://127.0.0.1:1313/instalando-servidor-web-apache-no-linux/index.cover.png";
-	const darkImage = image.replace(/index\.cover\.png$/, "index.dark.cover.png");
+		"http://127.0.0.1:1313/instalando-servidor-web-apache-no-linux/index.svg";
+	const darkImage = image.replace(/index\.svg$/, "index.dark.svg");
 	const darkRequests = [];
 	page.on("request", (request) => {
 		if (request.url() === darkImage) {

@@ -9,12 +9,6 @@
 {{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 {{ $cover           := where (readDir (printf "content/%s" .File.Dir)) "Name" "index.svg" }}
 {{ $darkCover       := where (readDir (printf "content/%s" .File.Dir)) "Name" "index.dark.svg" }}
-{{ $rasterMin       := site.Params.coverRasterMinBytes | default 16384 }}
-{{/* Match the src post-card ships for this post (see post-card.html). */}}
-{{ $coverSrc        := "index.svg" }}
-{{ $darkCoverSrc    := "index.dark.svg" }}
-{{ if and $cover (ge (index $cover 0).Size $rasterMin) }}{{ $coverSrc = "index.cover.png" }}{{ end }}
-{{ if and $darkCover (ge (index $darkCover 0).Size $rasterMin) }}{{ $darkCoverSrc = "index.dark.cover.png" }}{{ end }}
 
 {{ $.Scratch.Set "singlePost" true }}
 
@@ -60,8 +54,8 @@
             {{ end }}
             <span class="hidden" data-pagefind-meta="author">{{ $author.name }}</span>
             <span class="hidden" data-pagefind-meta="description">{{ .Description }}</span>
-            <span class="hidden" data-pagefind-meta="image">{{ if $cover }}{{ $localeBaseURL }}{{ .Slug }}/{{ $coverSrc }}{{ else }}{{ $baseURL }}images/icons/tag.svg{{ end }}</span>
-            {{ if and $cover $darkCover }}<span class="hidden" data-pagefind-meta="image_dark">{{ $localeBaseURL }}{{ .Slug }}/{{ $darkCoverSrc }}</span>{{ end }}
+            <span class="hidden" data-pagefind-meta="image">{{ if $cover }}{{ $localeBaseURL }}{{ .Slug }}/index.svg{{ else }}{{ $baseURL }}images/icons/tag.svg{{ end }}</span>
+            {{ if and $cover $darkCover }}<span class="hidden" data-pagefind-meta="image_dark">{{ $localeBaseURL }}{{ .Slug }}/index.dark.svg</span>{{ end }}
             <span class="hidden" data-pagefind-meta="language">{{ $locale }}</span>
             <span class="hidden" data-pagefind-filter="type">post</span>
 
