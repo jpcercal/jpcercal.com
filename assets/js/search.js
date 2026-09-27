@@ -64,21 +64,41 @@ document.addEventListener("DOMContentLoaded", () => {
 	pagefindReady.catch(() => {});
 
 	/**
-	 * Render a result card (same shape as the post-card partial).
+	 * Escape a value for interpolation into HTML markup/attributes. The
+	 * excerpt is NOT escaped: Pagefind returns it as HTML (<mark> tags).
+	 *
+	 * @param value
+	 * @returns {string}
+	 */
+	const escapeHtml = (value) =>
+		String(value)
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/"/g, "&quot;")
+			.replace(/'/g, "&#39;");
+
+	/**
+	 * Render a result card (same shape as the post-card partial). The dark
+	 * cover comes from the image_dark meta that Hugo emits only when the
+	 * file exists on disk — never from a naming convention.
 	 *
 	 * @param result Pagefind result data ({url, meta, excerpt})
 	 * @returns {string}
 	 */
 	const renderHtml = (result) => {
 		const authorPrefix = i18n.trans("createdBy");
-		const image = result.meta.image || `${params.baseUrl}images/icons/tag.svg`;
-		const darkImage = image.endsWith("/index.svg")
-			? image.replace(/index\.svg$/, "index.dark.svg")
+		const title = escapeHtml(result.meta.title);
+		const image = escapeHtml(
+			result.meta.image || `${params.baseUrl}images/icons/tag.svg`,
+		);
+		const darkImage = result.meta.image_dark
+			? escapeHtml(result.meta.image_dark)
 			: null;
 		const cover = darkImage
-			? `<picture class="theme-cover--light"><source media="(prefers-color-scheme: light)" srcset="${image}"><img class="rounded post-card--icon" src="${image}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async"></picture>` +
-				`<picture class="theme-cover--dark"><source media="(prefers-color-scheme: dark)" srcset="${darkImage}"><img class="rounded post-card--icon" src="${darkImage}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async"></picture>`
-			: `<picture><img class="rounded post-card--icon" src="${image}" alt="${result.meta.title}" height="60" width="60" loading="lazy" decoding="async"></picture>`;
+			? `<picture class="theme-cover--light"><img class="rounded post-card--icon" src="${image}" alt="${title}" height="60" width="60" loading="lazy" decoding="async"></picture>` +
+				`<picture class="theme-cover--dark"><img class="rounded post-card--icon" src="${darkImage}" alt="${title}" height="60" width="60" loading="lazy" decoding="async"></picture>`
+			: `<img class="rounded post-card--icon" src="${image}" alt="${title}" height="60" width="60" loading="lazy" decoding="async">`;
 
 		return (
 			`<article class="post-card mb-6">` +
@@ -86,9 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			cover +
 			`</div><header class="flex-col m-0">` +
 			`<h2 class="mt-0 mb-0 font-size-h4">` +
-			`<a class="mt-4 mb-1 post-card--title" href="${result.url}">${result.meta.title}</a>` +
+			`<a class="mt-4 mb-1 post-card--title" href="${escapeHtml(result.url)}">${title}</a>` +
 			`</h2>` +
-			`<ul class="flex list-none gap-2"><li><span>${authorPrefix} ${result.meta.author}</span></li></ul>` +
+			`<ul class="flex list-none gap-2"><li><span>${authorPrefix} ${escapeHtml(result.meta.author)}</span></li></ul>` +
 			`<p class="mt-2 mb-4 mr-2">${result.excerpt}</p>` +
 			`</header></div></article>`
 		);

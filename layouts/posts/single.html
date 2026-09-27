@@ -8,6 +8,7 @@
 {{ $tags            := site.Data.tags }}
 {{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 {{ $cover           := where (readDir (printf "content/%s" .File.Dir)) "Name" "index.svg" }}
+{{ $darkCover       := where (readDir (printf "content/%s" .File.Dir)) "Name" "index.dark.svg" }}
 
 {{ $.Scratch.Set "singlePost" true }}
 
@@ -56,6 +57,7 @@
             <span class="hidden" data-pagefind-meta="author">{{ $author.name }}</span>
             <span class="hidden" data-pagefind-meta="description">{{ .Description }}</span>
             <span class="hidden" data-pagefind-meta="image">{{ if $cover }}{{ $localeBaseURL }}{{ .Slug }}/index.svg{{ else }}{{ $baseURL }}images/icons/tag.svg{{ end }}</span>
+            {{ if and $cover $darkCover }}<span class="hidden" data-pagefind-meta="image_dark">{{ $localeBaseURL }}{{ .Slug }}/index.dark.svg</span>{{ end }}
             <span class="hidden" data-pagefind-meta="language">{{ $locale }}</span>
             <span class="hidden" data-pagefind-filter="type">post</span>
 

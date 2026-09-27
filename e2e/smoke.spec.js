@@ -138,7 +138,7 @@ test("search result cover follows the selected theme", async ({ page }) => {
 export async function search() {
   return { results: [{ data: async () => ({
     url: "/instalando-servidor-web-apache-no-linux/",
-    meta: { title: "Apache", author: "JPC", image: ${JSON.stringify(image)} },
+    meta: { title: "Apache", author: "JPC", image: ${JSON.stringify(image)}, image_dark: ${JSON.stringify(darkImage)} },
     excerpt: "Installing the server"
   }) }] };
 }`,
