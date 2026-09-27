@@ -4,7 +4,7 @@
 {{ $paginator := .Paginate (where .Site.Pages "Type" "authors") }}
 
 {{ partial "head.html" . }}
-{{ partial "navbar.html" . }}
+{{ partialCached "navbar.html" . .Site.Language.Lang }}
 
 <section class="container post-list">
     <div class="row">
@@ -41,4 +41,4 @@
     </div>
 </section>
 
-{{ partial "footer.html" . }}
+{{ partialCached "footer.html" . }}

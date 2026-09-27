@@ -13,7 +13,7 @@
 {{ $.Scratch.Set "singlePost" true }}
 
 {{ partial "head.html" . }}
-{{ partial "navbar.html" . }}
+{{ partialCached "navbar.html" . .Site.Language.Lang }}
 
 <article class="container">
     <header class="row">
@@ -94,4 +94,4 @@
     </div>
 </article>
 
-{{ partial "footer.html" . }}
+{{ partialCached "footer.html" . }}
