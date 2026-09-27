@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">C programming in 1985</title>
+  <desc id="description">The C language letter from the reference recalls writing code in 1985.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <path d="M256 88 390 166v180L256 424 122 346V166Z" fill="#075596"/><path d="M321 212a82 82 0 1 0 0 88l-35-21a42 42 0 1 1 0-46Z" fill="#ffffff"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Apple Macbook Pro 15" com Tela Retina</title>
+  <desc id="description">Confira as nossas impressões referentes ao novo Apple Macbook Pro de 15 polegadas com tela Retina. Um portátil com um belo design e ótima performance.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <rect x="103" y="139" width="306" height="209" rx="16" fill="none" stroke="#eaf5f8" stroke-width="20"/>
+<path d="M128 165h256v157H128z" fill="#88d4f5" opacity=".32"/>
+<path d="m76 361 17-20h326l17 20c6 9 0 20-12 20H88c-12 0-18-11-12-20z" fill="#eaf5f8"/>
+<path d="M218 354h76" stroke="#242424" stroke-width="8" stroke-linecap="round"/>
+<path d="m177 300 92-116m7 116 70-89" stroke="#88d4f5" stroke-width="14" opacity=".8" stroke-linecap="round"/>
+</svg>

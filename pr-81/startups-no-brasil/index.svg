@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Startup Brasil storefront</title>
+  <desc id="description">A small storefront representing Brazilian startup businesses.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <path d="M104 234 129 123q5-20 28-20h198q23 0 28 20l25 111v17q0 27-24 36v110q0 20-20 20H148q-20 0-20-20V287q-24-9-24-36v-17Z" fill="#f8f9fa" stroke="#172c3d" stroke-width="18" stroke-linejoin="round"/><path d="M104 236v15q0 26 26 26t26-26v-15m0 0v15q0 26 25 26t25-26v-15m0 0v15q0 26 25 26t25-26v-15m0 0v15q0 26 25 26t25-26v-15m0 0v15q0 26 25 26t25-26v-15m0 0v15q0 26 26 26t26-26v-15" fill="none" stroke="#172c3d" stroke-width="17"/><path d="M256 281v128" stroke="#172c3d" stroke-width="18"/><circle cx="225" cy="344" r="11" fill="#172c3d"/><circle cx="287" cy="344" r="11" fill="#172c3d"/>
+</svg>
