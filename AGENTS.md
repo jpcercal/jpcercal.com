@@ -45,9 +45,13 @@
   `prefers-color-scheme` → light, no flash); `theme.js` wires the header
   `[data-theme-toggle]` button, persists to `localStorage.theme`, keeps
   following the OS while nothing is stored, and syncs `colorScheme` +
-  `theme-color`. Covered by 5 `e2e/smoke.spec.js` theme tests (2 of them
-  are cover-fetch network guards — see decision #11).
-- `layouts/` (33 files) — `index.html`, `404.html`, `alias.html`,
+  `theme-color`. Covered by 6 `e2e/smoke.spec.js` theme tests (2 of them
+  are cover-fetch network guards — see decision #11; the 6th guards the
+  404 page canvas in both themes).
+- `layouts/` (33 files) — `index.html`, `404.html` (title + italic
+  description with a requested-path echo via an inline client-side script
+  filling `[data-error404-path]` + latest 10 posts via `post-card.html`),
+  `alias.html`,
   `robots.txt` (disallows `/search/`, `/contact/` + `/en/` variants),
   `posts/single.html`, `authors/single.html`, `contact/list.html` (static
   links, no form), `search/list.html`, `taxonomy/` + `_default/`
@@ -98,8 +102,9 @@
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;
   fails the workflow — it runs AFTER the deploy, it does not gate it).
-- `e2e/smoke.spec.js` — 9 tests (home/search/contact-static-links/EN +
-  5 theme tests, 2 of them cover-fetch network guards);
+- `e2e/smoke.spec.js` — 11 tests (home/search/contact-static-links/EN +
+  404 layout + latest-posts content + 6 theme tests, 2 of them
+  cover-fetch network guards);
   `e2e/visual.spec.js` snapshots are platform-specific and skipped on CI.
 
 ## Locked decisions (do not relitigate without new evidence)
@@ -185,10 +190,13 @@
   (no apt package); locally `brew install oxipng resvg mozjpeg` but PATH
   `jpegtran` is libjpeg-turbo — the script requires mozjpeg, so export
   `JPEGTRAN=/opt/homebrew/opt/mozjpeg/bin/jpegtran`.
-- `e2e/smoke.spec.js` (9 tests) runs in CI; `e2e/visual.spec.js` snapshots
+- `e2e/smoke.spec.js` (11 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`
-  with pipes).
+  with pipes). The Playwright webServer serves `public/` via
+  `python3 -m http.server`, which does NOT honor custom 404s — smoke
+  tests hit `/404.html` (`/en/404.html`) directly; the
+  unknown-URL→custom-404 behavior is gated live by `bin/verify-pages.sh`.
 - `hugo server` MUST pass `--renderToMemory` — otherwise it writes dev
   rendering (localhost URLs, livereload) into `public/` and pollutes the
   production artifact.
@@ -198,6 +206,9 @@
   `content/`.
 - Search works only in built output + `pagefind --site public`; `hugo
   server` dev has no Pagefind index (silent empty results, by design).
+- `{{ i18n }}` output is HTML-escaped — markup inside translation
+  strings (e.g. the 404 `<code data-error404-path>` placeholder) needs
+  an explicit `| safeHTML` at the call site.
 
 ## Agent rules
 

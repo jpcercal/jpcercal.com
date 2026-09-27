@@ -104,6 +104,20 @@ else
 	fail "cloudflare beacon live"
 fi
 
+# 5b. Custom 404: unknown URLs must serve the themed 404 with suggestions.
+echo "-- custom 404 --"
+NF_PATH="verify-nonexistent-page-$(date +%s)/"
+NF_CODE="$(curl -s --compressed --max-time 20 -o "$HTML_DIR/404.html" -w '%{http_code}' "$BASE_URL$NF_PATH")"
+[ "$NF_CODE" = "404" ] && pass "missing page returns 404" || fail "missing page returns 404" "got $NF_CODE"
+grep -q 'data-error404-path' "$HTML_DIR/404.html" && pass "custom 404 served" || fail "custom 404 served"
+grep -q 'post-card' "$HTML_DIR/404.html" && pass "404 suggests latest posts" || fail "404 suggests latest posts"
+grep -q 'data-theme-toggle' "$HTML_DIR/404.html" && pass "404 has theme toggle" || fail "404 has theme toggle"
+if ./node_modules/.bin/html-validate --stdin-filename=404.html --stdin <"$HTML_DIR/404.html" >/dev/null 2>&1; then
+	pass "html-validate live 404"
+else
+	fail "html-validate live 404"
+fi
+
 # 6. SEO: robots, sitemap (xmllint), hreflang, JSON-LD.
 echo "-- SEO --"
 ROBOTS="$(curl -fsSL --max-time 20 "$BASE_URL/robots.txt" || true)"
