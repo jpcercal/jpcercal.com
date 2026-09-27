@@ -1,7 +1,7 @@
 {{ partial "head.html" . }}
-{{ partial "navbar.html" . }}
+{{ partialCached "navbar.html" . .Site.Language.Lang }}
 
-{{ $author := index site.Data.authors "jpcercal@gmail.com" }}
+{{ $author := index hugo.Data.authors "jpcercal@gmail.com" }}
 
 <section class="container">
     <div class="row">
@@ -22,4 +22,4 @@
     </div>
 </section>
 
-{{ partial "footer.html" . }}
+{{ partialCached "footer.html" . }}

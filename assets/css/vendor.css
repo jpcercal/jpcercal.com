@@ -8,15 +8,9 @@
  * variant available for future color-only tweaks. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Bootstrap 4 breakpoints: keeps sm:/md:/lg: variants equivalent.
- * xl is pinned to 1200px so Tailwind's xl: variants agree with the
- * col-xl-*/offset-xl-* grid rules below (Tailwind default is 80rem). */
-@theme {
-	--breakpoint-sm: 576px;
-	--breakpoint-md: 768px;
-	--breakpoint-lg: 992px;
-	--breakpoint-xl: 1200px;
-}
+/* Breakpoints: Tailwind's default scale (sm 40rem / md 48rem / lg 64rem /
+ * xl 80rem) drives the sm:/md:/lg: variants; the Bootstrap grid rules
+ * below use explicit pixel media queries instead. */
 
 /*
  * Grid skeleton: Bootstrap 4 values for the classes used in layouts/.

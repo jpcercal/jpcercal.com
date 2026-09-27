@@ -2,7 +2,7 @@
 <html lang="{{ .Site.Language.Lang }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" itemscope itemtype='http://schema.org/{{ if eq .Section "posts" }}Article{{ else }}WebPage{{ end }}'>
 <head>
     {{- partial "head-meta.html" . -}}
-    {{- partial "head-favicon.html" . -}}
-    {{- partial "head-assets.html" . -}}
+    {{- partialCached "head-favicon.html" . -}}
+    {{- partialCached "head-assets.html" . (printf "single=%v" (.Scratch.Get "singlePost")) -}}
 </head>
 <body>

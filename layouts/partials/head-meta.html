@@ -1,8 +1,8 @@
 {{- $baseURL    := .Site.BaseURL -}}
 {{- $locale     := .Site.Language.Lang -}}
-{{- $authors    := site.Data.authors -}}
-{{- $categories := site.Data.categories -}}
-{{- $tags       := site.Data.tags -}}
+{{- $authors    := hugo.Data.authors -}}
+{{- $categories := hugo.Data.categories -}}
+{{- $tags       := hugo.Data.tags -}}
 {{- $titleSep   := "|" -}}
 
 <!-- ==================================================================== -->
@@ -24,7 +24,7 @@
             {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" (i18n "authors") $titleSep $.Site.Title) -}}
             {{- $.Scratch.Set "seoDescription" (i18n "authorsDescription") -}}
         {{- end -}}
-    <!-- Get data using the $.Site.Data.categories|tags according to the current locale -->
+    <!-- Get data using the hugo.Data.categories|tags according to the current locale -->
     {{- else if eq .Kind "term" -}}
         {{- if eq .Data.Plural "categories" -}}
             {{- $.Scratch.Set "seoTitle" (printf "%s %s %s" (index (index (index $categories (lower .Title)) "title") $locale) $titleSep $.Site.Title) -}}

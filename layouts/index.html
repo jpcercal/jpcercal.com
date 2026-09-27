@@ -1,7 +1,7 @@
 {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
 
 {{ partial "head.html" . }}
-{{ partial "navbar.html" . }}
+{{ partialCached "navbar.html" . .Site.Language.Lang }}
 
 <section class="container">
     <div class="row">
@@ -33,4 +33,4 @@
     </div>
 </section>
 
-{{ partial "footer.html" . }}
+{{ partialCached "footer.html" . }}

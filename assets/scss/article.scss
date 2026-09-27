@@ -58,6 +58,10 @@ section {
   .article-tags {
     // Reboot parity (see .article-content above).
     margin-bottom: 1rem;
+    // Tags are a flex row; without wrapping they overflow the viewport on
+    // narrow screens. Wrapping only kicks in when the row would overflow,
+    // so the desktop layout is unchanged.
+    flex-wrap: wrap;
 
     .article-tag {
       a {
