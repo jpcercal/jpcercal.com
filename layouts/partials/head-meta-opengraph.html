@@ -36,7 +36,7 @@
 
 
 {{ if isset .Params "author" -}}
-    {{- $author := index site.Data.authors .Params.author -}}
+    {{- $author := index hugo.Data.authors .Params.author -}}
     <meta property="article:author" content="{{ $author.socialNetworks.facebook }}">
     <meta property="article:publisher" content="https://www.facebook.com/jpcercal.com">
     <meta property="article:section" content="{{ .Section }}">

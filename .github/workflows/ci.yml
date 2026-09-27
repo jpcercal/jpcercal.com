@@ -84,7 +84,7 @@ jobs:
         run: bin/build-images.sh
 
       - name: Index search (Pagefind)
-        run: pagefind --site public
+        run: npm run search:index
 
       - name: Lint (Biome)
         run: npm run lint
@@ -151,7 +151,7 @@ jobs:
           cp -r design-system content/design-system
           hugo --buildDrafts --minify --baseURL "$PR_BASE_URL"
           bin/build-images.sh
-          pagefind --site public
+          npm run search:index
           # The prod CNAME (jpcercal.com) must never ship to staging.
           rm -f public/CNAME
 

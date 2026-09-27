@@ -1,5 +1,5 @@
 {{ partial "head.html" . }}
-{{ partial "navbar.html" . }}
+{{ partialCached "navbar.html" . .Site.Language.Lang }}
 
 <section class="container">
     <div class="row">
@@ -33,4 +33,4 @@
 })();
 </script>
 
-{{ partial "footer.html" . }}
+{{ partialCached "footer.html" . }}

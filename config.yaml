@@ -10,8 +10,13 @@ taxonomies:
   category:   "categories"
   authors:    "authors"
 
-defaultExtension: "html"
-metaDataFormat:   "yaml"
+params:
+  # Cloudflare Web Analytics token (public client-side ID). Empty until the
+  # site is registered in the Cloudflare dashboard; the beacon partial
+  # renders nothing while this is empty. Prod hostname gate lives in the
+  # partial so staging/local/e2e builds never emit the beacon.
+  cloudflareWebAnalyticsToken: "15a0ea1b52c8410080a89ee3bc64156e"
+
 markup:
   highlight:
     style:        "onedark"
@@ -39,25 +44,24 @@ languages:
     params:
       description: "Alta qualidade e variedade de assuntos, incluindo desde dicas de programação à estilo de vida, mas no nosso estilo e não estamos falando de CSS."
 
-rssLimit: 15
-paginate: 10
-paginatePath: "page"
+pagination:
+  pagerSize: 10
+  path: "page"
+
+services:
+  rss:
+    limit: 15
+
 permalinks:
   posts:   /:slug/
   authors: /authors/:slug/
 
-stepAnalysis: true
 noChmod:      false
 noTimes:      false
 buildFuture:  false
 buildExpired: false
 relativeURLs: false
 canonifyURLs: false
-
-logFile:      "hugo.log"
-log:          true
-verbose:      false
-verboseLog:   true
 
 disablePathToLower:         false
 watch:                      true
@@ -75,10 +79,7 @@ security:
       - "^postcss$"
       - "^tailwindcss$"
 
-footnoteAnchorPrefix:       ""
-footnoteReturnLinkContents: ""
-
-ignoreFiles: 
+ignoreFiles:
   - "Thumbs\\.db$"
   - "\\.DS_Store$"
   - "\\.log$"

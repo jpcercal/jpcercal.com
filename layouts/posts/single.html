@@ -1,11 +1,11 @@
 {{ $baseURL         := .Site.BaseURL }}
-{{ $author          := index site.Data.authors .Params.author }}
+{{ $author          := index hugo.Data.authors .Params.author }}
 {{ $locale          := .Site.Language.Lang }}
 {{ $datetime        := .Date.Format "2006-01-02" }}
 {{ $datetimeDisplay := .Date.Format "Jan 2, 2006" }}
 {{ $categoryAlias   := index (default (slice "") .Params.categories) 0 }}
-{{ $category        := index site.Data.categories $categoryAlias }}
-{{ $tags            := site.Data.tags }}
+{{ $category        := index hugo.Data.categories $categoryAlias }}
+{{ $tags            := hugo.Data.tags }}
 {{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 {{ $cover           := where (readDir (printf "content/%s" .File.Dir)) "Name" "index.svg" }}
 {{ $darkCover       := where (readDir (printf "content/%s" .File.Dir)) "Name" "index.dark.svg" }}
@@ -13,7 +13,7 @@
 {{ $.Scratch.Set "singlePost" true }}
 
 {{ partial "head.html" . }}
-{{ partial "navbar.html" . }}
+{{ partialCached "navbar.html" . .Site.Language.Lang }}
 
 <article class="container">
     <header class="row">
@@ -77,6 +77,8 @@
                 </li>
             </ul>
 
+            {{ partial "i18n-list.html" . }}
+
             <div class="font-size-h6 article-content" data-pagefind-body>
                 {{ .Content }}
             </div>
@@ -94,4 +96,4 @@
     </div>
 </article>
 
-{{ partial "footer.html" . }}
+{{ partialCached "footer.html" . }}

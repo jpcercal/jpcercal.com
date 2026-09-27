@@ -13,7 +13,8 @@
   `assets/less/` + Bootstrap slim + Ruby Sass chain long gone.
 - `assets/css/vendor.css` — Tailwind v4 entry (`@import "tailwindcss"`,
   CSS-first, no tailwind/postcss config): Bootstrap-4 grid skeleton
-  (container/row/col) + `@theme` breakpoints (xl pinned to 1200px) +
+  (container/row/col, explicit-px lg/xl media queries; Tailwind's default
+  breakpoint scale drives the `sm:`/`md:`/`lg:` variants) +
   `@custom-variant dark` bound to `[data-theme="dark"]` (reserved for
   future color-only tweaks; no `dark:` utilities used yet).
 - `assets/images/` — `favicon/` + `icons/` sources (copied to
@@ -60,9 +61,11 @@
   `navbar.html` incl. theme toggle, `footer.html` incl. `theme.js`,
   `post-card.html`, head-meta-*/favicon/i18n-list/reading-time/word-count/
   author-*).
-- `static/` — exactly 2 files: `CNAME` (prod `jpcercal.com`; must NOT ship
+- `static/` — 3 files: `CNAME` (prod `jpcercal.com`; must NOT ship
   to the staging branch) + `_headers` (Pages cache/security headers;
-  replaces `_config.yml` semantics). Favicons live in
+  replaces `_config.yml` semantics) + `_redirects` (`/posts/` -> `/` and
+  `/en/posts/` -> `/en/` 301s; Cloudflare Pages only — inert on the
+  GH-Pages staging, which ignores `_redirects`). Favicons live in
   `assets/images/favicon/`, not here. `search-template.html` was removed
   with Pagefind.
 - `config.yaml` — Hugo `0.166.0`, `publishDir: public`, Chroma `onedark`
@@ -73,7 +76,8 @@
   `bin/watch.sh` gone). Build = npm scripts: `npm run clean` +
   `npm run build` (hugo `--minify --printUnusedTemplates`, `BASE_URL` env
   required) → `npm run images` (`bin/build-images.sh`) →
-  `npm run search:index` (`pagefind --site public`) → gates (`lint`,
+  `npm run search:index` (`pagefind --site public`, then prunes the
+  unreferenced Pagefind UI bundles) → gates (`lint`,
   `validate:html` over `public/**/index.html` + `public/404.html`,
   `validate:xml` via `xmllint` over xml+svg, `links` via `lychee` with a
   prod→local `--remap`, `lhci`, `e2e`).
@@ -118,10 +122,17 @@
    is not part of the toolchain.)
 6. **Pagefind** (Rust) for search; no Cloudflare Workers/D1/Vectorize (would
    waste the 100k req/day free quota; site is fully static).
-7. **No third-party comments/analytics**: Disqus (`cercal-io`) + GA4
-   removed outright per user scope decision (`giscus` + Cloudflare Web
-   Analytics/Zaraz explicitly out of scope — do not re-add without new
-   instruction). Contact form likewise removed (static links page).
+7. **No third-party comments; Cloudflare Web Analytics only**: Disqus
+   (`cercal-io`) + GA4 removed outright per user scope decision
+   (`giscus` + Zaraz explicitly out of scope). Contact form likewise
+   removed (static links page). The single allowed tracker is the
+   cookieless Cloudflare Web Analytics beacon
+   (`layouts/partials/analytics-cloudflare.html`, token in
+   `config.yaml` params, renders only for the `jpcercal.com` host via
+   the `.Permalink` gate so staging/local/e2e emit nothing; do NOT
+   also enable dashboard auto-injection — it double-counts). The
+   live-site verify suite asserts the beacon IS present in prod while
+   still failing on Disqus/`gtag(`/`googletagmanager` remnants.
 8. **Prod-only gates** (the live-site verify suite fails the workflow;
    it runs after the deploy, it does not gate it); staging checks are
    non-blocking.
@@ -153,6 +164,12 @@
 - `static/CNAME` (`jpcercal.com`) must not publish to the staging branch;
   the staging job deletes `public/CNAME` while the gh-pages action sets
   `cname: staging.jpcercal.com` instead.
+- `/posts/` is a non-rendering section: `content/posts/_index.{md,en.md}`
+  set `build: { render: never }` + `sitemap: { disable: true }`, and
+  `static/_redirects` 301s the URLs to the home index. Hugo 0.166 REMOVED
+  the `_build` front matter key (using it is now a build ERROR, not a
+  warning) — use `build`. Do not delete these files: without them the
+  section returns to the sitemap and to a missing-layout warning.
 - `public/` output is stale dev-only; never trust it, always rebuild.
 - This machine's global gitignore ignores `*.js`, `assets/*`, `/bin/`
   and `robots.txt` — new files matching those need `git add -f`

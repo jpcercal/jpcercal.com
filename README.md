@@ -34,7 +34,7 @@ Mobile rendering is captured in `homepage-mobile.png`.
 | Syntax highlight | Pygments (Python) | Chroma (Go, Hugo built-in) |
 | Search | Lunr.js 2.3.9 + `search.json` | Pagefind 1.5.2 (Rust, static, PT stemming) |
 | Comments | Disqus (`cercal-io`) | removed (no third-party comments) |
-| Analytics | Google Analytics 4 | removed (no third-party analytics) |
+| Analytics | Google Analytics 4 | Cloudflare Web Analytics (cookieless beacon, prod-only) |
 | Lint | csslint/jshint/VNU (Java) | Biome (Rust) + `html-validate` via Node |
 | Link check | — | `lychee` (Rust) |
 | Perf audit | grunt-pagespeed (dead API) | `lhci` via Node |
@@ -142,7 +142,7 @@ fails the workflow on any missed gate). It asserts, accepting `br` or
 3. Immutable long-cache + fingerprinted asset names
 4. TTFB < 1.0s median (over 5 samples)
 5. Payload budgets (`search.json` → 404, `design-system/` → 404,
-   `pagefind/pagefind-entry.json` → 200, no
+   `pagefind/pagefind-entry.json` → 200, Cloudflare beacon present, no
    Disqus/`gtag(`/`googletagmanager`/Formspree/`api.ipify`/Lunr remnants)
 6. SEO (robots disallows `/search/` + `/contact/` and references the
    sitemap, `sitemap.xml` well-formed via `xmllint` and excluding

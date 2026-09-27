@@ -1,0 +1,12 @@
+{{/* Cloudflare Web Analytics beacon (cookieless, prod-only).
+  Renders only when the page builds for the jpcercal.com host AND a token
+  is set in config.yaml params. Staging, local dev and e2e builds emit
+  nothing. NOTE: site.BaseURL is avoided (returns "/" in this Hugo
+  version); .Permalink carries the effective base URL instead.
+  Do NOT also enable dashboard auto-injection (double-counts). */}}
+{{ $host := (urls.Parse .Permalink).Host }}
+{{ with $.Site.Params.cloudflareWebAnalyticsToken }}
+{{ if eq $host "jpcercal.com" }}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ . }}"}'></script>
+{{ end }}
+{{ end }}

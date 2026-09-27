@@ -2,12 +2,12 @@
 {{ $results       := .Data.Terms.ByCount }}
 {{ $baseURL       := .Site.BaseURL }}
 {{ $locale        := .Site.Language.Lang }}
-{{ $categories    := site.Data.categories }}
-{{ $tags          := site.Data.tags }}
+{{ $categories    := hugo.Data.categories }}
+{{ $tags          := hugo.Data.tags }}
 {{ $localeBaseURL := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
 {{ partial "head.html" . }}
-{{ partial "navbar.html" . }}
+{{ partialCached "navbar.html" . .Site.Language.Lang }}
 
 <section class="container post-list">
     <div class="row">
@@ -44,4 +44,4 @@
     </div>
 </section>
 
-{{ partial "footer.html" . }}
+{{ partialCached "footer.html" . }}

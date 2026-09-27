@@ -33,7 +33,7 @@ test("theme defaults to light with a visible toggle", async ({ page }) => {
 	);
 	await expect(
 		page.locator('link[rel="icon"][type="image/svg+xml"]'),
-	).toHaveAttribute("href", /images\/favicon\/favicon-light\.svg$/);
+	).toHaveAttribute("href", /images\/favicon\/favicon\.svg$/);
 });
 
 test("theme toggle switches to dark and persists", async ({ page }) => {

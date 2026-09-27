@@ -67,7 +67,7 @@ find public/images public/authors \( -iname "*.jpg" -o -iname "*.jpeg" \) -print
 	done
 
 echo "images: minifying svg (oxvg)"
-find public/images public/authors -name "*.svg" -exec "$OXVG" optimise {} -o {} \;
+find public -name "*.svg" -exec "$OXVG" optimise {} -o {} \;
 
 echo "images: rendering post covers (resvg 512px)"
 rendered=0
@@ -85,4 +85,7 @@ for md in content/posts/*/index.md content/posts/*/index.en.md; do
 	rendered=$((rendered + 1))
 done
 echo "images: rendered $rendered cover PNGs"
+
+echo "images: optimizing rendered cover PNGs (oxipng)"
+find public -maxdepth 3 -name "index*.png" -exec "$OXIPNG" -o max --strip safe {} + >/dev/null
 echo "images: done."
