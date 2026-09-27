@@ -63,7 +63,10 @@ to be installed on the system. If it is unavailable, tell the user how to
 install it with `cargo install pngtosvg --version 0.6.2 --locked`; never
 install it yourself. Inspect its SVG at 512 px and the card's 60 px size.
 Isolate the useful subject, remove unwanted whitespace and text, and simplify
-traced pixel edges before putting it into the cover pair.
+traced pixel edges before putting it into the cover pair. Keep the path data
+in the tracers' compact style the committed covers use: combine consecutive
+same-axis moves (`h2h2h2` as `h6`, never `h1h1`) and omit the closepath before
+the next moveto (`M…M…`, fill closes subpaths implicitly).
 
 ## Typography
 
