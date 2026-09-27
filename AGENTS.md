@@ -70,7 +70,8 @@
   `bin/watch.sh` gone). Build = npm scripts: `npm run clean` +
   `npm run build` (hugo `--minify --printUnusedTemplates`, `BASE_URL` env
   required) → `npm run images` (`bin/build-images.sh`) →
-  `npm run search:index` (`pagefind --site public`) → gates (`lint`,
+  `npm run search:index` (`pagefind --site public`, then prunes the
+  unreferenced Pagefind UI bundles) → gates (`lint`,
   `validate:html` over `public/**/index.html` + `public/404.html`,
   `validate:xml` via `xmllint` over xml+svg, `links` via `lychee` with a
   prod→local `--remap`, `lhci`, `e2e`).

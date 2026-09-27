@@ -21,7 +21,7 @@
     "build": "npm run clean && hugo --minify --printUnusedTemplates --baseURL \"$BASE_URL\"",
     "build:hugo": "hugo --minify --printUnusedTemplates",
     "images": "bin/build-images.sh",
-    "search:index": "pagefind --site public",
+    "search:index": "pagefind --site public && rm -f public/pagefind/pagefind-ui.js public/pagefind/pagefind-ui.css public/pagefind/pagefind-component-ui.js public/pagefind/pagefind-component-ui.css public/pagefind/pagefind-modular-ui.js public/pagefind/pagefind-modular-ui.css",
     "validate:html": "html-validate \"public/**/index.html\" \"public/404.html\"",
     "validate:xml": "find public -name '*.xml' -o -name '*.svg' -exec xmllint --noout {} +",
     "links": "lychee --config .lychee.toml \"public/**/index.html\"",
