@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Mulheres Brasileiras em Munique</title>
+  <desc id="description">German flag, representing the Brazilian women's community in Munich</desc>
+  <defs>
+    <clipPath id="flag"><rect x="76" y="148" width="360" height="216" rx="18"/></clipPath>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <g clip-path="url(#flag)">
+    <path fill="#000000" d="M76 148h360v72H76z"/>
+    <path fill="#dd0000" d="M76 220h360v72H76z"/>
+    <path fill="#ffce00" d="M76 292h360v72H76z"/>
+  </g>
+  <rect x="76" y="148" width="360" height="216" rx="18" fill="none" stroke="#f8f9fa" stroke-width="8"/>
+</svg>
