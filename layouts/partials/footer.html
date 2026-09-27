@@ -1,4 +1,5 @@
 {{ $theme := resources.Get "js/theme.js" | js.Build (dict "minify" true) | fingerprint }}
 <script src="{{ $theme.RelPermalink }}" defer></script>
+{{- partial "analytics-cloudflare.html" . -}}
 </body>
 </html>
