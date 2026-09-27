@@ -96,6 +96,13 @@ code_of() { curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$BASE_URL$1"; 
 for needle in 'disqus' 'gtag(' 'googletagmanager' 'formspree' 'api.ipify' 'lunr'; do
 	if grep -qi "$needle" "$HTML_DIR/index.html"; then fail "no $needle remnant"; else pass "no $needle remnant"; fi
 done
+# Cloudflare Web Analytics beacon must be live in prod (embedded snippet,
+# prod-hostname gated; token set in config.yaml params).
+if grep -q 'static.cloudflareinsights.com/beacon.min.js' "$HTML_DIR/index.html" && grep -q 'data-cf-beacon' "$HTML_DIR/index.html"; then
+	pass "cloudflare beacon live"
+else
+	fail "cloudflare beacon live"
+fi
 
 # 6. SEO: robots, sitemap (xmllint), hreflang, JSON-LD.
 echo "-- SEO --"
