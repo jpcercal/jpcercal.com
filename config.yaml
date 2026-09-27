@@ -10,8 +10,6 @@ taxonomies:
   category:   "categories"
   authors:    "authors"
 
-defaultExtension: "html"
-metaDataFormat:   "yaml"
 markup:
   highlight:
     style:        "onedark"
@@ -39,25 +37,24 @@ languages:
     params:
       description: "Alta qualidade e variedade de assuntos, incluindo desde dicas de programação à estilo de vida, mas no nosso estilo e não estamos falando de CSS."
 
-rssLimit: 15
-paginate: 10
-paginatePath: "page"
+pagination:
+  pagerSize: 10
+  path: "page"
+
+services:
+  rss:
+    limit: 15
+
 permalinks:
   posts:   /:slug/
   authors: /authors/:slug/
 
-stepAnalysis: true
 noChmod:      false
 noTimes:      false
 buildFuture:  false
 buildExpired: false
 relativeURLs: false
 canonifyURLs: false
-
-logFile:      "hugo.log"
-log:          true
-verbose:      false
-verboseLog:   true
 
 disablePathToLower:         false
 watch:                      true
@@ -75,10 +72,7 @@ security:
       - "^postcss$"
       - "^tailwindcss$"
 
-footnoteAnchorPrefix:       ""
-footnoteReturnLinkContents: ""
-
-ignoreFiles: 
+ignoreFiles:
   - "Thumbs\\.db$"
   - "\\.DS_Store$"
   - "\\.log$"
