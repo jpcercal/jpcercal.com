@@ -1,4 +1,4 @@
-{{ $posts          := where (where .Site.Pages "Type" "posts") "Params.author" .Params.email }}
+{{ $posts          := where (where .Site.RegularPages "Type" "posts") "Params.author" .Params.email }}
 {{ $author         := index hugo.Data.authors .Params.email }}
 {{ $locale         := .Site.Language.Lang }}
 {{ $resume         := index $author.resume $locale }}
