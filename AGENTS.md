@@ -113,10 +113,17 @@
    is not part of the toolchain.)
 6. **Pagefind** (Rust) for search; no Cloudflare Workers/D1/Vectorize (would
    waste the 100k req/day free quota; site is fully static).
-7. **No third-party comments/analytics**: Disqus (`cercal-io`) + GA4
-   removed outright per user scope decision (`giscus` + Cloudflare Web
-   Analytics/Zaraz explicitly out of scope — do not re-add without new
-   instruction). Contact form likewise removed (static links page).
+7. **No third-party comments; Cloudflare Web Analytics only**: Disqus
+   (`cercal-io`) + GA4 removed outright per user scope decision
+   (`giscus` + Zaraz explicitly out of scope). Contact form likewise
+   removed (static links page). The single allowed tracker is the
+   cookieless Cloudflare Web Analytics beacon
+   (`layouts/partials/analytics-cloudflare.html`, token in
+   `config.yaml` params, renders only for the `jpcercal.com` host via
+   the `.Permalink` gate so staging/local/e2e emit nothing; do NOT
+   also enable dashboard auto-injection — it double-counts). The
+   live-site verify suite asserts the beacon IS present in prod while
+   still failing on Disqus/`gtag(`/`googletagmanager` remnants.
 8. **Prod-only gates** (the live-site verify suite fails the workflow;
    it runs after the deploy, it does not gate it); staging checks are
    non-blocking.
