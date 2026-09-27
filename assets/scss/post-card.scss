@@ -50,6 +50,10 @@
     max-width: none;
   }
 
+  // Theme-paired covers: visibility is decided here, never by <source media>
+  // (which only sees the OS). The hidden <picture> is display:none, so its
+  // loading="lazy" image is not fetched. The prefers-color-scheme branch keeps
+  // the no-JS/OS flow working when data-theme is absent.
   .theme-cover--dark {
     display: none;
   }
