@@ -6,8 +6,19 @@
 {{ $category        := index site.Data.categories $categoryAlias }}
 {{ $directory       := "content/" }}
 {{ $filename        := "index.svg" }}
+{{ $darkFilename    := "index.dark.svg" }}
+{{ $coverURL        := "index.cover.png" }}
+{{ $darkCoverURL    := "index.dark.cover.png" }}
+{{ $rasterMin       := site.Params.coverRasterMinBytes | default 16384 }}
 {{ $cover           := where (readDir (printf "%s%s" $directory .File.Dir)) "Name" $filename }}
-{{ $darkCover       := where (readDir (printf "%s%s" $directory .File.Dir)) "Name" "index.dark.svg" }}
+{{ $darkCover       := where (readDir (printf "%s%s" $directory .File.Dir)) "Name" $darkFilename }}
+{{/* Heavy covers (source svg >= coverRasterMinBytes) ship as the 128px
+  raster; lighter ones keep the svg, which is the smaller payload. The
+  same threshold drives the rasters rendered by bin/build-images.sh. */}}
+{{ $lightSrc        := $filename }}
+{{ $darkSrc         := $darkFilename }}
+{{ if and $cover (ge (index $cover 0).Size $rasterMin) }}{{ $lightSrc = $coverURL }}{{ end }}
+{{ if and $darkCover (ge (index $darkCover 0).Size $rasterMin) }}{{ $darkSrc = $darkCoverURL }}{{ end }}
 {{ $defaultCover    := printf "%s%s" $baseURL "images/icons/tag.svg" }}
 {{ $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
@@ -24,13 +35,13 @@
               would fetch the wrong file before any correction. */}}
             {{ if $darkCover }}
             <picture class="theme-cover--light">
-                <img class="rounded post-card--icon" src="{{ .Permalink }}index.svg" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+                <img class="rounded post-card--icon" src="{{ .Permalink }}{{ $lightSrc }}" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
             </picture>
             <picture class="theme-cover--dark">
-                <img class="rounded post-card--icon" src="{{ .Permalink }}index.dark.svg" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+                <img class="rounded post-card--icon" src="{{ .Permalink }}{{ $darkSrc }}" alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
             </picture>
             {{ else }}
-            <img class="rounded post-card--icon" src='{{ if $cover }}{{ printf "%s%s" .Permalink $filename }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
+            <img class="rounded post-card--icon" src='{{ if $cover }}{{ printf "%s%s" .Permalink $lightSrc }}{{ else }}{{ $defaultCover }}{{ end }}' alt="{{ .Title }}" height="60" width="60" loading="lazy" decoding="async">
             {{ end }}
         </div>
         <header class="flex-col m-0">

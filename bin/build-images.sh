@@ -67,10 +67,17 @@ find public/images public/authors \( -iname "*.jpg" -o -iname "*.jpeg" \) -print
 	done
 
 echo "images: minifying svg (oxvg)"
-find public/images public/authors -name "*.svg" -exec "$OXVG" optimise {} -o {} \;
+find public -name "*.svg" -exec "$OXVG" optimise {} -o {} \;
 
-echo "images: rendering post covers (resvg 512px)"
+echo "images: rendering post covers (resvg 512px og + 128px card)"
+# Only covers whose source svg is heavy enough to lose to a raster get a
+# thumbnail; lighter covers stay svg (smaller on the wire). The threshold
+# lives in config.yaml params.coverRasterMinBytes so the templates that
+# choose the src read the same value.
+COVER_RASTER_MIN_BYTES="${COVER_RASTER_MIN_BYTES:-$(sed -n 's/^[[:space:]]*coverRasterMinBytes:[[:space:]]*//p' config.yaml | head -1)}"
+COVER_RASTER_MIN_BYTES="${COVER_RASTER_MIN_BYTES:-16384}"
 rendered=0
+thumbs=0
 for md in content/posts/*/index.md content/posts/*/index.en.md; do
 	[ -e "$md" ] || continue
 	dir=$(dirname "$md")
@@ -82,7 +89,18 @@ for md in content/posts/*/index.md content/posts/*/index.en.md; do
 	esac
 	mkdir -p "$dest"
 	"$RESVG" -w 512 -h 512 "$dir/index.svg" "$dest/index.png"
+	if [ "$(wc -c < "$dir/index.svg" | tr -d ' ')" -ge "$COVER_RASTER_MIN_BYTES" ]; then
+		"$RESVG" -w 128 -h 128 "$dir/index.svg" "$dest/index.cover.png"
+		thumbs=$((thumbs + 1))
+	fi
+	if [ -e "$dir/index.dark.svg" ] && [ "$(wc -c < "$dir/index.dark.svg" | tr -d ' ')" -ge "$COVER_RASTER_MIN_BYTES" ]; then
+		"$RESVG" -w 128 -h 128 "$dir/index.dark.svg" "$dest/index.dark.cover.png"
+		thumbs=$((thumbs + 1))
+	fi
 	rendered=$((rendered + 1))
 done
-echo "images: rendered $rendered cover PNGs"
+echo "images: rendered $rendered cover PNGs, $thumbs card thumbnails"
+
+echo "images: optimizing rendered cover PNGs (oxipng)"
+find public -maxdepth 3 -name "index*.png" -exec "$OXIPNG" -o max --strip safe {} + >/dev/null
 echo "images: done."
