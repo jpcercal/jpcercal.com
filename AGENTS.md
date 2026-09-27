@@ -30,7 +30,10 @@
   `grunt-custom/{lunr,post,author,category,tag}-*` + `paths.js` are gone;
   `pagefind --site public` indexes the 76 post source files (70 PT + 6 EN,
   2 langs auto-detected, `type=post` filter set in
-  `layouts/posts/single.html` and matched in `search.js`); `search.js`
+  `layouts/posts/single.html` and matched in `search.js`; cover meta
+  `image` + `image_dark` also emitted there — `image_dark` only when
+  `index.dark.svg` exists on disk, so `search.js` never derives the dark
+  cover from a naming convention); `search.js`
   uses dynamic `import()` of the ES-module `pagefind.js` with
   `basePath` = bundle dir (staging subpaths work). `pagefind.js` is a
   module — classic `<script src>` fails with `import.meta` error.
@@ -41,7 +44,8 @@
   `prefers-color-scheme` → light, no flash); `theme.js` wires the header
   `[data-theme-toggle]` button, persists to `localStorage.theme`, keeps
   following the OS while nothing is stored, and syncs `colorScheme` +
-  `theme-color`. Covered by 3 `e2e/smoke.spec.js` tests.
+  `theme-color`. Covered by 5 `e2e/smoke.spec.js` theme tests (2 of them
+  are cover-fetch network guards — see decision #11).
 - `layouts/` (33 files) — `index.html`, `404.html`, `alias.html`,
   `robots.txt` (disallows `/search/`, `/contact/` + `/en/` variants),
   `posts/single.html`, `authors/single.html`, `contact/list.html` (static
@@ -90,9 +94,9 @@
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;
   fails the workflow — it runs AFTER the deploy, it does not gate it).
-- `e2e/smoke.spec.js` — 7 tests (home/search/contact-static-links/EN +
-  3 theme tests); `e2e/visual.spec.js` snapshots are platform-specific and
-  skipped on CI.
+- `e2e/smoke.spec.js` — 9 tests (home/search/contact-static-links/EN +
+  5 theme tests, 2 of them cover-fetch network guards);
+  `e2e/visual.spec.js` snapshots are platform-specific and skipped on CI.
 
 ## Locked decisions (do not relitigate without new evidence)
 
@@ -123,7 +127,17 @@
     header toggle persists an override in `localStorage.theme`, and the
     pre-CSS init script prevents a flash. Tailwind's `dark:` variant is
     bound to `[data-theme="dark"]`. Do not reintroduce class-based dark
-    mode.
+    mode. Theme-paired post covers ship as two `<picture>`s
+    (`.theme-cover--light/--dark`, each with a bare `<img>` — no
+    `<source media>`, which can only see the OS) switched by CSS in
+    `post-card.scss` (`data-theme`, with a `prefers-color-scheme`
+    fallback for no-JS); `theme.js` never touches images. The hidden
+    picture is `display:none` + `loading="lazy"` and must not be fetched
+    — that "hidden lazy is not fetched" behavior is browser-documented,
+    not spec-guaranteed, and is guarded by e2e network assertions in
+    Chromium only (Firefox/Safari uncovered). With JS disabled Chromium
+    drops lazy deferral entirely, so both variants are fetched (display
+    stays correct) — verified empirically.
 
 ## Landmines
 
@@ -154,7 +168,7 @@
   (no apt package); locally `brew install oxipng resvg mozjpeg` but PATH
   `jpegtran` is libjpeg-turbo — the script requires mozjpeg, so export
   `JPEGTRAN=/opt/homebrew/opt/mozjpeg/bin/jpegtran`.
-- `e2e/smoke.spec.js` (7 tests) runs in CI; `e2e/visual.spec.js` snapshots
+- `e2e/smoke.spec.js` (9 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`
   with pipes).
