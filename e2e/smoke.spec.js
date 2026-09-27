@@ -167,3 +167,51 @@ export async function search() {
 		)
 		.toBe(darkImage);
 });
+
+test("404 page renders layout, message and latest posts", async ({ page }) => {
+	const response = await page.goto("/404.html");
+	expect(response.status()).toBe(200); // direct file hit; unknown URLs are a Pages-level concern (verify-pages.sh)
+	await expect(page.locator("h1")).toHaveText("Erro 404");
+	await expect(page.locator("[data-error404-path]")).toHaveText("/404.html");
+	await expect(page.locator(".post-card")).toHaveCount(10); // paginate: 10 parity with the homepage
+	const suggestions = page.locator("h2", { hasText: /artigos mais recentes/i });
+	await expect(suggestions).toBeVisible();
+	// PT cards only, first card links to a real post permalink.
+	await expect(page.locator(".post-card--title").first()).toHaveAttribute(
+		"href",
+		/^https?:\/\/127\.0\.0\.1:1313\/[^/]+\/$/,
+	);
+
+	// EN variant renders the English copy with EN-only post links.
+	await page.goto("/en/404.html");
+	await expect(page.locator("h1")).toHaveText("Error 404");
+	await expect(page.locator("[data-error404-path]")).toHaveText("/en/404.html");
+	const enCount = await page.locator(".post-card").count();
+	expect(enCount).toBeGreaterThan(0);
+	expect(enCount).toBeLessThanOrEqual(10);
+	const enHrefs = await page
+		.locator(".post-card--title")
+		.evaluateAll((links) => links.map((link) => link.getAttribute("href")));
+	for (const href of enHrefs) {
+		expect(href).toMatch(/\/en\//);
+	}
+});
+
+test("404 page respects the dark theme", async ({ page }) => {
+	await page.goto("/404.html");
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+	await expect(page.locator("body")).toHaveCSS(
+		"background-color",
+		"rgb(255, 255, 255)",
+	);
+	await page.locator("[data-theme-toggle]").click();
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+	await expect(page.locator("body")).toHaveCSS(
+		"background-color",
+		"rgb(25, 25, 25)",
+	); // --color-canvas dark = #191919
+	await expect(page.locator("[data-error404-path]")).toHaveCSS(
+		"background-color",
+		"rgb(42, 42, 42)",
+	); // --color-code-bg dark
+});
