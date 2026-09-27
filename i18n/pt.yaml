@@ -17,9 +17,7 @@ searchForInfo:
 searchForPlaceholder:
   other: "Exemplo \"PHP\" ou \"Javascript\"."
 error404Title:
-  other: "Erro 404"
-error404Message:
-  other: "A página solicitada não foi encontrada em nossos servidores"
+  other: "Erro 404 - Página Não Encontrada"
 error404Description:
   other: 'O endereço <code class="error404--path" data-error404-path>…</code> que você tentou acessar não foi encontrado em nossos servidores. Ele pode ter sido movido, renomeado ou removido. Confira se o endereço foi digitado corretamente.'
 error404Suggestions:

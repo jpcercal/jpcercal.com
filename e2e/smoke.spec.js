@@ -171,7 +171,9 @@ export async function search() {
 test("404 page renders layout, message and latest posts", async ({ page }) => {
 	const response = await page.goto("/404.html");
 	expect(response.status()).toBe(200); // direct file hit; unknown URLs are a Pages-level concern (verify-pages.sh)
-	await expect(page.locator("h1")).toHaveText("Erro 404");
+	await expect(page.locator("h1")).toHaveText(
+		"Erro 404 - Página Não Encontrada",
+	);
 	await expect(page.locator("[data-error404-path]")).toHaveText("/404.html");
 	await expect(page.locator(".post-card")).toHaveCount(10); // paginate: 10 parity with the homepage
 	const suggestions = page.locator("h2", { hasText: /artigos mais recentes/i });
@@ -184,7 +186,7 @@ test("404 page renders layout, message and latest posts", async ({ page }) => {
 
 	// EN variant renders the English copy with EN-only post links.
 	await page.goto("/en/404.html");
-	await expect(page.locator("h1")).toHaveText("Error 404");
+	await expect(page.locator("h1")).toHaveText("Error 404 - Not Found");
 	await expect(page.locator("[data-error404-path]")).toHaveText("/en/404.html");
 	const enCount = await page.locator(".post-card").count();
 	expect(enCount).toBeGreaterThan(0);

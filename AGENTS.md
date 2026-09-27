@@ -48,9 +48,9 @@
   `theme-color`. Covered by 6 `e2e/smoke.spec.js` theme tests (2 of them
   are cover-fetch network guards — see decision #11; the 6th guards the
   404 page canvas in both themes).
-- `layouts/` (33 files) — `index.html`, `404.html` (standard 404 message +
-  requested-path echo via an inline client-side script filling
-  `[data-error404-path]` + latest 10 posts via `post-card.html`),
+- `layouts/` (33 files) — `index.html`, `404.html` (title + italic
+  description with a requested-path echo via an inline client-side script
+  filling `[data-error404-path]` + latest 10 posts via `post-card.html`),
   `alias.html`,
   `robots.txt` (disallows `/search/`, `/contact/` + `/en/` variants),
   `posts/single.html`, `authors/single.html`, `contact/list.html` (static
