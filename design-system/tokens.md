@@ -57,6 +57,11 @@ site's light code surface), and the dark circle uses `#242424`
 keeping the reference recognizable and legible against the site's white and
 near-black reading canvases.
 
+Heavy covers are rasterized to a 128px thumbnail at build time
+(`params.coverRasterMinBytes`; see AGENTS.md decision #11) — the svg pair
+stays the colour source of truth, and the shrunk circle colours above still
+drive it, so keep editing the svgs, not the rasters.
+
 For a supplied PNG reference, use [PNGToSVG](https://github.com/mayuso/PNGToSVG)
 to make a vector starting point (`pngtosvg image.png`). `pngtosvg` is expected
 to be installed on the system. If it is unavailable, tell the user how to

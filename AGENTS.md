@@ -31,9 +31,11 @@
   `pagefind --site public` indexes the 76 post source files (70 PT + 6 EN,
   2 langs auto-detected, `type=post` filter set in
   `layouts/posts/single.html` and matched in `search.js`; cover meta
-  `image` + `image_dark` also emitted there — `image_dark` only when
-  `index.dark.svg` exists on disk, so `search.js` never derives the dark
-  cover from a naming convention); `search.js`
+  `image` + `image_dark` also emitted there — the emitted src is the 128px
+  raster thumbnail for heavy covers and `index.svg`/`index.dark.svg`
+  otherwise (decision #11); `image_dark` only when `index.dark.svg` exists
+  on disk, so `search.js` never derives the dark cover from a naming
+  convention); `search.js`
   uses dynamic `import()` of the ES-module `pagefind.js` with
   `basePath` = bundle dir (staging subpaths work). `pagefind.js` is a
   module — classic `<script src>` fails with `import.meta` error.
@@ -78,8 +80,11 @@
   `components.md`. Staging copies it to `content/design-system` and builds
   `--buildDrafts`; prod must never contain `public/design-system/`.
 - `bin/` holds exactly 2 scripts: `build-images.sh` (native image
-  pipeline: copy → oxipng/mozjpeg optimize → oxvg minify → resvg 512px
-  covers) + `verify-pages.sh` (live-site gate suite run by the
+  pipeline: copy → oxipng/mozjpeg optimize → oxvg minify → resvg covers:
+  a 512px `index.png` og image for every post, plus a 128px
+  `index.cover.png`/`index.dark.cover.png` card thumbnail for covers whose
+  source svg is >= `params.coverRasterMinBytes` — see decision #11) +
+  `verify-pages.sh` (live-site gate suite run by the
   `cloudflare-pages` job). (`fetch-vendor.sh` deleted with the last vendor
   clone; `watch.sh` deleted with the Grunt pipeline.)
 - `.github/workflows/ci.yml` — jobs in order: `image` (builds + pushes the
@@ -131,7 +136,14 @@
     (`.theme-cover--light/--dark`, each with a bare `<img>` — no
     `<source media>`, which can only see the OS) switched by CSS in
     `post-card.scss` (`data-theme`, with a `prefers-color-scheme`
-    fallback for no-JS); `theme.js` never touches images. The hidden
+    fallback for no-JS); `theme.js` never touches images. Each `<img>` src
+    is the 128px `index.cover.png`/`index.dark.cover.png` when the source
+    svg is >= `params.coverRasterMinBytes` (16KiB), else the minified svg:
+    these covers are 1px pixel-traces, so a heavy one brotli's to 15-21KB
+    for a 60px card while its raster is 4-9KB, whereas a light cover's
+    brotli is already ~570B and beats any raster. `build-images.sh` renders
+    the rasters and the templates choose per variant — both read that one
+    config key, so keep it as the single source of truth. The hidden
     picture is `display:none` + `loading="lazy"` and must not be fetched
     — that "hidden lazy is not fetched" behavior is browser-documented,
     not spec-guaranteed, and is guarded by e2e network assertions in
@@ -163,7 +175,9 @@
   `d-*`/`mt-*`/`float-*`/responsive classes were dead in prod. The Tailwind
   migration ACTIVATES them — diffs vs old rendering here are intended fixes
   (locale switcher, floats, spacing), proven by old-vs-new screenshots.
-- Covers render via `resvg` in `bin/build-images.sh` (512px). Native tools
+- Covers render via `resvg` in `bin/build-images.sh`: a 512px `index.png`
+  og image for every post, plus a 128px card thumbnail for heavy sources
+  (decision #11). Native tools
   `oxipng`/`oxvg`/`resvg` via cargo, `mozjpeg` built from source on CI
   (no apt package); locally `brew install oxipng resvg mozjpeg` but PATH
   `jpegtran` is libjpeg-turbo — the script requires mozjpeg, so export
