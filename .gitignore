@@ -9,6 +9,10 @@ playwright-report/
 fontpatcher/
 *.log
 *.lock
+!flake.lock
+.direnv/
+result
+result-*
 *.pem
 .DS_Store
 .env

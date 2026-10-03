@@ -70,6 +70,8 @@ disableHugoGeneratorInject: true
 enableEmoji:                false
 
 security:
+  # Nix supplies exact dependency/profile read paths via
+  # HUGO_SECURITY_NODE_PERMISSIONS_ALLOWREAD; Node permissions stay enabled.
   exec:
     allow:
       - "^(dart-)?sass$"
