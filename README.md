@@ -42,7 +42,7 @@ Mobile rendering is captured in `homepage-mobile.png`.
 | Theming | — | Medium-style dark theme (`themes.scss` CSS vars + `data-theme`, OS default, header toggle persisted in `localStorage`, no-flash init) |
 | File ops | grunt clean/concat/copy/processhtml/watch | Hugo (Go) + `cp`/`rm` |
 | Vendor fetch | `napa` over retired `git://` | removed (no vendor clones left) |
-| Runtime | Node 20 + Ruby + Java 8 + Python + Inkscape (old Grunt-era dev machine) | Node 26.8.2 pinned (`.node-version`, `fnm`), static native binaries only (+ `python3` for `verify-pages.sh` checks) |
+| Runtime | Node 20 + Ruby + Java 8 + Python + Inkscape (old Grunt-era dev machine) | Nix flakes + direnv: Node 26.8.2, native tools, npm dependencies, and Playwright Chromium; optional Docker adapter |
 | Hosting (prod) | `gh-pages` branch via GitHub Pages | Cloudflare Pages Direct Upload (`wrangler pages deploy public`) |
 | Hosting (staging) | — | `gh-pages` branch repurposed staging-only, path-based per PR |
 
@@ -51,26 +51,48 @@ See [AGENTS.md](AGENTS.md) for the locked decisions and rationale.
 
 Baseline repo size: 367 tracked files (`content` 242 — 70 post bundles,
 `assets` 49, `layouts` 33; Grunt is fully deleted in the final state).
-Native tool versions are pinned in the `Dockerfile` (`HUGO_VERSION`,
-`OXIPNG_VERSION`, `OXVG_VERSION`, `RESVG_VERSION`, `PAGEFIND_VERSION`,
-`LYCHEE_VERSION`, `MOZJPEG_VERSION`) and baked into the self-sufficient
-CI image, so it is the source of truth for the toolchain.
+`flake.nix` and `flake.lock` are the toolchain source of truth. The locked
+nixpkgs revisions provide Hugo extended 0.166.0, Node 26.8.2, oxipng 10.2.1,
+oxvg 0.0.7, resvg 0.48.1, Pagefind extended 1.5.2, lychee 0.24.2, and
+mozjpeg 4.1.5. `package-lock.json` pins npm dependencies (including Wrangler
+4.147.0); `nix/node-deps.nix` verifies their aggregate fetch hash. The same
+packages are used directly on developer machines and inside CI containers.
 At ~1 post/day the deployed file count stays ~1.5–2k/yr — far below the
 Cloudflare Pages 20k-file limit.
 
 ## Local development
 
-Prerequisites: [fnm](https://github.com/Schniz/fnm) (or Node 26+ — the
-repo pins 26.8.2 in `.node-version`), Hugo extended 0.166.0, plus the
-native image/search/link toolchain for full builds (`oxipng`, `oxvg`,
-`resvg`, mozjpeg `jpegtran`, `pagefind`, `lychee`, `xmllint` — see the
-`Dockerfile` for the pinned versions).
+Prerequisites: [Nix](https://nixos.org/download/) with `nix-command` and
+`flakes` enabled, and [direnv](https://direnv.net/) with its shell hook
+installed. No separately installed Node, Hugo, image tools, browsers, or
+Docker are required. Optionally install nix-direnv for faster shell caching.
+
+Supported flake systems: Linux amd64/arm64 and macOS Apple Silicon.
+Intel macOS is not exposed: this pinned nixpkgs revision does not package
+its matching Playwright browser. Use the optional Linux container there.
 
 ```shell
-fnm use          # pins Node 26 (see .node-version)
-npm ci
+direnv allow     # once after reviewing .envrc; reapprove if it changes
 hugo server --renderToMemory   # live preview at http://localhost:1313
 ```
+
+Entering the directory automatically loads the locked configuration and
+links read-only Nix-built `node_modules`. If an npm-managed directory or
+an unmanaged symlink already exists, move it aside yourself first; the
+integration refuses to overwrite it. Do not run `npm ci` against this link.
+`.node-version` remains a compatibility reference, not an fnm requirement.
+
+Without direnv:
+
+```shell
+nix develop
+# or, from the repository:
+nix develop --command bash -c 'BASE_URL=https://jpcercal.com/ npm run build'
+```
+
+The first entry fetches/builds dependencies; subsequent entries use the Nix
+store. The shell configures mozjpeg, browser paths, certificates, fonts,
+and Hugo's Node read permissions for the exact dependency/profile paths.
 
 `--renderToMemory` is required: without it `hugo server` writes dev
 rendering (localhost URLs, livereload) into `public/` and pollutes the
@@ -95,15 +117,18 @@ cp -r design-system content/design-system && hugo server --buildDrafts --renderT
 ## Deploy
 
 - **Production** (`push` to `main` only): the `image` job builds the
-  self-sufficient CI image (`Dockerfile`, pushed to GHCR and pinned by
-  commit SHA — Hugo extended + Node 26 + native image toolchain +
-  baked `node_modules` + Playwright Chromium, so jobs do zero installs).
-  `build` links the baked dependencies, runs `npm run build` (requires
+  self-sufficient CI image (`Dockerfile` builds and checks the locked Nix
+  toolchain, pushes to GHCR, and exports an immutable image digest).
+  All downstream jobs use that digest and do zero dependency installs.
+  `build` links the dependencies, runs Playwright smoke tests, then cleans
+  their localhost output and runs `npm run build` (requires
   `BASE_URL`) + `bin/build-images.sh` + `pagefind --site public` plus
-  the gates (`lint`, `validate:html`, `validate:xml`, `links`), and
+  the gates (`lint`, `validate:html`, `validate:xml`, `links`, artifact
+  isolation, `lhci`), and
   uploads the `public` artifact. `deploy` downloads that artifact and
   publishes it with `wrangler pages deploy public
-  --project-name="$CLOUDFLARE_PROJECT_NAME"` (wrangler v4,
+  --project-name="$CLOUDFLARE_PROJECT_NAME"` (Wrangler 4.147.0 from the
+  same container, no floating action-installed CLI;
   `CLOUDFLARE_PROJECT_NAME=jpcercal-dot-com` in CI env; creates the
   project first if missing, idempotent) to `jpcercal.com`. Direct
   Upload — no Pages build quota consumed. Afterwards the
@@ -121,16 +146,76 @@ cp -r design-system content/design-system && hugo server --buildDrafts --renderT
   custom domain set to `staging.jpcercal.com`.
 - **Secrets** (repo settings → Actions): `CLOUDFLARE_API_TOKEN` (Pages
   deploy token) + `CLOUDFLARE_ACCOUNT_ID`.
-- **Local Docker build**: `docker build -t jpcercal/jpcercal.com .`
-  produces the same self-sufficient CI image the pipeline runs in
-  (multi-stage: prebuilt release binaries + Rust-built `oxvg`/`resvg`
-  fallback + mozjpeg from source + baked `node_modules` + Playwright
-  Chromium; `linux/amd64` with `arm64` fallbacks). CI jobs then only
-  `ln -s /opt/ci/node_modules node_modules` and run the same pipeline
-  (`npm run build` with `BASE_URL`, `bin/build-images.sh`,
-  `pagefind --site public`).
+
+## Optional Docker
+
+```shell
+docker build -t jpcercal/jpcercal.com .
+docker run --rm -it -p 1313:1313 -v "$PWD:/usr/share/blog" \
+  jpcercal/jpcercal.com bash -c \
+  'bash bin/nix-node-modules.sh && hugo server --bind 0.0.0.0 --renderToMemory'
+```
+
+Builds support Linux amd64 and arm64. The digest-pinned Nix builder
+realizes the flake and exports only its runtime closure into a
+digest-pinned Debian compatibility base. The final image has no Nix,
+compiler, npm installation, or browser download requirement. `/opt/ci/bin`
+and `/opt/ci/node_modules` preserve zero-install CI; `blog-env` and
+`BASH_ENV` load identical settings for interactive and non-login shells.
+
+Do not mount host-platform Nix `node_modules` into a different-platform
+container: move the host link aside first or use a separate checkout.
+
+## Updating dependencies
+
+1. Review and change the nixpkgs revisions in `flake.nix`, then run
+   `nix flake lock`. The separate `nodepkgs` input preserves exact Node
+   26.8.2; update `.node-version`, `package.json`, and version checks
+   together when intentionally upgrading it.
+2. For npm updates, generate a new lockfile using the pinned Node, without
+   writing into immutable `node_modules`:
+   `npm install --package-lock-only --ignore-scripts --save-dev --save-exact PACKAGE@VERSION`.
+3. Recalculate `npmDepsHash` in `nix/node-deps.nix` using the
+   locked nixpkgs `prefetch-npm-deps` utility:
+   `nix shell --inputs-from . nixpkgs#prefetch-npm-deps --command prefetch-npm-deps package-lock.json`.
+4. Keep Playwright's npm version aligned with the locked browser driver;
+   run the checks and full gates below. Stage new flake files before
+   evaluating a Git-backed flake; commit both locks and the verified hash.
+
+Nix verifies source/dependency hashes and binary-cache signatures.
+Reproducibility is per platform: macOS and Linux artifacts need not be
+byte-identical, and external link/performance audits remain network-dependent.
+Docker image digests pin bootstrap/runtime bases; image rebuilds are not
+claimed to be byte-identical solely because dependencies are locked.
 
 ## Verification
+
+From the direnv shell (or `nix develop`):
+
+```shell
+nix flake check
+nixfmt --check flake.nix nix/*.nix
+actionlint
+shellcheck bin/nix-node-modules.sh bin/check-artifact.sh
+npm run lint
+BASE_URL=https://jpcercal.com/ npm run build
+npm run images
+npm run search:index
+npm run validate:html
+npm run validate:xml
+lychee --config .lychee.toml --no-progress \
+  --remap "https://jpcercal.com file://$PWD/public" "public/**/index.html"
+bin/check-artifact.sh
+npm run lhci
+npm run e2e -- e2e/smoke.spec.js
+```
+
+The flake check verifies tool versions, native npm binaries, and actual
+Chromium launch. Playwright rebuilds `public/` for localhost; rebuild the
+production artifact afterwards before publishing it. For rootful containers,
+LHCI uses `--collect.settings.chromeFlags="--no-sandbox --disable-dev-shm-usage"`.
+Visual snapshots are platform-specific; compare/regenerate them locally only
+when rendering changes, not simply because the toolchain moved to Nix.
 
 The `cloudflare-pages` CI job runs on production pushes only, **after**
 the deploy, against the live site (`bin/verify-pages.sh`, `BASE_URL`;
