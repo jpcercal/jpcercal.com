@@ -1,5 +1,15 @@
-# Keep the CI image build context small: only the Dockerfile needs the
-# manifests; job checkouts provide the site source at run time.
+# The optional image packages only the flake and dependency definitions.
+# Site sources are supplied by job checkouts or a local bind mount.
+*
+!Dockerfile
+!flake.nix
+!flake.lock
+!package.json
+!package-lock.json
+!nix/
+!nix/**
+!bin/
+!bin/nix-node-modules.sh
 public/
 resources/
 node_modules/
