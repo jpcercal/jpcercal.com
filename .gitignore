@@ -1,5 +1,6 @@
 public/
-node_modules/
+node_modules
+resources/
 cache/
 .lighthouseci/
 test-results/
@@ -9,6 +10,10 @@ playwright-report/
 fontpatcher/
 *.log
 *.lock
+!flake.lock
+.direnv/
+result
+result-*
 *.pem
 .DS_Store
 .env

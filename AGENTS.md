@@ -2,6 +2,23 @@
 
 ## Repo map
 
+- `flake.nix` + `flake.lock` — source of truth for local/CI dependencies;
+  locked nixpkgs provides all native tools and Playwright 1.63.0 browsers,
+  separate locked `nodepkgs` preserves Node 26.8.2. `nix/toolchain.nix`
+  defines the dev shell, version/browser/safety checks, resvg font wrapper,
+  and Linux runtime closure; `nix/node-deps.nix` builds the locked npm
+  dependencies offline with a verified `npmDepsHash` and patches native
+  Linux binaries. `nix/check-browser.cjs` actually launches Chromium;
+  `nix/check-node-modules.sh` protects existing user-managed dependencies.
+  `.envrc` loads the flake automatically after `direnv allow`. Supported:
+  Linux amd64/arm64, macOS Apple Silicon; Intel macOS browser is not
+  packaged by this pinned nixpkgs (use the optional Linux container).
+- `Dockerfile` — optional adapter, not a second toolchain definition:
+  digest-pinned Nix 2.35.2 builder runs flake checks and exports the runtime
+  closure into a digest-pinned Debian compatibility base. No apt/cargo/npm
+  or browser install in the runtime. `/opt/ci/bin`, `/opt/ci/node_modules`,
+  `blog-env`, and `BASH_ENV` expose the same environment to CI shells.
+
 - `content/posts/<slug>/` — 70 post bundles (avg ~3.3 files), 6 `index.en.md`
   (EN translations). `content/search/`, `content/contact/` (each with
   `_index.md` + `_index.en.md`), `content/authors/` (3 authors). The 404
@@ -85,20 +102,26 @@
   `_index.md` (draft, sitemap-disabled), `tokens.md` (incl. dark tokens),
   `components.md`. Staging copies it to `content/design-system` and builds
   `--buildDrafts`; prod must never contain `public/design-system/`.
-- `bin/` holds exactly 2 scripts: `build-images.sh` (native image
+- `bin/` holds 4 scripts: `build-images.sh` (native image
   pipeline: copy → oxipng/mozjpeg optimize → oxvg minify → resvg 512px
   covers) + `verify-pages.sh` (live-site gate suite run by the
-  `cloudflare-pages` job). (`fetch-vendor.sh` deleted with the last vendor
+  `cloudflare-pages` job), `nix-node-modules.sh` (safe immutable dependency
+  linking), and `check-artifact.sh` (production isolation and active-script
+  tracker checks; historical prose mentioning old libraries is allowed).
+  (`fetch-vendor.sh` deleted with the last vendor
   clone; `watch.sh` deleted with the Grunt pipeline.)
 - `.github/workflows/ci.yml` — jobs in order: `image` (builds + pushes the
-  self-sufficient CI image to GHCR, pinned by commit SHA; downstream jobs
+  Nix-built self-sufficient CI image to GHCR, consumed by immutable digest;
+  downstream jobs
   run inside it and zero-install via `ln -s /opt/ci/node_modules`) →
-  `build` (prod build + all gates, uploads the `public` artifact) →
+  `build` (Playwright smoke first, clean prod build + lint/HTML/XML/links/
+  artifact/LHCI gates, uploads the `public` artifact) →
   `preview-staging` (PRs only: drafts + design-system + PR baseURL build,
   `public/CNAME` removed, `peaceiris/actions-gh-pages` publishes `pr-<n>/`
   with `cname: staging.jpcercal.com`; presence check is a
   `continue-on-error` file-existence assertion) + `deploy` (main pushes
-  only: downloads the artifact, idempotent project-create, wrangler v4
+  only: same container, downloads the artifact, idempotent project-create,
+  exactly locked Wrangler 4.147.0 from npm/Nix, no action-installed CLI,
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;
   fails the workflow — it runs AFTER the deploy, it does not gate it).
@@ -108,6 +131,14 @@
   `e2e/visual.spec.js` snapshots are platform-specific and skipped on CI.
 
 ## Locked decisions (do not relitigate without new evidence)
+
+0. **Nix flakes + direnv** own dependencies and runtime configuration;
+   Docker is optional locally and remains the CI packaging adapter.
+   Commit `flake.lock` and `package-lock.json`; hashes are mandatory.
+   No automatic mutable `npm ci` on shell entry, no floating tool downloads.
+   Update exact Node and Playwright version assertions intentionally.
+   Reproducibility is per platform, not byte-identical across OSes or
+   guaranteed for network-dependent performance/link audits.
 
 1. **Tailwind v4** for CSS (Rust Oxide + LightningCSS, CSS-first `@theme`,
    auto purge). Rejected: PureCSS (dormant), Pico (heavier), hand-rolled
@@ -157,6 +188,28 @@
 
 ## Landmines
 
+- Never run `npm ci` into the Nix-managed read-only `node_modules` link.
+  Shell entry creates/updates only owned links and refuses existing user
+  directories. For npm changes use `--package-lock-only --ignore-scripts`,
+  recalculate `npmDepsHash`, and commit both locks. `.gitignore` must keep
+  `!flake.lock` despite its general `*.lock` exclusion.
+- Hugo's Node permission model recursively checks symlinks in allowed
+  directories. The Nix environment sets `HUGO_SECURITY_NODE_PERMISSIONS_ALLOWREAD`
+  to the project plus the exact npm derivation, and shell/direnv adds the
+  exact `.direnv/flake-profile` target. Never allow the entire `/nix/store`
+  (unrelated packages link to `/etc`), use `*`, or disable permissions.
+- Playwright's npm version must match the Nix browser driver. Linux native
+  binaries are patched with RPATH; host-library validation is skipped, but
+  actual browser launch is a flake check. npm browser revision overrides
+  are removed to match the Nix browser link farm on macOS too.
+- `resvg` is wrapped with pinned Liberation/DejaVu fonts and no system-font
+  discovery; `FONTCONFIG_FILE` alone does not configure resvg/fontdb.
+- Browser tests rebuild `public/` with localhost URLs. In CI run them before
+  the clean production build; never upload their output as the prod artifact.
+- Docker's entrypoint is not relied upon by GitHub Actions. Every `run` step
+  uses Bash and `BASH_ENV` for the Nix-generated settings. Do not reintroduce
+  action-installed Wrangler or floating Node/native-tool version variables.
+
 - Biome `2.5.13` has no `files.ignores` (use `!` negations in
   `files.includes`; explicit CLI paths bypass `includes`). Biome must
   never scan `layouts/` — Go `{{ }}` templates are unparseable JS/HTML
@@ -185,11 +238,10 @@
   `d-*`/`mt-*`/`float-*`/responsive classes were dead in prod. The Tailwind
   migration ACTIVATES them — diffs vs old rendering here are intended fixes
   (locale switcher, floats, spacing), proven by old-vs-new screenshots.
-- Covers render via `resvg` in `bin/build-images.sh` (512px). Native tools
-  `oxipng`/`oxvg`/`resvg` via cargo, `mozjpeg` built from source on CI
-  (no apt package); locally `brew install oxipng resvg mozjpeg` but PATH
-  `jpegtran` is libjpeg-turbo — the script requires mozjpeg, so export
-  `JPEGTRAN=/opt/homebrew/opt/mozjpeg/bin/jpegtran`.
+- Covers render via the Nix-wrapped `resvg` in `bin/build-images.sh` (512px).
+  All native tools come from the locked flake; `JPEGTRAN` is the exact Nix
+  mozjpeg path. Do not replace it with a host libjpeg-turbo binary or add
+  cargo/Homebrew/apt installation requirements back into local/CI docs.
 - `e2e/smoke.spec.js` (11 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`

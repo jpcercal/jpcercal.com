@@ -1,10 +1,4 @@
 const { defineConfig } = require("@playwright/test");
-const { existsSync } = require("node:fs");
-
-const localMozjpeg = [
-	"/opt/homebrew/opt/mozjpeg/bin/jpegtran",
-	"/usr/local/opt/mozjpeg/bin/jpegtran",
-].find(existsSync);
 
 module.exports = defineConfig({
 	testDir: "./e2e",
@@ -20,9 +14,7 @@ module.exports = defineConfig({
 			"npm run build && npm run images && npm run search:index && python3 -m http.server 1313 --bind 127.0.0.1 --directory public",
 		env: {
 			BASE_URL: "http://127.0.0.1:1313/",
-			...(process.env.JPEGTRAN || localMozjpeg
-				? { JPEGTRAN: process.env.JPEGTRAN || localMozjpeg }
-				: {}),
+			...(process.env.JPEGTRAN ? { JPEGTRAN: process.env.JPEGTRAN } : {}),
 		},
 		url: "http://127.0.0.1:1313/",
 		reuseExistingServer: false,
