@@ -127,6 +127,16 @@ jobs:
         # Rootful containers need this flag; normal local shells keep sandboxing.
         run: npm run lhci -- --collect.settings.chromeFlags="--no-sandbox --disable-dev-shm-usage"
 
+      - name: Preserve Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Upload site artifact
         uses: actions/upload-artifact@v7
         with:
