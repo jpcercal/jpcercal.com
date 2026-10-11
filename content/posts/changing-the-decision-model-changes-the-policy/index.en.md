@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 author: jpcercal@gmail.com
 slug: changing-the-decision-model-changes-the-policy
 title: Changing the Decision Model Changes the Policy
