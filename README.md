@@ -84,7 +84,8 @@ both reviews and checks in the commit body. See
 After building, images and Pagefind indexing, `bin/check-artifact.sh` also runs
 `bin/check-bilingual.py`: exhaustive pairing, unique routes, canonicals,
 reciprocal language alternates/switches, same-language positional article
-references, local links/fragments, images and author routes. The check derives
+references, local links/fragments, images, author routes and per-language
+Pagefind page counts. The check derives
 the base URL from the output, so it also works with PR-subpath builds:
 `python3 bin/check-bilingual.py`. Smoke tests use the real Pagefind index in
 both languages and navigate a translated reference and reciprocal switch.
@@ -243,6 +244,9 @@ The flake check verifies tool versions, native npm binaries, and actual
 Chromium launch. Playwright rebuilds `public/` for localhost; rebuild the
 production artifact afterwards before publishing it. For rootful containers,
 LHCI uses `--collect.settings.chromeFlags="--no-sandbox --disable-dev-shm-usage"`.
+Parallel worktrees should select distinct test ports, for example
+`PLAYWRIGHT_PORT=1315 npm run e2e -- --workers=2`; the default remains 1313.
+The server, Hugo base URL and smoke assertions all use the selected port.
 Visual snapshots are platform-specific; compare/regenerate them locally only
 when rendering changes, not simply because the toolchain moved to Nix.
 

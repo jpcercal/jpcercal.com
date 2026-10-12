@@ -105,12 +105,16 @@
   `_index.md` (draft, sitemap-disabled), `tokens.md` (incl. dark tokens),
   `components.md`. Staging copies it to `content/design-system` and builds
   `--buildDrafts`; prod must never contain `public/design-system/`.
-- `bin/` holds 4 scripts: `build-images.sh` (native image
+- `bin/` holds 4 shell scripts plus `check-bilingual.py`: `build-images.sh` (native image
   pipeline: copy → oxipng/mozjpeg optimize → oxvg minify → resvg 512px
   covers) + `verify-pages.sh` (live-site gate suite run by the
   `cloudflare-pages` job), `nix-node-modules.sh` (safe immutable dependency
   linking), and `check-artifact.sh` (production isolation and active-script
   tracker checks; historical prose mentioning old libraries is allowed).
+  `check-bilingual.py`, invoked by the artifact gate, checks every article pair,
+  rendered canonical/alternate/switch, local link/fragment, shared asset and
+  author route, same-language positional references and Pagefind language counts;
+  it derives the base URL from the output and works under PR subpaths too.
   (`fetch-vendor.sh` deleted with the last vendor
   clone; `watch.sh` deleted with the Grunt pipeline.)
 - `.github/workflows/ci.yml` — jobs in order: `image` (builds + pushes the

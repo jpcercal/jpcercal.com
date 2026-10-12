@@ -102,3 +102,39 @@ PR #92 remained open/unmerged at the final inventory refresh and is excluded.
 For EN targets the source is `index.md`; for pt-BR targets it is `index.en.md`.
 Resolve a listed SHA with `git show <sha>` to inspect the translation and review
 record. Supporting regression/documentation/visual commits are kept separate.
+
+## Final verification
+
+Verified on Linux amd64 with the pinned Nix toolchain:
+
+- `PLAYWRIGHT_PORT=1315 npm run e2e -- --workers=2`: **19 passed** (14 smoke
+  tests and 5 Linux visual comparisons, without updating snapshots).
+- Clean production pipeline: `BASE_URL=https://jpcercal.com/ npm run build`,
+  `npm run images` (150 cover PNGs), `npm run search:index` (75 PT + 75 EN).
+- `npm run lint`, `npm run validate:html`, `npm run validate:xml`: passed.
+- `lychee --config .lychee.toml --no-progress --remap
+  "https://jpcercal.com file://$PWD/public" "public/**/index.html"`:
+  **2,606 checks / 373 unique links / 0 errors**.
+- `bin/check-artifact.sh`: production isolation and all **75 pairs / 150
+  routes** passed, including per-language search counts.
+- `npm run lhci -- --collect.settings.chromeFlags="--no-sandbox
+  --disable-dev-shm-usage"`: configured assertions passed across 3 URLs / 9
+  runs. Existing LHCI defaults use optimistic aggregation; individual
+  performance scores varied from 0.74 to 0.99, not every run exceeded 0.9.
+- `nix flake check`, `nixfmt --check flake.nix nix/*.nix`, `actionlint`,
+  `shellcheck bin/check-artifact.sh` and `git diff --check`: passed.
+- Separate draft/design-system preview under `/pr-bilingual/`: the same
+  exhaustive 150-route audit plus real Chromium PT/EN search and result
+  navigation passed; production output contains no design-system pages.
+- Negative preview fixtures correctly rejected a missing counterpart, shared
+  cover and incomplete English search index; fixtures were restored afterwards.
+- Final inventory refresh: `origin/main` remained at the source revision,
+  PR #92 remained open/unmerged, and all 81 original Markdown hashes and 71
+  single-file translation commits were rechecked.
+
+The first new PT search assertion omitted an `o` from the expected source
+title; the assertion was corrected. A subsequent run collided with another
+worktree's port 1313, so the verified full run used the configurable isolated
+port 1315. No other checkout or process was changed. Existing macOS-specific
+visual baselines were left untouched; only Linux baselines were generated and
+verified here.
