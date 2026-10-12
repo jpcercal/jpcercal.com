@@ -62,11 +62,13 @@ Cloudflare Pages 20k-file limit.
 
 ## Article translations
 
-Every article bundle in `content/posts/<bundle>/` has Brazilian Portuguese
+Every article bundle in `content/posts/<english-slug>/` has Brazilian Portuguese
 (`index.md`, Hugo language key `pt`) and English (`index.en.md`) counterparts.
 The bilingual completion baseline is **75 bundles / 150 article files**.
 Existing URLs and bilingual pairs are preserved; translations use their own
-localized `slug` and share the bundle's assets. No separate translation or
+localized `slug` and share the bundle's assets. The folder name always matches
+the English file's `slug`; each language's frontmatter controls its public URL,
+so Portuguese pages keep their Portuguese URLs. No separate translation or
 search framework is needed.
 
 When adding an article, publish both language files together. Keep author,

@@ -24,4 +24,4 @@ _texto_ is different from _Texto_, because the second word starts with a capital
 _texto_ is the same as _Texto_, there is no distinction between letter cases.
 
 A related concept joins words and capitalizes the letters at the beginning of each word,
-called [CamelCase]({{< ref "posts/o-padrao-camelcase/index.md" >}} "The CamelCase Convention").
+called [CamelCase]({{< ref "posts/the-camelcase-convention/index.md" >}} "The CamelCase Convention").

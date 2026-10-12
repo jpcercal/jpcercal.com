@@ -25,4 +25,4 @@ _texto_ é diferente de _Texto_, pois a segunda palavra inicia-se com uma consoa
 _texto_ é igual à _Texto_, não há diferenças entre o tamanho das letras.
 
 Complementarmente utiliza-se um conceito de juntar as palavras e capitalizar as letras que antecedem cada palavra 
-chamado [CamelCase]({{< ref "posts/o-padrao-camelcase/index.md" >}} "O Padrão CamelCase").
+chamado [CamelCase]({{< ref "posts/the-camelcase-convention/index.md" >}} "O Padrão CamelCase").

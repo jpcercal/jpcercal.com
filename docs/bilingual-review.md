@@ -25,7 +25,7 @@ Historical claims, duplicated prose and source inconsistencies are intentionally
 preserved. Elisete's English author route is a separate supporting commit.
 PR #92 remained open/unmerged at the final inventory refresh and is excluded.
 
-| Bundle (`content/posts/`) | Target | Translation commit |
+| Bundle at source revision (`content/posts/`) | Target | Translation commit |
 |---|---|---|
 | `understand-the-system-before-changing-it` | pt-BR | `6e1903f2` |
 | `o-padrao-camelcase` | en | `bf604e27` |
@@ -100,6 +100,11 @@ PR #92 remained open/unmerged at the final inventory refresh and is excluded.
 | `voce-sabe-o-que-e-coworking` | en | `d5f9b916` |
 
 For EN targets the source is `index.md`; for pt-BR targets it is `index.en.md`.
+Bundle names in the ledger are historical names at the source revision, not
+necessarily current filesystem paths. Following the completion review, article
+folders were renamed to their English frontmatter slugs at the user's request.
+Only internal source references were updated; localized slugs, prose, code and
+shared assets were preserved. All original translation commits remain intact.
 Resolve a listed SHA with `git show <sha>` to inspect the translation and review
 record. Supporting regression/documentation/visual commits are kept separate.
 
@@ -138,3 +143,18 @@ worktree's port 1313, so the verified full run used the configurable isolated
 port 1315. No other checkout or process was changed. Existing macOS-specific
 visual baselines were left untouched; only Linux baselines were generated and
 verified here.
+
+## Follow-up: English folder names
+
+At the user's request, 62 article folders were renamed so all 75 bundle names
+match the English frontmatter slug. Relative shared assets moved with their
+bundles. Internal `ref` source paths changed in 32 Markdown files; all other
+article bytes (including frontmatter, prose, code and original whitespace) and
+all asset bytes were verified unchanged against `fdb0e630`.
+
+After the rename, a clean production build verified byte-identical HTML at all
+150 original article routes. The full browser/visual suite passed again
+(**19 tests**, no snapshot updates), as did lint, HTML/XML validation, Pagefind
+(75 articles per language), all **2,606 link checks / 373 unique links**, and
+the exhaustive bilingual/production artifact gates. The naming guard also
+correctly rejected a fixture whose folder differed from its English slug.

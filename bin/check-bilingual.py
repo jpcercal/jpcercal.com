@@ -77,6 +77,8 @@ for bundle in bundles:
         source = bundle / filename
         require(source.is_file(), f'missing {lang} counterpart: {bundle}')
         slug, text = metadata(source)
+        if lang == 'en':
+            require(bundle.name == slug, f'bundle must use its English slug: {bundle} -> {slug}')
         route = ('en/' if lang == 'en' else '') + slug + '/'
         require(route not in routes, f'duplicate route: {route}')
         routes[route] = source

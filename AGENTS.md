@@ -19,9 +19,11 @@
   or browser install in the runtime. `/opt/ci/bin`, `/opt/ci/node_modules`,
   `blog-env`, and `BASH_ENV` expose the same environment to CI shells.
 
-- `content/posts/<slug>/` — 75 bilingual post bundles, each with `index.md`
+- `content/posts/<english-slug>/` — 75 bilingual post bundles, each with `index.md`
   (Brazilian Portuguese, Hugo `pt`) and `index.en.md` (English), shared assets,
-  and localized slugs. `docs/bilingual-review.md` records the 71 completion
+  and localized slugs. Folder names match `index.en.md`'s slug; localized
+  frontmatter, not the folder name, controls published URLs.
+  `docs/bilingual-review.md` records the 71 completion
   translations and their individual commits/two review passes.
   `content/search/`, `content/contact/` (each with
   `_index.md` + `_index.en.md`), `content/authors/` (3 authors). The 404
