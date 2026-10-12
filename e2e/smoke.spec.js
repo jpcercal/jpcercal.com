@@ -21,6 +21,90 @@ test("english section renders", async ({ page }) => {
 	await expect(page).toHaveTitle(/jpcercal/);
 });
 
+test("webfonts are local and all existing faces load", async ({ page }) => {
+	const externalFonts = [];
+	page.on("request", (request) => {
+		if (/fonts\.(googleapis|gstatic)\.com/.test(request.url())) {
+			externalFonts.push(request.url());
+		}
+	});
+	await page.goto("/revisitando-o-layout-e-o-projeto-do-blog/");
+	await expect(page.locator('link[rel="preload"][as="font"]')).toHaveCount(4);
+	const loaded = await page.evaluate(async () => {
+		const faces = [
+			'400 16px "PT Serif"',
+			'700 16px "PT Serif"',
+			'italic 400 16px "PT Serif"',
+			'italic 700 16px "PT Serif"',
+			'400 16px "Fjalla One"',
+			'400 16px "Barlow Condensed"',
+			'500 16px "Barlow Condensed"',
+			'400 16px "Fira Mono"',
+			'500 16px "Fira Mono"',
+			'700 16px "Fira Mono"',
+		];
+		return Promise.all(
+			faces.map(async (face) => {
+				const fonts = await document.fonts.load(face, "João ação café");
+				return fonts.length === 1 && fonts[0].status === "loaded";
+			}),
+		);
+	});
+	expect(loaded).toEqual(Array(10).fill(true));
+	expect(externalFonts).toEqual([]);
+});
+
+test("slow webfonts do not move already-painted article content", async ({
+	page,
+}) => {
+	await page.setViewportSize({ width: 412, height: 823 });
+	await page.addInitScript(() => {
+		window.fontLayoutShifts = 0;
+		new PerformanceObserver((list) => {
+			for (const entry of list.getEntries()) {
+				if (!entry.hadRecentInput) window.fontLayoutShifts += entry.value;
+			}
+		}).observe({ type: "layout-shift", buffered: true });
+	});
+	let releaseFonts;
+	const fontGate = new Promise((resolve) => {
+		releaseFonts = resolve;
+	});
+	await page.route("**/fonts/*.woff2", async (route) => {
+		await fontGate;
+		await route.continue();
+	});
+	try {
+		await page.goto("/revisitando-o-layout-e-o-projeto-do-blog/", {
+			waitUntil: "domcontentloaded",
+		});
+		// Deliberately outlast optional display's short (~100ms) block period.
+		await page.waitForTimeout(250);
+		const article = page.locator(".article-content");
+		await expect(article).toBeVisible();
+		const before = await article.boundingBox();
+		releaseFonts();
+		await page.waitForLoadState("networkidle");
+		expect(await article.boundingBox()).toEqual(before);
+		expect(await page.evaluate(() => window.fontLayoutShifts)).toBeLessThan(
+			0.1,
+		);
+	} finally {
+		releaseFonts();
+	}
+});
+
+test("article stays readable when webfonts are unavailable", async ({
+	page,
+}) => {
+	await page.route("**/fonts/*.woff2", (route) => route.abort());
+	await page.goto("/revisitando-o-layout-e-o-projeto-do-blog/");
+	await expect(page.locator("h1")).toBeVisible();
+	await expect(page.locator(".article-content")).toContainText(
+		"Olá caros leitores",
+	);
+});
+
 test("theme defaults to light with a visible toggle", async ({ page }) => {
 	await page.goto("/");
 	const toggle = page.locator("[data-theme-toggle]");

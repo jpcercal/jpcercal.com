@@ -125,7 +125,14 @@ jobs:
 
       - name: Lighthouse CI
         # Rootful containers need this flag; normal local shells keep sandboxing.
-        run: npm run lhci -- --collect.settings.chromeFlags="--no-sandbox --disable-dev-shm-usage"
+        run: |
+          # Checkout's temporary Git config is not shared with shell steps.
+          # Trust only this container path, including LHCI's Git subprocesses.
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0=safe.directory
+          export GIT_CONFIG_VALUE_0="$PWD"
+          git rev-list --no-merges -n1 HEAD
+          npm run lhci -- --collect.settings.chromeFlags="--no-sandbox --disable-dev-shm-usage"
 
       - name: Preserve Lighthouse reports
         if: always()
