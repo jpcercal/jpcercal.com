@@ -19,8 +19,11 @@
   or browser install in the runtime. `/opt/ci/bin`, `/opt/ci/node_modules`,
   `blog-env`, and `BASH_ENV` expose the same environment to CI shells.
 
-- `content/posts/<slug>/` — 70 post bundles (avg ~3.3 files), 6 `index.en.md`
-  (EN translations). `content/search/`, `content/contact/` (each with
+- `content/posts/<slug>/` — 75 bilingual post bundles, each with `index.md`
+  (Brazilian Portuguese, Hugo `pt`) and `index.en.md` (English), shared assets,
+  and localized slugs. `docs/bilingual-review.md` records the 71 completion
+  translations and their individual commits/two review passes.
+  `content/search/`, `content/contact/` (each with
   `_index.md` + `_index.en.md`), `content/authors/` (3 authors). The 404
   page is `layouts/404.html` — there is no `content/404.html`.
 - `assets/scss/` (13 files) — app styles (Dart Sass `@use` modules) +
@@ -46,7 +49,7 @@
   builds param-free (one hashed file, every page).
   `lunr` + `search.json` + `search-template.html` +
   `grunt-custom/{lunr,post,author,category,tag}-*` + `paths.js` are gone;
-  `pagefind --site public` indexes the 76 post source files (70 PT + 6 EN,
+  `pagefind --site public` indexes the 150 post source files (75 PT + 75 EN,
   2 langs auto-detected, `type=post` filter set in
   `layouts/posts/single.html` and matched in `search.js`; cover meta
   `image` + `image_dark` also emitted there — `image_dark` only when
@@ -125,7 +128,8 @@
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;
   fails the workflow — it runs AFTER the deploy, it does not gate it).
-- `e2e/smoke.spec.js` — 11 tests (home/search/contact-static-links/EN +
+- `e2e/smoke.spec.js` — 14 tests (home/search/contact-static-links/EN +
+  real PT/EN Pagefind results + reciprocal translation/reference navigation +
   404 layout + latest-posts content + 6 theme tests, 2 of them
   cover-fetch network guards);
   `e2e/visual.spec.js` snapshots are platform-specific and skipped on CI.
@@ -242,7 +246,7 @@
   All native tools come from the locked flake; `JPEGTRAN` is the exact Nix
   mozjpeg path. Do not replace it with a host libjpeg-turbo binary or add
   cargo/Homebrew/apt installation requirements back into local/CI docs.
-- `e2e/smoke.spec.js` (11 tests) runs in CI; `e2e/visual.spec.js` snapshots
+- `e2e/smoke.spec.js` (14 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`
   with pipes). The Playwright webServer serves `public/` via
