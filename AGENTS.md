@@ -34,6 +34,11 @@
   breakpoint scale drives the `sm:`/`md:`/`lg:` variants) +
   `@custom-variant dark` bound to `[data-theme="dark"]` (reserved for
   future color-only tweaks; no `dark:` utilities used yet).
+- `assets/css/fonts.css` + `static/fonts/` — the same four webfont families,
+  locally vendored Latin WOFF2 faces (including PT accents), versioned names,
+  source hashes and OFL notices. `head-assets.html` preloads the four critical
+  faces and fingerprints the stylesheet; `font-display: optional` prevents
+  late swaps/CLS. No Google Fonts runtime requests or build-time downloads.
 - `assets/images/` — `favicon/` + `icons/` sources (copied to
   `public/images/` and optimized by `bin/build-images.sh`).
 - `assets/js/` — exactly 3 files: `search.js` (Pagefind, search page only
@@ -78,7 +83,7 @@
   `navbar.html` incl. theme toggle, `footer.html` incl. `theme.js`,
   `post-card.html`, head-meta-*/favicon/i18n-list/reading-time/word-count/
   author-*).
-- `static/` — 3 files: `CNAME` (prod `jpcercal.com`; must NOT ship
+- `static/` — 3 root files plus the vendored `fonts/` directory: `CNAME` (prod `jpcercal.com`; must NOT ship
   to the staging branch) + `_headers` (Pages cache/security headers;
   replaces `_config.yml` semantics) + `_redirects` (`/posts/` -> `/` and
   `/en/posts/` -> `/en/` 301s; Cloudflare Pages only — inert on the
@@ -125,9 +130,9 @@
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;
   fails the workflow — it runs AFTER the deploy, it does not gate it).
-- `e2e/smoke.spec.js` — 11 tests (home/search/contact-static-links/EN +
+- `e2e/smoke.spec.js` — 14 tests (home/search/contact-static-links/EN +
   404 layout + latest-posts content + 6 theme tests, 2 of them
-  cover-fetch network guards);
+  cover-fetch network guards + 3 font-delivery/fallback/CLS regressions);
   `e2e/visual.spec.js` snapshots are platform-specific and skipped on CI.
 
 ## Locked decisions (do not relitigate without new evidence)
@@ -242,7 +247,7 @@
   All native tools come from the locked flake; `JPEGTRAN` is the exact Nix
   mozjpeg path. Do not replace it with a host libjpeg-turbo binary or add
   cargo/Homebrew/apt installation requirements back into local/CI docs.
-- `e2e/smoke.spec.js` (11 tests) runs in CI; `e2e/visual.spec.js` snapshots
+- `e2e/smoke.spec.js` (14 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`
   with pipes). The Playwright webServer serves `public/` via
