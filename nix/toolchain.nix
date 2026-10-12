@@ -2,6 +2,9 @@
 let
   inherit (pkgs) lib;
   node-deps = import ./node-deps.nix { inherit pkgs nodejs; };
+  # npm versions are pinned by package-lock.json, not duplicated here.
+  npmLock = builtins.fromJSON (builtins.readFile ../package-lock.json);
+  wranglerVersion = npmLock.packages."node_modules/wrangler".version;
   browsers = pkgs.playwright-driver.selectBrowsers {
     withFirefox = false;
     withWebkit = false;
@@ -149,7 +152,7 @@ let
         html-validate --version
         sass --version
         tailwindcss --help
-        wrangler --version | grep -F 4.147.0
+        wrangler --version | grep -Fx ${lib.escapeShellArg wranglerVersion}
         NODE_PATH="$BLOG_NODE_MODULES" node ${./check-browser.cjs}
         touch "$out"
       '';
