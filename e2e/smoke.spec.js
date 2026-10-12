@@ -21,6 +21,51 @@ test("english section renders", async ({ page }) => {
 	await expect(page).toHaveTitle(/jpcercal/);
 });
 
+for (const [lang, searchPath, route, title] of [
+	[
+		"pt",
+		"/search/",
+		"/instalando-servidor-web-apache-no-linux/",
+		"Instalando o servidor web Apache no Linux",
+	],
+	[
+		"en",
+		"/en/search/",
+		"/en/installing-the-apache-web-server-on-linux/",
+		"Installing the Apache web server on Linux",
+	],
+]) {
+	test(`real Pagefind results stay in ${lang}`, async ({ page }) => {
+		await page.goto(searchPath);
+		await page.locator("#search").fill("apache");
+		const results = page.locator("#search-results .post-card--title");
+		await expect(results.first()).toBeVisible();
+		await expect(results.filter({ hasText: title })).toHaveCount(1);
+		for (const href of await results.evaluateAll((links) =>
+			links.map((link) => link.href),
+		)) {
+			expect(new URL(href).pathname.startsWith("/en/")).toBe(lang === "en");
+		}
+		await results.filter({ hasText: title }).click();
+		await expect(page).toHaveURL(new RegExp(`${route}$`));
+		await expect(page.locator("h1")).toHaveText(title);
+	});
+}
+
+test("translated article switches reciprocally and resolves English references", async ({
+	page,
+}) => {
+	await page.goto("/case-sensitive/");
+	await page.locator('article a[href$="/en/case-sensitive/"]').click();
+	await expect(page.locator("html")).toHaveAttribute("lang", "en");
+	await page
+		.locator('.article-content a[href$="/en/the-camelcase-convention/"]')
+		.click();
+	await expect(page.locator("h1")).toHaveText("The CamelCase Convention");
+	await page.locator('article a[href$="/o-padrao-camelcase/"]').click();
+	await expect(page.locator("html")).toHaveAttribute("lang", "pt");
+});
+
 test("theme defaults to light with a visible toggle", async ({ page }) => {
 	await page.goto("/");
 	const toggle = page.locator("[data-theme-toggle]");
@@ -121,9 +166,14 @@ test("post card cover follows the selected theme", async ({ page }) => {
 	await expect(card.locator(".theme-cover--light")).toBeHidden();
 });
 
-test("search result cover follows the selected theme", async ({ page }) => {
-	const image =
-		"http://127.0.0.1:1313/instalando-servidor-web-apache-no-linux/index.svg";
+test("search result cover follows the selected theme", async ({
+	page,
+	baseURL,
+}) => {
+	const image = new URL(
+		"/instalando-servidor-web-apache-no-linux/index.svg",
+		baseURL,
+	).href;
 	const darkImage = image.replace(/index\.svg$/, "index.dark.svg");
 	const darkRequests = [];
 	page.on("request", (request) => {
@@ -168,7 +218,10 @@ export async function search() {
 		.toBe(darkImage);
 });
 
-test("404 page renders layout, message and latest posts", async ({ page }) => {
+test("404 page renders layout, message and latest posts", async ({
+	page,
+	baseURL,
+}) => {
 	const response = await page.goto("/404.html");
 	expect(response.status()).toBe(200); // direct file hit; unknown URLs are a Pages-level concern (verify-pages.sh)
 	await expect(page.locator("h1")).toHaveText(
@@ -179,10 +232,11 @@ test("404 page renders layout, message and latest posts", async ({ page }) => {
 	const suggestions = page.locator("h2", { hasText: /artigos mais recentes/i });
 	await expect(suggestions).toBeVisible();
 	// PT cards only, first card links to a real post permalink.
-	await expect(page.locator(".post-card--title").first()).toHaveAttribute(
-		"href",
-		/^https?:\/\/127\.0\.0\.1:1313\/[^/]+\/$/,
+	const ptHref = new URL(
+		await page.locator(".post-card--title").first().getAttribute("href"),
 	);
+	expect(ptHref.origin).toBe(baseURL);
+	expect(ptHref.pathname).toMatch(/^\/[^/]+\/$/);
 
 	// EN variant renders the English copy with EN-only post links.
 	await page.goto("/en/404.html");
