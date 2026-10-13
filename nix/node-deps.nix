@@ -10,7 +10,7 @@
       ../package-lock.json
     ];
   };
-  npmDepsHash = "sha256-636hCgcIEadF/hjlUlF2AQUn9d9a9bgGQ+MQYxIWQkQ=";
+  npmDepsHash = "sha256-l5Anxh2gXSKvH4Qaf9k+s/jqpw4ebB0dMGxPufQC+O4=";
   npmFlags = [
     "--ignore-scripts"
     "--no-audit"
