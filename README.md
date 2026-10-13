@@ -60,6 +60,38 @@ packages are used directly on developer machines and inside CI containers.
 At ~1 post/day the deployed file count stays ~1.5–2k/yr — far below the
 Cloudflare Pages 20k-file limit.
 
+## Article translations
+
+Every article bundle in `content/posts/<english-slug>/` has Brazilian Portuguese
+(`index.md`, Hugo language key `pt`) and English (`index.en.md`) counterparts.
+The bilingual completion baseline is **75 bundles / 150 article files**.
+Existing URLs and bilingual pairs are preserved; translations use their own
+localized `slug` and share the bundle's assets. The folder name always matches
+the English file's `slug`; each language's frontmatter controls its public URL,
+so Portuguese pages keep their Portuguese URLs. No separate translation or
+search framework is needed.
+
+When adding an article, publish both language files together. Keep author,
+dates, publication settings, taxonomy identifiers, code blocks and terminal
+output unchanged. Translate titles, descriptions, prose, headings, labels,
+image alt text and captions. Preserve meaning, register, mood, paragraph
+boundaries and order, including historical claims rather than updating them.
+
+Review **every** translation twice: first compare it against the source for
+semantic and technical fidelity, then read it independently for author voice
+and structure. Keep one translation per commit and record its source revision,
+both reviews and checks in the commit body. See
+[the completion review ledger](docs/bilingual-review.md).
+
+After building, images and Pagefind indexing, `bin/check-artifact.sh` also runs
+`bin/check-bilingual.py`: exhaustive pairing, unique routes, canonicals,
+reciprocal language alternates/switches, same-language positional article
+references, local links/fragments, images, author routes and per-language
+Pagefind page counts. The check derives
+the base URL from the output, so it also works with PR-subpath builds:
+`python3 bin/check-bilingual.py`. Smoke tests use the real Pagefind index in
+both languages and navigate a translated reference and reciprocal switch.
+
 ## Local development
 
 Prerequisites: [Nix](https://nixos.org/download/) with `nix-command` and
@@ -214,6 +246,9 @@ The flake check verifies tool versions, native npm binaries, and actual
 Chromium launch. Playwright rebuilds `public/` for localhost; rebuild the
 production artifact afterwards before publishing it. For rootful containers,
 LHCI uses `--collect.settings.chromeFlags="--no-sandbox --disable-dev-shm-usage"`.
+Parallel worktrees should select distinct test ports, for example
+`PLAYWRIGHT_PORT=1315 npm run e2e -- --workers=2`; the default remains 1313.
+The server, Hugo base URL and smoke assertions all use the selected port.
 Visual snapshots are platform-specific; compare/regenerate them locally only
 when rendering changes, not simply because the toolchain moved to Nix.
 
