@@ -23,6 +23,14 @@ def fixture_pr():
 
 
 class DependencyUpdates(unittest.TestCase):
+    def test_bootstrap_has_one_source_of_truth_and_rejects_floating_images(self):
+        source = (ROOT / "Dockerfile").read_text()
+        self.assertEqual(updater.bootstrap_image(source), updater.NIX_IMAGE)
+        for invalid in ("FROM nixos/nix:latest AS nix-builder", source + source,
+                        source.replace("@sha256:", "@sha512:")):
+            with self.assertRaises(ValueError):
+                updater.bootstrap_image(invalid)
+
     def test_hash_replacement_only_changes_one_assignment(self):
         original = (ROOT / "nix/node-deps.nix").read_text()
         updated = updater.replace_hash(original, VALID_HASH)

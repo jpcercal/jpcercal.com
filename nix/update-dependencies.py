@@ -17,7 +17,16 @@ import tarfile
 import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
-NIX_IMAGE = "nixos/nix:2.35.2@sha256:7a007c766426c1877758ddc5cb87a965ac131fc78c582ce0083d922d51ae945c"
+# Docker adapter updates must not leave a second bootstrap pin behind.
+# Read only the trusted checkout's digest-pinned builder, never a PR Dockerfile.
+def bootstrap_image(source):
+    images = re.findall(r"^FROM (nixos/nix:[0-9.]+@sha256:[0-9a-f]{64}) AS nix-builder$", source, re.MULTILINE)
+    if len(images) != 1:
+        raise ValueError("Expected one version-and-digest-pinned Nix builder in Dockerfile")
+    return images[0]
+
+
+NIX_IMAGE = bootstrap_image((ROOT / "Dockerfile").read_text())
 NATIVE_BRANCH = "build/nix-toolchain-update"
 NPM_FILES = {"package.json", "package-lock.json", "nix/node-deps.nix", "nix/toolchain.nix"}
 NATIVE_FILES = {
