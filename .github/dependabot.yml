@@ -4,6 +4,16 @@ updates:
     directory: "/"
     schedule:
       interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: Etc/UTC
+    # dependency-locks.yml recomputes and commits npmDepsHash after these PRs
+    # are opened. Dependabot has no Nix ecosystem or post-update command hook.
+    # Playwright must move with the Nix browser driver, not independently.
+    ignore:
+      - dependency-name: "@playwright/test"
+      - dependency-name: playwright
+      - dependency-name: playwright-core
   - package-ecosystem: github-actions
     directory: "/"
     schedule:

@@ -13,14 +13,31 @@
   `.envrc` loads the flake automatically after `direnv allow`. Supported:
   Linux amd64/arm64, macOS Apple Silicon; Intel macOS browser is not
   packaged by this pinned nixpkgs (use the optional Linux container).
+- `.github/workflows/dependency-locks.yml` + `nix/update-dependencies.py`
+  — trusted-main companion to Dependabot: daily npm PR hash synchronization
+  and weekly exact nixpkgs revision/NAR-hash/native-version/paired-Playwright
+  proposals, verified by flake checks before publication. Node remains pinned.
+  No `pull_request_target`, no execution of npm PR code, no auto-merge or prod
+  deployment. Explicit CI dispatch handles `GITHUB_TOKEN` event suppression;
+  CI validates the dispatched PR/head before staging. Requires the repository's
+  Actions setting allowing PR creation, but no extra token. Standard-library
+  safety regressions live in `tests/test_dependency_updates.py` and run in CI.
+  Dependabot cannot execute post-update hooks or manage Nix inputs; do not add
+  unsupported options to `.github/dependabot.yml`.
+
 - `Dockerfile` — optional adapter, not a second toolchain definition:
   digest-pinned Nix 2.35.2 builder runs flake checks and exports the runtime
   closure into a digest-pinned Debian compatibility base. No apt/cargo/npm
   or browser install in the runtime. `/opt/ci/bin`, `/opt/ci/node_modules`,
   `blog-env`, and `BASH_ENV` expose the same environment to CI shells.
 
-- `content/posts/<slug>/` — 70 post bundles (avg ~3.3 files), 6 `index.en.md`
-  (EN translations). `content/search/`, `content/contact/` (each with
+- `content/posts/<english-slug>/` — 76 bilingual post bundles, each with `index.md`
+  (Brazilian Portuguese, Hugo `pt`) and `index.en.md` (English), shared assets,
+  and localized slugs. Folder names match `index.en.md`'s slug; localized
+  frontmatter, not the folder name, controls published URLs.
+  `docs/bilingual-review.md` records the 71 completion
+  translations and their individual commits/two review passes.
+  `content/search/`, `content/contact/` (each with
   `_index.md` + `_index.en.md`), `content/authors/` (3 authors). The 404
   page is `layouts/404.html` — there is no `content/404.html`.
 - `assets/scss/` (13 files) — app styles (Dart Sass `@use` modules) +
@@ -34,6 +51,11 @@
   breakpoint scale drives the `sm:`/`md:`/`lg:` variants) +
   `@custom-variant dark` bound to `[data-theme="dark"]` (reserved for
   future color-only tweaks; no `dark:` utilities used yet).
+- `assets/css/fonts.css` + `static/fonts/` — the same four webfont families,
+  locally vendored Latin WOFF2 faces (including PT accents), versioned names,
+  source hashes and OFL notices. `head-assets.html` preloads the four critical
+  faces and fingerprints the stylesheet; `font-display: optional` prevents
+  late swaps/CLS. No Google Fonts runtime requests or build-time downloads.
 - `assets/images/` — `favicon/` + `icons/` sources (copied to
   `public/images/` and optimized by `bin/build-images.sh`).
 - `assets/js/` — exactly 3 files: `search.js` (Pagefind, search page only
@@ -46,7 +68,7 @@
   builds param-free (one hashed file, every page).
   `lunr` + `search.json` + `search-template.html` +
   `grunt-custom/{lunr,post,author,category,tag}-*` + `paths.js` are gone;
-  `pagefind --site public` indexes the 76 post source files (70 PT + 6 EN,
+  `pagefind --site public` indexes the 152 post source files (76 PT + 76 EN,
   2 langs auto-detected, `type=post` filter set in
   `layouts/posts/single.html` and matched in `search.js`; cover meta
   `image` + `image_dark` also emitted there — `image_dark` only when
@@ -78,7 +100,7 @@
   `navbar.html` incl. theme toggle, `footer.html` incl. `theme.js`,
   `post-card.html`, head-meta-*/favicon/i18n-list/reading-time/word-count/
   author-*).
-- `static/` — 3 files: `CNAME` (prod `jpcercal.com`; must NOT ship
+- `static/` — 3 root files plus the vendored `fonts/` directory: `CNAME` (prod `jpcercal.com`; must NOT ship
   to the staging branch) + `_headers` (Pages cache/security headers;
   replaces `_config.yml` semantics) + `_redirects` (`/posts/` -> `/` and
   `/en/posts/` -> `/en/` 301s; Cloudflare Pages only — inert on the
@@ -102,12 +124,16 @@
   `_index.md` (draft, sitemap-disabled), `tokens.md` (incl. dark tokens),
   `components.md`. Staging copies it to `content/design-system` and builds
   `--buildDrafts`; prod must never contain `public/design-system/`.
-- `bin/` holds 4 scripts: `build-images.sh` (native image
+- `bin/` holds 4 shell scripts plus `check-bilingual.py`: `build-images.sh` (native image
   pipeline: copy → oxipng/mozjpeg optimize → oxvg minify → resvg 512px
   covers) + `verify-pages.sh` (live-site gate suite run by the
   `cloudflare-pages` job), `nix-node-modules.sh` (safe immutable dependency
   linking), and `check-artifact.sh` (production isolation and active-script
   tracker checks; historical prose mentioning old libraries is allowed).
+  `check-bilingual.py`, invoked by the artifact gate, checks every article pair,
+  rendered canonical/alternate/switch, local link/fragment, shared asset and
+  author route, same-language positional references and Pagefind language counts;
+  it derives the base URL from the output and works under PR subpaths too.
   (`fetch-vendor.sh` deleted with the last vendor
   clone; `watch.sh` deleted with the Grunt pipeline.)
 - `.github/workflows/ci.yml` — jobs in order: `image` (builds + pushes the
@@ -125,9 +151,10 @@
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;
   fails the workflow — it runs AFTER the deploy, it does not gate it).
-- `e2e/smoke.spec.js` — 11 tests (home/search/contact-static-links/EN +
+- `e2e/smoke.spec.js` — 17 tests (home/search/contact-static-links/EN +
+  real PT/EN Pagefind results + reciprocal translation/reference navigation +
   404 layout + latest-posts content + 6 theme tests, 2 of them
-  cover-fetch network guards);
+  cover-fetch network guards + 3 font-delivery/fallback/CLS regressions);
   `e2e/visual.spec.js` snapshots are platform-specific and skipped on CI.
 
 ## Locked decisions (do not relitigate without new evidence)
@@ -242,7 +269,7 @@
   All native tools come from the locked flake; `JPEGTRAN` is the exact Nix
   mozjpeg path. Do not replace it with a host libjpeg-turbo binary or add
   cargo/Homebrew/apt installation requirements back into local/CI docs.
-- `e2e/smoke.spec.js` (11 tests) runs in CI; `e2e/visual.spec.js` snapshots
+- `e2e/smoke.spec.js` (17 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`
   with pipes). The Playwright webServer serves `public/` via
