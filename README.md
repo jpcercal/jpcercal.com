@@ -52,10 +52,11 @@ See [AGENTS.md](AGENTS.md) for the locked decisions and rationale.
 Baseline repo size: 367 tracked files (`content` 242 — 70 post bundles,
 `assets` 49, `layouts` 33; Grunt is fully deleted in the final state).
 `flake.nix` and `flake.lock` are the toolchain source of truth. The locked
-nixpkgs revisions provide Hugo extended 0.166.0, Node 26.8.2, oxipng 10.2.1,
-oxvg 0.0.7, resvg 0.48.1, Pagefind extended 1.5.2, lychee 0.24.2, and
-mozjpeg 4.1.5. `package-lock.json` pins npm dependencies (including Wrangler
-4.147.0); `nix/node-deps.nix` verifies their aggregate fetch hash. The same
+nixpkgs revisions provide Hugo extended, oxipng, oxvg, resvg, Pagefind
+extended, lychee, and mozjpeg; `nix/toolchain.nix` checks their exact versions.
+The separate Node input preserves Node 26.8.2. `package-lock.json` pins npm
+dependencies (including Wrangler); `nix/node-deps.nix` verifies their aggregate
+fetch hash. The same
 packages are used directly on developer machines and inside CI containers.
 At ~1 post/day the deployed file count stays ~1.5–2k/yr — far below the
 Cloudflare Pages 20k-file limit.
@@ -199,6 +200,64 @@ Do not mount host-platform Nix `node_modules` into a different-platform
 container: move the host link aside first or use a separate checkout.
 
 ## Updating dependencies
+
+### Scheduled updates
+
+Dependabot remains responsible for npm, GitHub Actions, and the digest-pinned
+Docker adapter. It cannot manage Nix inputs or run a post-update hashing hook.
+The **Scheduled dependency locks** workflow supplies that missing step:
+
+- **Daily at 09:00 UTC:** inspect same-repository Dependabot npm PRs, calculate
+  `npmDepsHash` using `prefetch-npm-deps` from the trusted, locked nixpkgs, and
+  commit it to each PR alongside `package-lock.json`. The PR's flake, toolchain,
+  and CI workflow must match trusted main; stale or independently modified PRs
+  are reported for manual rebase/review rather than overwritten.
+- **Mondays at 10:00 UTC:** resolve the current `nixos-unstable` revision once,
+  pin that exact commit in `flake.nix`, generate `flake.lock` NAR hashes,
+  synchronize native tool version assertions, and recompute `npmDepsHash`.
+  Playwright's npm version moves with the Nix browser driver; Dependabot must
+  not update it independently. The separate `nodepkgs` revision and exact Node
+  assertions stay unchanged—Node upgrades remain intentional/manual.
+- Native proposals pass `nix flake check --no-update-lock-file` (including an
+  actual Chromium launch) **before** the bot opens a `build(nix)` PR. An open
+  native proposal is never overwritten. Incompatible candidates fail the
+  maintenance workflow instead of being published. Nothing auto-merges.
+- Commits made with `GITHUB_TOKEN` suppress ordinary push/PR workflows, so the
+  bot explicitly dispatches CI on the updated branch. CI checks the stated PR
+  number and head SHA before publishing staging; its production deployment
+  guards still accept only pushes to main.
+
+The workflow runs only trusted main code. npm PRs contribute lockfile **data**
+only: no PR scripts, flakes, or lifecycle hooks execute during hashing. The
+hashing/native-build container uses the same digest-pinned Nix bootstrap as
+`Dockerfile`, with no GitHub token, checkout credentials, or Docker socket.
+Exact revisions and verified hashes remain committed; tracking an upstream
+branch at scheduling time never makes builds use a floating input.
+
+**Activation after merge:** in repository **Settings → Actions → General**,
+enable **Allow GitHub Actions to create and approve pull requests**. No PAT or
+additional secrets are required. The workflow requests narrowly scoped
+`contents`, `pull-requests`, and `actions` write permissions; branch protection
+and normal review still apply. If policy disallows bot PR creation, a native
+proposal cannot be opened and the workflow reports the API failure.
+
+Run it manually from Actions with `mode=npm`, `native`, or `all`; use
+`dry_run=true` to calculate and verify without writing branches or PRs.
+Locally, from a trusted checkout with Docker and authenticated `gh`:
+
+```bash
+python3 nix/update-dependencies.py --mode npm --dry-run
+python3 nix/update-dependencies.py --mode native --dry-run
+python3 -m unittest discover -s tests -v
+```
+
+Dry runs can download dependencies and run builds, but never commit, dispatch,
+or open PRs. The container's Nix cache lives in the `dependency-update-nix`
+Docker volume. GitHub's schedule is best-effort, so an npm PR may initially
+show a hash failure until the companion workflow runs; dispatch it manually
+if needed.
+
+### Manual updates
 
 1. Review and change the nixpkgs revisions in `flake.nix`, then run
    `nix flake lock`. The separate `nodepkgs` input preserves exact Node

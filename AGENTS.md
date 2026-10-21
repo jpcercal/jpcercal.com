@@ -13,6 +13,18 @@
   `.envrc` loads the flake automatically after `direnv allow`. Supported:
   Linux amd64/arm64, macOS Apple Silicon; Intel macOS browser is not
   packaged by this pinned nixpkgs (use the optional Linux container).
+- `.github/workflows/dependency-locks.yml` + `nix/update-dependencies.py`
+  — trusted-main companion to Dependabot: daily npm PR hash synchronization
+  and weekly exact nixpkgs revision/NAR-hash/native-version/paired-Playwright
+  proposals, verified by flake checks before publication. Node remains pinned.
+  No `pull_request_target`, no execution of npm PR code, no auto-merge or prod
+  deployment. Explicit CI dispatch handles `GITHUB_TOKEN` event suppression;
+  CI validates the dispatched PR/head before staging. Requires the repository's
+  Actions setting allowing PR creation, but no extra token. Standard-library
+  safety regressions live in `tests/test_dependency_updates.py` and run in CI.
+  Dependabot cannot execute post-update hooks or manage Nix inputs; do not add
+  unsupported options to `.github/dependabot.yml`.
+
 - `Dockerfile` — optional adapter, not a second toolchain definition:
   digest-pinned Nix 2.35.2 builder runs flake checks and exports the runtime
   closure into a digest-pinned Debian compatibility base. No apt/cargo/npm
