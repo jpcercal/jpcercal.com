@@ -6,12 +6,12 @@
     "node": "26.8.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.14",
+    "@biomejs/biome": "^2.5.15",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/cli": "^4.3.3",
-    "html-validate": "^11.16.0",
-    "sass-embedded": "^1.105.0",
+    "html-validate": "^11.16.2",
+    "sass-embedded": "^1.105.1",
     "tailwindcss": "^4.3.3",
     "wrangler": "4.149.0"
   },
