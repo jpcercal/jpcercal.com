@@ -1,0 +1,54 @@
+name: Scheduled dependency locks
+
+on:
+  # Dependabot still proposes npm/Actions/Docker updates. This trusted workflow
+  # supplies the Nix metadata it cannot generate; no pull_request_target needed.
+  schedule:
+    - cron: "0 9 * * *"
+    - cron: "0 10 * * 1"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Updates to prepare
+        type: choice
+        options: [all, npm, native]
+        default: all
+      dry_run:
+        description: Verify only (no commits, PRs, or CI dispatches)
+        type: boolean
+        default: false
+
+# Serialize our bot's branch writes. The bot never overwrites an open native PR.
+concurrency:
+  group: scheduled-dependency-locks
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+jobs:
+  update:
+    # Only trusted main code can use the write token. PRs cannot invoke this job.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout trusted main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Prepare verified dependency locks
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODE: ${{ inputs.mode || (github.event.schedule == '0 10 * * 1' && 'native' || 'npm') }}
+          DRY_RUN: ${{ inputs.dry_run || false }}
+        run: |
+          args=(--mode "$MODE")
+          if [[ "$DRY_RUN" == true ]]; then
+            args+=(--dry-run)
+          fi
+          python3 nix/update-dependencies.py "${args[@]}"
