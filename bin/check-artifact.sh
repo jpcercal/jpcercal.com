@@ -50,4 +50,6 @@ for path in Path('public').rglob('*.html'):
         raise SystemExit(f'artifact: forbidden active resource in {path}')
 PY
 
+python3 bin/check-bilingual.py
+
 echo "artifact: production isolation checks passed"
