@@ -9,7 +9,7 @@ categories:
   - other
 tags:
   - security
-  - devops
+  - architecture
   - engineering
 ---
 
