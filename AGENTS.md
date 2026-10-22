@@ -291,11 +291,6 @@
 
 ## Agent rules
 
-- **No tool attribution**: never mention Claude/Anthropic or add
-  `Co-Authored-By`/"Generated with" lines to commits, PR titles or PR bodies.
-  `.claude/settings.json` disables the automatic attribution, `CLAUDE.md`
-  repeats the rule, and the PR-only `commit-messages` CI job runs
-  `bin/check-commit-messages.sh` (usable as a local `commit-msg` hook).
 - **Plan mode is read-only**: observe/analyze/plan only. Never edit, run
   write-shaped commands, or commit. Tell the user to switch to build mode.
 - **Atomic commits** on `<type>/<kebab-case>` branches, one concern per
