@@ -40,8 +40,8 @@ curl -fsSL --compressed --max-time 30 "$BASE_URL" -o "$HTML_DIR/index.html" || f
 # The JS bundle only loads on the search page — fetch it for asset checks.
 curl -fsSL --compressed --max-time 30 "${BASE_URL}search/" -o "$HTML_DIR/search.html" || fail "fetch search page"
 
-CSS_URL="$(grep -oE '/css/[^"]+\.css' "$HTML_DIR/index.html" | head -1)"
-JS_URL="$(grep -oE '/js/[^"]+\.js' "$HTML_DIR/search.html" | head -1)"
+CSS_URL="$(grep -oE '/css/[^"[:space:]>]+\.css' "$HTML_DIR/index.html" | head -1)"
+JS_URL="$(grep -oE '/js/[^"[:space:]>]+\.js' "$HTML_DIR/search.html" | head -1)"
 # Assets are root-relative; BASE_URL keeps its trailing slash.
 CSS_URL="${CSS_URL#/}"
 JS_URL="${JS_URL#/}"
