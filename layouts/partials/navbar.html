@@ -22,9 +22,24 @@
 
                 <div class="col clearfix">
                     <nav class="float-right flex items-center gap-2" aria-label='{{ i18n "localeNav" }}'>
-                        <button type="button" class="theme-toggle" data-theme-toggle hidden aria-pressed="false" aria-label='{{ i18n "themeToggle" }}' title='{{ i18n "themeToggle" }}'>
-                            <span class="theme-toggle--icon" aria-hidden="true"></span>
+                        <button type="button" class="theme-toggle" data-theme-toggle hidden
+                                data-label-to-dark='{{ i18n "themeSwitchToDark" }}'
+                                data-label-to-light='{{ i18n "themeSwitchToLight" }}'
+                                data-status-dark='{{ i18n "themeStatusDark" }}'
+                                data-status-light='{{ i18n "themeStatusLight" }}'>
+                            <span class="theme-toggle--icon" aria-hidden="true">
+                                <svg class="theme-toggle__svg" viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true">
+                                    <mask id="theme-toggle-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                        <rect x="0" y="0" width="24" height="24" fill="#fff"/>
+                                        <circle class="theme-toggle__cutout" cx="12" cy="12" r="8" fill="#000"/>
+                                    </mask>
+                                    <circle class="theme-toggle__disc" cx="12" cy="12" r="9" fill="currentColor" mask="url(#theme-toggle-mask)"/>
+                                    <g class="theme-toggle__rays" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="3.5" transform="rotate(0 12 12)"/><line x1="12" y1="1.5" x2="12" y2="3.5" transform="rotate(45 12 12)"/><line x1="12" y1="1.5" x2="12" y2="3.5" transform="rotate(90 12 12)"/><line x1="12" y1="1.5" x2="12" y2="3.5" transform="rotate(135 12 12)"/><line x1="12" y1="1.5" x2="12" y2="3.5" transform="rotate(180 12 12)"/><line x1="12" y1="1.5" x2="12" y2="3.5" transform="rotate(225 12 12)"/><line x1="12" y1="1.5" x2="12" y2="3.5" transform="rotate(270 12 12)"/><line x1="12" y1="1.5" x2="12" y2="3.5" transform="rotate(315 12 12)"/></g>
+                                </svg>
+                            </span>
+                            <span class="sr-only" data-theme-toggle-label>{{ i18n "themeSwitchToDark" }}</span>
                         </button>
+                        <span class="sr-only" role="status" aria-live="polite" data-theme-toggle-status></span>
                         <ul class="list-none flex gap-2 m-0 locale-list">
                             <li class='locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
                                 <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="hidden lg:inline">{{ index $localePt.title $locale }}</a>

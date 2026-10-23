@@ -69,5 +69,11 @@ paginationNav:
   other: "Paginação de posts"
 localeNav:
   other: "Seleção de idioma"
-themeToggle:
-  other: "Alternar modo escuro"
+themeSwitchToDark:
+  other: "Mudar para o tema escuro"
+themeSwitchToLight:
+  other: "Mudar para o tema claro"
+themeStatusDark:
+  other: "Tema escuro ativado"
+themeStatusLight:
+  other: "Tema claro ativado"

@@ -82,21 +82,103 @@ header {
     }
   }
 
+  // Theme toggle, Variant B ("Morph"): borderless 44x44 circle holding ONE
+  // SVG whose shapes animate between a crescent (light theme, action =
+  // "go dark") and a sun (dark theme, action = "go light"). The button box,
+  // the border width and the 24x24 viewBox are identical in every state, so
+  // nothing can shift. Only colour, background, opacity and transform change.
   .theme-toggle {
-    border: 1px solid var(--color-faint);
-    border-radius: 8px;
-    padding: 7px 9px;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    margin: 0;
+    padding: 0;
+    // Constant 1px border: transparent normally, a real colour in
+    // forced-colors mode (below) so the control stays identifiable.
+    border: 1px solid transparent;
+    border-radius: 50%;
     background-color: transparent;
-    color: var(--color-locale-idle);
+    color: var(--color-ink);
     cursor: pointer;
     line-height: 1;
 
-    &:hover {
-      color: var(--color-locale-hover);
+    &[hidden] {
+      display: none;
     }
 
-    .theme-toggle--icon::before {
-      content: '\263E';
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--color-border);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
+      background-color: var(--color-border);
+    }
+
+    .theme-toggle--icon {
+      display: grid;
+      width: 24px;
+      height: 24px;
+    }
+
+    .theme-toggle__svg {
+      grid-area: 1 / 1;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    // Light theme (default): crescent = disc minus a cutout circle that sits
+    // over it, rays collapsed into the centre.
+    .theme-toggle__disc,
+    .theme-toggle__cutout,
+    .theme-toggle__rays {
+      transform-origin: 12px 12px;
+    }
+
+    .theme-toggle__cutout {
+      transform: translate(7px, -6px);
+    }
+
+    .theme-toggle__rays {
+      opacity: 0;
+      transform: rotate(-45deg) scale(0.5);
+    }
+
+    // The cutout is mask content, not visible paint: keep its black/white
+    // luminance values intact when the UA forces system colours.
+    mask * {
+      forced-color-adjust: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      & {
+        transition: background-color 200ms ease;
+      }
+
+      .theme-toggle__disc,
+      .theme-toggle__cutout {
+        transition: transform 300ms ease;
+      }
+
+      .theme-toggle__rays {
+        transition:
+          opacity 200ms ease,
+          transform 300ms ease;
+      }
+    }
+
+    @media (forced-colors: active) {
+      border-color: ButtonText;
     }
   }
 
@@ -109,15 +191,27 @@ header {
 
 // Dark chrome fixes (colors only; post covers and photos are never filtered):
 // the search glyph is a near-black SVG background and the GitHub corner is
-// dark-on-transparent, so both are inverted on the dark canvas. The toggle
-// shows a sun once dark mode is active.
+// dark-on-transparent, so both are inverted on the dark canvas. 
 [data-theme="dark"] header .search .search-icon,
 [data-theme="dark"] header .github-corner img {
   filter: invert(0.92);
 }
 
-[data-theme="dark"] header .theme-toggle .theme-toggle--icon::before {
-  content: '\2600';
+// Dark theme: the cutout slides out of the disc (crescent -> full disc), the
+// disc shrinks to the sun's core and the rays grow back in.
+[data-theme="dark"] header .theme-toggle {
+  .theme-toggle__disc {
+    transform: scale(0.6);
+  }
+
+  .theme-toggle__cutout {
+    transform: translate(26px, -26px);
+  }
+
+  .theme-toggle__rays {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 // Same fixes for the no-JS OS-dark fallback (no data-theme attribute set).

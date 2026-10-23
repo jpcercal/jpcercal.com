@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		return;
 	}
 
+	const label = toggle.querySelector("[data-theme-toggle-label]");
+	const status = document.querySelector("[data-theme-toggle-status]");
+	let transitionTimer;
+
 	const readStored = () => {
 		try {
 			return localStorage.getItem(STORAGE_KEY);
@@ -28,7 +32,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		const root = document.documentElement;
 		root.setAttribute("data-theme", theme);
 		root.style.colorScheme = theme;
-		toggle.setAttribute("aria-pressed", String(theme === "dark"));
+
+		// Accessible name = the action a click performs. Updated in place so
+		// focus stays on the button. The icon shows the same action.
+		if (label) {
+			label.textContent =
+				theme === "dark"
+					? toggle.dataset.labelToLight
+					: toggle.dataset.labelToDark;
+		}
 
 		const assetHref = theme === "dark" ? "data-dark-href" : "data-light-href";
 		for (const asset of document.querySelectorAll(
@@ -73,12 +85,27 @@ document.addEventListener("DOMContentLoaded", () => {
 	);
 
 	toggle.addEventListener("click", () => {
-		apply(
-			document.documentElement.getAttribute("data-theme") === "dark"
-				? "light"
-				: "dark",
-			true,
-		);
+		const root = document.documentElement;
+		// Animate colours only for this user-initiated change (see
+		// themes.scss); first paint and OS-driven changes never animate.
+		root.setAttribute("data-theme-transition", "");
+		clearTimeout(transitionTimer);
+		transitionTimer = setTimeout(() => {
+			root.removeAttribute("data-theme-transition");
+		}, 350);
+
+		const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+		apply(next, true);
+
+		// Polite live region: announces the result of a click only, never the
+		// initial load or an OS change (some screen readers do not announce
+		// a changed accessible name on the focused control).
+		if (status) {
+			status.textContent =
+				next === "dark"
+					? toggle.dataset.statusDark
+					: toggle.dataset.statusLight;
+		}
 	});
 
 	// Follow OS changes until the visitor picks explicitly.

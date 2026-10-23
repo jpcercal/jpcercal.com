@@ -155,7 +155,9 @@ test("theme defaults to light with a visible toggle", async ({ page }) => {
 	const toggle = page.locator("[data-theme-toggle]");
 	await expect(toggle).toBeVisible();
 	await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-	await expect(toggle).toHaveAttribute("aria-pressed", "false");
+	// The accessible name is the action, not a pressed state.
+	await expect(toggle).toHaveAccessibleName("Mudar para o tema escuro");
+	await expect(toggle).not.toHaveAttribute("aria-pressed");
 	await expect(page.locator('link[rel="manifest"]')).toHaveAttribute(
 		"href",
 		/images\/favicon\/manifest\.json$/,
@@ -163,6 +165,76 @@ test("theme defaults to light with a visible toggle", async ({ page }) => {
 	await expect(
 		page.locator('link[rel="icon"][type="image/svg+xml"]'),
 	).toHaveAttribute("href", /images\/favicon\/favicon\.svg$/);
+});
+
+for (const { path, dark, light, statusDark, statusLight } of [
+	{
+		path: "/",
+		dark: "Mudar para o tema escuro",
+		light: "Mudar para o tema claro",
+		statusDark: "Tema escuro ativado",
+		statusLight: "Tema claro ativado",
+	},
+	{
+		path: "/en/",
+		dark: "Switch to dark theme",
+		light: "Switch to light theme",
+		statusDark: "Dark theme enabled",
+		statusLight: "Light theme enabled",
+	},
+]) {
+	test(`theme toggle keeps a 44x44 box and updates its name (${path})`, async ({
+		page,
+	}) => {
+		await page.goto(path);
+		const toggle = page.locator("[data-theme-toggle]");
+		const status = page.locator("[data-theme-toggle-status]");
+		await expect(toggle).toHaveAccessibleName(dark);
+		await expect(status).toHaveText("");
+		const before = await toggle.boundingBox();
+		expect(before.width).toBe(44);
+		expect(before.height).toBe(44);
+
+		await toggle.focus();
+		await page.keyboard.press("Enter");
+		await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+		await expect(toggle).toBeFocused();
+		await expect(toggle).toHaveAccessibleName(light);
+		await expect(status).toHaveText(statusDark);
+		// Let the morph transition finish before measuring.
+		await page.waitForTimeout(500);
+		expect(await toggle.boundingBox()).toEqual(before);
+
+		await page.keyboard.press("Space");
+		await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+		await expect(toggle).toHaveAccessibleName(dark);
+		await expect(status).toHaveText(statusLight);
+		await page.waitForTimeout(500);
+		expect(await toggle.boundingBox()).toEqual(before);
+
+		for (const attr of ["aria-pressed", "aria-label", "title"]) {
+			await expect(toggle).not.toHaveAttribute(attr);
+		}
+	});
+}
+
+test("theme toggle icon is decorative and has no motion under reduced motion", async ({
+	page,
+}) => {
+	await page.emulateMedia({ reducedMotion: "reduce" });
+	await page.goto("/");
+	const icon = page.locator("[data-theme-toggle] .theme-toggle__svg");
+	await expect(icon).toHaveAttribute("aria-hidden", "true");
+	await expect(icon).toHaveAttribute("focusable", "false");
+	await expect(icon).toHaveAttribute("viewBox", "0 0 24 24");
+	const durations = await page
+		.locator("[data-theme-toggle] .theme-toggle__cutout")
+		.evaluate((el) => getComputedStyle(el).transitionDuration);
+	expect(durations).toBe("0s");
+	await page.locator("[data-theme-toggle]").click();
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+	// The page-wide colour transition must not apply either.
+	await expect(page.locator("html")).toHaveCSS("transition-duration", "0s");
 });
 
 test("theme toggle switches to dark and persists", async ({ page }) => {

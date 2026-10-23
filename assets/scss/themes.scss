@@ -74,3 +74,27 @@
     @include light-tokens;
   }
 }
+
+// Smooth colour change for a user-initiated toggle only. theme.js sets
+// data-theme-transition on <html> for ~300 ms around the click, so first
+// paint and OS-driven changes never animate and no permanent universal
+// transition rule exists. !important is intentional and that short-lived.
+// opacity/transform are listed because this rule would otherwise override
+// (and cancel) the toggle icon's own morph transition for those 300 ms.
+// Layout properties are never transitioned; reduced motion gets no rule.
+@media (prefers-reduced-motion: no-preference) {
+  html[data-theme-transition],
+  html[data-theme-transition] *,
+  html[data-theme-transition] *::before,
+  html[data-theme-transition] *::after {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease,
+      fill 200ms ease,
+      stroke 200ms ease,
+      filter 200ms ease,
+      opacity 200ms ease,
+      transform 300ms ease !important;
+  }
+}
