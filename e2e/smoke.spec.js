@@ -263,6 +263,137 @@ test("theme toggle honors prefers-reduced-motion", async ({ browser }) => {
 	}
 });
 
+// Browsers do not start CSS transitions before the first rendered frame, so
+// fade tests must let the page paint once before clicking the toggle.
+async function settleFirstFrames(page) {
+	await page.evaluate(
+		() =>
+			new Promise((resolve) =>
+				requestAnimationFrame(() => requestAnimationFrame(resolve)),
+			),
+	);
+}
+
+test("theme fade animates tokens on <html> only, not every element", async ({
+	page,
+}) => {
+	// Per-element colour transitions make children that inherit `color`
+	// chase their parent's animated value and lag behind it (dark text on a
+	// dark canvas mid-fade). The fade must live on the registered tokens.
+	await page.goto("/revisitando-o-layout-e-o-projeto-do-blog/");
+	const result = await page.evaluate(() => {
+		document.documentElement.setAttribute("data-theme-transition", "");
+		const offenders = [];
+		for (const el of document.querySelectorAll("body *")) {
+			const cs = getComputedStyle(el);
+			const props = cs.transitionProperty.split(",").map((p) => p.trim());
+			const animated = props.filter(
+				(p) => p !== "all" && /color|fill|stroke/.test(p),
+			);
+			const allWithDuration =
+				props.includes("all") && !/^0s(, 0s)*$/.test(cs.transitionDuration);
+			if (animated.length || allWithDuration) {
+				offenders.push(`${el.tagName}.${el.className}`);
+			}
+		}
+		document.documentElement.removeAttribute("data-theme-transition");
+		const root = getComputedStyle(document.documentElement);
+		return { offenders, rootProperty: root.transitionProperty };
+	});
+	expect(result.offenders).toEqual([]);
+	expect(result.rootProperty).toBe("all");
+
+	await page.evaluate(() => {
+		document.documentElement.setAttribute("data-theme-transition", "");
+	});
+	const during = await page.evaluate(() => {
+		const cs = getComputedStyle(document.documentElement);
+		return { property: cs.transitionProperty, duration: cs.transitionDuration };
+	});
+	expect(during.property).toContain("--color-ink");
+	expect(during.property).toContain("--color-canvas");
+	expect(during.duration.split(",")[0].trim()).toBe("0.2s");
+});
+
+test("theme fade keeps inherited text in lockstep with its parent", async ({
+	page,
+}) => {
+	await page.goto("/revisitando-o-layout-e-o-projeto-do-blog/");
+	await settleFirstFrames(page);
+	const samples = await page.evaluate(async () => {
+		const link = document.querySelector(".article-content p a");
+		const parent = link.parentElement;
+		document.querySelector("[data-theme-toggle]").click();
+		const frames = [];
+		const start = performance.now();
+		await new Promise((resolve) => {
+			const tick = () => {
+				frames.push({
+					link: getComputedStyle(link).color,
+					parent: getComputedStyle(parent).color,
+				});
+				// Run until the fade has finished (capped), not for a fixed time:
+				// the first frame can land late on a busy runner.
+				const elapsed = performance.now() - start;
+				if (document.getAnimations().length > 0 && elapsed < 3000) {
+					requestAnimationFrame(tick);
+				} else {
+					resolve();
+				}
+			};
+			requestAnimationFrame(tick);
+		});
+		return frames;
+	});
+	for (const frame of samples) {
+		expect(frame.link).toBe(frame.parent);
+	}
+	// The fade really ran (initial, at least one in-between, final colour);
+	// otherwise the lockstep check above would pass vacuously.
+	expect(new Set(samples.map((frame) => frame.link)).size).toBeGreaterThan(2);
+	// Settled on the dark ink (a light colour), not stuck on the light one.
+	expect(samples.at(-1).link).toBe("rgba(255, 255, 255, 0.68)");
+});
+
+test("theme toggle glyphs never change colour when the theme switches", async ({
+	page,
+}) => {
+	// The ink glyphs sit on the track and the canvas glyphs inside the thumb;
+	// recolouring a single set made glyphs vanish for a few frames.
+	await page.goto("/en/");
+	await settleFirstFrames(page);
+	const { before, after } = await page.evaluate(async () => {
+		const read = () =>
+			[...document.querySelectorAll(".theme-toggle__svg")].map(
+				(svg) => getComputedStyle(svg).color,
+			);
+		const before = read();
+		document.querySelector("[data-theme-toggle]").click();
+		// The fade starts at the first frame after the click; at that point it
+		// has not advanced, so any difference would be a selector-driven
+		// (instant) colour swap.
+		const after = await new Promise((resolve) =>
+			requestAnimationFrame(() => resolve(read())),
+		);
+		return { before, after };
+	});
+	expect(before).toHaveLength(4);
+	expect(after).toEqual(before);
+	await page.waitForTimeout(400);
+	const settled = await page.evaluate(() => {
+		const color = (selector) =>
+			getComputedStyle(document.querySelector(selector)).color;
+		return {
+			track: color(".theme-toggle--icon > .theme-toggle__svg--sun"),
+			thumb: color(".theme-toggle__thumb .theme-toggle__svg--sun"),
+			canvas: getComputedStyle(document.body).backgroundColor,
+		};
+	});
+	expect(settled.track).toBe("rgba(255, 255, 255, 0.92)");
+	expect(settled.thumb).toBe("rgb(25, 25, 25)");
+	expect(settled.canvas).toBe("rgb(25, 25, 25)");
+});
+
 test("theme toggle switches to dark and persists", async ({ page }) => {
 	await page.goto("/");
 	await page.locator("[data-theme-toggle]").click();

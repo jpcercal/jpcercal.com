@@ -22,16 +22,21 @@
 
                 <div class="col clearfix">
                     <nav class="float-right flex items-center gap-2" aria-label='{{ i18n "localeNav" }}'>
-                        {{/* Variant C (track/pill). Icons: Lucide sun/moon (ISC licence, lucide.dev). The track shows the active theme (thumb sits on it); the accessible name, set by theme.js, names the action. */}}
+                        {{/* Variant C (track/pill). Icons: Lucide sun/moon (ISC licence, lucide.dev). The track shows the active theme (thumb sits on it); the accessible name, set by theme.js, names the action. Glyphs are drawn twice (ink on the track, canvas inside the thumb, which clips and counter-moves them) so no glyph ever changes colour when the theme switches. */}}
                         <button type="button" class="theme-toggle" data-theme-toggle hidden
                                 data-label-to-dark='{{ i18n "themeSwitchToDark" }}'
                                 data-label-to-light='{{ i18n "themeSwitchToLight" }}'
                                 data-status-dark='{{ i18n "themeStatusDark" }}'
                                 data-status-light='{{ i18n "themeStatusLight" }}'>
                             <span class="theme-toggle--icon" aria-hidden="true">
-                                <span class="theme-toggle__thumb"></span>
                                 <svg class="theme-toggle__svg theme-toggle__svg--sun" viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
                                 <svg class="theme-toggle__svg theme-toggle__svg--moon" viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+                                <span class="theme-toggle__thumb">
+                                    <span class="theme-toggle__thumb-glyphs">
+                                        <svg class="theme-toggle__svg theme-toggle__svg--sun theme-toggle__svg--on-thumb" viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                                        <svg class="theme-toggle__svg theme-toggle__svg--moon theme-toggle__svg--on-thumb" viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+                                    </span>
+                                </span>
                             </span>
                             <span class="sr-only" data-theme-toggle-label>{{ i18n "themeSwitchToDark" }}</span>
                         </button>
