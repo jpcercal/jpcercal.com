@@ -42,8 +42,8 @@ never raw colors (code blocks stay One Dark in both themes).
 Activation: `data-theme` on `<html>` (stored `localStorage` choice, else
 OS `prefers-color-scheme`, else light). An inline script in
 `layouts/partials/head-assets.html` resolves it before CSS paints (no
-flash); `assets/js/theme.js` wires the header toggle (`themeToggle`
-i18n key), persists the choice and follows OS changes until one is
+flash); `assets/js/theme.js` wires the header toggle (`themeSwitchTo*` and
+`themeStatus*` i18n keys), persists the choice and follows OS changes until one is
 stored. No-JS visitors get the OS theme via a `prefers-color-scheme`
 fallback; print always renders light.
 

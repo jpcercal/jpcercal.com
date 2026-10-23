@@ -84,7 +84,13 @@
   `prefers-color-scheme` → light, no flash); `theme.js` wires the header
   `[data-theme-toggle]` button, persists to `localStorage.theme`, keeps
   following the OS while nothing is stored, and syncs `colorScheme` +
-  `theme-color`. Covered by 6 `e2e/smoke.spec.js` theme tests (2 of them
+  `theme-color`. The toggle is a fixed 44×44 button with inline Lucide
+  sun/moon SVGs drawn as the action (moon in light, sun in dark); its
+  accessible name is `sr-only` text flipped in place by `theme.js` (no
+  `aria-pressed`/`aria-label`/`title`), plus a polite status span announced
+  on user clicks only; `data-theme-transition` (set ~300 ms per click,
+  gated by `prefers-reduced-motion: no-preference`) drives the colour
+  fade. Covered by 6 `e2e/smoke.spec.js` theme tests (2 of them
   are cover-fetch network guards — see decision #11; the 6th guards the
   404 page canvas in both themes).
 - `layouts/` (33 files) — `index.html`, `404.html` (title + italic
@@ -151,7 +157,7 @@
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;
   fails the workflow — it runs AFTER the deploy, it does not gate it).
-- `e2e/smoke.spec.js` — 17 tests (home/search/contact-static-links/EN +
+- `e2e/smoke.spec.js` — 22 tests (home/search/contact-static-links/EN +
   real PT/EN Pagefind results + reciprocal translation/reference navigation +
   404 layout + latest-posts content + 6 theme tests, 2 of them
   cover-fetch network guards + 3 font-delivery/fallback/CLS regressions);
@@ -269,7 +275,7 @@
   All native tools come from the locked flake; `JPEGTRAN` is the exact Nix
   mozjpeg path. Do not replace it with a host libjpeg-turbo binary or add
   cargo/Homebrew/apt installation requirements back into local/CI docs.
-- `e2e/smoke.spec.js` (17 tests) runs in CI; `e2e/visual.spec.js` snapshots
+- `e2e/smoke.spec.js` (22 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`
   with pipes). The Playwright webServer serves `public/` via

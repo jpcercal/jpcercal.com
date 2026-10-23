@@ -11,10 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
 	const DARK_CANVAS = "#191919";
 	const LIGHT_CANVAS = "#ffffff";
 
+	const TRANSITION_ATTR = "data-theme-transition";
+	const TRANSITION_MS = 300;
+
 	const toggle = document.querySelector("[data-theme-toggle]");
 	if (!toggle) {
 		return;
 	}
+	const label = toggle.querySelector("[data-theme-toggle-label]");
+	const status = document.querySelector("[data-theme-toggle-status]");
+	let transitionTimer;
 
 	const readStored = () => {
 		try {
@@ -28,7 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		const root = document.documentElement;
 		root.setAttribute("data-theme", theme);
 		root.style.colorScheme = theme;
-		toggle.setAttribute("aria-pressed", String(theme === "dark"));
+
+		// The accessible name states the ACTION a click performs, so it flips
+		// with the theme. Updated in place: focus must stay on the button.
+		if (label) {
+			label.textContent =
+				theme === "dark"
+					? toggle.dataset.labelToLight
+					: toggle.dataset.labelToDark;
+		}
 
 		const assetHref = theme === "dark" ? "data-dark-href" : "data-light-href";
 		for (const asset of document.querySelectorAll(
@@ -73,12 +87,31 @@ document.addEventListener("DOMContentLoaded", () => {
 	);
 
 	toggle.addEventListener("click", () => {
-		apply(
+		const next =
 			document.documentElement.getAttribute("data-theme") === "dark"
 				? "light"
-				: "dark",
-			true,
+				: "dark";
+
+		// Colour fade only for this user-initiated change (never on first
+		// paint or an OS-driven change); CSS gates it on reduced motion.
+		const root = document.documentElement;
+		root.setAttribute(TRANSITION_ATTR, "");
+		clearTimeout(transitionTimer);
+		transitionTimer = setTimeout(
+			() => root.removeAttribute(TRANSITION_ATTR),
+			TRANSITION_MS,
 		);
+
+		apply(next, true);
+
+		// Announce the result once, for user clicks only. The name change on
+		// the focused button is not announced by every screen reader.
+		if (status) {
+			status.textContent =
+				next === "dark"
+					? toggle.dataset.statusDark
+					: toggle.dataset.statusLight;
+		}
 	});
 
 	// Follow OS changes until the visitor picks explicitly.

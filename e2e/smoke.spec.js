@@ -155,7 +155,9 @@ test("theme defaults to light with a visible toggle", async ({ page }) => {
 	const toggle = page.locator("[data-theme-toggle]");
 	await expect(toggle).toBeVisible();
 	await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-	await expect(toggle).toHaveAttribute("aria-pressed", "false");
+	await expect(
+		page.getByRole("button", { name: "Mudar para o tema escuro" }),
+	).toBeVisible();
 	await expect(page.locator('link[rel="manifest"]')).toHaveAttribute(
 		"href",
 		/images\/favicon\/manifest\.json$/,
@@ -354,4 +356,122 @@ test("404 page respects the dark theme", async ({ page }) => {
 		"background-color",
 		"rgb(42, 42, 42)",
 	); // --color-code-bg dark
+});
+
+const TOGGLE_COPY = {
+	"/": {
+		toDark: "Mudar para o tema escuro",
+		toLight: "Mudar para o tema claro",
+		dark: "Tema escuro ativado",
+		light: "Tema claro ativado",
+	},
+	"/en/": {
+		toDark: "Switch to dark theme",
+		toLight: "Switch to light theme",
+		dark: "Dark theme enabled",
+		light: "Light theme enabled",
+	},
+};
+
+for (const [path, copy] of Object.entries(TOGGLE_COPY)) {
+	test(`theme toggle name, status and size are stable (${path})`, async ({
+		page,
+	}) => {
+		await page.goto(path);
+		const toggle = page.locator("[data-theme-toggle]");
+		const status = page.locator("[data-theme-toggle-status]");
+
+		// Accessible name = action for the active theme; no stale pattern mix.
+		await expect(toggle).toHaveAccessibleName(copy.toDark);
+		await expect(toggle).not.toHaveAttribute("aria-pressed");
+		await expect(toggle).not.toHaveAttribute("aria-label");
+		await expect(toggle).not.toHaveAttribute("title");
+		await expect(toggle).toHaveAttribute("type", "button");
+		await expect(toggle.locator("svg")).toHaveCount(2);
+		for (const svg of await toggle.locator("svg").all()) {
+			await expect(svg).toHaveAttribute("aria-hidden", "true");
+			await expect(svg).toHaveAttribute("focusable", "false");
+			await expect(svg).toHaveAttribute("viewBox", "0 0 24 24");
+		}
+		// Nothing is announced on page load.
+		await expect(status).toHaveText("");
+
+		const light = await toggle.boundingBox();
+		expect(light.width).toBe(44);
+		expect(light.height).toBe(44);
+
+		// Keyboard operation (Enter) with a visible focus ring.
+		await toggle.focus();
+		await expect(toggle).toBeFocused();
+		await expect(toggle).toHaveCSS("outline-style", "solid");
+		await expect(toggle).toHaveCSS("outline-width", "2px");
+		await page.keyboard.press("Enter");
+		await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+		await expect(toggle).toHaveAccessibleName(copy.toLight);
+		await expect(toggle).toBeFocused();
+		await expect(status).toHaveText(copy.dark);
+		await expect(toggle.locator(".theme-toggle__svg--sun")).toHaveCSS(
+			"opacity",
+			"1",
+		);
+		await expect(toggle.locator(".theme-toggle__svg--moon")).toHaveCSS(
+			"opacity",
+			"0",
+		);
+
+		const dark = await toggle.boundingBox();
+		expect(dark.width).toBe(light.width);
+		expect(dark.height).toBe(light.height);
+		expect(dark.x).toBe(light.x);
+		expect(dark.y).toBe(light.y);
+
+		// Space toggles back.
+		await page.keyboard.press("Space");
+		await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+		await expect(toggle).toHaveAccessibleName(copy.toDark);
+		await expect(status).toHaveText(copy.light);
+		const back = await toggle.boundingBox();
+		expect(back).toEqual(light);
+	});
+}
+
+test("theme toggle label follows a persisted dark theme without announcing", async ({
+	page,
+}) => {
+	await page.addInitScript(() => localStorage.setItem("theme", "dark"));
+	await page.goto("/en/");
+	await expect(page.locator("[data-theme-toggle]")).toHaveAccessibleName(
+		"Switch to light theme",
+	);
+	await expect(page.locator("[data-theme-toggle-status]")).toHaveText("");
+});
+
+test("theme toggle motion is disabled under reduced motion", async ({
+	browser,
+}) => {
+	const context = await browser.newContext({ reducedMotion: "reduce" });
+	const page = await context.newPage();
+	await page.goto("/en/");
+	const toggle = page.locator("[data-theme-toggle]");
+	await toggle.click();
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+	for (const icon of await toggle.locator(".theme-toggle__svg").all()) {
+		await expect(icon).toHaveCSS("transition-duration", "0s");
+	}
+	await expect(page.locator("main, body").first()).toHaveCSS(
+		"transition-duration",
+		"0s",
+	);
+	await context.close();
+});
+
+test("theme toggle animates the icon swap with motion allowed", async ({
+	browser,
+}) => {
+	const context = await browser.newContext({ reducedMotion: "no-preference" });
+	const page = await context.newPage();
+	await page.goto("/en/");
+	const sun = page.locator(".theme-toggle__svg--sun");
+	await expect(sun).toHaveCSS("transition-duration", /0\.3s|0\.2s/);
+	await context.close();
 });

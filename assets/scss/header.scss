@@ -82,21 +82,75 @@ header {
     }
   }
 
+  // Theme toggle, variant A ("Outlined"): fixed 44x44 square, 1px border,
+  // 24px Lucide stroke icons cross-fading with a rotate+scale. The box and
+  // the border never depend on which icon is active (no layout shift).
   .theme-toggle {
-    border: 1px solid var(--color-faint);
+    position: relative;
+    box-sizing: border-box;
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--color-ink-soft);
     border-radius: 8px;
-    padding: 7px 9px;
     background-color: transparent;
-    color: var(--color-locale-idle);
+    color: var(--color-ink);
     cursor: pointer;
     line-height: 1;
 
-    &:hover {
-      color: var(--color-locale-hover);
+    &[hidden] {
+      display: none;
     }
 
-    .theme-toggle--icon::before {
-      content: '\263E';
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--color-border);
+        border-color: var(--color-ink);
+      }
+    }
+
+    &:active {
+      background-color: var(--color-border);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
+    }
+
+    .theme-toggle--icon {
+      display: grid;
+      width: 24px;
+      height: 24px;
+    }
+
+    .theme-toggle__svg {
+      grid-area: 1 / 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    // Light is active: the moon (action: go dark) is visible. The hidden
+    // icon is parked rotated and shrunk so the swap reads as one object
+    // turning into the other.
+    .theme-toggle__svg--moon {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    .theme-toggle__svg--sun {
+      opacity: 0;
+      visibility: hidden;
+      transform: rotate(-90deg) scale(0.5);
     }
   }
 
@@ -110,14 +164,68 @@ header {
 // Dark chrome fixes (colors only; post covers and photos are never filtered):
 // the search glyph is a near-black SVG background and the GitHub corner is
 // dark-on-transparent, so both are inverted on the dark canvas. The toggle
-// shows a sun once dark mode is active.
+// shows a sun once dark mode is active (the action: go light).
 [data-theme="dark"] header .search .search-icon,
 [data-theme="dark"] header .github-corner img {
   filter: invert(0.92);
 }
 
-[data-theme="dark"] header .theme-toggle .theme-toggle--icon::before {
-  content: '\2600';
+[data-theme="dark"] header .theme-toggle {
+  .theme-toggle__svg--sun {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .theme-toggle__svg--moon {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotate(90deg) scale(0.5);
+  }
+}
+
+// Motion lives behind no-preference so reduced-motion visitors (and any
+// browser that does not report the preference) get an instant, static swap.
+// Opacity + transform only: compositor-friendly, nothing reflows.
+@media (prefers-reduced-motion: no-preference) {
+  header .theme-toggle {
+    transition:
+      color 150ms ease,
+      background-color 150ms ease,
+      border-color 150ms ease;
+
+    .theme-toggle__svg {
+      // Delay `visibility` so the outgoing icon stays rendered while fading.
+      transition:
+        opacity 200ms ease,
+        transform 300ms ease,
+        visibility 0s linear 300ms;
+    }
+  }
+
+  [data-theme="dark"] header .theme-toggle .theme-toggle__svg--sun,
+  :root:not([data-theme="dark"]) header .theme-toggle .theme-toggle__svg--moon {
+    // The incoming icon becomes visible immediately.
+    transition-delay: 0s;
+  }
+
+  // Page-wide colour fade, applied only for ~300ms after a user click (see
+  // theme.js), never on first paint or an OS-driven change. `!important`
+  // is scoped to that window; layout properties are never transitioned.
+  // The toggle's own icons are excluded so their opacity/transform swap
+  // keeps its dedicated transition.
+  html[data-theme-transition],
+  html[data-theme-transition] *:not(.theme-toggle__svg),
+  html[data-theme-transition] *::before,
+  html[data-theme-transition] *::after {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease,
+      fill 200ms ease,
+      stroke 200ms ease,
+      filter 200ms ease !important;
+  }
 }
 
 // Same fixes for the no-JS OS-dark fallback (no data-theme attribute set).
