@@ -30,6 +30,10 @@ exclude = [
   "https://docs.joomla.org",
   "http://docs.joomla.org",
   "https://www.cloudflare.com/learning/",
+  # Bot-blocking hosts (403 to non-browser clients; the PHP2Shell post's
+  # watchTowr and Akamai pages were read in a browser).
+  "https://watchtowr.com",
+  "https://www.akamai.com",
   # ACM DOI resolver returns 403 to non-browser clients; page exists.
   "https://doi.org/10.1145/3546068",
   # External repo state owned outside this project; verify manually.

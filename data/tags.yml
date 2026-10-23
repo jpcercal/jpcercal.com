@@ -38,6 +38,10 @@ dream:
   title:
     en: Dream
     pt: Sonho
+devops:
+  title:
+    en: DevOps
+    pt: DevOps
 ec2:
   title:
     en: EC2
@@ -126,6 +130,10 @@ osx:
   title:
     en: OSX
     pt: OSX
+php:
+  title:
+    en: PHP
+    pt: PHP
 rds:
   title:
     en: RDS
