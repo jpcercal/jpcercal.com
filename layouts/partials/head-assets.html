@@ -1,8 +1,10 @@
 {{/* Serve the existing typefaces locally. Preload the above-the-fold faces;
    optional font display prevents a late swap from moving article content.
-   Both these URLs and the stylesheet's relative URLs preserve PR subpaths. */}}
+   These URLs are root-relative (not absolute) so they hit the serving origin
+   (Lighthouse/e2e on localhost must not fetch prod fonts) and, like the
+   stylesheet's relative URLs, preserve PR subpaths. */}}
 {{ range slice "pt-serif-v19-latin-400.woff2" "fjalla-one-v16-latin-400.woff2" "barlow-condensed-v13-latin-400.woff2" "barlow-condensed-v13-latin-500.woff2" }}
-<link rel="preload" href="{{ printf "%sfonts/%s" $.Site.BaseURL . }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ printf "fonts/%s" . | relURL }}" as="font" type="font/woff2" crossorigin>
 {{ end }}
 {{ $fonts := resources.Get "css/fonts.css" | minify | fingerprint }}
 <link href="{{ $fonts.RelPermalink }}" rel="stylesheet">
