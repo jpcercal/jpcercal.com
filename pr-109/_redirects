@@ -1,0 +1,4 @@
+# /posts/ (and its EN counterpart) duplicate the home listing; the section
+# renders no HTML of its own, so redirect visitors to the real index.
+/posts/ / 301
+/en/posts/ /en/ 301
