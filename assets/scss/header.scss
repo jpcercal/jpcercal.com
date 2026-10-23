@@ -82,22 +82,96 @@ header {
     }
   }
 
+  // Variant C (track/pill). The button is a constant 68x44 box (44px tall
+  // hit area, WCAG 2.5.8); the visible 64x36 track is decorative
+  // (aria-hidden in the markup) and shows the ACTIVE theme: the thumb sits
+  // on the sun in light, on the moon in dark. The accessible name (sr-only
+  // text swapped by theme.js) names the ACTION instead. Nothing in here
+  // changes the box between themes: only colour and transform move.
   .theme-toggle {
-    border: 1px solid var(--color-faint);
-    border-radius: 8px;
-    padding: 7px 9px;
-    background-color: transparent;
-    color: var(--color-locale-idle);
+    box-sizing: border-box;
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    position: relative;
+    width: 68px;
+    height: 44px;
+    min-width: 68px;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-ink);
     cursor: pointer;
     line-height: 1;
+    // Transparent (not `none`) so forced-colors mode still draws a ring.
+    outline: 2px solid transparent;
 
-    &:hover {
-      color: var(--color-locale-hover);
+    // The ring hugs the visible track, not the larger hit area.
+    &:focus-visible .theme-toggle--icon {
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
     }
 
-    .theme-toggle--icon::before {
-      content: '\263E';
+    .theme-toggle--icon {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      width: 64px;
+      height: 36px;
+      border: 1px solid var(--color-ink-soft);
+      border-radius: 18px;
+      background-color: var(--color-canvas);
     }
+
+    // 28px thumb inside the 62x34 padding box: 3px inset on every side.
+    .theme-toggle__thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--color-ink);
+      transform: translateX(0);
+    }
+
+    // Both glyphs stay visible; the one on the thumb takes the canvas colour
+    // (ink-on-canvas contrast, ~14.6:1 light / ~15:1 dark) and the other the
+    // ink colour against the track. Same 24x24 viewBox, drawn at 20px.
+    .theme-toggle__svg {
+      position: absolute;
+      top: 7px;
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .theme-toggle__svg--sun {
+      left: 7px;
+      color: var(--color-canvas);
+    }
+
+    .theme-toggle__svg--moon {
+      left: 35px;
+      color: var(--color-ink);
+    }
+
+    @media (hover: hover) {
+      &:hover .theme-toggle--icon {
+        background-color: var(--color-border);
+      }
+    }
+  }
+
+  // `display` above would otherwise beat the UA `[hidden]` rule, and the
+  // button must stay hidden until theme.js has set a correct label.
+  .theme-toggle[hidden] {
+    display: none;
   }
 
   .github-corner {
@@ -116,8 +190,68 @@ header {
   filter: invert(0.92);
 }
 
-[data-theme="dark"] header .theme-toggle .theme-toggle--icon::before {
-  content: '\2600';
+[data-theme="dark"] header .theme-toggle {
+  .theme-toggle__thumb {
+    transform: translateX(28px);
+  }
+
+  .theme-toggle__svg--sun {
+    color: var(--color-ink);
+  }
+
+  .theme-toggle__svg--moon {
+    color: var(--color-canvas);
+  }
+}
+
+// Motion: the thumb slide and colour fades are component-local and only
+// exist for visitors who have not asked for reduced motion; otherwise the
+// thumb jumps and colours change instantly. The page-wide colour fade is
+// opt-in per click (theme.js sets data-theme-transition for 300ms) so first
+// paint and OS-driven changes never animate. Never `transition: all`, and
+// layout properties are never transitioned.
+@media (prefers-reduced-motion: no-preference) {
+  header .theme-toggle {
+    .theme-toggle--icon {
+      transition: background-color 200ms ease, border-color 200ms ease;
+    }
+
+    .theme-toggle__thumb {
+      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 200ms ease;
+    }
+
+    .theme-toggle__svg {
+      transition: color 250ms ease;
+    }
+  }
+
+  html[data-theme-transition],
+  html[data-theme-transition] *,
+  html[data-theme-transition] *::before,
+  html[data-theme-transition] *::after {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease,
+      fill 200ms ease,
+      stroke 200ms ease,
+      filter 200ms ease !important;
+  }
+
+  // The blanket rule above would drop the thumb's transform transition.
+  html[data-theme-transition] header .theme-toggle .theme-toggle__thumb {
+    transition:
+      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 200ms ease !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header .theme-toggle,
+  header .theme-toggle * {
+    transition: none !important;
+  }
 }
 
 // Same fixes for the no-JS OS-dark fallback (no data-theme attribute set).

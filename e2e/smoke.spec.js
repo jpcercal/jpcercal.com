@@ -155,7 +155,9 @@ test("theme defaults to light with a visible toggle", async ({ page }) => {
 	const toggle = page.locator("[data-theme-toggle]");
 	await expect(toggle).toBeVisible();
 	await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-	await expect(toggle).toHaveAttribute("aria-pressed", "false");
+	await expect(
+		page.getByRole("button", { name: "Mudar para o tema escuro" }),
+	).toBeVisible();
 	await expect(page.locator('link[rel="manifest"]')).toHaveAttribute(
 		"href",
 		/images\/favicon\/manifest\.json$/,
@@ -163,6 +165,102 @@ test("theme defaults to light with a visible toggle", async ({ page }) => {
 	await expect(
 		page.locator('link[rel="icon"][type="image/svg+xml"]'),
 	).toHaveAttribute("href", /images\/favicon\/favicon\.svg$/);
+});
+
+for (const [path, toDark, toLight, darkOn, lightOn] of [
+	[
+		"/",
+		"Mudar para o tema escuro",
+		"Mudar para o tema claro",
+		"Tema escuro ativado",
+		"Tema claro ativado",
+	],
+	[
+		"/en/",
+		"Switch to dark theme",
+		"Switch to light theme",
+		"Dark theme enabled",
+		"Light theme enabled",
+	],
+]) {
+	test(`theme toggle name, status and size are correct at ${path}`, async ({
+		page,
+	}) => {
+		await page.goto(path);
+		const toggle = page.locator("[data-theme-toggle]");
+		const status = page.locator("[data-theme-toggle-status]");
+
+		// One accessibility pattern only: a dynamic name, never pressed state.
+		await expect(toggle).toBeVisible();
+		for (const attr of ["aria-pressed", "aria-label", "title"]) {
+			await expect(toggle).not.toHaveAttribute(attr, /.*/);
+		}
+		await expect(page.getByRole("button", { name: toDark })).toBeVisible();
+		await expect(status).toHaveText("");
+
+		const before = await toggle.boundingBox();
+		expect(before.width).toBe(68);
+		expect(before.height).toBe(44);
+
+		await toggle.click();
+		await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+		await expect(page.getByRole("button", { name: toLight })).toBeVisible();
+		await expect(status).toHaveText(darkOn);
+		const afterDark = await toggle.boundingBox();
+		expect(afterDark).toEqual(before);
+
+		await toggle.click();
+		await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+		await expect(page.getByRole("button", { name: toDark })).toBeVisible();
+		await expect(status).toHaveText(lightOn);
+		expect(await toggle.boundingBox()).toEqual(before);
+	});
+}
+
+test("theme toggle is keyboard operable and keeps focus", async ({ page }) => {
+	await page.goto("/en/");
+	const toggle = page.locator("[data-theme-toggle]");
+	await toggle.focus();
+	await page.keyboard.press("Enter");
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+	await expect(toggle).toBeFocused();
+	await page.keyboard.press("Space");
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+	await expect(toggle).toBeFocused();
+});
+
+test("theme toggle does not announce on load or OS-driven changes", async ({
+	browser,
+}) => {
+	const context = await browser.newContext({ colorScheme: "dark" });
+	const page = await context.newPage();
+	await page.goto("/en/");
+	const status = page.locator("[data-theme-toggle-status]");
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+	await expect(
+		page.getByRole("button", { name: "Switch to light theme" }),
+	).toBeVisible();
+	await expect(status).toHaveText("");
+	await page.emulateMedia({ colorScheme: "light" });
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+	await expect(status).toHaveText("");
+	await context.close();
+});
+
+test("theme toggle honors prefers-reduced-motion", async ({ browser }) => {
+	for (const [reducedMotion, expected] of [
+		["reduce", "0s"],
+		["no-preference", "0.25s"],
+	]) {
+		const context = await browser.newContext({ reducedMotion });
+		const page = await context.newPage();
+		await page.goto("/en/");
+		const duration = await page
+			.locator(".theme-toggle__thumb")
+			.evaluate((el) => getComputedStyle(el).transitionDuration);
+		expect(duration.split(",")[0].trim()).toBe(expected);
+		await context.close();
+	}
 });
 
 test("theme toggle switches to dark and persists", async ({ page }) => {

@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		return;
 	}
 
+	const labelNode = toggle.querySelector("[data-theme-toggle-label]");
+	const statusNode = document.querySelector("[data-theme-toggle-status]");
+	let transitionTimer;
+
 	const readStored = () => {
 		try {
 			return localStorage.getItem(STORAGE_KEY);
@@ -28,7 +32,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		const root = document.documentElement;
 		root.setAttribute("data-theme", theme);
 		root.style.colorScheme = theme;
-		toggle.setAttribute("aria-pressed", String(theme === "dark"));
+
+		// The accessible name states the action a click performs. It is
+		// updated in place so keyboard focus stays on the button.
+		if (labelNode) {
+			labelNode.textContent =
+				theme === "dark"
+					? toggle.dataset.labelToLight
+					: toggle.dataset.labelToDark;
+		}
 
 		const assetHref = theme === "dark" ? "data-dark-href" : "data-light-href";
 		for (const asset of document.querySelectorAll(
@@ -73,12 +85,27 @@ document.addEventListener("DOMContentLoaded", () => {
 	);
 
 	toggle.addEventListener("click", () => {
-		apply(
-			document.documentElement.getAttribute("data-theme") === "dark"
-				? "light"
-				: "dark",
-			true,
-		);
+		const root = document.documentElement;
+		const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+
+		// Opt in to the colour transition (header.scss, motion-safe only) for
+		// this click alone: never on first paint or OS-driven changes.
+		root.setAttribute("data-theme-transition", "");
+		clearTimeout(transitionTimer);
+		transitionTimer = setTimeout(() => {
+			root.removeAttribute("data-theme-transition");
+		}, 300);
+
+		apply(next, true);
+
+		// Some screen readers skip name changes on the focused element, so a
+		// polite status message announces the result of an explicit click.
+		if (statusNode) {
+			statusNode.textContent =
+				next === "dark"
+					? toggle.dataset.statusDark
+					: toggle.dataset.statusLight;
+		}
 	});
 
 	// Follow OS changes until the visitor picks explicitly.

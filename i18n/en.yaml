@@ -69,5 +69,11 @@ paginationNav:
   other: "Posts pagination"
 localeNav:
   other: "Language selection"
-themeToggle:
-  other: "Toggle dark mode"
+themeSwitchToDark:
+  other: "Switch to dark theme"
+themeSwitchToLight:
+  other: "Switch to light theme"
+themeStatusDark:
+  other: "Dark theme enabled"
+themeStatusLight:
+  other: "Light theme enabled"
