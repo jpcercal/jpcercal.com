@@ -21,6 +21,38 @@ test("english section renders", async ({ page }) => {
 	await expect(page).toHaveTitle(/jpcercal/);
 });
 
+test("pagination links are pills, Previous left and Next right", async ({
+	page,
+}) => {
+	await page.setViewportSize({ width: 1024, height: 800 });
+	await page.goto("/en/page/2/");
+	const nav = page.getByRole("navigation", { name: "Posts pagination" });
+	const prev = nav.getByRole("link", { name: /Previous/ });
+	const next = nav.getByRole("link", { name: /Next/ });
+	const [p, n, navBox] = await Promise.all([
+		prev.boundingBox(),
+		next.boundingBox(),
+		nav.boundingBox(),
+	]);
+	// Edges of the row, not just relative order.
+	expect(Math.abs(p.x - navBox.x)).toBeLessThan(2);
+	expect(Math.abs(n.x + n.width - (navBox.x + navBox.width))).toBeLessThan(2);
+	for (const [link, box] of [
+		[prev, p],
+		[next, n],
+	]) {
+		expect(box.height).toBeGreaterThanOrEqual(44);
+		const style = await link.evaluate((el) => {
+			const s = getComputedStyle(el);
+			return { radius: s.borderTopLeftRadius, border: s.borderTopWidth };
+		});
+		expect(Number.parseFloat(style.radius)).toBeGreaterThanOrEqual(
+			box.height / 2,
+		);
+		expect(style.border).toBe("1px");
+	}
+});
+
 for (const [lang, searchPath, route, title] of [
 	[
 		"pt",
