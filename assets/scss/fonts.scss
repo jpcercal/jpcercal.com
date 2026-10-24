@@ -24,6 +24,9 @@ h6 {
   font-family: 'Fjalla One', sans-serif;
   font-weight: normal;
   font-style: normal;
+  // Unitless on purpose: body's `1.2em` is inherited as a fixed 19.2px, which
+  // is smaller than the heading font size and makes wrapped titles overlap.
+  line-height: 1.2;
 }
 
 h1,
