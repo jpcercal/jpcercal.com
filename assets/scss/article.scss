@@ -63,10 +63,25 @@ section {
     // so the desktop layout is unchanged.
     flex-wrap: wrap;
 
+    // Same chrome as the header .theme-toggle (rounded outline, 7px 9px
+    // padding, line-height 1) so tags read as buttons. The label uses
+    // --color-ink-soft instead of the toggle's glyph color: it is body-size
+    // text and --color-muted is only ~3:1 on white. Tokens flip with
+    // data-theme.
     .article-tag {
       a {
-        color: var(--color-muted);
-        text-decoration: underline;
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid var(--color-faint);
+        border-radius: 8px;
+        padding: 7px 9px;
+        color: var(--color-ink-soft);
+        text-decoration: none;
+        line-height: 1;
+
+        &:hover {
+          color: var(--color-ink);
+        }
       }
     }
   }
