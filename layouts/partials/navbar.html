@@ -11,8 +11,8 @@
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
             <div class="row items-center header">
                 <div class="col search">
-                    <a class="search-link" href='{{ $baseURL }}{{ if eq $locale "en" }}en/{{ end }}search' aria-label='{{ i18n "searchFor" }}'>
-                        <span class="search-icon"></span> <span class="hidden sm:inline">{{ i18n "searchFor" }}</span>
+                    <a class="search-link" href='{{ $baseURL }}{{ if eq $locale "en" }}en/{{ end }}search' aria-label='{{ i18n "searchFor" }}' title='{{ i18n "searchFor" }}'>
+                        <span class="search-icon" aria-hidden="true"></span>
                     </a>
                 </div>
 
