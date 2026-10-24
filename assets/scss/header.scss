@@ -48,35 +48,59 @@ header {
     }
   }
 
+  // Language switch: same track as the theme toggle (36px tall, 1px
+  // ink-soft border, full-radius pill, canvas fill). The active locale is a
+  // filled ink pill ("thumb") with canvas text, the idle one is plain text on
+  // the track. Only colours differ between states, so the box never shifts
+  // when the theme fades or the page changes language.
   .locale-list {
-    border: 1px solid var(--color-faint);
-    border-radius: 8px;
-    padding: 7px 5px;
-
-    .locale-list-item:first-child {
-      padding-right: 5px;
-      margin-right: 0px;
-      border-right: 1px solid var(--color-faint);
-    }
+    box-sizing: border-box;
+    align-items: center;
+    height: 36px;
+    gap: 0;
+    padding: 3px;
+    border: 1px solid var(--color-ink-soft);
+    border-radius: 18px;
+    background-color: var(--color-canvas);
 
     .locale-list-item {
-      a {
-        color: var(--color-locale-idle);
+      display: flex;
 
-        &:hover {
-          color: var(--color-locale-hover);
+      a {
+        box-sizing: border-box;
+        // No `display` here: the li is a flex container (blockifies the link)
+        // and the `hidden`/`lg:*` utilities still decide which label shows.
+        // 28px high segment (WCAG 2.5.8 minimum target is 24px).
+        height: 28px;
+        padding: 0 12px;
+        border-radius: 14px;
+        line-height: 28px;
+        color: var(--color-locale-idle);
+        text-decoration: none;
+        white-space: nowrap;
+
+        &:focus-visible {
+          outline: 2px solid var(--color-ink);
+          outline-offset: 1px;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            color: var(--color-locale-hover);
+            background-color: var(--color-border);
+          }
         }
       }
     }
 
-    .locale-list-item--active {
-      font-weight: bold;
+    .locale-list-item--active a {
+      background-color: var(--color-ink);
+      color: var(--color-canvas);
 
-      a {
-        color: var(--color-ink);
-
+      @media (hover: hover) {
         &:hover {
-          color: var(--color-ink-active-hover);
+          background-color: var(--color-ink-active-hover);
+          color: var(--color-canvas);
         }
       }
     }
