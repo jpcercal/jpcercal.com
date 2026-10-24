@@ -1,0 +1,46 @@
+{{- /*
+  Wide tables must scroll inside their own box: `.article-content` clips
+  overflow, so a bare <table> wider than the viewport is cut off. The wrapper
+  is keyboard-focusable (scroll containers are not in Safari) and labelled so
+  it is a named region (<section> + aria-label) for assistive technology.
+  Same output as Hugo's default table rendering otherwise.
+*/ -}}
+<section class="table-scroll" tabindex="0" aria-label="{{ i18n "tableScrollRegion" }}">
+  <table
+    {{- range $k, $v := .Attributes }}
+      {{- if $v }}
+        {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+      {{- end }}
+    {{- end }}>
+    <thead>
+      {{- range .THead }}
+        <tr>
+          {{- range . }}
+            <th
+              {{- with .Alignment }}
+                {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}
+              {{- end -}}
+            >
+              {{- .Text -}}
+            </th>
+          {{- end }}
+        </tr>
+      {{- end }}
+    </thead>
+    <tbody>
+      {{- range .TBody }}
+        <tr>
+          {{- range . }}
+            <td
+              {{- with .Alignment }}
+                {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}
+              {{- end -}}
+            >
+              {{- .Text -}}
+            </td>
+          {{- end }}
+        </tr>
+      {{- end }}
+    </tbody>
+  </table>
+</section>

@@ -584,3 +584,48 @@ test("404 page respects the dark theme", async ({ page }) => {
 		"rgb(42, 42, 42)",
 	); // --color-code-bg dark
 });
+
+for (const [lang, route] of [
+	["pt", "/php2shell-duas-vulnerabilidades-criticas-no-php/"],
+	["en", "/en/php2shell-two-critical-php-vulnerabilities/"],
+]) {
+	test(`wide article tables scroll horizontally on a narrow viewport (${lang})`, async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width: 500, height: 900 });
+		await page.goto(route);
+
+		const table = page.locator(".article-content table").first();
+		const region = page.locator(".article-content .table-scroll").first();
+		await expect(table).toBeAttached();
+
+		// The table is wider than the article column; `.article-content` clips
+		// overflow, so without its own scroll box the right columns are unreachable.
+		const m = await region.evaluate((el) => ({
+			overflowX: getComputedStyle(el).overflowX,
+			scrollWidth: el.scrollWidth,
+			clientWidth: el.clientWidth,
+			docScrollWidth: document.documentElement.scrollWidth,
+		}));
+		expect(m.overflowX).toBe("auto");
+		expect(m.scrollWidth).toBeGreaterThan(m.clientWidth);
+		expect(m.docScrollWidth).toBeLessThanOrEqual(500);
+
+		// Last column must actually be reachable by scrolling the region.
+		await region.evaluate((el) => {
+			el.scrollLeft = el.scrollWidth;
+		});
+		const lastCell = table.locator("tr").first().locator("th, td").last();
+		const [cell, box] = await Promise.all([
+			lastCell.boundingBox(),
+			region.boundingBox(),
+		]);
+		expect(cell.x + cell.width).toBeLessThanOrEqual(box.x + box.width + 1);
+
+		// Keyboard users must be able to scroll it.
+		await region.focus();
+		await expect(region).toBeFocused();
+		await expect(region).toHaveRole("region");
+		await expect(region).toHaveAttribute("aria-label", /.+/);
+	});
+}

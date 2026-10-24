@@ -123,6 +123,20 @@ section {
       margin-top: 0;
     }
 
+    // `overflow-x` has no effect on a <table>, and `.article-content` clips
+    // its overflow, so wide tables scroll inside the render-table.html wrapper.
+    .table-scroll {
+      overflow-x: auto;
+      max-width: 100%;
+      margin: 0 0 15px 0;
+
+      &:focus-visible {
+        outline: 2px solid var(--color-ink-soft);
+        // Inset: .article-content clips anything drawn outside the box.
+        outline-offset: -2px;
+      }
+    }
+
     /**
      * Hack to get just table elements without the class attribute
      * just because, we have table for syntax-highlight too.
@@ -130,11 +144,10 @@ section {
     table:not([class]) {
       width: 100%;
       border-collapse: collapse;
-      overflow-x: scroll;
       border-width: 1px;
       border-style: solid;
       border-color: var(--color-table-border);
-      margin: 0 0 15px 0;
+      margin: 0;
 
       thead {
         background-color: var(--color-table-head);
