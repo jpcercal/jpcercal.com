@@ -241,3 +241,54 @@ section {
     }
   }
 }
+
+// Slim translation bar under the site header. Neutral surface (code-bg) and
+// border tokens, so it follows the light/dark theme without extra rules and
+// stays visually quieter than the header pills.
+.translation-bar {
+  // The site header carries a 40px bottom margin (header.scss); cancel it so
+  // the bar sits directly on the header's bottom border.
+  margin: -40px 0 1.5rem;
+  background-color: var(--color-code-bg);
+  border-bottom: 1px solid var(--color-border);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    min-height: 44px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.2;
+
+    svg {
+      flex: none;
+      fill: none;
+      stroke: var(--color-muted);
+      stroke-width: 1.6;
+    }
+  }
+
+  &__lead {
+    flex: none;
+    color: var(--color-muted);
+  }
+
+  a {
+    // One line with an ellipsis: the full title is still the link text for
+    // assistive tech and is repeated in the destination's <h1>.
+    min-width: 0;
+    overflow: hidden;
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
+    }
+  }
+}

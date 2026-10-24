@@ -90,13 +90,15 @@ test("translated article switches reciprocally and resolves English references",
 	page,
 }) => {
 	await page.goto("/case-sensitive/");
-	await page.locator('article a[href$="/en/case-sensitive/"]').click();
+	await page.locator('.translation-bar a[href$="/en/case-sensitive/"]').click();
 	await expect(page.locator("html")).toHaveAttribute("lang", "en");
 	await page
 		.locator('.article-content a[href$="/en/the-camelcase-convention/"]')
 		.click();
 	await expect(page.locator("h1")).toHaveText("The CamelCase Convention");
-	await page.locator('article a[href$="/o-padrao-camelcase/"]').click();
+	await page
+		.locator('.translation-bar a[href$="/o-padrao-camelcase/"]')
+		.click();
 	await expect(page.locator("html")).toHaveAttribute("lang", "pt");
 });
 
