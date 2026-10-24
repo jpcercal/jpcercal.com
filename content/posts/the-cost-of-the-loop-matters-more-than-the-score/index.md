@@ -6,10 +6,10 @@ title: O Custo do Ciclo Importa Mais do que a Pontuação
 date: 2026-09-23T18:00:00+00:00
 description: A Anthropic diz que o Opus 5.5 está no nível do Fable 5.1 na maior parte do trabalho e é 40 por cento mais barato que o Opus 5 nas configurações padrão; a pergunta útil é o que isso faz com o custo e as verificações de um ciclo de agente.
 categories:
-  - other
-tags:
-  - architecture
   - engineering
+tags:
+  - ai
+  - architecture
   - lessons-learned
 ---
 

@@ -6,8 +6,11 @@ title: Conio2.h Installation and Configuration
 date: 2012-05-22T17:51:39+00:00
 description: Install the Conio2.h package for the Dev-C++ IDE. This package adds functionality for developing applications written in C/C++.
 categories:
-  - other
-tags: []
+  - engineering
+tags:
+  - c-cpp
+  - ide
+  - tutorial
 ---
 
 I prepared this document for some colleagues who were having difficulty installing the **Conio2.h** package for the

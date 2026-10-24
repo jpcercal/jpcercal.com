@@ -6,9 +6,11 @@ title: Empresas e Redes Sociais
 date: 2013-04-23T16:51:56+00:00
 description: O impacto que as redes sociais causaram as empresas brasileiras com relação à fiscalização do consumidor.
 categories:
-  - other
-tags: 
-  - news
+  - business
+tags:
+  - social-media
+  - marketing
+  - brazil
 ---
 
 Uma pesquisa feita pela _Scup.Ideias_ mostrou o impacto que as empresas brasileiras sofreram com as mídias sociais, 

@@ -6,10 +6,10 @@ title: Downloading and Installing the Zlib library
 date: 2011-12-22T17:43:30+00:00
 description: In this guide you'll learn how to install the zlib library on Linux operating systems. Download the source code and compile it for your distro.
 categories:
-  - devops
-tags: 
-  - tutorial
+  - engineering
+tags:
   - linux
+  - tutorial
 ---
 
 The **zlib** compression library is intended for the **compression** and **decompression** of _files_, including

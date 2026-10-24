@@ -6,9 +6,11 @@ title: MySQLDump - MySQL database backup
 date: 2013-10-21T12:10:18+00:00
 description: The mysqldump tool backs up MySQL databases, creating a *.sql file with the statements needed to create a copy of the target database.
 categories:
-  - devops
-tags: 
+  - engineering
+tags:
   - mysql
+  - database
+  - devops
 ---
 
 Using the **mysqldump** tool, you can back up a local database and restore it to a

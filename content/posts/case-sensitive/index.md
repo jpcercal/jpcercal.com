@@ -7,8 +7,9 @@ date: 2011-03-02T00:07:15+00:00
 description: '"Case sensitive" é um termo que indica que um texto é sensível ao tamanho, ou seja, faz distinção entre o 
 tamanho das letras (maiúscula, minúscula).'
 categories:
-  - other
-tags: []
+  - engineering
+tags:
+  - conventions
 ---
 
 _"Case sensitive"_ é um termo que indica que um texto é sensível ao tamanho, ou seja, faz distinção entre o tamanho das 

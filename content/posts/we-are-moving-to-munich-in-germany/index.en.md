@@ -7,12 +7,10 @@ date: 2018-01-14T10:45:23+00:00
 description: Our experience moving to and living in Munich in Germany, the reason for the move, how we organized ourselves, where we looked for information, difficulties, tips and the personal feelings of someone who left everything behind in pursuit of a dream.
 categories:
   - lifestyle
-tags: 
-  - howto
-  - dream
+tags:
+  - living_abroad
   - germany
   - munich
-  - living_abroad
 ---
 
 Change is always **good**! Yes, but **not always**. Here we'll share *our experiences* moving to and living in **Germany**, we'll talk much more about Munich - *which is where we live now* - our difficulties and how we faced them. A **family** of three, two adults and a two-year-old child, who knew nothing of the German language and even less about the country's culture, trying to fulfill a *dream* of living **unique** and **transformative experiences**.

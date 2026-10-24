@@ -6,9 +6,11 @@ title: Installing the Apache web server on Linux
 date: 2011-12-22T09:38:01+00:00
 description: In this guide you'll learn how to install the apache web server on Linux operating systems. Download the source code and compile it for your distro.
 categories:
-  - devops
-tags: 
+  - engineering
+tags:
+  - apache
   - linux
+  - devops
   - tutorial
 ---
 

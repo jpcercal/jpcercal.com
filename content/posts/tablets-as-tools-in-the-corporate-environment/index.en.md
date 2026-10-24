@@ -6,9 +6,11 @@ title: Tablets as Tools in the Corporate Environment
 date: 2013-03-26T15:07:18+00:00
 description: Tablet use continues to grow, so their visibility and usefulness in the corporate environment are becoming attractive to companies.
 categories:
-  - other
-tags: 
   - news
+tags:
+  - mobile
+  - hardware
+  - workplace
 ---
 
 According to a survey by consultancy _IDC_, in 2012 tablet use grew by 159% in

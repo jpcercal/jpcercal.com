@@ -6,10 +6,11 @@ title: "WordPress Tip: How to use Shortcodes"
 date: 2013-10-22T12:05:38+00:00
 description: Shortcodes are extremely useful and easy to use, allowing developers to create custom content for users.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - cms
   - wordpress
+  - cms
 ---
 
 Since version _2.5+_, _WordPress_ has had a feature known as _shortcodes_, it works similarly to

@@ -6,9 +6,11 @@ title: Internet Explorer has less than 50% of the market
 date: 2010-10-06T19:47:18+00:00
 description: For the first time, Microsoft's browser sees a significant decline. And the Google Chrome browser tripled its market share.
 categories:
-  - other
-tags: 
   - news
+tags:
+  - browsers
+  - microsoft
+  - internet
 ---
 
 Microsoft's **Internet Explorer** [browser]({{< ref "posts/web-browsers/index.md" >}} "Web Browsers")

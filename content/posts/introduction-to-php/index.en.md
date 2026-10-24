@@ -6,8 +6,9 @@ title: Introduction to PHP
 date: 2010-10-07T14:09:50+00:00
 description: PHP or Hypertext Preprocessor is the most widely used server-side language on the web. Learn a little more about this excellent technology.
 categories:
+  - engineering
+tags:
   - php
-tags: []
 ---
 
 [![Introduction to PHP](php.jpg "PHP")](php.jpg)

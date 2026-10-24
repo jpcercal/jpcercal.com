@@ -6,8 +6,11 @@ title: O que é o XAMPP e para que serve?
 date: 2010-06-30T21:21:18+00:00
 description: O XAMPP é formado por um pacote que incluí os principais servidores de código aberto existentes, incluindo FTP, MySQL e Apache com  PHP e Perl.
 categories:
-  - devops
-tags: []
+  - engineering
+tags:
+  - php
+  - mysql
+  - apache
 ---
 
 Olá, apresento a vocês o meu pacote (Apache + PHP + MySQL) favorito. Comecei assim, hoje realizo a instalação 

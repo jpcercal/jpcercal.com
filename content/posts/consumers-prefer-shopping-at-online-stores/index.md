@@ -6,10 +6,9 @@ title: Consumidores preferem comprar em lojas virtuais
 date: 2013-03-28T15:33:02+00:00
 description: As lojas virtuais trazem mais segurança aos consumidores tornando o e-commerce  uma ferramenta indispensável para o seu negócio.
 categories:
-  - other
-tags: 
+  - business
+tags:
   - ecommerce
-  - news
 ---
 
 Em uma pesquisa realizada por dois comparadores de preços o **Kuantokusta** e **Netquest**, foram perguntados a 1.081 

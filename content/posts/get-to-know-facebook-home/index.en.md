@@ -6,9 +6,11 @@ title: Get to know Facebook Home
 date: 2013-04-09T14:42:23+00:00
 description: Seeking to offer new features to users of the large social network, Facebook launches a feature to shift phones' focus to people, not apps.
 categories:
-  - other
-tags: 
   - news
+tags:
+  - android
+  - mobile
+  - social-media
 ---
 
 On April 04 (last week), the launch event took place for _Facebook's_ new functionality

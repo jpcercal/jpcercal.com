@@ -6,8 +6,9 @@ title: "jQuery Mask: Masks for form fields"
 date: 2013-01-20T11:01:36+00:00
 description: A simple and quick way to add masks to form fields is to use a jQuery plugin, this plugin is called Masked Input Plugin.
 categories:
-  - js
-tags: 
+  - engineering
+tags:
+  - javascript
   - jquery
 ---
 

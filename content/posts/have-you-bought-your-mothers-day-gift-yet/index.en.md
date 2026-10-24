@@ -6,10 +6,10 @@ title: Have you bought your Mother's Day Gift yet?
 date: 2013-05-10T17:20:43+00:00
 description: Tips to protect consumers on this special date, "Mother's Day", when malicious websites and links turn your gift into a nightmare.
 categories:
-  - other
-tags: 
   - news
+tags:
   - security
+  - ecommerce
 ---
 
 Today we use the internet for almost everything, and as you'd expect, many people will leave buying Mom's

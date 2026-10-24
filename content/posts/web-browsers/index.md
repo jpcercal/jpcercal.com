@@ -6,8 +6,11 @@ title: Navegadores ou Browsers
 date: 2011-05-08T23:31:07+00:00
 description: Um Navegador ou Browser é um programa que realiza a interpretação de arquivos HTML, CSS, Javascript, dentre outros.
 categories:
+  - engineering
+tags:
+  - browsers
   - html
-tags: []
+  - internet
 ---
 
 Em 21 de abril de 1993, _Marc Andreessen_ um estudante de computação deu, talvez sem querer, o pontapé inicial na 

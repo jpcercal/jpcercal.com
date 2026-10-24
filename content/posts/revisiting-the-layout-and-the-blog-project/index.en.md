@@ -6,15 +6,13 @@ title: Revisiting the layout and the Blog project
 date: 2019-03-12T21:33:54+00:00
 description: A project/proof of concept that has been shown good results, it’s about a migration from a PHP website to a static blog, no server costs anymore and web-optimized. Check out a few implementation details.
 categories:
-  - other
-tags: 
-  - news
-  - cms
+  - engineering
+tags:
+  - blogging
+  - html
   - seo
-  - framework
-  - wordpress
-  - howto
   - git
+  - wordpress
 ---
 
 Hello dear visitor, a long time ago I had the desire to revisit the Blog layout, however, conciliate attention to my family and write are not things that could be done at the same time, because, both of them requires dedication.
@@ -130,8 +128,8 @@ title: My Title
 date: 2019-03-20T10:08:56+00:00
 description: My description
 categories:
-  - other
-tags: 
+  - engineering
+tags:
   - apple
   - osx
 ---

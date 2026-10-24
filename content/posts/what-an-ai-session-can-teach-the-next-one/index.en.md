@@ -6,10 +6,10 @@ title: What an AI Session Can Teach the Next One
 date: 2026-09-14T00:00:00+00:00
 description: AI-assisted work becomes more useful when teams turn repeated discoveries, corrections, and failures into better shared context, checks, and workflows.
 categories:
-  - other
-tags:
-  - architecture
   - engineering
+tags:
+  - ai
+  - architecture
   - lessons-learned
 ---
 

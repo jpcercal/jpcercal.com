@@ -6,9 +6,10 @@ title: Startups in Brazil
 date: 2013-04-22T15:11:03+00:00
 description: The Brazilian government launched a project to support technology development in the country, Startup Brasil.
 categories:
-  - other
-tags: 
   - news
+tags:
+  - startups
+  - brazil
 ---
 
 The dream of Brazil's IT visionaries is closer to becoming reality, on April 15 a

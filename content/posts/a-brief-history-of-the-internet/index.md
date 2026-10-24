@@ -6,9 +6,10 @@ title: Breve história da Internet
 date: 2010-12-07T18:14:37+00:00
 description: A Internet nasceu em 1969, nos Estados Unidos. Interligava originalmente laboratórios de pesquisa e se chamava ARPAnet.
 categories:
-  - html
-tags: 
+  - engineering
+tags:
   - internet
+  - history
 ---
 
 A Internet nasceu em 1969, nos Estados Unidos. Interligava originalmente laboratórios de pesquisa e se chamava 

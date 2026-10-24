@@ -6,10 +6,11 @@ title: Zend disable the layout and view renderer
 date: 2011-11-29T16:54:51+00:00
 description: Learn to disable the layout and view renderer in Zend Framework so an action in a given controller returns JSON.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - framework
   - zend
+  - framework
 ---
 
 Some people have been asking me how to disable the layout and view renderer in

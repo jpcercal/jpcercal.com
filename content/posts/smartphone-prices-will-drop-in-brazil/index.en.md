@@ -6,9 +6,11 @@ title: Smartphone prices will drop in Brazil
 date: 2013-04-09T19:00:37+00:00
 description: Responsive sites will gain momentum with a decree signed by Dilma Rousseff that reduces the PIS and COFINS rates on smartphones produced in Brazil to zero.
 categories:
-  - other
-tags: 
   - news
+tags:
+  - mobile
+  - hardware
+  - brazil
 ---
 
 With the aim of making _smartphones_ (which have internet connectivity among their functions) more accessible to

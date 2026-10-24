@@ -6,9 +6,9 @@ title: PHP 5.4 Release
 date: 2012-03-02T04:26:38+00:00
 description: PHP 5.4 is fresh out of the oven. This version includes a large number of new features and bug fixes. Check out what's new.
 categories:
-  - php
-tags: 
   - news
+tags:
+  - php
 ---
 
 Hey folks! I've just seen, this very moment, that **PHP 5.4** is fresh out of the oven, which you can check

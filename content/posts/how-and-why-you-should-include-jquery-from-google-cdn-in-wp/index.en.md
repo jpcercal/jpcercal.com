@@ -6,12 +6,13 @@ title: How and Why you should include jQuery from Google CDN in WP
 date: 2013-08-26T17:30:19+00:00
 description: Learn the advantages of this optimization and find out how and why including jQuery from Google CDN will reduce your website's loading time.
 categories:
-  - php
-tags: 
+  - engineering
+tags:
+  - javascript
   - jquery
-  - seo
-  - cms
   - wordpress
+  - php
+  - seo
 ---
 
 _jQuery_ is a library widely used for web development, and in _WordPress_ we have this library included in the _default_ installation package.

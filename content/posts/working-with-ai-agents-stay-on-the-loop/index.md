@@ -6,10 +6,10 @@ title: "Trabalhando com Agentes de IA: Supervisione o Ciclo"
 date: 2026-09-13T00:00:00+00:00
 description: Em vez de revisar cada linha que um agente de IA produz, projete o ambiente — especificações, testes, verificações e ciclos de feedback — para que bons resultados surjam de forma confiável.
 categories:
-  - other
-tags:
-  - architecture
   - engineering
+tags:
+  - ai
+  - architecture
   - lessons-learned
 ---
 

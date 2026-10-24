@@ -6,9 +6,9 @@ title: Git Hub reaches 3 million users
 date: 2013-01-17T13:40:33+00:00
 description: The web hosting service Git Hub announced that it passed the three-million-user mark. Check out this news and get to know GitHub.
 categories:
-  - other
-tags: 
   - news
+tags:
+  - git
 ---
 
 The web hosting service [GitHub](https://github.com/ "GitHub") announced that it passed the three-million-user

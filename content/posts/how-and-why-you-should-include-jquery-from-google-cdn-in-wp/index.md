@@ -6,12 +6,13 @@ title: Como e Porque você deve incluir o jQuery do Google CDN no WP
 date: 2013-08-26T17:30:19+00:00
 description: Conheça as vantagens dessa otimização e saiba como e porque incluir o jQuery do Google CDN irá fazer com que o carregamento do seu website seja reduzido.
 categories:
-  - php
-tags: 
+  - engineering
+tags:
+  - javascript
   - jquery
-  - seo
-  - cms
   - wordpress
+  - php
+  - seo
 ---
 
 O _jQuery_ é uma biblioteca amplamente utilizada para o desenvolvimento web, sendo que, no _WordPress_ temos essa biblioteca incluída no pacote de instalação _default_.

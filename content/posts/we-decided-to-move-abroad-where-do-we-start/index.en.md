@@ -7,13 +7,10 @@ date: 2018-01-12T23:39:01+00:00
 description: At first, deciding to move abroad can be fascinating, but it takes a little effort and dedication to make it a reality.
 categories:
   - lifestyle
-tags: 
-  - howto
-  - dream
+tags:
+  - living_abroad
   - germany
   - munich
-  - english
-  - living_abroad
 ---
 
 At first, deciding to move abroad can be fascinating, but it takes a little effort and dedication to make it a reality. We wanted to live in another country and have the chance to get to know a **culture** different from our own, but how did we start *fighting* for this **dream**?

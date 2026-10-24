@@ -6,8 +6,9 @@ title: The CamelCase Convention
 date: 2010-12-08T17:03:07+00:00
 description: CamelCase is the practice of writing compound words with their elements joined, without spaces, and the first letter of each element capitalized.
 categories:
-  - php
-tags: []
+  - engineering
+tags:
+  - conventions
 ---
 
 **CamelCase** (_camel case_) is the practice of writing compound words or phrases with their elements joined,

@@ -6,10 +6,11 @@ title: "WordPress Tip: How to check whether a plugin is active?"
 date: 2013-08-28T17:40:54+00:00
 description: If while developing a Plugin or Theme for Wordpress you need to know whether a third-party Plugin is Active, then check out this tip.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - cms
   - wordpress
+  - cms
 ---
 
 When you're developing a theme or a _plugin_ for the _WordPress_ platform, you may need to check

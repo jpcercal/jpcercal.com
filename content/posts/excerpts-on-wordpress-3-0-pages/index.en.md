@@ -6,10 +6,11 @@ title: Excerpts on WordPress 3.0+ pages
 date: 2012-12-09T03:12:27+00:00
 description: Add functionality to post types in Wordpress 3.0+ using the API with the following function add_post_type_support();
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - cms
   - wordpress
+  - cms
 ---
 
 If you've ever needed to add excerpts to pages in WordPress 3.0+, you can be happy because the tip is

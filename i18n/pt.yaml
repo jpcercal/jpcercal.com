@@ -47,13 +47,13 @@ categories:
 categoryDescription:
   other: "Confira rapidamente todos os posts da categoria {{ .category }} que foram publicados em nosso website."
 categoriesDescription:
-  other: "Confira todas as Categorias do jpcercal.com. PHP, Javascript, HTML, Devops, Estilo de vida,... em uma linguagem Simples e Descomplicada."
+  other: "Confira todas as Categorias do jpcercal.com. Engenharia, Notícias, Negócios e Estilo de vida, em uma linguagem Simples e Descomplicada."
 tags:
   other: "Marcadores"
 tagDescription:
   other: "Confira rapidamente todos os posts com marcador {{ .tag }} que foram publicados em nosso website."
 tagsDescription:
-  other: "Confira todos os Marcadores do jpcercal.com. AWS, Apple, Microsoft, Banco de dados, Notícias, Munique,... em uma linguagem Simples e Descomplicada."
+  other: "Confira todos os Marcadores do jpcercal.com. Inteligência Artificial, PHP, Segurança, Linux, Arquitetura, Munique,... em uma linguagem Simples e Descomplicada."
 translations:
   other: "Ler este conteúdo em"
 en:

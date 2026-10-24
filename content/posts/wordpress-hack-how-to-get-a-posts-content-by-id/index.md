@@ -6,10 +6,11 @@ title: "WordPress Hack: Como obter o conteúdo de um Post pelo ID"
 date: 2013-08-23T14:52:26+00:00
 description: Aprenda a recuperar o conteúdo de um post (post_content) no Wordpress com base no ID de um post. Conheça a função que poderá lhe auxiliar neste trabalho.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - cms
   - wordpress
+  - cms
 ---
 
 Quanto você está construindo um tema para o WordPress, poderá ser necessário obter o conteúdo de um post específico 

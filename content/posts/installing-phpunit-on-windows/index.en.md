@@ -6,10 +6,12 @@ title: Installing PHPUnit on Windows
 date: 2012-06-06T21:07:19+00:00
 description: Test-driven development (TDD) with PHP. Learn how to install PHPUnit on Microsoft's operating system, Windows Seven.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - microsoft
+  - testing
   - windows
+  - microsoft
   - tutorial
 ---
 

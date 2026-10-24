@@ -6,10 +6,11 @@ title: Resumo em páginas do WordPress 3.0+
 date: 2012-12-09T03:12:27+00:00
 description: Adicione funcionalidades aos tipos de posts (Post Types) no Wordpress 3.0+ utilizando a API com a seguinte função add_post_type_support();
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - cms
   - wordpress
+  - cms
 ---
 
 Se você já sentiu a necessidade de adicionar resumos para páginas no WordPress 3.0+, pode ficar feliz porque a dica é 

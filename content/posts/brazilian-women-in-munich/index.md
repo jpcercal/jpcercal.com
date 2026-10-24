@@ -7,12 +7,10 @@ date: 2018-02-27T20:36:01+00:00
 description: Quando fazemos uma mudança saímos da zona de conforto e temos que enfrentar muitos medos e desafios até nos sentirmos seguros. Isto aconteceu quando chegamos em Munique, perdidos, cheios de medos, buscando apoio, então encontrei as mulheres brasileiras em Munique, minha salvação.
 categories:
   - lifestyle
-tags: 
-  - howto
-  - dream
+tags:
+  - living_abroad
   - germany
   - munich
-  - living_abroad
 ---
 
 Quando fazemos uma mudança na nossa vida saímos da zona de conforto e sabemos que teremos que enfrentar muitos medos e desafios até nos sentirmos seguros. Assim também aconteceu conosco quando chegamos em **Munique**, *perdidos*, cheios de *medos*, buscando **apoio** um no outro e em nossa família que está no **Brasil**. Logo senti que não era o suficiente, estava me sentindo só e com um buraco de **saudade** em meu coração. 

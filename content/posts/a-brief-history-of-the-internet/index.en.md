@@ -6,9 +6,10 @@ title: A brief history of the Internet
 date: 2010-12-07T18:14:37+00:00
 description: The Internet was born in 1969, in the United States. It originally connected research laboratories and was called ARPAnet.
 categories:
-  - html
-tags: 
+  - engineering
+tags:
   - internet
+  - history
 ---
 
 The Internet was born in 1969, in the United States. It originally connected research laboratories and was called

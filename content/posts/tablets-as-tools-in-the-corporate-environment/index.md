@@ -6,9 +6,11 @@ title: Tablets como Ferramentas no meio Corporativo
 date: 2013-03-26T15:07:18+00:00
 description: A utilização dos tablets continua crescendo, sendo assim, sua visibilidade e utilidade no meio corporativo se tornam atrativos para empresas.
 categories:
-  - other
-tags: 
   - news
+tags:
+  - mobile
+  - hardware
+  - workplace
 ---
 
 Segundo uma pesquisa da consultoria _IDC_, no ano de 2012 houve um crescimento de utilização de tablets de 159% no meio 

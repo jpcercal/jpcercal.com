@@ -6,9 +6,11 @@ title: Internet Explorer tem menos de 50% do mercado
 date: 2010-10-06T19:47:18+00:00
 description: Pela primeira vez, navegador da Microsoft tem baixa significativa. E o browser Google Chrome, triplicou a sua participação no mercado.
 categories:
-  - other
-tags: 
   - news
+tags:
+  - browsers
+  - microsoft
+  - internet
 ---
 
 O [navegador]({{< ref "posts/web-browsers/index.md" >}} "Navegadores ou Browsers") **Internet Explorer**, 

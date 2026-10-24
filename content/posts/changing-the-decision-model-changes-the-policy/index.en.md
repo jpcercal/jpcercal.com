@@ -6,10 +6,10 @@ title: Changing the Decision Model Changes the Policy
 date: 2026-10-11T00:00:00+00:00
 description: Jev, Laya, and Liquid d1 can share a request shape without sharing an error profile. Changing the model means revalidating the thresholds, review workload, and deployment behind the application's policy.
 categories:
-  - other
-tags:
-  - architecture
   - engineering
+tags:
+  - ai
+  - architecture
   - lessons-learned
 ---
 

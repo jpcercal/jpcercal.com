@@ -6,10 +6,9 @@ title: Understand the System Before Changing It
 date: 2026-09-10T00:00:00+00:00
 description: Good architecture often starts with understanding the system you already have; how requests flow, where dependencies are, and why things ended up the way they are.
 categories:
-  - other
+  - engineering
 tags:
   - architecture
-  - engineering
   - lessons-learned
 ---
 

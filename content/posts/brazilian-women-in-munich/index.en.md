@@ -7,12 +7,10 @@ date: 2018-02-27T20:36:01+00:00
 description: When we make a change, we leave our comfort zone and have to face many fears and challenges before we feel secure. This happened when we arrived in Munich, lost, full of fears, looking for support, then I found the Brazilian women in Munich, my salvation.
 categories:
   - lifestyle
-tags: 
-  - howto
-  - dream
+tags:
+  - living_abroad
   - germany
   - munich
-  - living_abroad
 ---
 
 When we make a change in our lives, we leave our comfort zone and know we'll have to face many fears and challenges before we feel secure. That's what happened to us too when we arrived in **Munich**, *lost*, full of *fears*, looking for **support** in each other and in our family back in **Brazil**. Soon I felt it wasn't enough, I was feeling alone and with a hole of **homesickness** in my heart.

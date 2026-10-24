@@ -6,9 +6,11 @@ title: PHPSC Conf 2010
 date: 2010-06-29T19:44:47+00:00
 description: A coordenação do Grupo de Usuários de PHP do Estado de Santa Catarina – PHPSC – promove em Joinville/SC, em parceria com a SOCIESC, o PHPSC Conf 2010.
 categories:
+  - engineering
+tags:
   - php
-tags: 
   - conference
+  - brazil
 ---
 
 A coordenação do **Grupo de Usuários de PHP do Estado de Santa Catarina** – PHPSC – promove em **Joinville/SC**, em 

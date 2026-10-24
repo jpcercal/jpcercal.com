@@ -6,9 +6,11 @@ title: PHPSC Conf 2010
 date: 2010-06-29T19:44:47+00:00
 description: The coordination team of the Santa Catarina State PHP Users Group – PHPSC – is holding PHPSC Conf 2010 in Joinville/SC in partnership with SOCIESC.
 categories:
+  - engineering
+tags:
   - php
-tags: 
   - conference
+  - brazil
 ---
 
 The coordination team of the **Santa Catarina State PHP Users Group** – PHPSC – is holding the third edition of

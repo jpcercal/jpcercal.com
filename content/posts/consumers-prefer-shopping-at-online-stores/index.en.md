@@ -6,10 +6,9 @@ title: Consumers prefer shopping at online stores
 date: 2013-03-28T15:33:02+00:00
 description: Online stores give consumers greater confidence, making e-commerce an essential tool for your business.
 categories:
-  - other
-tags: 
+  - business
+tags:
   - ecommerce
-  - news
 ---
 
 In a survey carried out by two price comparison services, **Kuantokusta** and **Netquest**, 1,081

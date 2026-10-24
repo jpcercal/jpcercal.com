@@ -7,13 +7,10 @@ date: 2018-01-12T23:39:01+00:00
 description: A princípio a decisão de mudar de país pode ser fascinante, no entanto, é necessário um pouco de esforço e dedicação para que isto possa se tornar realidade.
 categories:
   - lifestyle
-tags: 
-  - howto
-  - dream
+tags:
+  - living_abroad
   - germany
   - munich
-  - english
-  - living_abroad
 ---
 
 A princípio a decisão de mudar de país pode ser fascinante, no entanto, é necessário um pouco de esforço e dedicação para que isto possa se tornar realidade. Nós queríamos viver em outro país e ter a chance de conhecer uma **cultura** diferente da nossa, mas como nós começamos a *lutar* por este **sonho**?

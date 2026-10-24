@@ -1,6 +1,8 @@
 {{ $pages    := .Pages }}
 {{ $locale   := .Site.Language.Lang }}
-{{ $category := index hugo.Data.categories .Data.Term }}
+{{/* Term pages of both taxonomies get their localized title from data/;
+     raw term keys (e.g. "living_abroad", "c-cpp") are not display text. */}}
+{{ $term     := index (cond (eq .Data.Plural "tags") hugo.Data.tags hugo.Data.categories) .Data.Term }}
 
 {{ partial "head.html" . }}
 {{ partialCached "navbar.html" . .Site.Language.Lang }}
@@ -8,8 +10,8 @@
 <section class="container">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
-            {{ if $category }}
-                <h1 class="mb-2">{{ index (index $category "title") $locale }}</h1>
+            {{ if $term }}
+                <h1 class="mb-2">{{ index (index $term "title") $locale }}</h1>
             {{ else }}
                 <h1 class="mb-2">{{ .Title }}</h1>
             {{ end }}

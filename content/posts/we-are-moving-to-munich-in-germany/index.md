@@ -7,12 +7,10 @@ date: 2018-01-14T10:45:23+00:00
 description: Nossa experiência migrando e vivendo em Munique na Alemanha, razão da mudança, como nos organizamos, onde buscamos informações, dificuldades, dicas e o sentimento pessoal de quem abandonou tudo em busca de um sonho.
 categories:
   - lifestyle
-tags: 
-  - howto
-  - dream
+tags:
+  - living_abroad
   - germany
   - munich
-  - living_abroad
 ---
 
 Mudar é sempre **bom**! Sim, mas **nem sempre**. Aqui vamos fazer o relato das *nossas experiências* migrando e vivendo na **Alemanha**, vamos falar muito mais sobre Munique - *que é onde vivemos agora* - nossas dificuldades e como as enfrentamos. Uma **família** de três pessoas, dois adultos e uma criança de dois anos, que não conheciam nada do idioma alemão e muito menos sobre a cultura do país, buscando realizar um *sonho* de viver **experiências únicas** e **transformadoras**. 

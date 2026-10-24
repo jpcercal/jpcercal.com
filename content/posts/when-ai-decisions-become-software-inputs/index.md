@@ -6,10 +6,10 @@ title: Quando Decisões de IA se Tornam Entradas de Software
 date: 2026-09-23T00:00:00+00:00
 description: Um julgamento tipado de IA pode ajudar o software a encaminhar trabalho, desde que a aplicação controle as regras, verifique a incerteza e mantenha as pessoas responsáveis por decisões com consequências.
 categories:
-  - other
-tags:
-  - architecture
   - engineering
+tags:
+  - ai
+  - architecture
   - lessons-learned
 ---
 
