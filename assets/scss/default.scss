@@ -7,10 +7,37 @@ body {
 }
 
 nav {
+  // Pagination links share the theme toggle's track look (header.scss):
+  // 1px soft-ink border, fully rounded ends, canvas fill, --color-border on
+  // hover. 36px tall, the same as the toggle's visible track (the toggle's
+  // 44px box is only transparent hit area); 36px still clears the WCAG 2.5.8
+  // 24px minimum target. Placement is untouched:
+  // the template's flex row + `ml-auto` keeps Previous left and Next right.
   .previous,
   .next {
+    box-sizing: border-box;
+    align-items: center;
+    height: 36px;
+    padding: 0 18px;
+    border: 1px solid var(--color-ink-soft);
+    border-radius: 18px;
+    background-color: var(--color-canvas);
     color: var(--color-ink);
+    line-height: 1;
     text-decoration: none;
+    // Transparent (not `none`) so forced-colors mode still draws a ring.
+    outline: 2px solid transparent;
+
+    &:focus-visible {
+      outline-color: var(--color-ink);
+      outline-offset: 2px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--color-border);
+      }
+    }
   }
 
   .previous::before,
