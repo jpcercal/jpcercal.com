@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Translation link placement — static mockup (not site code)</title>
+<style>
+/* Static approximation of the real site tokens (assets/scss/themes.scss) so the
+   variants can be compared side by side. Not built by Hugo. */
+@font-face{font-family:"PT Serif";src:url("../../static/fonts/pt-serif-v19-latin-400.woff2")}
+@font-face{font-family:"PT Serif";font-weight:700;src:url("../../static/fonts/pt-serif-v19-latin-700.woff2")}
+@font-face{font-family:"Barlow Condensed";src:url("../../static/fonts/barlow-condensed-v13-latin-400.woff2")}
+@font-face{font-family:"Barlow Condensed";font-weight:500;src:url("../../static/fonts/barlow-condensed-v13-latin-500.woff2")}
+@font-face{font-family:"Fjalla One";src:url("../../static/fonts/fjalla-one-v16-latin-400.woff2")}
+:root{--canvas:#fff;--ink:rgba(0,0,0,.84);--ink-soft:#333;--muted:#7a7a7a;--faint:#999;--border:#eee;--accent-bg:#f6f6f6}
+[data-theme=dark]{--canvas:#191919;--ink:rgba(255,255,255,.92);--ink-soft:rgba(255,255,255,.68);--muted:rgba(255,255,255,.6);--faint:rgba(255,255,255,.45);--border:#2e2e2e;--accent-bg:#242424}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"PT Serif",serif}
+.container{max-width:760px;margin:0 auto;padding:0 15px}
+.header{height:55px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 15px;max-width:1100px;margin:0 auto 40px}
+.brand{font-family:"Fjalla One";font-size:22px;color:var(--ink)}
+.brand::before{content:"<";color:var(--faint)}.brand::after{content:"/>";color:var(--faint)}
+.tools{display:flex;gap:8px;align-items:center;font-family:"Barlow Condensed";font-size:18px}
+.locale{display:flex;border:1px solid var(--faint);border-radius:8px;padding:7px 5px}
+.locale a{color:var(--faint);text-decoration:none;padding:0 5px}.locale a.on{color:var(--ink);font-weight:700}
+.locale a:first-child{border-right:1px solid var(--faint)}
+.byline{display:flex;gap:12px;align-items:flex-start;font-family:"Barlow Condensed"}
+.byline img{border-radius:50%;width:60px;height:60px;background:#bbb}
+.byline .name{font-weight:500;font-size:18px}.byline p,.byline ul{margin:0;color:var(--muted);padding:0;list-style:none}
+.byline ul{display:flex;gap:10px;flex-wrap:wrap}
+h1{font-size:38px;line-height:1.2;margin:16px 0 24px}
+.body p{line-height:1.8;font-size:18px}
+.old h2{font-size:21px;margin:0 0 8px}.old ul{margin:0 0 24px}
+/* Variant B: chip in the byline row */
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 14px;border:1px solid var(--ink-soft);border-radius:9999px;background:var(--canvas);color:var(--ink);text-decoration:none;font-family:"Barlow Condensed";font-size:18px;line-height:1}
+.chip:hover{background:var(--border)}
+.chip svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}
+.byline-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:flex-start}
+.byline-row .chip{margin-left:auto}
+/* Variant C: language bar */
+.langbar{background:var(--accent-bg);border-bottom:1px solid var(--border);font-family:"Barlow Condensed";font-size:18px}
+.langbar .in{max-width:1100px;margin:0 auto;padding:8px 15px;display:flex;gap:8px;align-items:center;min-width:0}
+.langbar svg{flex:none;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6}
+.langbar a{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.langbar span{flex:none;color:var(--muted)}
+.ring{outline:2px dashed #d9534f;outline-offset:3px}
+.note{font:13px/1.3 system-ui;color:#d9534f;margin:6px 0 0}
+</style>
+</head>
+<body>
+<script>
+const q=new URLSearchParams(location.search),v=q.get('v')||'old';
+if(q.get('t')==='dark')document.documentElement.dataset.theme='dark';
+const globe='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>';
+const header=(ring)=>`<div class="header"><span class="brand">jpcercal.com</span><nav class="tools" aria-label="Language selection"><div class="locale"><a>PT</a><a class="on ${ring?'ring':''}">EN</a></div></nav></div>`;
+const byline=`<div class="byline"><img alt=""><div><div class="name">João Paulo Cercal</div><p>Senior Software Engineer</p><ul><li>Oct 20, 2026</li><li>1,820 words</li><li>9 min read</li><li>Security</li></ul></div></div>`;
+const bylineB=`<div class="byline-row">${byline}<a class="chip" href="#" lang="pt" hreflang="pt">${globe}Ler em Português</a></div>`;
+const title='<h1>PHP2Shell: Two Critical PHP Vulnerabilities and What to Do Now</h1>';
+const body='<div class="body"><p>Two vulnerabilities disclosed this week let an attacker turn a malformed upload into a remote shell on unpatched PHP servers. Here is how to check whether you are exposed and what to patch first.</p></div>';
+let html='';
+if(v==='old')html=header()+`<div class="container">${byline}${title}<div class="old"><h2>Read this article in</h2><ul><li><a href="#">Portuguese: PHP2Shell: Duas Vulnerabilidades Críticas no PHP e o Que Fazer Agora</a></li></ul></div>${body}</div>`;
+if(v==='a')html=header(true)+`<div class="container">${byline}${title}${body}</div>`;
+if(v==='b')html=header()+`<div class="container">${bylineB}${title}${body}</div>`;
+if(v==='c')html=header().replace('class="header"','class="header" style="margin:0 auto"')+`<div class="langbar"><nav class="in" aria-label="Translations">${globe}<span>Also available in</span><a href="#" lang="pt" hreflang="pt">Português: PHP2Shell: Duas Vulnerabilidades Críticas no PHP e o Que Fazer Agora</a></nav></div><div style="height:40px"></div><div class="container">${byline}${title}${body}</div>`;
+document.body.innerHTML=html;
+</script>
+</body></html>
