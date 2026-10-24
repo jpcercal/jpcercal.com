@@ -1,9 +1,10 @@
-name: CI
+name: CI (main)
 
+# Full production pipeline: runs only when a PR is merged (push to main) or when
+# the dependency-lock bot dispatches it. Pull requests are handled by the
+# separate PR preview workflow, so no pull_request trigger belongs here.
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
   workflow_dispatch:
     inputs:
@@ -163,8 +164,9 @@ jobs:
     name: Preview on staging (gh-pages, PR path)
     runs-on: ubuntu-latest
     needs: [build, image]
-    # PRs only — never touches the Cloudflare Pages project or production.
-    if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pull_request_number != '')
+    # Bot-dispatched PRs only (GITHUB_TOKEN PRs never trigger pull_request
+    # workflows) — never touches the Cloudflare Pages project or production.
+    if: github.event_name == 'workflow_dispatch' && inputs.pull_request_number != ''
     permissions:
       contents: write
       packages: read
