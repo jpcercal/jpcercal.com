@@ -37,11 +37,19 @@ section {
     }
 
     ul {
+      li {
+        position: relative;
+      }
+
+      // The list is a flex row with `gap-2`; the separator dot lives in that
+      // gap. Pull it out of the flow and center it on the gap's midpoint
+      // instead of letting it sit against the following item.
       li:not(:first-child)::before {
-        display: inline;
         content: '\00B7';
         color: var(--color-muted);
-        margin-right: 2px;
+        position: absolute;
+        left: calc(var(--spacing, 0.25rem) * -1);
+        transform: translateX(-50%);
       }
     }
   }
