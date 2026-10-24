@@ -315,7 +315,7 @@ test("theme fade animates tokens on <html> only, not every element", async ({
 	expect(during.duration.split(",")[0].trim()).toBe("0.2s");
 });
 
-test("theme fade keeps inherited text in lockstep with its parent", async ({
+test("theme fade keeps text and links in lockstep with their tokens", async ({
 	page,
 }) => {
 	await page.goto("/revisitando-o-layout-e-o-projeto-do-blog/");
@@ -323,6 +323,7 @@ test("theme fade keeps inherited text in lockstep with its parent", async ({
 	const samples = await page.evaluate(async () => {
 		const link = document.querySelector(".article-content p a");
 		const parent = link.parentElement;
+		const root = getComputedStyle(document.documentElement);
 		document.querySelector("[data-theme-toggle]").click();
 		const frames = [];
 		const start = performance.now();
@@ -330,6 +331,7 @@ test("theme fade keeps inherited text in lockstep with its parent", async ({
 			const tick = () => {
 				frames.push({
 					link: getComputedStyle(link).color,
+					linkToken: root.getPropertyValue("--color-link").trim(),
 					parent: getComputedStyle(parent).color,
 				});
 				// Run until the fade has finished (capped), not for a fixed time:
@@ -345,14 +347,62 @@ test("theme fade keeps inherited text in lockstep with its parent", async ({
 		});
 		return frames;
 	});
+	// The link takes its colour from the registered --color-link token, so
+	// it follows the animated token frame by frame instead of lagging it.
 	for (const frame of samples) {
-		expect(frame.link).toBe(frame.parent);
+		expect(frame.link).toBe(frame.linkToken);
 	}
 	// The fade really ran (initial, at least one in-between, final colour);
 	// otherwise the lockstep check above would pass vacuously.
 	expect(new Set(samples.map((frame) => frame.link)).size).toBeGreaterThan(2);
-	// Settled on the dark ink (a light colour), not stuck on the light one.
-	expect(samples.at(-1).link).toBe("rgba(255, 255, 255, 0.68)");
+	expect(new Set(samples.map((frame) => frame.parent)).size).toBeGreaterThan(2);
+	// Settled on the dark palette: GitHub's dark accent for the link and a
+	// light ink for the surrounding text.
+	expect(samples.at(-1).link).toBe("rgb(68, 147, 248)");
+	expect(samples.at(-1).parent).toBe("rgba(255, 255, 255, 0.68)");
+});
+
+for (const [theme, accent, hover] of [
+	["light", "rgb(9, 105, 218)", "rgb(5, 80, 174)"],
+	["dark", "rgb(68, 147, 248)", "rgb(121, 192, 255)"],
+]) {
+	test(`post body links use the GitHub accent in the ${theme} theme`, async ({
+		page,
+	}) => {
+		await page.addInitScript((t) => localStorage.setItem("theme", t), theme);
+		await page.goto("/revisitando-o-layout-e-o-projeto-do-blog/");
+		const link = page.locator(".article-content p a").first();
+		const read = () =>
+			link.evaluate((el) => {
+				const cs = getComputedStyle(el);
+				return { color: cs.color, line: cs.textDecorationLine };
+			});
+		const rest = await read();
+		expect(rest.color).toBe(accent);
+		// Colour alone is under 3:1 against the body ink, so a non-colour cue
+		// must mark the link (WCAG 1.4.1).
+		expect(rest.line).toContain("underline");
+		await link.hover();
+		expect((await read()).color).toBe(hover);
+	});
+}
+
+test("post body links mark external destinations only", async ({ page }) => {
+	await page.goto("/en/php2shell-two-critical-php-vulnerabilities/");
+	const marked = await page.evaluate(() =>
+		[...document.querySelectorAll(".article-content a")].map((a) => ({
+			href: a.getAttribute("href"),
+			content: getComputedStyle(a, "::after").content,
+		})),
+	);
+	const external = marked.filter((a) =>
+		/^https?:\/\/(?!127\.0\.0\.1)/.test(a.href),
+	);
+	const internal = marked.filter((a) => !external.includes(a));
+	expect(external.length).toBeGreaterThan(0);
+	expect(internal.length).toBeGreaterThan(0);
+	for (const a of external) expect(a.content).toBe('""');
+	for (const a of internal) expect(a.content).toBe("none");
 });
 
 test("theme toggle glyphs never change colour when the theme switches", async ({
