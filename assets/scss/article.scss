@@ -51,6 +51,15 @@ section {
         left: calc(var(--spacing, 0.25rem) * -1);
         transform: translateX(-50%);
       }
+
+      // Below Tailwind's `sm` breakpoint a leading `hidden sm:inline` item
+      // (the résumé link) is display:none, so the next item is visually first
+      // and must not get a dangling separator.
+      @media (width < 40rem) {
+        li.hidden:first-child + li::before {
+          display: none;
+        }
+      }
     }
   }
 

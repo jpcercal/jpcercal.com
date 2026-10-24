@@ -388,3 +388,42 @@ test("post meta separators are centered in the gap between items", async ({
 		expect(Math.abs(center - gapMid)).toBeLessThan(0.5);
 	}
 });
+
+for (const [label, width] of [
+	["desktop", 1200],
+	["mobile", 500],
+]) {
+	test(`author link separators are centered, none dangling (${label})`, async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width, height: 900 });
+		await page.goto("/en/authors/jpcercal/");
+		const measured = await page.evaluate(() => {
+			const list = document.querySelector(".author-position ~ ul.flex");
+			const items = [...list.children].filter(
+				(li) => getComputedStyle(li).display !== "none",
+			);
+			return items.map((li, i) => {
+				const dot = getComputedStyle(li, "::before");
+				const shown = dot.content !== "none" && dot.display !== "none";
+				if (i === 0 || !shown) return { shown };
+				const prev = items[i - 1].getBoundingClientRect();
+				const cur = li.getBoundingClientRect();
+				const tx = new DOMMatrix(dot.transform).m41;
+				return {
+					shown,
+					gapMid: (prev.right + cur.left) / 2,
+					center:
+						cur.left + parseFloat(dot.left) + tx + parseFloat(dot.width) / 2,
+				};
+			});
+		});
+		// The first visible item never carries a separator.
+		expect(measured[0].shown).toBe(false);
+		const dots = measured.filter((m) => m.shown);
+		expect(dots.length).toBe(measured.length - 1);
+		for (const { gapMid, center } of dots) {
+			expect(Math.abs(center - gapMid)).toBeLessThan(0.5);
+		}
+	});
+}
