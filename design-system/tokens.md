@@ -38,6 +38,8 @@ never raw colors (code blocks stay One Dark in both themes).
 | `--color-border` | `#eee` | `#2e2e2e` | header rule, cards, inputs |
 | `--color-code-bg` / `--color-code-fg` | `#f8f9fa` / `#bd4147` | `#2a2a2a` / `#e8a0a7` | inline `<code>` only |
 | `--color-credit` | `#ddd` | `rgba(255,255,255,.40)` | footer credit line |
+| `--color-rule` | `#d6d6d6` | `#3d3d3d` | dividers between post blocks |
+| `--color-panel` | `#f6f6f4` | `#242424` | tinted fill for grouped post blocks |
 
 Activation: `data-theme` on `<html>` (stored `localStorage` choice, else
 OS `prefers-color-scheme`, else light). An inline script in
