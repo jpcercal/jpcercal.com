@@ -97,7 +97,11 @@
   (+`_markup/render-image.html`), `design-system/`,
   `shortcodes/ref.html`, `partials/` (18 files: `head.html`,
   `head-assets.html` incl. theme init, `css.html` + `js.html` Hugo Pipes,
-  `navbar.html` incl. theme toggle, `footer.html` incl. `theme.js`,
+  `navbar.html` incl. theme toggle + same-page language switch
+  (`.AllTranslations` + pager suffix; rendered per page with `partial`,
+  never `partialCached`; templates calling `.Paginate` set the
+  `paginated` scratch flag first; `search.js` adds `?q=` to the
+  `[data-locale-switch]` links), `footer.html` incl. `theme.js`,
   `post-card.html`, head-meta-*/favicon/i18n-list/reading-time/word-count/
   author-*).
 - `static/` — 3 root files plus the vendored `fonts/` directory: `CNAME` (prod `jpcercal.com`; must NOT ship
@@ -151,8 +155,10 @@
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;
   fails the workflow — it runs AFTER the deploy, it does not gate it).
-- `e2e/smoke.spec.js` — 17 tests (home/search/contact-static-links/EN +
+- `e2e/smoke.spec.js` — 26 tests (home/search/contact-static-links/EN +
   real PT/EN Pagefind results + reciprocal translation/reference navigation +
+  9 same-page language-switch tests (post/pager/authors/taxonomy/term/
+  contact + search `?q=` carry-over) +
   404 layout + latest-posts content + 6 theme tests, 2 of them
   cover-fetch network guards + 3 font-delivery/fallback/CLS regressions);
   `e2e/visual.spec.js` snapshots are platform-specific and skipped on CI.
@@ -269,7 +275,7 @@
   All native tools come from the locked flake; `JPEGTRAN` is the exact Nix
   mozjpeg path. Do not replace it with a host libjpeg-turbo binary or add
   cargo/Homebrew/apt installation requirements back into local/CI docs.
-- `e2e/smoke.spec.js` (17 tests) runs in CI; `e2e/visual.spec.js` snapshots
+- `e2e/smoke.spec.js` (26 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`
   with pipes). The Playwright webServer serves `public/` via
