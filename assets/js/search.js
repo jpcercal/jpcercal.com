@@ -149,6 +149,40 @@ document.addEventListener("DOMContentLoaded", () => {
 		}, config.delay);
 	};
 
+	/**
+	 * Mirror the term into the address bar (?q=) and onto the header
+	 * language switch, so reloading, sharing, or switching language keeps
+	 * the current search. replaceState avoids one history entry per key.
+	 */
+	const localeLinks = document.querySelectorAll("a[data-locale-switch]");
+	const syncQuery = () => {
+		const term = inputField.value.trim();
+		const withQuery = (href) => {
+			const url = new URL(href, window.location.href);
+			if (term) {
+				url.searchParams.set("q", term);
+			} else {
+				url.searchParams.delete("q");
+			}
+			return url.href;
+		};
+		const current = withQuery(window.location.href);
+		if (current !== window.location.href) {
+			window.history.replaceState(window.history.state, "", current);
+		}
+		for (const link of localeLinks) {
+			link.href = withQuery(link.href);
+		}
+	};
+
 	inputField.addEventListener("keyup", listener);
 	inputField.addEventListener("input", listener);
+	inputField.addEventListener("input", syncQuery);
+
+	const initialTerm = new URLSearchParams(window.location.search).get("q");
+	if (initialTerm) {
+		inputField.value = initialTerm;
+		syncQuery();
+		inputField.dispatchEvent(new Event("input"));
+	}
 });
