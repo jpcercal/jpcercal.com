@@ -1,6 +1,6 @@
 # Where to put the "Read this article in" translation link
 
-Status: **proposal, no site code changed.** Mockup: `mockup.html?v=old|a|b|c[&t=dark]`
+Status: **proposal; each variant is implemented in its own PR** (A: #129, B: #130, C: #131; merge one, close the others, as with the post-link variants). This PR only adds the write-up. Mockup: `mockup.html?v=old|a|b|c[&t=dark]`
 (static approximation of the site tokens/fonts; screenshots next to it).
 
 ## Problem
@@ -102,3 +102,23 @@ chip in the byline.
 Pick a variant; implementation = new partial + `single.html` + `article.scss` + i18n keys,
 update the e2e selector for the old `Read this article in` heading, run `check-artifact.sh`
 (bilingual gate), `lint`, `validate:html`, `e2e`, and regenerate visual snapshots locally.
+
+## Implemented variants
+
+Screenshots below are from real builds of each PR (`implemented/`), light at 1100px and 500px, plus dark at 500px.
+
+| | Desktop | 500px | 500px dark |
+|---|---|---|---|
+| A (#129) | `implemented/a-desktop.png` | `implemented/a-mobile.png` | `implemented/a-mobile-dark.png` |
+| B (#130) | `implemented/b-desktop.png` | `implemented/b-mobile.png` | `implemented/b-mobile-dark.png` |
+| C (#131) | `implemented/c-desktop.png` | `implemented/c-mobile.png` | `implemented/c-mobile-dark.png` |
+
+Differences from the mockup: B's label comes from `data/locales.yml` (`readIn`) so it can be in
+the target language independent of the page language; B converts the byline from floats to a flex
+row; A keeps the two-link (`lg:hidden`) navbar structure and only changes `href`s; C cancels the
+header's 40px margin so the bar touches the header border. The proposal's "update the e2e selector"
+step is done in A and C (B keeps `article a`). In every PR `check-bilingual.py`, `html-validate`
+and the translation e2e pass locally; the full e2e/Lighthouse/lychee suites run in CI.
+
+Note on A: if A is merged together with B, `navbar.html` is the only file both touch indirectly
+(B does not edit it), so they combine without conflicts except `single.html` and the i18n files.
