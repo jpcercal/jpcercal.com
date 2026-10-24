@@ -5,7 +5,7 @@
 {{ $term     := index (cond (eq .Data.Plural "tags") hugo.Data.tags hugo.Data.categories) .Data.Term }}
 
 {{ partial "head.html" . }}
-{{ partialCached "navbar.html" . .Site.Language.Lang }}
+{{ partial "navbar.html" . }}
 
 <section class="container">
     <div class="row">
