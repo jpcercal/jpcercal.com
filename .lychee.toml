@@ -30,15 +30,8 @@ exclude = [
   "https://docs.joomla.org",
   "http://docs.joomla.org",
   "https://www.cloudflare.com/learning/",
-  # External repo state owned outside this project; verify manually.
-  "https://raw.githubusercontent.com/jpcercal/resume/main/resume.pdf",
   # Historical references to files/URLs intentionally removed from this repo.
   "https://github.com/jpcercal/jpcercal.com/blob/main/.travis.yml",
-  # Author resume PDFs live in the external resume repo (see the
-  # raw.githubusercontent.com URL above); this pipeline builds no local
-  # copies. Matched on the filename so it applies before and after the
-  # CI --remap of prod URLs to local public/ files.
-  "resume.(en|pt).pdf",
   # Dead historical host (Yahoo Brazil search retired; the post keeps the
   # reference as written).
   "br.search.yahoo.com",

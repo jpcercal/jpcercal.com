@@ -1,0 +1,7 @@
+# Site owner's public profiles, shown only on the contact page. Author
+# bylines/pages deliberately carry no links or résumé.
+socialNetworks:
+  facebook: https://www.facebook.com/jpcercal
+  twitter: https://twitter.com/jpcercal
+  linkedin: https://www.linkedin.com/in/jpcercal
+  github: https://github.com/jpcercal

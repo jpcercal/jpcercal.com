@@ -1,7 +1,7 @@
 {{ partial "head.html" . }}
 {{ partialCached "navbar.html" . .Site.Language.Lang }}
 
-{{ $author := index hugo.Data.authors "jpcercal@gmail.com" }}
+{{ $contact := hugo.Data.contact }}
 
 <section class="container">
     <div class="row">
@@ -14,7 +14,7 @@
                 <li>
                     <a href="mailto:jpcercal@gmail.com">E-mail</a>
                 </li>
-                {{ range $socialNetwork, $profile := $author.socialNetworks }}
+                {{ range $socialNetwork, $profile := $contact.socialNetworks }}
                     {{ partial "author-social-network.html" (dict "socialNetwork" $socialNetwork "profile" $profile ) }}
                 {{ end }}
             </ul>
