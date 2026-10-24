@@ -14,6 +14,7 @@
 
 {{ partial "head.html" . }}
 {{ partialCached "navbar.html" . .Site.Language.Lang }}
+{{ partial "translation-bar.html" . }}
 
 <article class="container">
     <header class="row">
@@ -76,8 +77,6 @@
                     </a>
                 </li>
             </ul>
-
-            {{ partial "i18n-list.html" . }}
 
             <div class="font-size-h6 article-content" data-pagefind-body>
                 {{ .Content }}

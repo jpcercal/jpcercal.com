@@ -54,8 +54,10 @@ tagDescription:
   other: "You can quickly browse all posts from tag {{ .tag }} that were published in our site."
 tagsDescription:
   other: "Tags"
-translations:
-  other: "Read this article in"
+translationsNav:
+  other: "Translations"
+alsoAvailableIn:
+  other: "Also available in {{ .Language }}:"
 en:
   other: "English"
 pt:
