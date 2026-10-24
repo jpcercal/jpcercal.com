@@ -100,6 +100,11 @@
   `navbar.html` incl. theme toggle, `footer.html` incl. `theme.js`,
   `post-card.html`, head-meta-*/favicon/i18n-list/reading-time/word-count/
   author-*).
+- Post page blocks: `layouts/posts/single.html` calls `partials/post/article.html`
+  (also used by the staging-only `design-system/post-layouts` preview); the
+  `params.postVariant` choice (`rules` | `panels` | `banded`) only switches
+  `.post--<variant>` skins in `assets/scss/post-blocks.scss` using the
+  `--color-rule` / `--color-panel` tokens.
 - `static/` — 3 root files plus the vendored `fonts/` directory: `CNAME` (prod `jpcercal.com`; must NOT ship
   to the staging branch) + `_headers` (Pages cache/security headers;
   replaces `_config.yml` semantics) + `_redirects` (`/posts/` -> `/` and

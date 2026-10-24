@@ -12,3 +12,4 @@ the `preview-staging` job copies `design-system/` into `content/` with a
 
 - [Tokens](tokens/): colors, fonts, spacing.
 - [Components](components/): rendered examples of the building blocks.
+- [Post layouts](post-layouts/): three ways to separate the blocks of a post.
