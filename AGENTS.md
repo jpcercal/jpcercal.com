@@ -142,15 +142,32 @@
   run inside it and zero-install via `ln -s /opt/ci/node_modules`) →
   `build` (Playwright smoke first, clean prod build + lint/HTML/XML/links/
   artifact/LHCI gates, uploads the `public` artifact) →
-  `preview-staging` (PRs only: drafts + design-system + PR baseURL build,
+  `preview-staging` (bot-dispatched PRs only, `workflow_dispatch` with
+  `pull_request_number`: drafts + design-system + PR baseURL build,
   `public/CNAME` removed, `peaceiris/actions-gh-pages` publishes `pr-<n>/`
-  with `cname: staging.jpcercal.com`; presence check is a
-  `continue-on-error` file-existence assertion) + `deploy` (main pushes
+  with `cname: staging.jpcercal.com`; regular PR previews belong to
+  `pr-preview.yml`) + `deploy` (main pushes
   only: same container, downloads the artifact, idempotent project-create,
   exactly locked Wrangler 4.147.0 from npm/Nix, no action-installed CLI,
   Direct Upload) → `cloudflare-pages` (runs `bin/verify-pages.sh` against
   the live site with baked-Chromium `CHROME_PATH` + `LHCI_CHROME_FLAGS`;
   fails the workflow — it runs AFTER the deploy, it does not gate it).
+- `.github/workflows/pr-preview.yml` + `.github/scripts/` — per-PR preview at
+  `staging.jpcercal.com/pr-<n>/` (`pull_request` opened/synchronize/reopened/
+  closed, same-repo non-Dependabot PRs only, no repository secrets, per-PR
+  concurrency with cancel-in-progress). `classify` (PR files API +
+  `classify-pr.py`, explicit fail-closed allow-lists) picks `fast` (content/
+  layouts/assets/i18n/data/design-system/static/fonts/docs only: pull the
+  main-built `:latest` CI image, Hugo + `SKIP_IMAGE_OPTIMIZATION=1`
+  `bin/build-images.sh` + Pagefind, no Docker build, no checks) or `full`
+  (anything else: fully optimized build; the image is rebuilt `pr-<n>-<sha>`
+  only when Dockerfile/flake/package*.json/nix/** changed). The build jobs
+  have a read-only token and upload an artifact; only `publish` has
+  `contents: write` and runs `preview-pages.sh` against a sparse partial
+  `gh-pages` clone (push retries on race), `comment` keeps one sticky PR
+  comment, `cleanup` removes `pr-<n>/` on close using the script from `main`.
+  Quality gates stay in `ci.yml` (required `Build` check, parallel, not
+  awaited). Only `main` pushes move the `:latest` image tag.
 - `e2e/smoke.spec.js` — 17 tests (home/search/contact-static-links/EN +
   real PT/EN Pagefind results + reciprocal translation/reference navigation +
   404 layout + latest-posts content + 6 theme tests, 2 of them
