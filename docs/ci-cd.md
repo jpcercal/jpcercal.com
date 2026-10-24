@@ -103,6 +103,8 @@ protection requires `Build`. The Cloudflare Web Analytics token lives in
   show up only after merge to `main`. Consider a cheap lint/unit job on PRs if
   that is too late.
 - Fork and Dependabot PRs get no preview and an unverified `Build` check.
+- `cleanup` runs the script from `main`, so closing a PR before the preview
+  workflow is merged fails that job (the script is not on `main` yet).
 - Stale `pr-*` directories from before the cleanup job (and one stray `pr-/`)
   remain on `gh-pages` until swept manually.
 - The bot-dispatched `preview-staging` and the preview `publish` job both push
