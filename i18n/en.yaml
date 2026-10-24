@@ -54,12 +54,6 @@ tagDescription:
   other: "You can quickly browse all posts from tag {{ .tag }} that were published in our site."
 tagsDescription:
   other: "Tags"
-translations:
-  other: "Read this article in"
-en:
-  other: "English"
-pt:
-  other: "Portuguese"
 readingTime:
   one: "1 min read"
   other: "{{ .Count }} min read"
