@@ -11,19 +11,33 @@ header {
   .search {
     display: block;
 
-    .search-icon {
-      display: inline-block;
-      background: url("../images/icons/search.svg");
-      background-size: 18px auto;
-      height: 18px;
-      width: 18px;
-      position: relative;
-      top: 3px;
+    // Same chrome as .theme-toggle (rounded outline + glyph); the visible
+    // label is dropped, aria-label/title keep the accessible name.
+    .search-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-faint);
+      border-radius: 8px;
+      padding: 7px 9px;
+      color: var(--color-locale-idle);
+      text-decoration: none;
+      line-height: 1;
+
+      &:hover {
+        color: var(--color-locale-hover);
+      }
     }
 
-    .search-link {
-      color: var(--color-ink);
-      text-decoration: none;
+    // The glyph is a mask painted with currentColor, so it follows the
+    // idle/hover colors and both themes without any filter.
+    .search-icon {
+      display: block;
+      background-color: currentColor;
+      -webkit-mask: url("../images/icons/search.svg") center / contain no-repeat;
+      mask: url("../images/icons/search.svg") center / contain no-repeat;
+      height: 16px;
+      width: 16px;
     }
   }
 
@@ -224,10 +238,8 @@ header {
 }
 
 // Dark chrome fixes (colors only; post covers and photos are never filtered):
-// the search glyph is a near-black SVG background and the GitHub corner is
-// dark-on-transparent, so both are inverted on the dark canvas. The toggle
-// shows a sun once dark mode is active.
-[data-theme="dark"] header .search .search-icon,
+// the GitHub corner is dark-on-transparent, so it is inverted on the dark
+// canvas. The toggle shows a sun once dark mode is active.
 [data-theme="dark"] header .github-corner img {
   filter: invert(0.92);
 }
@@ -273,7 +285,6 @@ header {
 
 // Same fixes for the no-JS OS-dark fallback (no data-theme attribute set).
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) header .search .search-icon,
   :root:not([data-theme]) header .github-corner img {
     filter: invert(0.92);
   }
