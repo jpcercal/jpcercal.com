@@ -1,10 +1,12 @@
 {{ if .IsTranslated }}
-    <h2 class="font-size-h4 mb-2">{{ i18n "translations" }}</h2>
-    <ul>
-        {{ range $translatedPost := .Translations }}
-            <li>
-                <a href="{{ .Permalink }}">{{ i18n $translatedPost.Lang }}: {{ $translatedPost.Title }}</a>
-            </li>
-        {{ end }}
-    </ul>
+    <div class="post-translations">
+        <h2 class="font-size-h4 mb-2">{{ i18n "translations" }}</h2>
+        <ul class="list-none">
+            {{ range $translatedPost := .Translations }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ i18n $translatedPost.Lang }}: {{ $translatedPost.Title }}</a>
+                </li>
+            {{ end }}
+        </ul>
+    </div>
 {{ end }}
