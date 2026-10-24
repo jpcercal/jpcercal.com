@@ -1,0 +1,18 @@
+{{/* Slim bar between the site header and the article. Outside <article> on purpose: it is navigation, not content, so it stays out of the reading column, the heading outline and the Pagefind body. The lead-in is in the current language; the link text is the translated title, marked with its own language. */}}
+{{ if .IsTranslated }}
+    <div class="translation-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+                    <nav class="translation-bar__inner" aria-label="{{ i18n "translationsNav" }}">
+                        <svg viewBox="0 0 24 24" width="18" height="18" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3 3 3 15 0 18"/><path d="M12 3c-3 3-3 15 0 18"/></svg>
+                        {{ range .Translations }}
+                            <span class="translation-bar__lead">{{ i18n "alsoAvailableIn" (dict "Language" (i18n .Lang)) }}</span>
+                            <a href="{{ .Permalink }}" lang="{{ .Lang }}" hreflang="{{ .Lang }}">{{ .Title }}</a>
+                        {{ end }}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ end }}

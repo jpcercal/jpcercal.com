@@ -54,8 +54,10 @@ tagDescription:
   other: "Confira rapidamente todos os posts com marcador {{ .tag }} que foram publicados em nosso website."
 tagsDescription:
   other: "Confira todos os Marcadores do jpcercal.com. AWS, Apple, Microsoft, Banco de dados, Notícias, Munique,... em uma linguagem Simples e Descomplicada."
-translations:
-  other: "Ler este conteúdo em"
+translationsNav:
+  other: "Traduções"
+alsoAvailableIn:
+  other: "Também disponível em {{ .Language }}:"
 en:
   other: "Inglês"
 pt:
