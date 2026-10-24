@@ -49,11 +49,11 @@ categoryDescription:
 categoriesDescription:
   other: "Would you like to check the topics that we're talking about? Artificial Intelligence, Software Engineering, Security, PHP, Linux and DevOps,... written in a simple and uncomplicated way."
 tags:
-  other: "Would you like to check the tags that we're talking about? AWS, Apple, Microsoft, Database, News, Munich,... written in a simple and uncomplicated way."
+  other: "Tags"
 tagDescription:
   other: "You can quickly browse all posts from tag {{ .tag }} that were published in our site."
 tagsDescription:
-  other: "Tags"
+  other: "Would you like to check the tags that we're talking about? AWS, Apple, Microsoft, Database, News, Munich,... written in a simple and uncomplicated way."
 translations:
   other: "Read this article in"
 en:
