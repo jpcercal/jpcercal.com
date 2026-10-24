@@ -1,0 +1,36 @@
+{{- $f := partial "footer/links.html" . -}}
+<footer class="site-footer site-footer--centered">
+    <div class="container">
+        <div class="row">
+            <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+                <div class="site-footer--inner text-center">
+                    <a class="site-footer--brand" href="{{ $f.home }}">{{ $f.title }}</a>
+                    <p class="site-footer--tagline">{{ $f.description }}</p>
+
+                    <ul class="site-footer--social list-none flex flex-wrap justify-center gap-2 m-0">
+                        {{- range $f.social }}
+                        <li><a class="site-footer--button" href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></li>
+                        {{- end }}
+                        {{- with $f.rss }}
+                        <li><a class="site-footer--button" href="{{ . }}" rel="alternate" type="application/rss+xml">RSS</a></li>
+                        {{- end }}
+                    </ul>
+
+                    <nav aria-label='{{ i18n "footerNav" }}'>
+                        <ul class="site-footer--links list-none flex flex-wrap justify-center gap-2 m-0">
+                            {{- range $f.nav }}
+                            <li><a href="{{ .url }}">{{ .label }}</a></li>
+                            {{- end }}
+                        </ul>
+                    </nav>
+
+                    <p class="site-footer--copy m-0">
+                        &copy; {{ $f.year }} {{ $f.title }}
+                        <span aria-hidden="true">&middot;</span>
+                        <a href="{{ $f.source }}" target="_blank" rel="noopener">{{ $f.sourceLabel }}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

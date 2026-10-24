@@ -43,6 +43,8 @@ $light-tokens: (
   // to be barely there) and a tinted fill for grouped regions.
   "rule": #d6d6d6,
   "panel": #f6f6f4,
+
+  "footer-bg": #f8f9fa,
 );
 
 @mixin light-tokens {
@@ -80,6 +82,8 @@ $dark-tokens: (
 
   "rule": #3d3d3d,
   "panel": #242424,
+
+  "footer-bg": #1f1f1f,
 );
 
 @mixin dark-tokens {
