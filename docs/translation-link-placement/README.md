@@ -119,6 +119,3 @@ row; A keeps the two-link (`lg:hidden`) navbar structure and only changes `href`
 header's 40px margin so the bar touches the header border. The proposal's "update the e2e selector"
 step is done in A and C (B keeps `article a`). In every PR `check-bilingual.py`, `html-validate`
 and the translation e2e pass locally; the full e2e/Lighthouse/lychee suites run in CI.
-
-Note on A: if A is merged together with B, `navbar.html` is the only file both touch indirectly
-(B does not edit it), so they combine without conflicts except `single.html` and the i18n files.
