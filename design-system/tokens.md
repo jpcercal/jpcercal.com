@@ -38,6 +38,12 @@ never raw colors (code blocks stay One Dark in both themes).
 | `--color-border` | `#eee` | `#2e2e2e` | header rule, cards, inputs |
 | `--color-code-bg` / `--color-code-fg` | `#f8f9fa` / `#bd4147` | `#2a2a2a` / `#e8a0a7` | inline `<code>` only |
 | `--color-credit` | `#ddd` | `rgba(255,255,255,.40)` | footer credit line |
+| `--color-link` | `#0969da` | `#4493f8` | post body links (GitHub Primer accent; 5.2:1 / 5.7:1 on canvas) |
+| `--color-link-hover` | `#0550ae` | `#79c0ff` | post body link on hover (7.6:1 / 9.0:1) |
+| `--color-link-line` | `rgba(9,105,218,.4)` | `rgba(68,147,248,.5)` | resting underline of post body links |
+
+The link accent is only ~2.7:1 against the body ink, so colour alone does not
+identify a link (WCAG 1.4.1): post body links keep an underline.
 
 Activation: `data-theme` on `<html>` (stored `localStorage` choice, else
 OS `prefers-color-scheme`, else light). An inline script in

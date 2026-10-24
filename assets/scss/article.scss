@@ -189,5 +189,32 @@ section {
         color: var(--color-ink-soft);
       }
     }
+
+    // Links in the post body. Tailwind preflight resets `a` to
+    // `color: inherit; text-decoration: inherit`, which made them
+    // indistinguishable from the text. Variant A follows GitHub's rendered
+    // Markdown: Primer accent blue, underlined. The accent is only ~2.7:1
+    // against the body ink, so the underline (not the colour alone) is
+    // what marks a link (WCAG 1.4.1). No colour transitions on the element:
+    // the theme fade lives on the registered tokens (see themes.scss).
+    a {
+      color: var(--color-link);
+      text-decoration-line: underline;
+      text-decoration-color: var(--color-link-line);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+
+      &:hover {
+        color: var(--color-link-hover);
+        text-decoration-color: currentcolor;
+        text-decoration-thickness: 2px;
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-link);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+    }
   }
 }
