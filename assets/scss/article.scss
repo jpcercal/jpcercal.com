@@ -241,3 +241,59 @@ section {
     }
   }
 }
+
+// Byline row: author block on the left, translation chip pushed to the right.
+// Wraps under the byline when there is no room (narrow screens), so nothing
+// ever overlaps the author text. Replaces the old float-based layout.
+.article-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+
+  &__author {
+    display: flex;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+}
+
+// Language chip: same pill language as the header locale switch and the
+// pagination links (1px soft-ink outline, canvas fill, fully rounded).
+// 36px tall, comfortably above the WCAG 2.5.8 24px target minimum.
+.article-translation {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--color-ink-soft);
+  border-radius: 18px;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+
+  svg {
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-border);
+    }
+  }
+}
