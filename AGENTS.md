@@ -95,7 +95,7 @@
   `posts/single.html`, `authors/single.html`, `contact/list.html` (static
   links, no form), `search/list.html`, `taxonomy/` + `_default/`
   (+`_markup/render-image.html`), `design-system/`,
-  `shortcodes/ref.html`, `partials/` (18 files: `head.html`,
+  `shortcodes/ref.html`, `partials/` (18 files + `footer/`: `head.html`,
   `head-assets.html` incl. theme init, `css.html` + `js.html` Hugo Pipes,
   `navbar.html` incl. theme toggle, `footer.html` incl. `theme.js`,
   `post-card.html`, head-meta-*/favicon/i18n-list/reading-time/word-count/
@@ -122,8 +122,19 @@
   prod→local `--remap`, `lhci`, `e2e`).
 - `design-system/` — repo-root staging-only docs (NOT under `content/`):
   `_index.md` (draft, sitemap-disabled), `tokens.md` (incl. dark tokens),
-  `components.md`. Staging copies it to `content/design-system` and builds
+  `components.md`, `footers.md` (`layout: footers` renders every footer
+  variant full-width). Staging copies it to `content/design-system` and builds
   `--buildDrafts`; prod must never contain `public/design-system/`.
+- Site footer: `partials/footer.html` closes the page and first renders
+  `partials/footer/<params.footerVariant>.html` (`compact` default,
+  `columns`, `centered`; set in `config.yaml`). All three read one shared
+  `footer/links.html` (localized via i18n + `absLangURL`) and are styled in
+  `assets/scss/footer.scss` from theme tokens only (`--color-ink-soft` text,
+  `--color-border`, `--color-footer-bg`). `body` is a flex column so the
+  footer sits at the bottom of short pages. Unused variants trigger
+  `--printUnusedTemplates` warnings by design. Preview them via
+  `design-system/footers`, or locally with
+  `HUGO_PARAMS_FOOTERVARIANT=columns hugo ...`.
 - `bin/` holds 4 shell scripts plus `check-bilingual.py`: `build-images.sh` (native image
   pipeline: copy → oxipng/mozjpeg optimize → oxvg minify → resvg 512px
   covers) + `verify-pages.sh` (live-site gate suite run by the

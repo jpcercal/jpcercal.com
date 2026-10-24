@@ -1,0 +1,28 @@
+{{- /* Staging-only preview: every footer variant full-width, exactly as rendered on real pages. */ -}}
+{{ partial "head.html" . }}
+{{ partialCached "navbar.html" . .Site.Language.Lang }}
+
+<section class="container">
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <h1 class="mb-2">{{ .Title }}</h1>
+
+            <div class="font-size-h6 article-content">
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ range $i, $variant := slice "compact" "columns" "centered" }}
+<section class="container">
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <h2 class="font-size-h4 mt-4 mb-2">{{ add $i 1 }}. <code>{{ $variant }}</code></h2>
+        </div>
+    </div>
+</section>
+{{ partial (printf "footer/%s.html" $variant) $ }}
+{{ end }}
+
+{{ partial "footer.html" . }}

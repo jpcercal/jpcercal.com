@@ -37,7 +37,8 @@ never raw colors (code blocks stay One Dark in both themes).
 | `--color-faint` | `+60% lightness` | `rgba(255,255,255,.45)` | brand `</>`, locale borders |
 | `--color-border` | `#eee` | `#2e2e2e` | header rule, cards, inputs |
 | `--color-code-bg` / `--color-code-fg` | `#f8f9fa` / `#bd4147` | `#2a2a2a` / `#e8a0a7` | inline `<code>` only |
-| `--color-credit` | `#ddd` | `rgba(255,255,255,.40)` | footer credit line |
+| `--color-credit` | `#ddd` | `rgba(255,255,255,.40)` | legacy footer credit line (unused) |
+| `--color-footer-bg` | `#f8f9fa` | `#1f1f1f` | tinted footer band (`columns` variant) |
 
 Activation: `data-theme` on `<html>` (stored `localStorage` choice, else
 OS `prefers-color-scheme`, else light). An inline script in
