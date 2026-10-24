@@ -14,3 +14,170 @@ footer {
     }
   }
 }
+
+// Site footer (three interchangeable designs, see layouts/partials/footer/).
+// Colors come only from the theme contract (var(--color-*)), so light, dark
+// and the no-JS OS fallback are covered without extra selectors. Text uses
+// --color-ink-soft (>= 7:1 in both themes); --color-muted/--color-faint stay
+// decorative (borders, separators) because they fail AA for small text.
+
+// Keep the footer at the bottom of short pages (search, 404) without
+// changing the layout of long ones: the footer's auto margin soaks up the
+// free space, and the block above it keeps a fixed gap.
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  font-size: em(14px);
+  line-height: 1.4;
+
+  a {
+    display: inline-block;
+    padding: 4px 0;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-ink);
+      text-decoration: underline;
+    }
+  }
+}
+
+body > :has(+ .site-footer) {
+  margin-bottom: 48px;
+}
+
+// Variant 1: one quiet line (copyright left, links right).
+.site-footer--compact {
+  padding: 20px 0 28px;
+}
+
+// Variant 2: tinted band with about / explore / connect columns.
+.site-footer--columns {
+  background-color: var(--color-footer-bg);
+  padding: 40px 0 24px;
+
+  .site-footer--grid {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .site-footer--grid {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  .site-footer--brand {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--color-ink);
+    font-family: 'Fjalla One', sans-serif;
+    font-size: em(24px, 14);
+
+    &::before {
+      content: '<';
+      color: var(--color-faint);
+    }
+
+    &::after {
+      content: '/>';
+      color: var(--color-faint);
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .site-footer--tagline {
+    max-width: 28em;
+  }
+
+  .site-footer--heading {
+    margin: 0 0 12px;
+    color: var(--color-ink);
+    font-size: em(14px, 14);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  li + li {
+    margin-top: 8px;
+  }
+
+  .site-footer--bar {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+// Variant 3: centered brand, outlined buttons shared with the header
+// controls (same border, radius, padding and 32px height as .theme-toggle).
+.site-footer--centered {
+  padding: 48px 0 32px;
+
+  .site-footer--inner > * + * {
+    margin-top: 20px;
+  }
+
+  .site-footer--brand {
+    display: inline-block;
+    color: var(--color-ink);
+    font-family: 'Fjalla One', sans-serif;
+    font-size: em(26px, 14);
+
+    &::before {
+      content: '<';
+      color: var(--color-faint);
+    }
+
+    &::after {
+      content: '/>';
+      color: var(--color-faint);
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .site-footer--tagline {
+    max-width: 34em;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .site-footer--button {
+    display: inline-block;
+    border: 1px solid var(--color-faint);
+    border-radius: 8px;
+    padding: 7px 12px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1;
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--color-ink-soft);
+      color: var(--color-ink);
+      text-decoration: none;
+    }
+  }
+}
+
+@media print {
+  .site-footer {
+    display: none;
+  }
+}

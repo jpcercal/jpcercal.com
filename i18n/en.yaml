@@ -71,3 +71,17 @@ localeNav:
   other: "Language selection"
 themeToggle:
   other: "Toggle dark mode"
+footerNav:
+  other: "Footer navigation"
+footerExplore:
+  other: "Explore"
+footerConnect:
+  other: "Connect"
+footerHome:
+  other: "Home"
+footerSearch:
+  other: "Search"
+footerTags:
+  other: "Tags"
+footerRss:
+  other: "RSS feed"

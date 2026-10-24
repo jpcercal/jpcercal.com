@@ -1,0 +1,40 @@
+{{- /*
+  Single source for every footer variant: the same links and labels in all
+  three designs, localized through i18n and absLangURL (so PT/EN and the
+  staging subpaths keep working). Returns a dict; renders nothing.
+*/ -}}
+{{- $page := . -}}
+{{- $author := index hugo.Data.authors "jpcercal@gmail.com" -}}
+
+{{- $nav := slice
+  (dict "label" (i18n "footerHome") "url" $page.Site.Home.Permalink)
+  (dict "label" (i18n "footerSearch") "url" ("search/" | absLangURL))
+  (dict "label" (i18n "contact") "url" ("contact/" | absLangURL))
+  (dict "label" (i18n "authors") "url" ("authors/" | absLangURL))
+  (dict "label" (i18n "categories") "url" ("categories/" | absLangURL))
+  (dict "label" (i18n "footerTags") "url" ("tags/" | absLangURL))
+-}}
+
+{{- $social := slice -}}
+{{- range $network := slice "github" "linkedin" "twitter" "facebook" -}}
+  {{- $profile := index $author.socialNetworks $network -}}
+  {{- if $profile -}}
+    {{- $social = $social | append (dict "label" (i18n $network) "url" $profile "network" $network) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $rss := "" -}}
+{{- with $page.Site.Home.OutputFormats.Get "rss" -}}{{- $rss = .Permalink -}}{{- end -}}
+
+{{- return (dict
+  "nav" $nav
+  "social" $social
+  "rss" $rss
+  "rssLabel" (i18n "footerRss")
+  "source" "https://github.com/jpcercal/jpcercal.com"
+  "sourceLabel" (i18n "githubCorner")
+  "home" $page.Site.Home.Permalink
+  "title" $page.Site.Title
+  "description" (site.Params.description | default $page.Site.Params.description)
+  "year" now.Year
+) -}}

@@ -355,3 +355,55 @@ test("404 page respects the dark theme", async ({ page }) => {
 		"rgb(42, 42, 42)",
 	); // --color-code-bg dark
 });
+
+for (const [lang, prefix, route, labels] of [
+	["pt", "", "/", ["Início", "Buscar", "Contato", "Autores", "Categorias"]],
+	["en", "/en", "/en/", ["Home", "Search", "Contact", "Authors", "Categories"]],
+	[
+		"en post",
+		"/en",
+		"/en/a-brief-history-of-the-internet/",
+		["Home", "Search", "Contact", "Authors", "Categories"],
+	],
+]) {
+	test(`footer links stay in the page language (${lang})`, async ({ page }) => {
+		await page.goto(route);
+		const footer = page.locator("footer.site-footer");
+		await expect(footer).toHaveCount(1);
+		for (const label of labels) {
+			await expect(
+				footer.getByRole("link", { name: label, exact: true }),
+			).toBeVisible();
+		}
+		const hrefs = await footer
+			.locator("a")
+			.evaluateAll((links) => links.map((link) => link.getAttribute("href")));
+		for (const path of ["search/", "contact/", "authors/", "categories/"]) {
+			expect(hrefs.some((href) => href.endsWith(`${prefix}/${path}`))).toBe(
+				true,
+			);
+		}
+		// Every page links the feed of its own language.
+		expect(hrefs.some((href) => href.endsWith(`${prefix}/index.xml`))).toBe(
+			true,
+		);
+	});
+}
+
+test("footer sticks to the bottom of short pages and follows the theme", async ({
+	page,
+}) => {
+	await page.setViewportSize({ width: 1280, height: 800 });
+	await page.goto("/search/");
+	const footer = page.locator("footer.site-footer");
+	const box = await footer.boundingBox();
+	expect(Math.round(box.y + box.height)).toBe(800);
+
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+	const light = await footer.evaluate((el) => getComputedStyle(el).color);
+	await page.locator("[data-theme-toggle]").click();
+	await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+	await expect(footer).toHaveCSS("color", "rgba(255, 255, 255, 0.68)"); // --color-ink-soft dark
+	await expect(footer).toHaveCSS("border-top-color", "rgb(46, 46, 46)"); // --color-border dark
+	expect(light).not.toBe("rgba(255, 255, 255, 0.68)");
+});
