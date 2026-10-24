@@ -1,0 +1,9 @@
+{{/* Language chip for the article byline. The visible label is written in the TARGET language (the reader who needs it cannot comfortably read the current one), so it comes from data/locales.yml rather than i18n. The translated title is appended for assistive tech only, so the visible text stays a prefix of the accessible name (WCAG 2.5.3). Loops over .Translations: a third language needs no template change. */}}
+{{ range .Translations }}
+    {{ $target := index hugo.Data.locales .Lang }}
+    <a class="article-translation" href="{{ .Permalink }}" lang="{{ .Lang }}" hreflang="{{ .Lang }}">
+        <svg viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3 3 3 15 0 18"/><path d="M12 3c-3 3-3 15 0 18"/></svg>
+        <span>{{ $target.readIn }}</span>
+        <span class="sr-only">: {{ .Title }}</span>
+    </a>
+{{ end }}

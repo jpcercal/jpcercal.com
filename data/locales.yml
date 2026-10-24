@@ -2,7 +2,11 @@ en:
   title:
     en: English
     pt: Inglês
+  # Written in the language it names, on purpose: it labels the link to the
+  # translation for readers who may not read the page's own language.
+  readIn: Read in English
 pt:
   title:
     en: Portuguese
     pt: Português
+  readIn: Ler em Português
