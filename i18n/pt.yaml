@@ -54,12 +54,6 @@ tagDescription:
   other: "Confira rapidamente todos os posts com marcador {{ .tag }} que foram publicados em nosso website."
 tagsDescription:
   other: "Confira todos os Marcadores do jpcercal.com. Inteligência Artificial, PHP, Segurança, Linux, Arquitetura, Munique,... em uma linguagem Simples e Descomplicada."
-translations:
-  other: "Ler este conteúdo em"
-en:
-  other: "Inglês"
-pt:
-  other: "Português"
 readingTime:
   one: "1 min de leitura"
   other: "{{ .Count }} min de leitura"

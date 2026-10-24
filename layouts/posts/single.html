@@ -13,7 +13,8 @@
 {{ $.Scratch.Set "singlePost" true }}
 
 {{ partial "head.html" . }}
-{{ partialCached "navbar.html" . .Site.Language.Lang }}
+{{/* Uncached: the language switch links to this article's translation. */}}
+{{ partial "navbar.html" (dict "page" .) }}
 
 <article class="container">
     <header class="row">
@@ -76,8 +77,6 @@
                     </a>
                 </li>
             </ul>
-
-            {{ partial "i18n-list.html" . }}
 
             <div class="font-size-h6 article-content" data-pagefind-body>
                 {{ .Content }}
