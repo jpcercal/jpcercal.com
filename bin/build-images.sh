@@ -14,6 +14,11 @@
 # Required on PATH (C/Rust first): cp, find, oxipng, jpegtran (mozjpeg),
 # oxvg, resvg. Override any binary via the matching UPPERCASE env var.
 #
+# SKIP_IMAGE_OPTIMIZATION=1 (PR previews only) keeps stages 1 and 4 (the
+# output stays correct and complete) but skips the lossless size passes
+# (oxipng, jpegtran, oxvg), which only affect byte size. Never set it for
+# the production artifact.
+#
 set -euo pipefail
 
 JPEGTRAN="${JPEGTRAN:-jpegtran}"
@@ -21,7 +26,13 @@ OXIPNG="${OXIPNG:-oxipng}"
 OXVG="${OXVG:-oxvg}"
 RESVG="${RESVG:-resvg}"
 
-if ! "$JPEGTRAN" -version 2>&1 | grep -qi "mozjpeg"; then
+OPTIMIZE=1
+if [ "${SKIP_IMAGE_OPTIMIZATION:-0}" = "1" ]; then
+	OPTIMIZE=0
+	echo "images: SKIP_IMAGE_OPTIMIZATION=1, lossless size passes disabled (preview only)"
+fi
+
+if [ "$OPTIMIZE" = 1 ] && ! "$JPEGTRAN" -version 2>&1 | grep -qi "mozjpeg"; then
 	echo "images: FATAL: $JPEGTRAN is not mozjpeg (need -optimize/-progressive support)" >&2
 	exit 1
 fi
@@ -58,16 +69,18 @@ for md in content/posts/*/index.md content/posts/*/index.en.md; do
 done
 echo "images: copied $copied post assets"
 
-echo "images: optimizing raster (oxipng -o max, mozjpeg jpegtran)"
-find public/images public/authors -name "*.png" -exec "$OXIPNG" -o max --strip safe {} + >/dev/null
-find public/images public/authors \( -iname "*.jpg" -o -iname "*.jpeg" \) -print0 |
-	while IFS= read -r -d "" jpg; do
-		"$JPEGTRAN" -copy none -optimize -progressive -outfile "$jpg.opt" "$jpg"
-		mv "$jpg.opt" "$jpg"
-	done
+if [ "$OPTIMIZE" = 1 ]; then
+	echo "images: optimizing raster (oxipng -o max, mozjpeg jpegtran)"
+	find public/images public/authors -name "*.png" -exec "$OXIPNG" -o max --strip safe {} + >/dev/null
+	find public/images public/authors \( -iname "*.jpg" -o -iname "*.jpeg" \) -print0 |
+		while IFS= read -r -d "" jpg; do
+			"$JPEGTRAN" -copy none -optimize -progressive -outfile "$jpg.opt" "$jpg"
+			mv "$jpg.opt" "$jpg"
+		done
 
-echo "images: minifying svg (oxvg)"
-find public -name "*.svg" -exec "$OXVG" optimise {} -o {} \;
+	echo "images: minifying svg (oxvg)"
+	find public -name "*.svg" -exec "$OXVG" optimise {} -o {} \;
+fi
 
 echo "images: rendering post covers (resvg 512px)"
 rendered=0
@@ -86,6 +99,8 @@ for md in content/posts/*/index.md content/posts/*/index.en.md; do
 done
 echo "images: rendered $rendered cover PNGs"
 
-echo "images: optimizing rendered cover PNGs (oxipng)"
-find public -maxdepth 3 -name "index*.png" -exec "$OXIPNG" -o max --strip safe {} + >/dev/null
+if [ "$OPTIMIZE" = 1 ]; then
+	echo "images: optimizing rendered cover PNGs (oxipng)"
+	find public -maxdepth 3 -name "index*.png" -exec "$OXIPNG" -o max --strip safe {} + >/dev/null
+fi
 echo "images: done."

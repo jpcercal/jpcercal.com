@@ -1,0 +1,430 @@
+name: PR preview
+
+# Fast per-PR preview at https://staging.jpcercal.com/pr-<number>/.
+#
+# ci.yml (lint, validators, link check, Lighthouse, deploy) runs only on
+# merges to main, so the `Build` job below is the PR's required status check.
+# Production secrets are never referenced: the only credential is the
+# job-scoped GITHUB_TOKEN.
+#
+# Trigger notes
+# * `pull_request` (not `pull_request_target`): fork and Dependabot runs get a
+#   read-only token, so every job is skipped for them instead of failing.
+# * Path filters are NOT used on `on:`; the `classify` job below decides, so
+#   the workflow itself always runs and shows up on every PR.
+# * Dependency-bot PRs created with GITHUB_TOKEN do not fire `pull_request`;
+#   ci.yml keeps its workflow_dispatch preview (and its own `Build` check)
+#   for exactly that case.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches: [main]
+
+# Closing a PR cancels an in-flight build for it; a new push supersedes the
+# previous run, so stale content is never published over fresh content.
+concurrency:
+  group: pr-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions: {}
+
+defaults:
+  run:
+    # BASH_ENV loads the flake-generated configuration in non-login CI steps.
+    shell: bash
+
+env:
+  STAGING_HOST: https://staging.jpcercal.com
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Classify: no checkout of site sources, no container, a few seconds.
+  # ---------------------------------------------------------------------------
+  classify:
+    name: Classify changes
+    if: >-
+      github.event.action != 'closed'
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      mode: ${{ steps.classify.outputs.mode }}
+      toolchain: ${{ steps.classify.outputs.toolchain }}
+    steps:
+      # Only the classifier is needed, so skip the rest of the tree.
+      - name: Checkout classifier
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
+      - name: Classify changed files
+        id: classify
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          CHANGED_FILES_COUNT: ${{ github.event.pull_request.changed_files }}
+        run: |
+          # Renames contribute their old path too (a moved infra file is infra).
+          gh api --paginate "repos/$REPOSITORY/pulls/$PR_NUMBER/files" \
+            --jq '.[] | .filename, (.previous_filename // empty)' \
+            | python3 .github/scripts/classify-pr.py | tee -a "$GITHUB_STEP_SUMMARY"
+
+  # ---------------------------------------------------------------------------
+  # Full path only, and only when the CI image inputs changed
+  # (Dockerfile, flake.*, package*.json, nix/**, bin/nix-node-modules.sh).
+  # ---------------------------------------------------------------------------
+  image:
+    name: CI image (toolchain changed)
+    needs: classify
+    if: >-
+      github.event.action != 'closed'
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.actor != 'dependabot[bot]'
+      && needs.classify.outputs.toolchain == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      digest: ${{ steps.image.outputs.digest }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      # Same layer cache as ci.yml. PR images get a PR-scoped tag only; the
+      # mutable :latest tag is written by main pushes and is what the fast
+      # path consumes, so a PR can never poison it.
+      - name: Build and push PR CI image
+        id: image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: ghcr.io/jpcercal/jpcercal.com-ci:pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ---------------------------------------------------------------------------
+  # FAST PATH: content/rendering/docs only. No Docker build, no checks.
+  # The prebuilt main image is pulled (zero-install: Hugo, Node modules,
+  # Pagefind and the native tools are baked in), so there is nothing to
+  # install or cache per run. Builds with PR code but a read-only token and no
+  # persisted credentials; publishing happens in a separate job.
+  # ---------------------------------------------------------------------------
+  build-fast:
+    name: Build preview (fast path)
+    needs: classify
+    if: >-
+      github.event.action != 'closed'
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.actor != 'dependabot[bot]'
+      && needs.classify.outputs.mode == 'fast'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      packages: read
+    container:
+      image: ghcr.io/jpcercal/jpcercal.com-ci:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ github.token }}
+    env:
+      # Trailing slash is required: Hugo then emits /pr-<n>/ root-relative
+      # links and prefixed absolute URLs.
+      PR_BASE_URL: https://staging.jpcercal.com/pr-${{ github.event.pull_request.number }}/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Link baked dependencies (zero-install)
+        run: ln -s /opt/ci/node_modules node_modules
+
+      - name: Build preview site
+        # Hugo Pipes (Dart Sass, Tailwind) finds its binaries via
+        # node_modules/.bin. design-system/ lives outside content/ so prod
+        # never ships it; staging copies it in and builds drafts.
+        # SKIP_IMAGE_OPTIMIZATION keeps asset copying and cover rendering and
+        # drops only the lossless size passes.
+        run: |
+          export PATH="$PWD/node_modules/.bin:$PATH"
+          cp -r design-system content/design-system
+          hugo --buildDrafts --minify --baseURL "$PR_BASE_URL"
+          SKIP_IMAGE_OPTIMIZATION=1 bin/build-images.sh
+          npm run search:index
+          # The prod CNAME (jpcercal.com) must never ship to staging.
+          rm -f public/CNAME
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: preview-site
+          path: public
+          retention-days: 1
+          if-no-files-found: error
+
+  # ---------------------------------------------------------------------------
+  # FULL PATH: infra/config/pipeline/unknown paths changed. Uses the PR's own
+  # image when the toolchain changed, otherwise the main image, and produces
+  # the fully optimized site. Still skips every production-only task:
+  # production build, deploy, Cloudflare verification, Lighthouse, link check.
+  # ---------------------------------------------------------------------------
+  build-full:
+    name: Build preview (full path)
+    needs: [classify, image]
+    if: >-
+      !cancelled()
+      && github.event.action != 'closed'
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.actor != 'dependabot[bot]'
+      && needs.classify.result == 'success'
+      && needs.classify.outputs.mode == 'full'
+      && (needs.image.result == 'success' || needs.image.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      packages: read
+    container:
+      image: ${{ needs.image.outputs.digest && format('ghcr.io/jpcercal/jpcercal.com-ci@{0}', needs.image.outputs.digest) || 'ghcr.io/jpcercal/jpcercal.com-ci:latest' }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ github.token }}
+    env:
+      PR_BASE_URL: https://staging.jpcercal.com/pr-${{ github.event.pull_request.number }}/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Link baked dependencies (zero-install)
+        run: |
+          ln -s /opt/ci/node_modules node_modules
+          node --version
+          hugo version
+
+      - name: Build preview site (fully optimized)
+        run: |
+          export PATH="$PWD/node_modules/.bin:$PATH"
+          cp -r design-system content/design-system
+          hugo --buildDrafts --minify --baseURL "$PR_BASE_URL"
+          bin/build-images.sh
+          npm run search:index
+          rm -f public/CNAME
+
+      - name: Staging presence check (non-blocking)
+        continue-on-error: true
+        run: |
+          test -f public/index.html
+          test -f public/design-system/index.html
+          test ! -f public/CNAME
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: preview-site
+          path: public
+          retention-days: 1
+          if-no-files-found: error
+
+  # ---------------------------------------------------------------------------
+  # Required status check. Branch protection on main requires a check named
+  # `Build`; ci.yml no longer runs on PRs, so it is reported from here. It is
+  # green only when the preview build succeeded. Fork and Dependabot PRs get no
+  # build (read-only token), so it passes with a warning for them.
+  # ---------------------------------------------------------------------------
+  gate:
+    name: Build
+    needs: [classify, image, build-fast, build-full]
+    if: "!cancelled() && github.event.action != 'closed'"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Require a successful preview build
+        env:
+          CLASSIFY: ${{ needs.classify.result }}
+          IMAGE: ${{ needs.image.result }}
+          FAST: ${{ needs.build-fast.result }}
+          FULL: ${{ needs.build-full.result }}
+        run: |
+          echo "classify=$CLASSIFY image=$IMAGE fast=$FAST full=$FULL"
+          if [ "$CLASSIFY" = skipped ]; then
+            echo "::warning::No preview build for fork/Dependabot PRs; this check is not a build result."
+          elif [ "$FAST" = success ] || [ "$FULL" = success ]; then
+            echo "Preview build succeeded."
+          else
+            echo "::error::Preview build did not succeed."
+            exit 1
+          fi
+
+  # ---------------------------------------------------------------------------
+  # Publish: the only job with a write token. It never builds or runs PR
+  # dependencies; it validates and pushes the artifact to pr-<n>/ only.
+  # ---------------------------------------------------------------------------
+  publish:
+    name: Publish preview (gh-pages)
+    needs: [build-fast, build-full]
+    if: >-
+      !cancelled()
+      && github.event.action != 'closed'
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.actor != 'dependabot[bot]'
+      && (needs.build-fast.result == 'success' || needs.build-full.result == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout publish script
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: .github/scripts
+          path: src
+          persist-credentials: false
+
+      # Sparse + partial clone: gh-pages holds ~1.4 GB of other previews, only
+      # pr-<n>/ and the small root files are materialized.
+      - name: Checkout gh-pages (sparse)
+        uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+          path: pages
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: pr-${{ github.event.pull_request.number }}
+          sparse-checkout-cone-mode: true
+
+      - name: Download preview artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: preview-site
+          path: site
+
+      - name: Publish pr-${{ github.event.pull_request.number }}/
+        working-directory: pages
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: bash ../src/.github/scripts/preview-pages.sh publish "$PR_NUMBER" ../site "$HEAD_SHA"
+
+  # ---------------------------------------------------------------------------
+  # One sticky comment per PR, updated in place on every push.
+  # ---------------------------------------------------------------------------
+  comment:
+    name: Comment preview URL
+    needs: publish
+    if: >-
+      !cancelled()
+      && needs.publish.result == 'success'
+      && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Create or update the preview comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          marker='<!-- pr-preview-comment -->'
+          url="$STAGING_HOST/pr-$PR_NUMBER/"
+          # shellcheck disable=SC2016  # literal backticks in the message
+          body=$(printf '%s\n**Preview:** %s\n\nCommit `%s`. GitHub Pages can take a minute to refresh after a push.\nThe preview is removed when this PR is closed.\n' \
+            "$marker" "$url" "${HEAD_SHA:0:7}")
+          existing=$(gh api --paginate "repos/$REPOSITORY/issues/$PR_NUMBER/comments" \
+            --jq ".[] | select(.user.login == \"github-actions[bot]\" and (.body | startswith(\"$marker\"))) | .id" | sed -n 1p)
+          if [ -n "$existing" ]; then
+            gh api --method PATCH "repos/$REPOSITORY/issues/comments/$existing" -f body="$body" >/dev/null
+          else
+            gh api --method POST "repos/$REPOSITORY/issues/$PR_NUMBER/comments" -f body="$body" >/dev/null
+          fi
+
+      # Informational only: Pages deploys asynchronously after the push.
+      - name: Wait for the preview to go live (non-blocking)
+        continue-on-error: true
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          url="$STAGING_HOST/pr-$PR_NUMBER/"
+          for _ in $(seq 1 24); do
+            if curl --silent --fail --output /dev/null --max-time 10 "$url"; then
+              echo "Preview is live: $url" | tee -a "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Preview not reachable yet: $url" | tee -a "$GITHUB_STEP_SUMMARY"
+          exit 1
+
+  # ---------------------------------------------------------------------------
+  # Cleanup when the PR is merged or abandoned. Runs the script from the base
+  # branch, never from PR code, and touches only pr-<n>/.
+  # ---------------------------------------------------------------------------
+  cleanup:
+    name: Remove preview (PR closed)
+    if: >-
+      github.event.action == 'closed'
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout cleanup script from the base branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 1
+          sparse-checkout: .github/scripts
+          path: src
+          persist-credentials: false
+
+      - name: Checkout gh-pages (sparse)
+        uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+          path: pages
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: pr-${{ github.event.pull_request.number }}
+          sparse-checkout-cone-mode: true
+
+      - name: Remove pr-${{ github.event.pull_request.number }}/
+        working-directory: pages
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: bash ../src/.github/scripts/preview-pages.sh remove "$PR_NUMBER"
