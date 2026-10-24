@@ -32,6 +32,12 @@ $light-tokens: (
   "code-bg": #f8f9fa,
   "code-fg": #bd4147,
   "credit": #ddd,
+  // Link palette: GitHub Primer fg.accent (light) / dark accent.
+  "link": #0969da,
+  "link-hover": #0550ae,
+  "link-line": rgba(9, 105, 218, 0.4),
+  "link-bg": rgba(9, 105, 218, 0.1),
+  "link-bg-hover": rgba(9, 105, 218, 0.18),
 );
 
 @mixin light-tokens {
@@ -61,6 +67,11 @@ $dark-tokens: (
   "code-bg": #2a2a2a,
   "code-fg": #e8a0a7,
   "credit": rgba(255, 255, 255, 0.4),
+  "link": #4493f8,
+  "link-hover": #79c0ff,
+  "link-line": rgba(68, 147, 248, 0.5),
+  "link-bg": rgba(68, 147, 248, 0.15),
+  "link-bg-hover": rgba(68, 147, 248, 0.28),
 );
 
 @mixin dark-tokens {
