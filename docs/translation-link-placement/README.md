@@ -81,7 +81,7 @@ A full-width strip below the navbar (`<nav aria-label="Translations">`, subtle
   is the same article, scales to several languages.
 - Cons: adds a persistent full-width strip to every translated article (76 of 76), a
   second horizontal line next to the header border, moves content down ~38px
-  (the current box moves it ~110px+ at 500px), truncated title at 500px; lead-in is in the
+ , truncated title at 500px; lead-in is in the
   *current* language unless it is also localised per target.
 - Effort: small. Risk: low.
 
