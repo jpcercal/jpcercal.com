@@ -6,7 +6,7 @@ title: Smartphones irão sofrer redução de preço no Brasil
 date: 2013-04-09T19:00:37+00:00
 description: Sites responsivos iram ganhar impulso com decreto assinado por Dilma Rousseff, onde zera a alíquota do PIS e COFINS dos smartphones produzidos no Brasil.
 categories:
-  - other
+  - news
 tags: 
   - news
 ---

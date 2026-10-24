@@ -6,7 +6,7 @@ title: O que é Blogosfera?
 date: 2012-12-10T16:31:59+00:00
 description: Talvez você já tenha ouvido falar no termo "Blogosfera", mas seu real significado ainda pode não estar claro para você. Descubra o que significa este termo.
 categories:
-  - other
+  - marketing
 tags: []
 ---
 

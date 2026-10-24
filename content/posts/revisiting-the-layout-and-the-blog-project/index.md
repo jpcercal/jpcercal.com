@@ -8,7 +8,7 @@ description: Um projeto/prova de conceito que se mostrou interessante, trata-se 
 aliases:
   - /revisiting-the-layout-and-the-blog-project
 categories:
-  - other
+  - html
 tags: 
   - news
   - cms

@@ -2,3 +2,8 @@
 # renders no HTML of its own, so redirect visitors to the real index.
 /posts/ / 301
 /en/posts/ /en/ 301
+
+# The catch-all "other" category was retired (posts were reassigned to
+# topical categories), so send old links to the category index.
+/categories/other/ /categories/ 301
+/en/categories/other/ /en/categories/ 301

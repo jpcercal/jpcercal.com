@@ -6,7 +6,7 @@ title: The viral Harlem Shake
 date: 2013-04-05T17:21:56+00:00
 description: The Harlem Shake epidemic has already reached 1 billion views in just forty days, half the time of Gangam Style
 categories:
-  - other
+  - news
 tags: 
   - news
 ---

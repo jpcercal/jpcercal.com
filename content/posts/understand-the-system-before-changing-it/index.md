@@ -6,7 +6,7 @@ title: Entenda o Sistema Antes de Mudá-lo
 date: 2026-09-10T00:00:00+00:00
 description: Uma boa arquitetura muitas vezes começa por entender o sistema que você já tem; como as requisições fluem, onde estão as dependências e por que as coisas chegaram a esse ponto.
 categories:
-  - other
+  - engineering
 tags:
   - architecture
   - engineering

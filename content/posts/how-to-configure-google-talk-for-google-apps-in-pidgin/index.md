@@ -6,7 +6,7 @@ title: Como configurar o Google Talk para o Google Apps no Pidgin
 date: 2013-10-24T12:10:43+00:00
 description: Aprenda a realizar a configuração de uma conta do GoogleApps para utiliza-la com o GoogleTalk no cliente de mensagens instantâneas multi plataforma Pidgin.
 categories:
-  - other
+  - tools
 tags: 
   - tutorial
 ---

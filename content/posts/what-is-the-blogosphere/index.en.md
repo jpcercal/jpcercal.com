@@ -6,7 +6,7 @@ title: What is the Blogosphere?
 date: 2012-12-10T16:31:59+00:00
 description: You may have heard the term "Blogosphere", but its real meaning might still be unclear to you. Find out what this term means.
 categories:
-  - other
+  - marketing
 tags: []
 ---
 

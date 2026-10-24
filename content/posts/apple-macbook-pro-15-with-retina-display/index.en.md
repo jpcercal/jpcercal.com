@@ -6,7 +6,7 @@ title: Apple Macbook Pro 15" with Retina Display
 date: 2013-02-20T10:08:18+00:00
 description: Check out our impressions of the new 15-inch Apple Macbook Pro with Retina display. A laptop with a beautiful design and great performance.
 categories:
-  - other
+  - news
 tags: 
   - apple
   - osx

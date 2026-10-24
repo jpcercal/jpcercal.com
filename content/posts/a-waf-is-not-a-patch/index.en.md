@@ -6,7 +6,7 @@ title: "A WAF Is Not a Patch"
 date: 2026-10-22T00:00:00+00:00
 description: A web application firewall buys you time and visibility, but it does not remove the vulnerability. What a WAF and virtual patching can and cannot do, and what engineering teams still owe.
 categories:
-  - other
+  - security
 tags:
   - security
   - architecture

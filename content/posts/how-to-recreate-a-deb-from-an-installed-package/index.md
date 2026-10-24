@@ -6,7 +6,7 @@ title: Como recriar .deb a partir de pacote instalado
 date: 2011-10-14T22:02:03+00:00
 description: O dpkg-repack gera um arquivo .deb a partir do pacote que você tem instalado, com todas as configurações correntes. Crie um arquivo .deb de seus programas.
 categories:
-  - other
+  - devops
 tags: 
   - linux
 ---

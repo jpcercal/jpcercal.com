@@ -6,7 +6,7 @@ title: Shortage of IT professionals in Brazil
 date: 2013-04-01T14:39:17+00:00
 description: Information technology is constantly growing, and because of this it is causing a major problem, the lack of qualified professionals.
 categories:
-  - other
+  - news
 tags: 
   - news
 ---

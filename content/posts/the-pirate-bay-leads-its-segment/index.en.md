@@ -6,7 +6,7 @@ title: The Pirate Bay leads its segment
 date: 2013-04-03T14:59:35+00:00
 description: Changes following anti-piracy measures take The Pirate Bay to first place in the file-sharing site rankings.
 categories:
-  - other
+  - news
 tags: 
   - news
 ---

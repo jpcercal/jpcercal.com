@@ -6,7 +6,7 @@ title: Search Engine Optimization (SEO)
 date: 2012-12-09T01:06:46+00:00
 description: SEO is the set of techniques aimed at enhancing and improving a site's position in organic search results on sites such as Google.
 categories:
-  - other
+  - marketing
 tags: 
   - seo
 ---

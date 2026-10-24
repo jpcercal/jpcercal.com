@@ -6,7 +6,7 @@ title: "Working With AI Agents: Stay on the Loop"
 date: 2026-09-13T00:00:00+00:00
 description: Instead of reviewing every line an AI agent produces, design the environment — specs, tests, checks, and feedback loops — so good outcomes emerge reliably.
 categories:
-  - other
+  - ai
 tags:
   - architecture
   - engineering

@@ -6,7 +6,7 @@ title: "PHP2Shell: Two Critical PHP Vulnerabilities and What to Do Now"
 date: 2026-10-21T00:00:00+00:00
 description: Two critical flaws in the PHP runtime, CVE-2026-109618 and CVE-2026-109619, can allow unauthenticated remote code execution. Here is what the advisories and public reports say, how a WAF and layered controls help, and how to patch PHP and your Docker images.
 categories:
-  - news
+  - security
 tags:
   - php
   - security

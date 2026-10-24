@@ -6,7 +6,7 @@ title: Composer clear cache
 date: 2019-03-31T20:53:12+00:00
 description: If you have a problem similar to “End-of-central-directory signature not found.”, you might need to run a composer clear cache command in order to get it working.
 categories:
-  - other
+  - php
 tags: 
   - tutorial
   - howto

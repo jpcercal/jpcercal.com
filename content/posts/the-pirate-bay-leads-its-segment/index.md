@@ -6,7 +6,7 @@ title: The Pirate Bay é líder em seu segmento
 date: 2013-04-03T14:59:35+00:00
 description: Mudanças após a antipirataria levam The Pirate Bay a primeiro lugar no ranking de sites de compartilhamento de arquivos.
 categories:
-  - other
+  - news
 tags: 
   - news
 ---

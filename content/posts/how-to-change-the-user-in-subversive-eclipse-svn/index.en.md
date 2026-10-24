@@ -6,7 +6,7 @@ title: How to change the user in Subversive (Eclipse SVN)
 date: 2013-06-11T17:01:31+00:00
 description: Lost or changed your username and/or password on the SVN Server and can't change it in Subversive? Then read this guide and learn to solve the problem.
 categories:
-  - other
+  - tools
 tags: 
   - svn
   - ide

@@ -6,7 +6,7 @@ title: Do you know what Coworking is?
 date: 2013-04-04T12:53:31+00:00
 description: Coworking, a way of sharing office space, offers professionals a new work format.
 categories:
-  - other
+  - news
 tags: []
 ---
 

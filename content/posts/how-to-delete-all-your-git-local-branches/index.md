@@ -6,7 +6,7 @@ title: Como remover todas as branches locais do Git
 date: 2019-03-12T11:31:29+00:00
 description: As vezes quando você trabalha por um certo tempo todas as branches locais ficam apenas ocupando espaço e te distraindo. Você pode conferir aqui um pequeno snippet para remover todas as branches locais do seu repositório Git.
 categories:
-  - other
+  - tools
 tags: 
   - git
   - tutorial

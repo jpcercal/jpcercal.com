@@ -6,7 +6,7 @@ title: O que uma Sessão com IA Pode Ensinar à Próxima
 date: 2026-09-14T00:00:00+00:00
 description: O trabalho assistido por IA se torna mais útil quando as equipes transformam descobertas, correções e falhas recorrentes em um contexto compartilhado, verificações e fluxos de trabalho melhores.
 categories:
-  - other
+  - ai
 tags:
   - architecture
   - engineering

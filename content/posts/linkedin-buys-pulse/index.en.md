@@ -6,7 +6,7 @@ title: LinkedIn buys Pulse
 date: 2013-04-25T11:48:28+00:00
 description: LinkedIn believes in expanding its services with the new acquisition of Pulse.
 categories:
-  - other
+  - news
 tags: 
   - news
 ---

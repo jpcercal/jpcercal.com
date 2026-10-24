@@ -6,7 +6,7 @@ title: Como era programar em 1985
 date: 2013-05-02T14:08:54+00:00
 description: Os códigos de programação em 1985 eram feitos em folha de papel é o que nos mostra Jonh Graham-Cumming programador da época.
 categories:
-  - other
+  - engineering
 tags: []
 ---
 

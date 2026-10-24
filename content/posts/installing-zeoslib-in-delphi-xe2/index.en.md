@@ -6,7 +6,7 @@ title: Installing ZeosLib in Delphi XE2
 date: 2012-02-15T18:05:05+00:00
 description: Learn how to install the ZeosLib library in Embarcadero RAD Studio Delphi XE2, this guide will walk you through installation step by step.
 categories:
-  - other
+  - engineering
 tags: 
   - delphi
   - svn

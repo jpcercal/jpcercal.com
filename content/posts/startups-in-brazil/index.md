@@ -6,7 +6,7 @@ title: Startups no Brasil
 date: 2013-04-22T15:11:03+00:00
 description: O governo brasileiro lançou um projeto para apoiar o desenvolvimento da tecnologia no país, Startup Brasil.
 categories:
-  - other
+  - news
 tags: 
   - news
 ---

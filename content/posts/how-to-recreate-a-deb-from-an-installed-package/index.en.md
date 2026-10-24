@@ -6,7 +6,7 @@ title: How to recreate a .deb from an installed package
 date: 2011-10-14T22:02:03+00:00
 description: dpkg-repack generates a .deb file from the package you have installed, with all its current settings. Create a .deb file of your programs.
 categories:
-  - other
+  - devops
 tags: 
   - linux
 ---

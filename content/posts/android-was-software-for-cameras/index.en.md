@@ -6,7 +6,7 @@ title: Android was software for cameras
 date: 2013-04-17T14:55:08+00:00
 description: The Android Operating System was initially created to be used in digital cameras.
 categories:
-  - other
+  - news
 tags: 
   - android
 ---

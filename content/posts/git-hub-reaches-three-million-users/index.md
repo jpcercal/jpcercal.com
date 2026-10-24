@@ -6,7 +6,7 @@ title: Git Hub atinge 3 milhões de usuários
 date: 2013-01-17T13:40:33+00:00
 description: O serviço de hospedagem web Git Hub, anunciou que ultrapassou a marca de três milhões de usuários. Confira esta notícia e conheça o GitHub.
 categories:
-  - other
+  - news
 tags: 
   - news
 ---

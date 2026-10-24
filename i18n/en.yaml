@@ -47,7 +47,7 @@ categories:
 categoryDescription:
   other: "You can quickly browse all posts from category {{ .category }} that were published in our site."
 categoriesDescription:
-  other: "Would you like to check the topics that we're talking about? PHP, Javascript, HTML, Devops, Lifestyle,... written in a simple and uncomplicated way."
+  other: "Would you like to check the topics that we're talking about? Artificial Intelligence, Software Engineering, Security, PHP, Linux and DevOps,... written in a simple and uncomplicated way."
 tags:
   other: "Would you like to check the tags that we're talking about? AWS, Apple, Microsoft, Database, News, Munich,... written in a simple and uncomplicated way."
 tagDescription:

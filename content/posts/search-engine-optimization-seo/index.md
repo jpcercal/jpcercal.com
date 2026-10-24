@@ -6,7 +6,7 @@ title: Otimização dos Mecanismos de Busca (SEO)
 date: 2012-12-09T01:06:46+00:00
 description: SEO é o conjunto de técnicas que visam potencializar e melhorar o posicionamento de um site nos sites de resultados da busca orgânica, como o Google.
 categories:
-  - other
+  - marketing
 tags: 
   - seo
 ---

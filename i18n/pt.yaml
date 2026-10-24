@@ -47,7 +47,7 @@ categories:
 categoryDescription:
   other: "Confira rapidamente todos os posts da categoria {{ .category }} que foram publicados em nosso website."
 categoriesDescription:
-  other: "Confira todas as Categorias do jpcercal.com. PHP, Javascript, HTML, Devops, Estilo de vida,... em uma linguagem Simples e Descomplicada."
+  other: "Confira todas as Categorias do jpcercal.com. Inteligência Artificial, Engenharia de Software, Segurança, PHP, Linux e DevOps,... em uma linguagem Simples e Descomplicada."
 tags:
   other: "Marcadores"
 tagDescription:

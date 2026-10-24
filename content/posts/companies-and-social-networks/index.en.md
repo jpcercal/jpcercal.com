@@ -6,7 +6,7 @@ title: Companies and Social Networks
 date: 2013-04-23T16:51:56+00:00
 description: The impact social networks had on Brazilian companies in relation to consumer scrutiny.
 categories:
-  - other
+  - marketing
 tags: 
   - news
 ---

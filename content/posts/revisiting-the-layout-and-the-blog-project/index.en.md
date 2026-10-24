@@ -6,7 +6,7 @@ title: Revisiting the layout and the Blog project
 date: 2019-03-12T21:33:54+00:00
 description: A project/proof of concept that has been shown good results, it’s about a migration from a PHP website to a static blog, no server costs anymore and web-optimized. Check out a few implementation details.
 categories:
-  - other
+  - html
 tags: 
   - news
   - cms

@@ -6,7 +6,7 @@ title: How to Create a Bidirectional File Sync using Unison
 date: 2020-07-13T06:35:28+00:00
 description: Unison can be used as a two-way file sync tool for OSX (macOS), Unix and Windows. Check it out how we synchronized our iCloud folder with a git repository.
 categories:
-  - other
+  - tools
 tags: 
   - howto
   - tutorial
