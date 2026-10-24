@@ -584,3 +584,24 @@ test("404 page respects the dark theme", async ({ page }) => {
 		"rgb(42, 42, 42)",
 	); // --color-code-bg dark
 });
+
+// body sets `line-height: 1.2em`, which computes to a fixed 19.2px and is
+// inherited as that length. A heading larger than 16px that wraps onto a
+// second line then overlaps itself, which showed up at ~500px widths.
+test("wrapped post title keeps a line-height larger than its font size", async ({
+	page,
+}) => {
+	await page.setViewportSize({ width: 500, height: 900 });
+	await page.goto("/en/php2shell-two-critical-php-vulnerabilities/");
+	const metrics = await page.locator("article h1").evaluate((h1) => {
+		const style = getComputedStyle(h1);
+		return {
+			fontSize: Number.parseFloat(style.fontSize),
+			lineHeight: Number.parseFloat(style.lineHeight),
+			height: h1.getBoundingClientRect().height,
+		};
+	});
+	// The title must really wrap here, otherwise this guards nothing.
+	expect(metrics.height).toBeGreaterThan(metrics.lineHeight * 1.5);
+	expect(metrics.lineHeight).toBeGreaterThanOrEqual(metrics.fontSize);
+});
