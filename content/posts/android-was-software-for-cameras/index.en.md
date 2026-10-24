@@ -7,8 +7,10 @@ date: 2013-04-17T14:55:08+00:00
 description: The Android Operating System was initially created to be used in digital cameras.
 categories:
   - news
-tags: 
+tags:
   - android
+  - mobile
+  - history
 ---
 
 That's right, Android began with a focus on cameras, according to Andy Rubin, creator of the original

@@ -6,11 +6,10 @@ title: Como alterar o usuário no Subversive (Eclipse SVN)
 date: 2013-06-11T17:01:31+00:00
 description: Perdeu ou alterou o seu usuário e/ou senha no Servidor SVN e não consegue altera-lo no Subversive? Então, leia este guia e aprenda a solucionar o problema.
 categories:
-  - tools
-tags: 
+  - engineering
+tags:
   - svn
   - ide
-  - eclipse
 ---
 
 Hoje iremos aprender como trocar o usuário que fica logado no plugin da IDE _Eclipse_, o _Subversive_. Pois bem, este 

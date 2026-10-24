@@ -6,8 +6,9 @@ title: Você sabe o que é Coworking?
 date: 2013-04-04T12:53:31+00:00
 description: Coworking modalidade de compartilhamento de escritório, oferece aos profissionais um novo formato de trabalho.
 categories:
-  - news
-tags: []
+  - business
+tags:
+  - workplace
 ---
 
 Coworking significa dividir o espaço de trabalho com outros profissionais. Este movimento surgiu no ano de 2005, com um 

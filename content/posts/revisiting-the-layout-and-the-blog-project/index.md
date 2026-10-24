@@ -8,15 +8,13 @@ description: Um projeto/prova de conceito que se mostrou interessante, trata-se 
 aliases:
   - /revisiting-the-layout-and-the-blog-project
 categories:
+  - engineering
+tags:
+  - blogging
   - html
-tags: 
-  - news
-  - cms
   - seo
-  - framework
-  - wordpress
-  - howto
   - git
+  - wordpress
 ---
 
 Olá caros leitores, tinha vontade de revisitar o layout do *blog* há muito tempo, no entanto, dar atenção para a família e escrever não são coisas que podem ser feitas ao mesmo tempo, pois, ambas requerem atenção. 
@@ -132,8 +130,8 @@ title: My Title
 date: 2019-03-20T10:08:56+00:00
 description: My description
 categories:
-  - other
-tags: 
+  - engineering
+tags:
   - apple
   - osx
 ---

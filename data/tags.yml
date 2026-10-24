@@ -1,23 +1,51 @@
+ai:
+  title:
+    en: Artificial Intelligence
+    pt: "Inteligência Artificial"
 android:
   title:
     en: Android
     pt: Android
-architecture:
+apache:
   title:
-    en: Architecture
-    pt: Arquitetura
+    en: Apache
+    pt: Apache
 apple:
   title:
     en: Apple
     pt: Apple
+architecture:
+  title:
+    en: Architecture
+    pt: Arquitetura
 aws:
   title:
     en: AWS
     pt: AWS
+blogging:
+  title:
+    en: Blogging
+    pt: Blogs
+brazil:
+  title:
+    en: Brazil
+    pt: Brasil
+browsers:
+  title:
+    en: "Web browsers"
+    pt: Navegadores
+c-cpp:
+  title:
+    en: "C/C++"
+    pt: "C/C++"
 cakephp:
   title:
     en: CakePHP
     pt: CakePHP
+career:
+  title:
+    en: Career
+    pt: Carreira
 cms:
   title:
     en: CMS
@@ -26,6 +54,10 @@ conference:
   title:
     en: Conference
     pt: Conferência
+conventions:
+  title:
+    en: "Coding conventions"
+    pt: "Convenções de código"
 database:
   title:
     en: Database
@@ -34,34 +66,14 @@ delphi:
   title:
     en: Delphi
     pt: Delphi
-dream:
-  title:
-    en: Dream
-    pt: Sonho
 devops:
   title:
     en: DevOps
     pt: DevOps
-ec2:
-  title:
-    en: EC2
-    pt: EC2
-eclipse:
-  title:
-    en: Eclipse
-    pt: Eclipse
 ecommerce:
   title:
     en: E-commerce
     pt: "Loja virtual"
-engineering:
-  title:
-    en: Engineering
-    pt: Engenharia
-english:
-  title:
-    en: English
-    pt: Inglês
 framework:
   title:
     en: Framework
@@ -74,10 +86,18 @@ git:
   title:
     en: Git
     pt: Git
-howto:
+hardware:
   title:
-    en: "How to do that"
-    pt: "Como fazer"
+    en: Hardware
+    pt: Hardware
+history:
+  title:
+    en: History
+    pt: "História"
+html:
+  title:
+    en: HTML
+    pt: HTML
 ide:
   title:
     en: IDE
@@ -86,6 +106,10 @@ internet:
   title:
     en: Internet
     pt: Internet
+javascript:
+  title:
+    en: JavaScript
+    pt: JavaScript
 joomla:
   title:
     en: Joomla
@@ -94,14 +118,14 @@ jquery:
   title:
     en: jQuery
     pt: jQuery
-linux:
-  title:
-    en: Linux
-    pt: Linux
 lessons-learned:
   title:
     en: "Lessons learned"
     pt: "Lições aprendidas"
+linux:
+  title:
+    en: Linux
+    pt: Linux
 living_abroad:
   title:
     en: "Living abroad"
@@ -114,6 +138,10 @@ microsoft:
   title:
     en: Microsoft
     pt: Microsoft
+mobile:
+  title:
+    en: Mobile
+    pt: "Dispositivos móveis"
 munich:
   title:
     en: Munich
@@ -122,22 +150,18 @@ mysql:
   title:
     en: MySQL
     pt: MySQL
-news:
-  title:
-    en: News
-    pt: News
 osx:
   title:
-    en: OSX
-    pt: OSX
+    en: macOS
+    pt: macOS
 php:
   title:
     en: PHP
     pt: PHP
-rds:
+productivity:
   title:
-    en: RDS
-    pt: RDS
+    en: Productivity
+    pt: Produtividade
 security:
   title:
     en: Security
@@ -146,14 +170,22 @@ seo:
   title:
     en: SEO
     pt: SEO
-ssh:
+social-media:
   title:
-    en: SSH
-    pt: SSH
+    en: "Social media"
+    pt: "Redes sociais"
+startups:
+  title:
+    en: Startups
+    pt: Startups
 svn:
   title:
     en: SVN
     pt: SVN
+testing:
+  title:
+    en: Testing
+    pt: Testes
 tutorial:
   title:
     en: Tutorial
@@ -166,6 +198,10 @@ wordpress:
   title:
     en: Wordpress
     pt: Wordpress
+workplace:
+  title:
+    en: Workplace
+    pt: "Ambiente de trabalho"
 zend:
   title:
     en: Zend

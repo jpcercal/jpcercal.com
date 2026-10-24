@@ -6,10 +6,11 @@ title: How to get a Page Permalink
 date: 2013-02-09T10:17:18+00:00
 description: Learn how to get the permalink of a page in Wordpress whose post_type is "page". Combining the get_permalink() and get_page_by_path() functions.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - cms
   - wordpress
+  - cms
 ---
 
 Today we needed to get the **permalink** of a page in _WordPress_ whose _post_type_ is "_page_". To do this, we had to

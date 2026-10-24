@@ -6,8 +6,9 @@ title: Introduction to HTML
 date: 2010-12-07T23:57:10+00:00
 description: An HTML (HyperText Markup Language) document is a set of instructions in ASCII format used to create hypertext documents that can be viewed in a WWW browser (such as Internet Explorer, Mozilla Firefox, Apple Safari, etc).
 categories:
+  - engineering
+tags:
   - html
-tags: []
 ---
 
 An **HTML** (_HyperText Markup Language_) document is a set of instructions in _ASCII_ format used to create

@@ -6,10 +6,10 @@ title: When AI Decisions Become Software Inputs
 date: 2026-09-23T00:00:00+00:00
 description: A typed AI judgment can help software route work, provided the application owns the rules, checks uncertainty, and keeps people responsible for consequential decisions.
 categories:
-  - ai
-tags:
-  - architecture
   - engineering
+tags:
+  - ai
+  - architecture
   - lessons-learned
 ---
 

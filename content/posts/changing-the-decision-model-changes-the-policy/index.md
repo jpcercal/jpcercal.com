@@ -6,10 +6,10 @@ title: Mudar o modelo de decisão muda a política
 date: 2026-10-11T00:00:00+00:00
 description: Jev, Laya e Liquid d1 podem compartilhar o formato de uma requisição sem compartilhar um perfil de erros. Mudar o modelo exige revalidar os limiares, a carga de revisão e a implantação por trás da política da aplicação.
 categories:
-  - ai
-tags:
-  - architecture
   - engineering
+tags:
+  - ai
+  - architecture
   - lessons-learned
 ---
 

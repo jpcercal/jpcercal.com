@@ -6,11 +6,13 @@ title: Instalando PHPUnit no OSX 10.8 Mountain Lion
 date: 2013-08-24T15:00:39+00:00
 description: Aprenda a realizar a instalação do PHPUnit no sistema operacional da Apple, o Mac OSX 10.8 Mountain Lion com este passo a passo.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - tutorial
+  - testing
   - osx
   - apple
+  - tutorial
 ---
 
 Olá, hoje irei demostrar como realizar a instalação do PHPUnit no sistema operacional da _Apple_. Este guia deve ser 

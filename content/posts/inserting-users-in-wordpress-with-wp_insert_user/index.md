@@ -6,10 +6,11 @@ title: Inserindo usuários no WordPress com wp_insert_user
 date: 2013-01-24T10:16:39+00:00
 description: A função wp_insert_user insere um usuário na base de dados do Wordpress. Com ela também é possível atualizar um usuário, aprenda a utilizar esta função.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - cms
   - wordpress
+  - cms
   - tutorial
 ---
 

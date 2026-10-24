@@ -6,10 +6,11 @@ title: Zend desabilitar o layout e o renderizador de visões
 date: 2011-11-29T16:54:51+00:00
 description: Aprenda a desabilitar o uso de layout e o renderizador de visões do Zend Framework para que uma action de um determinado controller retorne um JSON.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - framework
   - zend
+  - framework
 ---
 
 Algumas pessoas estiveram me perguntando como desabilitar o uso de layout e o renderizador de visões do 

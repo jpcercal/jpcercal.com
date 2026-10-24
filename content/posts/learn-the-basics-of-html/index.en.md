@@ -6,8 +6,9 @@ title: Learn the basics of HTML
 date: 2011-05-13T22:14:34+00:00
 description: Web pages are developed using plain text, which means you just need to write the code in a simple text-editing program. Learn HTML!
 categories:
+  - engineering
+tags:
   - html
-tags: []
 ---
 
 Assuming you've already read the [Introduction to HTML]({{< ref "posts/introduction-to-html/index.md" >}}),

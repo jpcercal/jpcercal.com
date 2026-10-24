@@ -7,9 +7,10 @@ date: 2013-02-20T10:08:18+00:00
 description: Confira as nossas impressões referentes ao novo Apple Macbook Pro de 15 polegadas com tela Retina. Um portátil com um belo design e ótima performance.
 categories:
   - news
-tags: 
+tags:
   - apple
   - osx
+  - hardware
 ---
 
 Todos os dias novos produtos são criados, alguns se destacam outros nem tanto. Recentemente realizei a compra do 

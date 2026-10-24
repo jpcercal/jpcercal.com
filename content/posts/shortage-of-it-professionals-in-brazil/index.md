@@ -7,8 +7,9 @@ date: 2013-04-01T14:39:17+00:00
 description: A tecnologia da informação está em constante crescimento, por conta disso, está causando um grande problema, a falta de profissionais qualificados.
 categories:
   - news
-tags: 
-  - news
+tags:
+  - career
+  - brazil
 ---
 
 Hoje os profissionais de TI no Brasil se deparam com um mercado de trabalho amplo e com poucos concorrentes 

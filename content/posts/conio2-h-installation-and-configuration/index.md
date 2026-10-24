@@ -7,7 +7,10 @@ date: 2012-05-22T17:51:39+00:00
 description: Realize a instalação do pacote Conio2.h para o IDE Dev-C++. Este pacote adiciona funcionalidades para o desenvolvimento de aplicativos escritos em C/C++.
 categories:
   - engineering
-tags: []
+tags:
+  - c-cpp
+  - ide
+  - tutorial
 ---
 
 Elaborei este documento para alguns colegas meus que estavam com dificuldade em instalar o pacote **Conio2.h** para o 

@@ -6,8 +6,11 @@ title: What is XAMPP and what is it for?
 date: 2010-06-30T21:21:18+00:00
 description: XAMPP is a package that includes the main open-source servers available, including FTP, MySQL and Apache with PHP and Perl.
 categories:
-  - devops
-tags: []
+  - engineering
+tags:
+  - php
+  - mysql
+  - apache
 ---
 
 Hello, let me introduce you to my favorite package (Apache + PHP + MySQL). This is how I started; today I install

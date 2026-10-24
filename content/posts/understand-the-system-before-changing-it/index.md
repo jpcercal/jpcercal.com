@@ -9,7 +9,6 @@ categories:
   - engineering
 tags:
   - architecture
-  - engineering
   - lessons-learned
 ---
 

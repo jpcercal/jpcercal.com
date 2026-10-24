@@ -7,8 +7,10 @@ date: 2013-04-09T19:00:37+00:00
 description: Sites responsivos iram ganhar impulso com decreto assinado por Dilma Rousseff, onde zera a alíquota do PIS e COFINS dos smartphones produzidos no Brasil.
 categories:
   - news
-tags: 
-  - news
+tags:
+  - mobile
+  - hardware
+  - brazil
 ---
 
 Com o objetivo de facilitar o acesso aos _smartphones_ (que tem entre suas funções a conexão com a internet) pelas 

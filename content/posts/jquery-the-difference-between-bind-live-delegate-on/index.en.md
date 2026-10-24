@@ -6,8 +6,9 @@ title: jQuery the difference between bind, live, delegate, on
 date: 2013-02-01T04:07:20+00:00
 description: "The jQuery library lets you register events using the following methods: bind, live, delegate, on. Learn the difference between them."
 categories:
-  - js
-tags: 
+  - engineering
+tags:
+  - javascript
   - jquery
 ---
 

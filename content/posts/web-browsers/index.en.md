@@ -6,8 +6,11 @@ title: Web Browsers
 date: 2011-05-08T23:31:07+00:00
 description: A Web Browser is a program that interprets HTML, CSS, Javascript files, among others.
 categories:
+  - engineering
+tags:
+  - browsers
   - html
-tags: []
+  - internet
 ---
 
 On April 21, 1993, _Marc Andreessen_, a computing student, perhaps unintentionally kick-started the

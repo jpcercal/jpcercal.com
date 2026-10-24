@@ -6,9 +6,10 @@ title: Getting to Know and Installing the SAMBA server on LINUX
 date: 2012-11-22T02:36:32+00:00
 description: SAMBA is a server and a set of tools that lets Linux and Windows machines communicate with each other, sharing services and files.
 categories:
-  - devops
-tags: 
+  - engineering
+tags:
   - linux
+  - devops
   - tutorial
 ---
 

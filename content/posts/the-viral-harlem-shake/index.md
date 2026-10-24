@@ -7,8 +7,9 @@ date: 2013-04-05T17:21:56+00:00
 description: Epidemia Harlem Shake já alcançou 1 bilhão de acessos em apenas quarenta dias, metade do tempo que o Gangam Style
 categories:
   - news
-tags: 
-  - news
+tags:
+  - social-media
+  - internet
 ---
 
 O Viral do momento já atingiu 1 bilhão de visualizações em 40 dias, o número de visualizações não foi obtido apenas 

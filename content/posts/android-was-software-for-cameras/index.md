@@ -7,8 +7,10 @@ date: 2013-04-17T14:55:08+00:00
 description: O Sistema Operacional Android inicialmente foi criado para ser utilizado em câmeras digitais.
 categories:
   - news
-tags: 
+tags:
   - android
+  - mobile
+  - history
 ---
 
 É isso mesmo o Android teve início com foco para as máquinas fotográficas, segundo Andy Rubin criador do sistema 

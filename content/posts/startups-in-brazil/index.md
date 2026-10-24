@@ -7,8 +7,9 @@ date: 2013-04-22T15:11:03+00:00
 description: O governo brasileiro lançou um projeto para apoiar o desenvolvimento da tecnologia no país, Startup Brasil.
 categories:
   - news
-tags: 
-  - news
+tags:
+  - startups
+  - brazil
 ---
 
 O sonho dos visionários de TI do Brasil, está mais perto de se tornar realidade, no dia 15 de abril um programa de 

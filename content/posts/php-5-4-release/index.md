@@ -6,9 +6,9 @@ title: Lançamento do PHP 5.4
 date: 2012-03-02T04:26:38+00:00
 description: O PHP 5.4 acabou de sair do forno. Esta versão incluí um grande número de novas características e correções de bugs. Confira essas novidades.
 categories:
-  - php
-tags: 
   - news
+tags:
+  - php
 ---
 
 Salve galera! Acabo de ver nesse exato momento que o **PHP 5.4** acabou de sair do forno, isto pode ser conferido 

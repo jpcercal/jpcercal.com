@@ -7,9 +7,10 @@ date: 2013-02-20T10:08:18+00:00
 description: Check out our impressions of the new 15-inch Apple Macbook Pro with Retina display. A laptop with a beautiful design and great performance.
 categories:
   - news
-tags: 
+tags:
   - apple
   - osx
+  - hardware
 ---
 
 Every day new products are created, some stand out, others not so much. Recently I bought the

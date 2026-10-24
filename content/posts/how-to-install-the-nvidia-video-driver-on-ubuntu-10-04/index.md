@@ -6,10 +6,11 @@ title: Como instalar o driver de vídeo nVidia no Ubuntu 10.04
 date: 2011-04-23T17:13:08+00:00
 description: Aprenda a resolver os problemas de desempenho gráfico no Linux instalando o driver de vídeo binário fornecido pela própria nVidia! Vale a pena conferir.
 categories:
-  - devops
-tags: 
-  - tutorial
+  - engineering
+tags:
   - linux
+  - hardware
+  - tutorial
 ---
 
 Considerando que já tenha baixado a versão mais atual do driver diretamente no site do fabricante:

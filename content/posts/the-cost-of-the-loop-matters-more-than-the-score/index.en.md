@@ -6,10 +6,10 @@ title: The Cost of the Loop Matters More Than the Score
 date: 2026-09-23T18:00:00+00:00
 description: Anthropic says Opus 5.5 is at Fable 5.1's level on most work and 40 percent cheaper than Opus 5 at default settings; the useful question is what that does to the cost and the checks of an agent loop.
 categories:
-  - ai
-tags:
-  - architecture
   - engineering
+tags:
+  - ai
+  - architecture
   - lessons-learned
 ---
 

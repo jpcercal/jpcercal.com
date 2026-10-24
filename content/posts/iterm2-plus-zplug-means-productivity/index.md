@@ -6,11 +6,11 @@ title: iTerm2 + Zplug = Produtividade
 date: 2018-02-26T10:15:56+00:00
 description: Depois de passar muito tempo da minha vida usando o terminal normal, conheci uma nova ferramenta chamada iTerm2 por causa de um amigo há alguns anos. E, nesta semana, descobri o poder do zplug. Então, deixe-me tentar mostrar como está meu terminal agora.
 categories:
-  - tools
-tags: 
+  - engineering
+tags:
+  - productivity
   - osx
   - tutorial
-  - howto
 ---
 
 Depois de passar muito tempo da minha vida usando o terminal normal, conheci uma nova ferramenta chamada iTerm2 por causa de um amigo há alguns anos. E, nesta semana, descobri o poder do zplug. Então, aqui está um breve tutorial de como conseguir algo parecido com isto:

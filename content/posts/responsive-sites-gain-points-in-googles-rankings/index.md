@@ -6,10 +6,10 @@ title: Sites Responsivos ganham pontos no ranking do Google
 date: 2013-03-27T12:36:20+00:00
 description: Quer aparecer nos primeiros resultados de pesquisa do Google? Sabia que se o seu site for responsivo, ele ganhará pontos com os buscadores.
 categories:
-  - marketing
-tags: 
-  - news
+  - business
+tags:
   - seo
+  - mobile
 ---
 
 Em dispositivos móveis, pesquisas mostram que 61% dos visitantes de uma página que não é responsiva, retornam para 

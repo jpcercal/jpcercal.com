@@ -3,7 +3,64 @@
 /posts/ / 301
 /en/posts/ /en/ 301
 
-# The catch-all "other" category was retired (posts were reassigned to
-# topical categories), so send old links to the category index.
+# Taxonomy reshuffle: categories are now four broad buckets (engineering,
+# news, business, lifestyle); languages and technologies moved to tags.
+# Retired category/tag URLs point at their closest replacement. Sources
+# are listed with and without the trailing slash because Pages matches
+# them literally and the templates link without one.
+/categories/other /categories/ 301
 /categories/other/ /categories/ 301
+/categories/php /tags/php/ 301
+/categories/php/ /tags/php/ 301
+/categories/js /tags/javascript/ 301
+/categories/js/ /tags/javascript/ 301
+/categories/html /tags/html/ 301
+/categories/html/ /tags/html/ 301
+/categories/devops /tags/devops/ 301
+/categories/devops/ /tags/devops/ 301
+/tags/engineering /categories/engineering/ 301
+/tags/engineering/ /categories/engineering/ 301
+/tags/news /categories/news/ 301
+/tags/news/ /categories/news/ 301
+/tags/howto /tags/tutorial/ 301
+/tags/howto/ /tags/tutorial/ 301
+/tags/dream /tags/living_abroad/ 301
+/tags/dream/ /tags/living_abroad/ 301
+/tags/english /tags/living_abroad/ 301
+/tags/english/ /tags/living_abroad/ 301
+/tags/rds /tags/aws/ 301
+/tags/rds/ /tags/aws/ 301
+/tags/ec2 /tags/aws/ 301
+/tags/ec2/ /tags/aws/ 301
+/tags/ssh /tags/linux/ 301
+/tags/ssh/ /tags/linux/ 301
+/tags/eclipse /tags/ide/ 301
+/tags/eclipse/ /tags/ide/ 301
+/en/categories/other /en/categories/ 301
 /en/categories/other/ /en/categories/ 301
+/en/categories/php /en/tags/php/ 301
+/en/categories/php/ /en/tags/php/ 301
+/en/categories/js /en/tags/javascript/ 301
+/en/categories/js/ /en/tags/javascript/ 301
+/en/categories/html /en/tags/html/ 301
+/en/categories/html/ /en/tags/html/ 301
+/en/categories/devops /en/tags/devops/ 301
+/en/categories/devops/ /en/tags/devops/ 301
+/en/tags/engineering /en/categories/engineering/ 301
+/en/tags/engineering/ /en/categories/engineering/ 301
+/en/tags/news /en/categories/news/ 301
+/en/tags/news/ /en/categories/news/ 301
+/en/tags/howto /en/tags/tutorial/ 301
+/en/tags/howto/ /en/tags/tutorial/ 301
+/en/tags/dream /en/tags/living_abroad/ 301
+/en/tags/dream/ /en/tags/living_abroad/ 301
+/en/tags/english /en/tags/living_abroad/ 301
+/en/tags/english/ /en/tags/living_abroad/ 301
+/en/tags/rds /en/tags/aws/ 301
+/en/tags/rds/ /en/tags/aws/ 301
+/en/tags/ec2 /en/tags/aws/ 301
+/en/tags/ec2/ /en/tags/aws/ 301
+/en/tags/ssh /en/tags/linux/ 301
+/en/tags/ssh/ /en/tags/linux/ 301
+/en/tags/eclipse /en/tags/ide/ 301
+/en/tags/eclipse/ /en/tags/ide/ 301

@@ -6,10 +6,11 @@ title: Android has 79% of threats to mobile devices
 date: 2013-08-25T15:00:25+00:00
 description: F-Secure identified 301 threats targeting smartphones and tablets. In 2011, Android reached 66% and this year 79% of viruses created for mobile devices.
 categories:
+  - news
+tags:
   - security
-tags: 
   - android
-  - security
+  - mobile
 ---
 
 _Android_, _Google's_ mobile operating system, accounted for 79% of digital threats created for mobile devices

@@ -6,8 +6,9 @@ title: Validando formulários com o plugin jQuery Validade
 date: 2013-01-21T13:15:32+00:00
 description: Aprenda a realizar a validação de formulários utilizando um excelente plugin, conheça o  jQuery Validade desenvolvido pela equipe http://bassistance.de.
 categories:
-  - js
-tags: 
+  - engineering
+tags:
+  - javascript
   - jquery
 ---
 

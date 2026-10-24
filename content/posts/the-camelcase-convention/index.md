@@ -7,7 +7,8 @@ date: 2010-12-08T17:03:07+00:00
 description: CamelCase, é a prática de escrever palavras compostas em que os elementos são unidos, sem espaços, com a letra inicial de cada elemento capitalizada.
 categories:
   - engineering
-tags: []
+tags:
+  - conventions
 ---
 
 **CamelCase** (_caso camelo_), é a prática de escrever palavras compostas ou frases em que os elementos são unidos, 

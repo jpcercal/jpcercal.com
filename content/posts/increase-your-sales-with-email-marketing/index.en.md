@@ -6,8 +6,8 @@ title: Increase your sales with Email Marketing
 date: 2013-04-12T14:47:47+00:00
 description: Combine your online store with email marketing and increase the chances of your customers completing their purchases.
 categories:
-  - marketing
-tags: 
+  - business
+tags:
   - marketing
   - ecommerce
 ---

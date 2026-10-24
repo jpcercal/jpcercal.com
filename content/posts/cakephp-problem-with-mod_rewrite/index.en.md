@@ -6,10 +6,12 @@ title: CakePHP problem with mod_rewrite
 date: 2012-02-23T03:10:27+00:00
 description: If you've ever faced a problem with mod_rewrite in CakePHP, know that the solution can be quite simple, check out the problem we encountered and solved.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - framework
   - cakephp
+  - framework
+  - apache
 ---
 
 Hello, good evening. Today I had problems with [CakePHP](http://cakephp.org/) URL rewriting, and decided to share

@@ -6,11 +6,10 @@ title: How to delete all your Git local branches
 date: 2019-03-12T11:31:29+00:00
 description: Sometimes after working for a long time, all the remaining local branches are just taking up space. Here's a small snippet to remove all your local branches in one go.
 categories:
-  - tools
-tags: 
+  - engineering
+tags:
   - git
   - tutorial
-  - howto
 ---
 
 Well, from time to time I feel the need of cleaning my local branches, it’s part of my natural workflow and if you need the same you could benefit as well of this handful pipped command below:

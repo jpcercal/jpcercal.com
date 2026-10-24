@@ -6,10 +6,10 @@ title: Downloading and Installing the libxml library
 date: 2011-12-22T19:13:10+00:00
 description: In this guide you'll learn how to install the libxml library on Linux operating systems. Download the source code and compile it for your distro.
 categories:
-  - devops
-tags: 
-  - tutorial
+  - engineering
+tags:
   - linux
+  - tutorial
 ---
 
 XML is a standard for building structured documents based on markup containing the data.

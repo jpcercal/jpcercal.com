@@ -6,10 +6,11 @@ title: Como pegar um Permalink de uma Página
 date: 2013-02-09T10:17:18+00:00
 description: Aprenda como obter um permalink de uma página no Wordpress, cujo post_type é "page". Combinando as funções get_permalink() e get_page_by_path().
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - cms
   - wordpress
+  - cms
 ---
 
 Hoje precisamos obter um **permalink** de uma página no _WordPress_, cujo _post_type_ é "_page_". Para isto, tivemos de 

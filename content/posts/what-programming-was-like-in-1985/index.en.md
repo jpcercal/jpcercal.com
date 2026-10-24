@@ -7,7 +7,9 @@ date: 2013-05-02T14:08:54+00:00
 description: Programming code in 1985 was written on sheets of paper, as Jonh Graham-Cumming, a programmer of that time, shows us.
 categories:
   - engineering
-tags: []
+tags:
+  - history
+  - career
 ---
 
 _Jonh Graham-Cumming_, a programmer from 1985, shows what programming was like back then, according to him it was quite

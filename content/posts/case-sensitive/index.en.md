@@ -7,7 +7,8 @@ date: 2011-03-02T00:07:15+00:00
 description: '"Case sensitive" is a term indicating that text is sensitive to letter case, meaning it distinguishes between uppercase and lowercase letters.'
 categories:
   - engineering
-tags: []
+tags:
+  - conventions
 ---
 
 _"Case sensitive"_ is a term indicating that text is sensitive to letter case, meaning it distinguishes between

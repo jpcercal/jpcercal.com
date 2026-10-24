@@ -7,7 +7,9 @@ date: 2013-05-02T14:08:54+00:00
 description: Os códigos de programação em 1985 eram feitos em folha de papel é o que nos mostra Jonh Graham-Cumming programador da época.
 categories:
   - engineering
-tags: []
+tags:
+  - history
+  - career
 ---
 
 _Jonh Graham-Cumming_ programador do ano de 1985 mostra como era a programação naquela época, segundo ele era bastante 

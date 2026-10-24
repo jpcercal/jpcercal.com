@@ -6,8 +6,9 @@ title: Aprenda o básico sobre HTML
 date: 2011-05-13T22:14:34+00:00
 description: As páginas web são desenvolvidas utilizando texto puro, o que significa que basta escrever o código em um programa de edição de texto simples. Aprenda HTML!
 categories:
+  - engineering
+tags:
   - html
-tags: []
 ---
 
 Partindo do princípio que você já leu a [Introdução a Linguagem HTML]({{< ref "posts/introduction-to-html/index.md" >}}), 

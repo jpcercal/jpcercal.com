@@ -6,10 +6,10 @@ title: Responsive Sites gain points in Google's rankings
 date: 2013-03-27T12:36:20+00:00
 description: Want to appear among Google's first search results? Did you know that if your site is responsive, it will gain points with search engines.
 categories:
-  - marketing
-tags: 
-  - news
+  - business
+tags:
   - seo
+  - mobile
 ---
 
 On mobile devices, research shows that 61% of visitors to a non-responsive page return to

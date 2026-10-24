@@ -7,8 +7,10 @@ date: 2013-04-09T19:00:37+00:00
 description: Responsive sites will gain momentum with a decree signed by Dilma Rousseff that reduces the PIS and COFINS rates on smartphones produced in Brazil to zero.
 categories:
   - news
-tags: 
-  - news
+tags:
+  - mobile
+  - hardware
+  - brazil
 ---
 
 With the aim of making _smartphones_ (which have internet connectivity among their functions) more accessible to

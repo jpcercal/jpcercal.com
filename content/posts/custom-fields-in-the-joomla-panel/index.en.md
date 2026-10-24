@@ -6,10 +6,11 @@ title: Custom Fields in the Joomla panel
 date: 2011-10-10T17:32:40+00:00
 description: Learn to create custom fields for the Joomla 1.6 panel, to do this you must extend a Joomla class that descends from JFormField.
 categories:
+  - engineering
+tags:
   - php
-tags: 
-  - cms
   - joomla
+  - cms
 ---
 
 Hello, today I needed to add a custom field to the

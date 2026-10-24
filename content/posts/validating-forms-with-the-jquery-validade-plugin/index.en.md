@@ -6,8 +6,9 @@ title: Validating forms with the jQuery Validade plugin
 date: 2013-01-21T13:15:32+00:00
 description: Learn to validate forms using an excellent plugin, get to know jQuery Validade developed by the team at http://bassistance.de.
 categories:
-  - js
-tags: 
+  - engineering
+tags:
+  - javascript
   - jquery
 ---
 

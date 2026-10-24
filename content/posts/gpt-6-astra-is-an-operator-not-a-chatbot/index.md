@@ -6,10 +6,10 @@ title: GPT-6 Astra É um Operador, Não um Chatbot
 date: 2026-09-24T00:00:00+00:00
 description: O GPT-6 Astra é oferecido como um modelo que atua dentro do software existente. As pontuações que eu leria primeiro são as que mostram onde ele permanece dentro da tarefa e onde ele não vence.
 categories:
-  - ai
-tags:
-  - architecture
   - engineering
+tags:
+  - ai
+  - architecture
   - lessons-learned
 ---
 

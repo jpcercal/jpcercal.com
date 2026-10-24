@@ -6,8 +6,9 @@ title: Introdução a linguagem PHP
 date: 2010-10-07T14:09:50+00:00
 description: PHP ou Pré processador de hypertexto é a linguagem do lado servidor mais utilizada na web. Conheça um pouco mais sobre essa excelente tecnologia.
 categories:
+  - engineering
+tags:
   - php
-tags: []
 ---
 
 [![Introdução a linguagem PHP](php.jpg "PHP")](php.jpg)

@@ -6,13 +6,13 @@ title: Como Criar um Sincronizador de Arquivos Bidirecional com Unison
 date: 2020-07-13T06:35:28+00:00
 description: Unison pode ser usado como uma ferramenta de sincronização de arquivo bidirecional para OSX (macOS), Unix e Windows. Veja como sincronizamos nossa pasta do iCloud com um repositório git.
 categories:
-  - tools
-tags: 
-  - howto
-  - tutorial
-  - osx
+  - engineering
+tags:
+  - productivity
   - linux
+  - osx
   - windows
+  - tutorial
 ---
 
 Então, se você chegou aqui, considero que já tem um problema à resolver e que você conhece a ferramenta `unison'. Se esse for o caso, pule a introdução, por favor.

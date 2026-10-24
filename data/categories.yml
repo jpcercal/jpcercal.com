@@ -1,55 +1,20 @@
-ai:
+business:
   icon: ~
   title:
-    en: Artificial Intelligence
-    pt: "Inteligência Artificial"
-devops:
-  icon: ~
-  title:
-    en: "Linux and DevOps"
-    pt: "Linux e DevOps"
+    en: Business
+    pt: "Negócios"
 engineering:
   icon: ~
   title:
-    en: Software Engineering
-    pt: "Engenharia de Software"
-html:
-  icon: ~
-  title:
-    en: "HTML and Web"
-    pt: "HTML e Web"
-js:
-  icon: ~
-  title:
-    en: Javascript
-    pt: Javascript
+    en: Engineering
+    pt: Engenharia
 lifestyle:
   icon: ~
   title:
     en: Lifestyle
     pt: "Estilo de vida"
-marketing:
-  icon: ~
-  title:
-    en: Digital Marketing
-    pt: "Marketing Digital"
 news:
   icon: ~
   title:
-    en: Tech News
-    pt: "Notícias de Tecnologia"
-php:
-  icon: ~
-  title:
-    en: PHP
-    pt: PHP
-security:
-  icon: ~
-  title:
-    en: Security
-    pt: "Segurança"
-tools:
-  icon: ~
-  title:
-    en: "Tools and Productivity"
-    pt: "Ferramentas e Produtividade"
+    en: News
+    pt: "Notícias"
