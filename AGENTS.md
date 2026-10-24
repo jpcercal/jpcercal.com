@@ -136,7 +136,8 @@
   it derives the base URL from the output and works under PR subpaths too.
   (`fetch-vendor.sh` deleted with the last vendor
   clone; `watch.sh` deleted with the Grunt pipeline.)
-- `.github/workflows/ci.yml` — jobs in order: `image` (builds + pushes the
+- `.github/workflows/ci.yml` (`CI (main)`: push to main + bot `workflow_dispatch`
+  only, no `pull_request` trigger) — jobs in order: `image` (builds + pushes the
   Nix-built self-sufficient CI image to GHCR, consumed by immutable digest;
   downstream jobs
   run inside it and zero-install via `ln -s /opt/ci/node_modules`) →
@@ -166,8 +167,10 @@
   `contents: write` and runs `preview-pages.sh` against a sparse partial
   `gh-pages` clone (push retries on race), `comment` keeps one sticky PR
   comment, `cleanup` removes `pr-<n>/` on close using the script from `main`.
-  Quality gates stay in `ci.yml` (required `Build` check, parallel, not
-  awaited). Only `main` pushes move the `:latest` image tag.
+  Its `gate` job is named `Build` and supplies the required status check
+  (`ci.yml` no longer runs on PRs; lint/validators/links/LHCI/e2e run only
+  after merge). Only `main` pushes move the `:latest` image tag. Full flow,
+  secrets and cleanup: `docs/ci-cd.md`.
 - `e2e/smoke.spec.js` — 17 tests (home/search/contact-static-links/EN +
   real PT/EN Pagefind results + reciprocal translation/reference navigation +
   404 layout + latest-posts content + 6 theme tests, 2 of them
