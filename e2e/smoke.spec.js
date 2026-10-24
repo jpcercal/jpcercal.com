@@ -66,6 +66,43 @@ test("translated article switches reciprocally and resolves English references",
 	await expect(page.locator("html")).toHaveAttribute("lang", "pt");
 });
 
+for (const [from, to] of [
+	["/case-sensitive/", "/en/case-sensitive/"],
+	["/en/case-sensitive/", "/case-sensitive/"],
+	["/page/2/", "/en/page/2/"],
+	["/en/authors/", "/authors/"],
+	["/authors/jpcercal/", "/en/authors/jpcercal/"],
+	["/categories/", "/en/categories/"],
+	["/en/tags/apple/", "/tags/apple/"],
+	["/contact/", "/en/contact/"],
+]) {
+	test(`language switch keeps the current page: ${from}`, async ({ page }) => {
+		await page.goto(from);
+		await page.locator("a[data-locale-switch]:visible").click();
+		await expect(page).toHaveURL(new RegExp(`${to}$`));
+	});
+}
+
+test("language switch keeps the current search query", async ({ page }) => {
+	await page.goto("/search/?q=apache");
+	await expect(page.locator("#search")).toHaveValue("apache");
+	await expect(
+		page.locator("#search-results .post-card--title").first(),
+	).toBeVisible();
+	await page.locator("#search").fill("linux apache");
+	await expect(page).toHaveURL(/\/search\/\?q=linux\+apache$/);
+	await page.locator("a[data-locale-switch]:visible").click();
+	await expect(page).toHaveURL(/\/en\/search\/\?q=linux\+apache$/);
+	await expect(page.locator("#search")).toHaveValue("linux apache");
+	const results = page.locator("#search-results .post-card--title");
+	await expect(results.first()).toBeVisible();
+	for (const href of await results.evaluateAll((links) =>
+		links.map((link) => link.href),
+	)) {
+		expect(new URL(href).pathname.startsWith("/en/")).toBe(true);
+	}
+});
+
 test("webfonts are local and all existing faces load", async ({ page }) => {
 	const externalFonts = [];
 	page.on("request", (request) => {
