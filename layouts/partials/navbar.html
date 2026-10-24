@@ -6,6 +6,36 @@
 {{ $githubTitle := i18n "githubCorner" }}
 {{ $githubImg   := printf "%s%s" $baseURL "images/icons/github-corner-right.svg" }}
 
+{{/* Language switch keeps the reader on the same page: the counterpart is
+  resolved via Hugo's translation linking (posts, sections, taxonomy terms,
+  authors, search, contact), the current pager number is carried over, and
+  search.js appends the live query. Pages without a counterpart (404) fall
+  back to the target language home. Only templates that flag "paginated"
+  (after calling .Paginate) are asked for .Paginator: calling it elsewhere
+  would build an unfiltered paginator and emit extra page/N outputs. */}}
+{{ $pagerSuffix := "" }}
+{{ if .Scratch.Get "paginated" }}
+    {{ with .Paginator }}
+        {{ if gt .PageNumber 1 }}
+            {{/* e.g. "page/2/": the pager URL relative to its first page. */}}
+            {{ $pagerSuffix = strings.TrimPrefix .First.URL .URL }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+{{ $switch := dict }}
+{{ range $lang := slice "pt" "en" }}
+    {{ $href := printf "%s%s" $baseURL (cond (eq $lang "en") "en/" "") }}
+    {{ if ne $.Kind "404" }}
+        {{ range $.AllTranslations }}
+            {{ if eq .Lang $lang }}
+                {{ $href = .Permalink }}
+            {{ end }}
+        {{ end }}
+        {{ $href = printf "%s%s" $href $pagerSuffix }}
+    {{ end }}
+    {{ $switch = merge $switch (dict $lang $href) }}
+{{ end }}
+
 <header class="container">
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
@@ -27,12 +57,12 @@
                         </button>
                         <ul class="list-none flex gap-2 m-0 locale-list">
                             <li class='locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
-                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="hidden lg:inline">{{ index $localePt.title $locale }}</a>
-                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="lg:hidden" title="{{ index $localePt.title $locale }}">PT</a>
+                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ index $switch "pt" }}{{ end }}' {{ if ne $locale "pt" }}hreflang="pt" data-locale-switch {{ end }}class="hidden lg:inline">{{ index $localePt.title $locale }}</a>
+                                <a href='{{ if eq $locale "pt" }}#{{ else }}{{ index $switch "pt" }}{{ end }}' {{ if ne $locale "pt" }}hreflang="pt" data-locale-switch {{ end }}class="lg:hidden" title="{{ index $localePt.title $locale }}">PT</a>
                             </li>
                             <li class='locale-list-item {{ if eq $locale "en" }}locale-list-item--active{{ end }}'>
-                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="hidden lg:inline">{{ index $localeEn.title $locale }}</a>
-                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="lg:hidden" title="{{ index $localeEn.title $locale }}">EN</a>
+                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ index $switch "en" }}{{ end }}' {{ if ne $locale "en" }}hreflang="en" data-locale-switch {{ end }}class="hidden lg:inline">{{ index $localeEn.title $locale }}</a>
+                                <a href='{{ if eq $locale "en" }}#{{ else }}{{ index $switch "en" }}{{ end }}' {{ if ne $locale "en" }}hreflang="en" data-locale-switch {{ end }}class="lg:hidden" title="{{ index $localeEn.title $locale }}">EN</a>
                             </li>
                         </ul>
                     </nav>
