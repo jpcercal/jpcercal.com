@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Active WordPress plugin</title>
+  <desc id="description">A plug-shaped block follows the supplied plugin icon.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <rect x="111" y="110" width="290" height="292" rx="30" fill="none" stroke="#eeeeee" stroke-width="13"/><path d="M190 222h45v-33c0-21 31-21 31 0v33h45v-33c0-21 31-21 31 0v33h25v100H145V222Z" fill="#eeeeee"/><path d="M189 354h133" stroke="#eeeeee" stroke-width="14" stroke-linecap="round"/>
+</svg>
