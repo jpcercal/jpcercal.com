@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Facebook Home</title>
+  <desc id="description">The recognizable Facebook f from the supplied logo represents Facebook Home.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <rect x="104" y="104" width="304" height="304" rx="80" fill="#0866e6"/><path d="M304 408V284h43l7-55h-50v-35c0-16 6-27 28-27h25v-49c-10-2-28-4-49-4-51 0-83 31-83 88v27h-45v55h45v124Z" fill="#ffffff"/>
+</svg>
