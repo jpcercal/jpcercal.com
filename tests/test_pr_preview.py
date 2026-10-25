@@ -211,7 +211,7 @@ class WorkflowStructureTests(unittest.TestCase):
     def job(self, name):
         start = self.text.index(f"\n  {name}:\n")
         rest = self.text[start + 1 :]
-        stops = [rest.find(f"\n  {n}:\n", 1) for n in ("classify", "image", "build-fast", "build-full", "publish", "comment", "cleanup")]
+        stops = [rest.find(f"\n  {n}:\n", 1) for n in ("classify", "image", "build-fast", "build-full", "gate", "publish", "comment", "cleanup")]
         stops = [s for s in stops if s > 0]
         return rest[: min(stops)] if stops else rest
 
@@ -233,6 +233,26 @@ class WorkflowStructureTests(unittest.TestCase):
             block = self.job(name)
             self.assertIn("permissions:", block, name)
             self.assertIn("head.repo.full_name == github.repository", block, name)
+
+    def test_required_build_check_is_reported_and_fails_closed(self):
+        # Branch protection requires a check named `Build`; ci.yml no longer runs on PRs.
+        gate = self.job("gate")
+        self.assertIn("name: Build\n", gate)
+        self.assertIn("exit 1", gate)
+        self.assertIn("!cancelled()", gate)
+        for need in ("classify", "image", "build-fast", "build-full"):
+            self.assertIn(need, gate.split("steps:")[0], need)
+
+    def test_ci_workflow_runs_only_on_main_and_bot_dispatch(self):
+        import re
+
+        ci = (WORKFLOW.parent / "ci.yml").read_text()
+        triggers = ci.split("\njobs:")[0]
+        self.assertNotIn("pull_request:", re.sub(r"(?m)^\s*#.*$", "", triggers))
+        self.assertIn("push:", triggers)
+        self.assertIn("workflow_dispatch:", triggers)
+        # Only main may move the mutable :latest tag the fast path consumes.
+        self.assertIn("github.ref == 'refs/heads/main'", ci.split("tags: |")[1].split("cache-from")[0])
 
 
 if __name__ == "__main__":

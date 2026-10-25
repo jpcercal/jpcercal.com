@@ -2,9 +2,10 @@ name: PR preview
 
 # Fast per-PR preview at https://staging.jpcercal.com/pr-<number>/.
 #
-# The quality gates (lint, tests, link check, Lighthouse) stay in ci.yml and
-# run in parallel; nothing here waits for them. Production secrets are never
-# referenced: the only credential is the job-scoped GITHUB_TOKEN.
+# ci.yml (lint, validators, link check, Lighthouse, deploy) runs only on
+# merges to main, so the `Build` job below is the PR's required status check.
+# Production secrets are never referenced: the only credential is the
+# job-scoped GITHUB_TOKEN.
 #
 # Trigger notes
 # * `pull_request` (not `pull_request_target`): fork and Dependabot runs get a
@@ -12,7 +13,8 @@ name: PR preview
 # * Path filters are NOT used on `on:`; the `classify` job below decides, so
 #   the workflow itself always runs and shows up on every PR.
 # * Dependency-bot PRs created with GITHUB_TOKEN do not fire `pull_request`;
-#   ci.yml keeps its workflow_dispatch preview for exactly that case.
+#   ci.yml keeps its workflow_dispatch preview (and its own `Build` check)
+#   for exactly that case.
 
 on:
   pull_request:
@@ -254,6 +256,37 @@ jobs:
           if-no-files-found: error
 
   # ---------------------------------------------------------------------------
+  # Required status check. Branch protection on main requires a check named
+  # `Build`; ci.yml no longer runs on PRs, so it is reported from here. It is
+  # green only when the preview build succeeded. Fork and Dependabot PRs get no
+  # build (read-only token), so it passes with a warning for them.
+  # ---------------------------------------------------------------------------
+  gate:
+    name: Build
+    needs: [classify, image, build-fast, build-full]
+    if: "!cancelled() && github.event.action != 'closed'"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Require a successful preview build
+        env:
+          CLASSIFY: ${{ needs.classify.result }}
+          IMAGE: ${{ needs.image.result }}
+          FAST: ${{ needs.build-fast.result }}
+          FULL: ${{ needs.build-full.result }}
+        run: |
+          echo "classify=$CLASSIFY image=$IMAGE fast=$FAST full=$FULL"
+          if [ "$CLASSIFY" = skipped ]; then
+            echo "::warning::No preview build for fork/Dependabot PRs; this check is not a build result."
+          elif [ "$FAST" = success ] || [ "$FULL" = success ]; then
+            echo "Preview build succeeded."
+          else
+            echo "::error::Preview build did not succeed."
+            exit 1
+          fi
+
+  # ---------------------------------------------------------------------------
   # Publish: the only job with a write token. It never builds or runs PR
   # dependencies; it validates and pushes the artifact to pr-<n>/ only.
   # ---------------------------------------------------------------------------
@@ -328,6 +361,7 @@ jobs:
         run: |
           marker='<!-- pr-preview-comment -->'
           url="$STAGING_HOST/pr-$PR_NUMBER/"
+          # shellcheck disable=SC2016  # literal backticks in the message
           body=$(printf '%s\n**Preview:** %s\n\nCommit `%s`. GitHub Pages can take a minute to refresh after a push.\nThe preview is removed when this PR is closed.\n' \
             "$marker" "$url" "${HEAD_SHA:0:7}")
           existing=$(gh api --paginate "repos/$REPOSITORY/issues/$PR_NUMBER/comments" \
