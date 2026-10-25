@@ -1,6 +1,7 @@
 {{ $posts          := where (where .Site.RegularPages "Type" "posts") "Params.author" .Params.email }}
 {{ $author         := index hugo.Data.authors .Params.email }}
 {{ $locale         := .Site.Language.Lang }}
+{{ $socialNetworks := $author.socialNetworks }}
 
 {{ partial "head.html" . }}
 {{ partialCached "navbar.html" . .Site.Language.Lang }}
@@ -22,6 +23,12 @@
                             </h2>
                             <p class="author-position">{{ index $author.position $locale }}</p>
                             <p class="author-position">{{ index $author.biography $locale }}</p>
+
+                            <ul class="list-none flex gap-2">
+                                {{ range $socialNetwork, $profile := $socialNetworks }}
+                                    {{ partial "author-social-network.html" (dict "socialNetwork" $socialNetwork "profile" $profile ) }}
+                                {{ end }}
+                            </ul>
                         </div>
                     </div>
                 </div>

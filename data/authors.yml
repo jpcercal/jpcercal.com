@@ -10,6 +10,11 @@ jpcercal@gmail.com:
   biography:
     en: Turning complex, cross-functional challenges into scalable systems, leading with AI-driven workflows and security-by-default engineering.
     pt: Transformando desafios complexos e multifuncionais em sistemas escaláveis, liderando com fluxos de engenharia com IA e segurança por padrão.
+  socialNetworks:
+    facebook: https://www.facebook.com/jpcercal
+    twitter: https://twitter.com/jpcercal
+    linkedin: https://www.linkedin.com/in/jpcercal
+    github: https://github.com/jpcercal
 
 elisetecercal@gmail.com:
   slug: elisetecercal
@@ -23,6 +28,11 @@ elisetecercal@gmail.com:
   biography:
     en: I'm where the moment takes me and sometimes I even write about it.
     pt: Estou onde o momento me leva e às vezes eu até escrevo sobre isso.
+  socialNetworks:
+    facebook: https://www.facebook.com/elisete.dossantoscercal
+    twitter:
+    linkedin: https://www.linkedin.com/in/elisete-santos-cercal-861a4755
+    github:
 
 lukas.cercal@gmail.com:
   slug: lucascercal
@@ -36,3 +46,8 @@ lukas.cercal@gmail.com:
   biography:
     en:
     pt: Desenvolvedor Front-End desde 2012. Sempre buscando melhores práticas, novas tecnologias, e metodologias para melhorar o fluxo de trabalho e trazer retorno além do esperado para seus projetos e para seus clientes.
+  socialNetworks:
+    facebook: https://www.facebook.com/lucasalfredo.cercal
+    twitter: https://twitter.com/lucascercal
+    linkedin: https://www.linkedin.com/in/lucascercal
+    github: https://github.com/LucasCercal
