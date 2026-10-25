@@ -41,18 +41,18 @@
     <div class="row">
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
             <div class="row items-center header">
-                <div class="col search">
+                <div class="col search header-start">
                     <a class="search-link" href='{{ $baseURL }}{{ if eq $locale "en" }}en/{{ end }}search' aria-label='{{ i18n "searchFor" }}' title='{{ i18n "searchFor" }}'>
                         <span class="search-icon" aria-hidden="true"></span>
                         <span class="search-label hidden sm:inline">{{ i18n "searchFor" }}</span>
                     </a>
                 </div>
 
-                <div class="col">
+                <div class="col header-center">
                     <a class="font-size-h3 brand text-center m-0" href='{{ $baseURL }}{{ if eq $locale "en" }}en/{{ end }}'>jpcercal.com</a>
                 </div>
 
-                <div class="col clearfix">
+                <div class="col clearfix header-end">
                     <nav class="float-right flex items-center gap-2" aria-label='{{ i18n "localeNav" }}'>
                         {{/* Variant C (track/pill). Icons: Lucide sun/moon (ISC licence, lucide.dev). The track shows the active theme (thumb sits on it); the accessible name, set by theme.js, names the action. Glyphs are drawn twice (ink on the track, canvas inside the thumb, which clips and counter-moves them) so no glyph ever changes colour when the theme switches. */}}
                         <button type="button" class="theme-toggle" data-theme-toggle hidden

@@ -6,6 +6,36 @@ header {
   .header {
     height: 55px;
     border-bottom: 1px solid var(--color-border);
+    // Equal-width flex columns let the brand wrap and the controls overflow
+    // on narrow phones; sizing the side columns to their content and letting
+    // the brand take the rest keeps everything on one line.
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 8px;
+    flex-wrap: nowrap;
+
+    > .col {
+      flex: none;
+      width: auto;
+      max-width: none;
+      min-width: 0;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+    // Room to spare: restore a truly centred brand.
+    @media (min-width: 640px) {
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    .header-center a.brand {
+      white-space: nowrap;
+    }
+
+    .header-end nav {
+      justify-content: flex-end;
+    }
   }
 
   .search {
