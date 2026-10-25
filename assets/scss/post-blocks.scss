@@ -1,0 +1,65 @@
+// Block separation on a single post page. The skin is `.post--banded`, set in
+// layouts/posts/single.html. Colors come only from the theme tokens, so every
+// variant follows the light/dark switch without extra rules.
+//
+// Blocks, top to bottom: navbar, byline (.post-byline), title + share
+// (.post-heading), body (.article-content), tags (.article-tags).
+
+// Shared by all variants -------------------------------------------------
+
+.post {
+  // The global `header { margin-bottom }` is meant for the navbar. Variants
+  // own the vertical rhythm of the masthead, so neutralize it here.
+  .post-masthead > header {
+    margin-bottom: 0;
+  }
+
+  .post-heading h1 {
+    // body sets `line-height: 1.2em` (a fixed 19px), which makes a wrapped
+    // 28px title overlap itself on narrow screens.
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .post-heading .article-share-buttons {
+    margin: 0;
+  }
+}
+
+// 3. banded: a full-bleed masthead over a plain reading surface -----------
+
+.post--banded {
+  .post-masthead {
+    position: relative;
+    padding: 1.5rem 0 1.25rem;
+    margin-bottom: 2rem;
+    background: var(--color-panel);
+    // Extends the fill to the viewport edges without causing horizontal
+    // scroll (box-shadow is not scrollable overflow; clip-path trims the
+    // vertical bleed).
+    box-shadow: 0 0 0 100vmax var(--color-panel);
+    clip-path: inset(0 -100vmax);
+
+    .author-position,
+    ul li a,
+    ul li time,
+    ul li span {
+      color: var(--color-ink-soft);
+    }
+  }
+
+  .post-heading {
+    padding-top: 0.75rem;
+  }
+
+  .article-tags {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-rule);
+  }
+}
+
+// The band starts right under the navbar rule instead of floating below it.
+body:has(> .post--banded) > header {
+  margin-bottom: 0;
+}
