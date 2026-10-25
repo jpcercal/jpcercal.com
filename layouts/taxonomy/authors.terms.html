@@ -1,8 +1,17 @@
-{{ $locale    := .Site.Language.Lang }}
-{{ $authors   := hugo.Data.authors }}
-{{ $pages     := .Site.RegularPages }}
-{{ $paginator := .Paginate (where .Site.Pages "Type" "authors") }}
-{{ $.Scratch.Set "paginated" true }}
+{{ $authors := hugo.Data.authors }}
+{{ $posts   := where .Site.RegularPages "Type" "posts" }}
+
+{{/* Authors are content pages, not taxonomy terms, so group the posts by
+     author here and order the groups by post count, like terms.html does. */}}
+{{ $results := slice }}
+{{ range where .Site.RegularPages "Type" "authors" }}
+    {{ $page        := . }}
+    {{ $authorPosts := where $posts "Params.author" $page.Params.email }}
+    {{ if $authorPosts }}
+        {{ $results = $results | append (dict "page" $page "name" (index $authors $page.Params.email).name "pages" $authorPosts "count" (len $authorPosts)) }}
+    {{ end }}
+{{ end }}
+{{ $results = sort (sort $results "name" "asc") "count" "desc" }}
 
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
@@ -12,28 +21,19 @@
         <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
             <h1 class="mb-2">{{ i18n "authors" }}</h1>
 
-            {{ if $paginator.Pages }}
-                {{ range $paginator.Pages }}
-                    {{ if .Slug }}
-                        {{ $author := index $authors .Params.email }}
-                        {{ $posts  := where $pages "Params.author" .Params.email }}
-            
-                        {{ if $posts }}
-                            <h2 class="mt-4 mb-2">
-                                <a class="post-list--title" href="{{ .Permalink }}">{{ $author.name }}</a>
-                            </h2>
-                
-                            <ul>
-                                {{ range first 10 $posts }}
-                                    <li>
-                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                                    </li>
-                                {{ end }}
-                            </ul>
-                
-                            <a class="see-all-posts mb-4" href="{{ .Permalink }}">{{ i18n "seeAllPosts" }}</a>
+            {{ if $results }}
+                {{ range $results }}
+                    <h2 class="mt-4 mb-2">
+                        <a class="post-list--title" href="{{ .page.Permalink }}">{{ .name }}</a>
+                        <span class="counter">{{ .count }}</span>
+                    </h2>
+                    <ul>
+                        {{ range .pages.ByDate }}
+                            <li>
+                                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            </li>
                         {{ end }}
-                    {{ end }}
+                    </ul>
                 {{ end }}
             {{ else }}
                 <p class="mb-2">“{{ i18n "noResultsFound" }}”.</p>
