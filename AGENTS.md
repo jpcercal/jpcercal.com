@@ -87,14 +87,14 @@
   `theme-color`. Covered by 6 `e2e/smoke.spec.js` theme tests (2 of them
   are cover-fetch network guards — see decision #11; the 6th guards the
   404 page canvas in both themes).
-- `layouts/` (33 files) — `index.html`, `404.html` (title + italic
+- `layouts/` (34 files) — `index.html`, `404.html` (title + italic
   description with a requested-path echo via an inline client-side script
   filling `[data-error404-path]` + latest 10 posts via `post-card.html`),
   `alias.html`,
   `robots.txt` (disallows `/search/`, `/contact/` + `/en/` variants),
   `posts/single.html`, `authors/single.html`, `contact/list.html` (static
   links, no form), `search/list.html`, `taxonomy/` + `_default/`
-  (+`_markup/render-image.html`), `design-system/`,
+  (+`_markup/render-image.html`, `render-table.html` scroll wrapper: article tables scroll in their own box because `.article-content` clips overflow), `design-system/`,
   `shortcodes/ref.html`, `partials/` (18 files: `head.html`,
   `head-assets.html` incl. theme init, `css.html` + `js.html` Hugo Pipes,
   `navbar.html` incl. theme toggle, `footer.html` incl. `theme.js`,
@@ -171,7 +171,7 @@
   (`ci.yml` no longer runs on PRs; lint/validators/links/LHCI/e2e run only
   after merge). Only `main` pushes move the `:latest` image tag. Full flow,
   secrets and cleanup: `docs/ci-cd.md`.
-- `e2e/smoke.spec.js` — 17 tests (home/search/contact-static-links/EN +
+- `e2e/smoke.spec.js` — 19 tests (home/search/contact-static-links/EN +
   real PT/EN Pagefind results + reciprocal translation/reference navigation +
   404 layout + latest-posts content + 6 theme tests, 2 of them
   cover-fetch network guards + 3 font-delivery/fallback/CLS regressions);
@@ -289,7 +289,7 @@
   All native tools come from the locked flake; `JPEGTRAN` is the exact Nix
   mozjpeg path. Do not replace it with a host libjpeg-turbo binary or add
   cargo/Homebrew/apt installation requirements back into local/CI docs.
-- `e2e/smoke.spec.js` (17 tests) runs in CI; `e2e/visual.spec.js` snapshots
+- `e2e/smoke.spec.js` (19 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`
   with pipes). The Playwright webServer serves `public/` via
