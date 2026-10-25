@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="a b" viewBox="0 0 512 512"><title id="a">The Cost of the Loop Matters More Than the Score</title><desc id="b">A centered coral sunburst based on the Claude Opus 5.5 reference image</desc><circle cx="256" cy="256" r="248" fill="#242424"/><path fill="none" stroke="#f3a989" stroke-linecap="square" stroke-width="20" d="M256 110v292M110 256h292m-272 73 252-146m-199 199 146-252m-146 0 146 252m-199-199 252 146"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">The Cost of the Loop Matters More Than the Score</title>
+  <desc id="description">A centered coral sunburst based on the Claude Opus 5.5 reference image</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M256 110v292M110 256h292M130 329l252-146M183 382l146-252M183 130l146 252M130 183l252 146" fill="none" stroke="#F3A989" stroke-width="20" stroke-linecap="square"/>
+</svg>
