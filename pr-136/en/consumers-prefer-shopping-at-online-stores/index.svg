@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Consumidores preferem comprar em lojas virtuais</title>
+  <desc id="description">As lojas virtuais trazem mais segurança aos consumidores tornando o e-commerce  uma ferramenta indispensável para o seu negócio.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <path d="M105 150h39l38 194h181" fill="none" stroke="#172c3d" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M160 183h240l-35 118H183" fill="none" stroke="#172c3d" stroke-width="20" stroke-linejoin="round"/>
+<path d="M171 221h215m-196 42h184m-126-75v105m59-105v105" stroke="#176d96" stroke-width="11"/>
+<circle cx="207" cy="372" r="18" fill="#172c3d"/><circle cx="348" cy="372" r="18" fill="#172c3d"/>
+</svg>
