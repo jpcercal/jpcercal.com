@@ -2,9 +2,10 @@
 {{ $authors   := hugo.Data.authors }}
 {{ $pages     := .Site.RegularPages }}
 {{ $paginator := .Paginate (where .Site.Pages "Type" "authors") }}
+{{ $.Scratch.Set "paginated" true }}
 
 {{ partial "head.html" . }}
-{{ partialCached "navbar.html" . .Site.Language.Lang }}
+{{ partial "navbar.html" . }}
 
 <section class="container post-list">
     <div class="row">

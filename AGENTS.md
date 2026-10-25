@@ -97,7 +97,11 @@
   (+`_markup/render-image.html`, `render-table.html` scroll wrapper: article tables scroll in their own box because `.article-content` clips overflow), `design-system/`,
   `shortcodes/ref.html`, `partials/` (18 files: `head.html`,
   `head-assets.html` incl. theme init, `css.html` + `js.html` Hugo Pipes,
-  `navbar.html` incl. theme toggle, `footer.html` incl. `theme.js`,
+  `navbar.html` incl. theme toggle + same-page language switch
+  (`.AllTranslations` + pager suffix; rendered per page with `partial`,
+  never `partialCached`; templates calling `.Paginate` set the
+  `paginated` scratch flag first; `search.js` adds `?q=` to the
+  `[data-locale-switch]` links), `footer.html` incl. `theme.js`,
   `post-card.html`, head-meta-*/favicon/i18n-list/reading-time/word-count/
   author-*).
 - `static/` — 3 root files plus the vendored `fonts/` directory: `CNAME` (prod `jpcercal.com`; must NOT ship
@@ -173,6 +177,8 @@
   secrets and cleanup: `docs/ci-cd.md`.
 - `e2e/smoke.spec.js` — 19 tests (home/search/contact-static-links/EN +
   real PT/EN Pagefind results + reciprocal translation/reference navigation +
+  9 same-page language-switch tests (post/pager/authors/taxonomy/term/
+  contact + search `?q=` carry-over) +
   404 layout + latest-posts content + 6 theme tests, 2 of them
   cover-fetch network guards + 3 font-delivery/fallback/CLS regressions);
   `e2e/visual.spec.js` snapshots are platform-specific and skipped on CI.

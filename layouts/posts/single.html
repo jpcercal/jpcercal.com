@@ -13,8 +13,8 @@
 {{ $.Scratch.Set "singlePost" true }}
 
 {{ partial "head.html" . }}
-{{/* Uncached: the language switch links to this article's translation. */}}
-{{ partial "navbar.html" (dict "page" .) }}
+{{/* Uncached: the switch targets this article's own translation. */}}
+{{ partial "navbar.html" . }}
 
 <article class="container">
     <header class="row">

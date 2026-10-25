@@ -1,22 +1,41 @@
-{{/* Context is a Page (cached per language, generic switch targets) or, on translated articles, dict "page" . (uncached) so the switch can link to the article's own translation. Never pass a Page that varies per call to the cached form: the cache key is the language only. */}}
-{{ $page         := . }}
-{{ $translations := slice }}
-{{ if reflect.IsMap . }}
-    {{ $page = .page }}
-    {{ $translations = .page.Translations }}
-{{ end }}
-{{ $baseURL     := $page.Site.BaseURL }}
-{{ $locale      := $page.Site.Language.Lang }}
+{{/* Rendered per page, never partialCached: the language switch links to each page's own counterpart, so the cache key (language only) would serve the wrong target. */}}
+{{ $baseURL     := .Site.BaseURL }}
+{{ $locale      := .Site.Language.Lang }}
 {{ $locales     := hugo.Data.locales }}
 {{ $localeEn    := index $locales "en" }}
 {{ $localePt    := index $locales "pt" }}
-{{ $ptHref      := $baseURL }}
-{{ $enHref      := printf "%sen" $baseURL }}
-{{ range $translations }}
-    {{ if eq .Lang "pt" }}{{ $ptHref = .Permalink }}{{ else if eq .Lang "en" }}{{ $enHref = .Permalink }}{{ end }}
-{{ end }}
 {{ $githubTitle := i18n "githubCorner" }}
 {{ $githubImg   := printf "%s%s" $baseURL "images/icons/github-corner-right.svg" }}
+
+{{/* Language switch keeps the reader on the same page: the counterpart is
+  resolved via Hugo's translation linking (posts, sections, taxonomy terms,
+  authors, search, contact), the current pager number is carried over, and
+  search.js appends the live query. Pages without a counterpart (404) fall
+  back to the target language home. Only templates that flag "paginated"
+  (after calling .Paginate) are asked for .Paginator: calling it elsewhere
+  would build an unfiltered paginator and emit extra page/N outputs. */}}
+{{ $pagerSuffix := "" }}
+{{ if .Scratch.Get "paginated" }}
+    {{ with .Paginator }}
+        {{ if gt .PageNumber 1 }}
+            {{/* e.g. "page/2/": the pager URL relative to its first page. */}}
+            {{ $pagerSuffix = strings.TrimPrefix .First.URL .URL }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+{{ $switch := dict }}
+{{ range $lang := slice "pt" "en" }}
+    {{ $href := printf "%s%s" $baseURL (cond (eq $lang "en") "en/" "") }}
+    {{ if ne $.Kind "404" }}
+        {{ range $.AllTranslations }}
+            {{ if eq .Lang $lang }}
+                {{ $href = .Permalink }}
+            {{ end }}
+        {{ end }}
+        {{ $href = printf "%s%s" $href $pagerSuffix }}
+    {{ end }}
+    {{ $switch = merge $switch (dict $lang $href) }}
+{{ end }}
 
 <header class="container">
     <div class="row">
@@ -56,12 +75,12 @@
                         <span class="sr-only" role="status" aria-live="polite" data-theme-toggle-status></span>
                         <ul class="list-none flex gap-2 m-0 locale-list">
                             <li class='locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
-                                <a{{ if eq $locale "pt" }} aria-current="true"{{ end }} href='{{ if eq $locale "pt" }}#{{ else }}{{ $ptHref }}{{ end }}'{{ if ne $locale "pt" }} hreflang="pt"{{ end }} class="hidden lg:inline">{{ index $localePt.title $locale }}</a>
-                                <a{{ if eq $locale "pt" }} aria-current="true"{{ end }} href='{{ if eq $locale "pt" }}#{{ else }}{{ $ptHref }}{{ end }}'{{ if ne $locale "pt" }} hreflang="pt"{{ end }} class="lg:hidden" title="{{ index $localePt.title $locale }}">PT</a>
+                                <a{{ if eq $locale "pt" }} aria-current="true"{{ end }} href='{{ if eq $locale "pt" }}#{{ else }}{{ index $switch "pt" }}{{ end }}' {{ if ne $locale "pt" }}hreflang="pt" data-locale-switch {{ end }}class="hidden lg:inline">{{ index $localePt.title $locale }}</a>
+                                <a{{ if eq $locale "pt" }} aria-current="true"{{ end }} href='{{ if eq $locale "pt" }}#{{ else }}{{ index $switch "pt" }}{{ end }}' {{ if ne $locale "pt" }}hreflang="pt" data-locale-switch {{ end }}class="lg:hidden" title="{{ index $localePt.title $locale }}">PT</a>
                             </li>
                             <li class='locale-list-item {{ if eq $locale "en" }}locale-list-item--active{{ end }}'>
-                                <a{{ if eq $locale "en" }} aria-current="true"{{ end }} href='{{ if eq $locale "en" }}#{{ else }}{{ $enHref }}{{ end }}'{{ if ne $locale "en" }} hreflang="en"{{ end }} class="hidden lg:inline">{{ index $localeEn.title $locale }}</a>
-                                <a{{ if eq $locale "en" }} aria-current="true"{{ end }} href='{{ if eq $locale "en" }}#{{ else }}{{ $enHref }}{{ end }}'{{ if ne $locale "en" }} hreflang="en"{{ end }} class="lg:hidden" title="{{ index $localeEn.title $locale }}">EN</a>
+                                <a{{ if eq $locale "en" }} aria-current="true"{{ end }} href='{{ if eq $locale "en" }}#{{ else }}{{ index $switch "en" }}{{ end }}' {{ if ne $locale "en" }}hreflang="en" data-locale-switch {{ end }}class="hidden lg:inline">{{ index $localeEn.title $locale }}</a>
+                                <a{{ if eq $locale "en" }} aria-current="true"{{ end }} href='{{ if eq $locale "en" }}#{{ else }}{{ index $switch "en" }}{{ end }}' {{ if ne $locale "en" }}hreflang="en" data-locale-switch {{ end }}class="lg:hidden" title="{{ index $localeEn.title $locale }}">EN</a>
                             </li>
                         </ul>
                     </nav>

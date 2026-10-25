@@ -1,7 +1,8 @@
 {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+{{ $.Scratch.Set "paginated" true }}
 
 {{ partial "head.html" . }}
-{{ partialCached "navbar.html" . .Site.Language.Lang }}
+{{ partial "navbar.html" . }}
 
 <section class="container">
     <div class="row">

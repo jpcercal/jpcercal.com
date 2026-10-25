@@ -7,7 +7,7 @@
 {{ $localeBaseURL := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") }}
 
 {{ partial "head.html" . }}
-{{ partialCached "navbar.html" . .Site.Language.Lang }}
+{{ partial "navbar.html" . }}
 
 <section class="container post-list">
     <div class="row">
