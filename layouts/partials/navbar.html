@@ -1,8 +1,20 @@
-{{ $baseURL     := .Site.BaseURL }}
-{{ $locale      := .Site.Language.Lang }}
+{{/* Context is a Page (cached per language, generic switch targets) or, on translated articles, dict "page" . (uncached) so the switch can link to the article's own translation. Never pass a Page that varies per call to the cached form: the cache key is the language only. */}}
+{{ $page         := . }}
+{{ $translations := slice }}
+{{ if reflect.IsMap . }}
+    {{ $page = .page }}
+    {{ $translations = .page.Translations }}
+{{ end }}
+{{ $baseURL     := $page.Site.BaseURL }}
+{{ $locale      := $page.Site.Language.Lang }}
 {{ $locales     := hugo.Data.locales }}
 {{ $localeEn    := index $locales "en" }}
 {{ $localePt    := index $locales "pt" }}
+{{ $ptHref      := $baseURL }}
+{{ $enHref      := printf "%sen" $baseURL }}
+{{ range $translations }}
+    {{ if eq .Lang "pt" }}{{ $ptHref = .Permalink }}{{ else if eq .Lang "en" }}{{ $enHref = .Permalink }}{{ end }}
+{{ end }}
 {{ $githubTitle := i18n "githubCorner" }}
 {{ $githubImg   := printf "%s%s" $baseURL "images/icons/github-corner-right.svg" }}
 
@@ -43,12 +55,12 @@
                         <span class="sr-only" role="status" aria-live="polite" data-theme-toggle-status></span>
                         <ul class="list-none flex gap-2 m-0 locale-list">
                             <li class='locale-list-item {{ if eq $locale "pt" }}locale-list-item--active{{ end }}'>
-                                <a{{ if eq $locale "pt" }} aria-current="true"{{ end }} href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="hidden lg:inline">{{ index $localePt.title $locale }}</a>
-                                <a{{ if eq $locale "pt" }} aria-current="true"{{ end }} href='{{ if eq $locale "pt" }}#{{ else }}{{ $baseURL }}{{ end }}' class="lg:hidden" title="{{ index $localePt.title $locale }}">PT</a>
+                                <a{{ if eq $locale "pt" }} aria-current="true"{{ end }} href='{{ if eq $locale "pt" }}#{{ else }}{{ $ptHref }}{{ end }}'{{ if ne $locale "pt" }} hreflang="pt"{{ end }} class="hidden lg:inline">{{ index $localePt.title $locale }}</a>
+                                <a{{ if eq $locale "pt" }} aria-current="true"{{ end }} href='{{ if eq $locale "pt" }}#{{ else }}{{ $ptHref }}{{ end }}'{{ if ne $locale "pt" }} hreflang="pt"{{ end }} class="lg:hidden" title="{{ index $localePt.title $locale }}">PT</a>
                             </li>
                             <li class='locale-list-item {{ if eq $locale "en" }}locale-list-item--active{{ end }}'>
-                                <a{{ if eq $locale "en" }} aria-current="true"{{ end }} href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="hidden lg:inline">{{ index $localeEn.title $locale }}</a>
-                                <a{{ if eq $locale "en" }} aria-current="true"{{ end }} href='{{ if eq $locale "en" }}#{{ else }}{{ $baseURL }}en{{ end }}' class="lg:hidden" title="{{ index $localeEn.title $locale }}">EN</a>
+                                <a{{ if eq $locale "en" }} aria-current="true"{{ end }} href='{{ if eq $locale "en" }}#{{ else }}{{ $enHref }}{{ end }}'{{ if ne $locale "en" }} hreflang="en"{{ end }} class="hidden lg:inline">{{ index $localeEn.title $locale }}</a>
+                                <a{{ if eq $locale "en" }} aria-current="true"{{ end }} href='{{ if eq $locale "en" }}#{{ else }}{{ $enHref }}{{ end }}'{{ if ne $locale "en" }} hreflang="en"{{ end }} class="lg:hidden" title="{{ index $localeEn.title $locale }}">EN</a>
                             </li>
                         </ul>
                     </nav>
