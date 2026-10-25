@@ -1,0 +1,58 @@
+// Block separation on a single post page. The skin is `.post--rules`, set in
+// layouts/posts/single.html. Colors come only from the theme tokens, so every
+// variant follows the light/dark switch without extra rules.
+//
+// Blocks, top to bottom: navbar, byline (.post-byline), title + share
+// (.post-heading), body (.article-content), tags (.article-tags).
+
+// Shared by all variants -------------------------------------------------
+
+.post {
+  // The global `header { margin-bottom }` is meant for the navbar. Variants
+  // own the vertical rhythm of the masthead, so neutralize it here.
+  .post-masthead > header {
+    margin-bottom: 0;
+  }
+
+  .post-heading h1 {
+    // body sets `line-height: 1.2em` (a fixed 19px), which makes a wrapped
+    // 28px title overlap itself on narrow screens.
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .post-heading .article-share-buttons {
+    margin: 0;
+  }
+}
+
+// 1. rules: hairlines between blocks, nothing boxed -----------------------
+
+.post--rules {
+  .post-byline {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .post-heading {
+    padding: 1.5rem 0 1.25rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .article-content {
+    margin-top: 1.75rem;
+  }
+
+  .article-tags {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-rule);
+  }
+}
+
+// The navbar rule is the first block boundary; make it visible too.
+body:has(> .post--rules) {
+  > header .header {
+    border-bottom-color: var(--color-rule);
+  }
+}
