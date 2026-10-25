@@ -104,6 +104,9 @@
   `[data-locale-switch]` links), `footer.html` incl. `theme.js`,
   `post-card.html`, head-meta-*/favicon/i18n-list/reading-time/word-count/
   author-*).
+- Post page blocks: `layouts/posts/single.html` calls `partials/post/article.html`;
+  the `.post--panels` skin in `assets/scss/post-blocks.scss` (bordered tinted panels for the byline and translations) uses the
+  `--color-rule` / `--color-panel` tokens.
 - `static/` — 3 root files plus the vendored `fonts/` directory: `CNAME` (prod `jpcercal.com`; must NOT ship
   to the staging branch) + `_headers` (Pages cache/security headers;
   replaces `_config.yml` semantics) + `_redirects` (`/posts/` -> `/` and

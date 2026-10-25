@@ -1,0 +1,108 @@
+{{- /*
+  The post body, rendered by layouts/posts/single.html.
+  Context: dict "page" <post page> "scratch" <Scratch holding the seo* values>
+           "variant" the skin name
+*/ -}}
+{{- $page            := .page -}}
+{{- $scratch         := .scratch -}}
+{{- $variant         := .variant -}}
+{{- $baseURL         := $page.Site.BaseURL -}}
+{{- $author          := index hugo.Data.authors $page.Params.author -}}
+{{- $locale          := $page.Site.Language.Lang -}}
+{{- $datetime        := $page.Date.Format "2006-01-02" -}}
+{{- $datetimeDisplay := $page.Date.Format "Jan 2, 2006" -}}
+{{- $categoryAlias   := index (default (slice "") $page.Params.categories) 0 -}}
+{{- $category        := index hugo.Data.categories $categoryAlias -}}
+{{- $tags            := hugo.Data.tags -}}
+{{- $localeBaseURL   := printf "%s%s" $baseURL (cond (eq $locale "en") "en/" "") -}}
+{{- $cover           := where (readDir (printf "content/%s" $page.File.Dir)) "Name" "index.svg" -}}
+{{- $darkCover       := where (readDir (printf "content/%s" $page.File.Dir)) "Name" "index.dark.svg" -}}
+
+<article class="container post post--{{ $variant }}">
+    <div class="post-masthead">
+        <header class="row">
+            <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+                <div class="post-byline flex items-start gap-2">
+                    <div class="shrink-0">
+                        <img class="rounded-full" src="{{ $baseURL }}{{ $author.picture.thumbnail }}" alt="{{ $author.name }}" height="60" width="60" decoding="async">
+                    </div>
+
+                    <div>
+                        <a href='{{ $localeBaseURL }}authors/{{ $author.slug }}' rel="author" class="font-size-h6 author-name">{{ $author.name }}</a>
+                        <p class="author-position">{{ index $author.position $locale }}</p>
+
+                        <ul class="flex list-none gap-2">
+                            <li>
+                                <time datetime="{{ $datetime }}">{{ $datetimeDisplay }}</time>
+                            </li>
+                            <li class="hidden sm:inline">
+                                <span>{{ partial "word-count.html" $page }}</span>
+                            </li>
+                            <li class="hidden sm:inline">
+                                <span>{{ partial "reading-time.html" $page }}</span>
+                            </li>
+                            {{ if $category }}
+                                <li>
+                                    <a href='{{ $localeBaseURL }}categories/{{ $categoryAlias | urlize }}'>{{ index (index $category "title") $locale }}</a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+                <div class="post-heading">
+                    <h1 class="font-size-h1 mt-2 mb-4" data-pagefind-meta="title">{{ $page.Title }}</h1>
+
+                    {{ if $category }}
+                    <span class="hidden" data-pagefind-meta="category">{{ index (index $category "title") $locale }}</span>
+                    {{ end }}
+                    <span class="hidden" data-pagefind-meta="author">{{ $author.name }}</span>
+                    <span class="hidden" data-pagefind-meta="description">{{ $page.Description }}</span>
+                    <span class="hidden" data-pagefind-meta="image">{{ if $cover }}{{ $localeBaseURL }}{{ $page.Slug }}/index.svg{{ else }}{{ $baseURL }}images/icons/tag.svg{{ end }}</span>
+                    {{ if and $cover $darkCover }}<span class="hidden" data-pagefind-meta="image_dark">{{ $localeBaseURL }}{{ $page.Slug }}/index.dark.svg</span>{{ end }}
+                    <span class="hidden" data-pagefind-meta="language">{{ $locale }}</span>
+                    <span class="hidden" data-pagefind-filter="type">post</span>
+
+                    <ul class="article-share-buttons mt-1 mb-4 list-none flex gap-2">
+                        <li>
+                            <a href='https://www.facebook.com/sharer/sharer.php?u={{ $scratch.Get "seoCanonical" }}&quote={{ $scratch.Get "seoTitle" }}' target="_blank" title="Share on Facebook">
+                                <img alt="Share on Facebook" src="{{ $baseURL }}images/icons/share-buttons/facebook.svg" loading="lazy" decoding="async" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href='https://twitter.com/intent/tweet?source={{ $scratch.Get "seoCanonical" }}&text={{ $scratch.Get "seoTitle" }}:%20{{ $scratch.Get "seoCanonical" }}&via={{ $scratch.Get "twitterProfile" }}' target="_blank" title="Share on Twitter">
+                                <img alt="Share on Twitter" src="{{ $baseURL }}images/icons/share-buttons/twitter.svg" loading="lazy" decoding="async" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href='http://www.linkedin.com/shareArticle?mini=true&url={{ $scratch.Get "seoCanonical" }}&title={{ $scratch.Get "seoTitle" }}&summary={{ $scratch.Get "seoDescription" }}&source={{ $scratch.Get "seoCanonical" }}' target="_blank" title="Share on LinkedIn">
+                                <img alt="Share on LinkedIn" src="{{ $baseURL }}images/icons/share-buttons/linkedin.svg" loading="lazy" decoding="async" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+            <div class="font-size-h6 article-content" data-pagefind-body>
+                {{ $page.Content }}
+            </div>
+
+            <ul class="article-tags list-none flex gap-2">
+                {{ range $tag := $page.Params.tags }}
+                    {{ if $tag }}
+                        <li class="article-tag">
+                            <a href='{{ $localeBaseURL }}tags/{{ $tag | urlize }}'>{{ index (index (index $tags $tag) "title") $locale }}</a>
+                        </li>
+                    {{ end }}
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</article>
