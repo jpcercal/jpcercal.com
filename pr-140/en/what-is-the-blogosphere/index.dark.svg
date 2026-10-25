@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">O que é Blogosfera?</title>
+  <desc id="description">Talvez você já tenha ouvido falar no termo "Blogosfera", mas seu real significado ainda pode não estar claro para você. Descubra o que significa este termo.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M154 153h204c26 0 40 15 40 40v127c0 25-14 40-40 40H239l-81 52v-52h-4c-26 0-40-15-40-40V193c0-25 14-40 40-40z" fill="none" stroke="#ffad66" stroke-width="23" stroke-linejoin="round"/>
+<path d="M169 253h175m-175 49h133" stroke="#eaf5f8" stroke-width="19" stroke-linecap="round"/>
+<path d="m321 144 34-34 47 46-34 34z" fill="#ffad66" stroke="#eaf5f8" stroke-width="8"/><path d="m321 144-11 52 58-6" fill="#ffad66" stroke="#eaf5f8" stroke-width="8"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Vamos morar em Munique na Alemanha</title>
+  <desc id="description">White and blue striped Bavarian flag, representing the move to Munich</desc>
+  <defs>
+    <clipPath id="flag"><rect x="64" y="141" width="384" height="230" rx="18"/></clipPath>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g clip-path="url(#flag)">
+    <path fill="#ffffff" d="M64 141h384v115H64z"/>
+    <path fill="#0098d4" d="M64 256h384v115H64z"/>
+  </g>
+  <rect x="64" y="141" width="384" height="230" rx="18" fill="none" stroke="#006b96" stroke-width="8"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Changing the Decision Model Changes the Policy</title>
+  <desc id="description">A hand completing a checklist on a smartphone, redrawn from the supplied mobile-survey reference</desc>
+  <!-- Based on the supplied Vecteezy mobile-survey reference (resource 078/261/445). -->
+  <circle cx="256" cy="256" r="248" fill="#F8F9FA"/>
+  <g transform="translate(-18 -18) scale(.56)" fill="none" stroke="#333333" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M514 378V240c0-30-24-54-54-54H245c-30 0-54 24-54 54v500c0 30 24 54 54 54h217c23 0 43-13 49-33"/>
+    <path d="M309 230h88M436 328v-14c0-11-9-20-20-20H290c-11 0-20 9-20 20v126c0 11 9 20 20 20h117M311 370l36 36 52-51M436 563v-24c0-11-9-20-20-20H290c-11 0-20 9-20 20v126c0 11 9 20 20 20h111"/>
+    <path d="m642 793-11-23c-29 1-57-8-81-25L391 640c-3-2-4-6-2-10 10-23 27-39 53-25l62 38c8 5 18 3 25-4 9-7 11-14 6-24L426 410c-9-17-3-33 12-41 16-8 32-2 40 15l84 163-27-56c-7-16-1-32 14-40 16-8 32-2 40 13l26 55-21-42c-8-16-2-33 13-39 16-6 31 0 39 16l24 43-12-22c-8-16-2-32 13-39 16-8 33-1 40 15l64 124c21 40 16 78-2 109l15 31"/>
+  </g>
+</svg>
