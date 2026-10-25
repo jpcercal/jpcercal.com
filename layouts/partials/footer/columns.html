@@ -1,0 +1,41 @@
+{{- $f := partial "footer/links.html" . -}}
+<footer class="site-footer site-footer--columns">
+    <div class="container">
+        <div class="row">
+            <div class="col offset-lg-1 offset-xl-2 col-lg-10 col-xl-8">
+                <div class="site-footer--grid">
+                    <div class="site-footer--about">
+                        <a class="site-footer--brand" href="{{ $f.home }}">{{ $f.title }}</a>
+                        <p class="site-footer--tagline m-0">{{ $f.description }}</p>
+                    </div>
+
+                    <nav aria-label='{{ i18n "footerExplore" }}'>
+                        <h2 class="site-footer--heading">{{ i18n "footerExplore" }}</h2>
+                        <ul class="list-none m-0">
+                            {{- range $f.nav }}
+                            <li><a href="{{ .url }}">{{ .label }}</a></li>
+                            {{- end }}
+                        </ul>
+                    </nav>
+
+                    <nav aria-label='{{ i18n "footerConnect" }}'>
+                        <h2 class="site-footer--heading">{{ i18n "footerConnect" }}</h2>
+                        <ul class="list-none m-0">
+                            {{- range $f.social }}
+                            <li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></li>
+                            {{- end }}
+                            {{- with $f.rss }}
+                            <li><a href="{{ . }}" rel="alternate" type="application/rss+xml">{{ $f.rssLabel }}</a></li>
+                            {{- end }}
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="site-footer--bar flex flex-wrap items-center justify-between gap-2">
+                    <p class="site-footer--copy m-0">&copy; {{ $f.year }} {{ $f.title }}</p>
+                    <a class="site-footer--source" href="{{ $f.source }}" target="_blank" rel="noopener">{{ $f.sourceLabel }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

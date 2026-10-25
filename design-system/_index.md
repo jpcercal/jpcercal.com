@@ -12,3 +12,4 @@ the `preview-staging` job copies `design-system/` into `content/` with a
 
 - [Tokens](tokens/): colors, fonts, spacing.
 - [Components](components/): rendered examples of the building blocks.
+- [Footers](footers/): the three footer variants side by side.
