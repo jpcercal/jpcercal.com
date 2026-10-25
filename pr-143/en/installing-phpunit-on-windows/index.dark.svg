@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Old PC for PHPUnit on Windows</title>
+  <desc id="description">A boxy desktop computer with a dark monitor, drive slot, and red power button, based on the supplied old PC icon.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <rect x="90" y="85" width="332" height="220" rx="7" fill="#bfc9cf" stroke="#e6eef5" stroke-width="14"/>
+  <rect x="118" y="111" width="276" height="153" fill="#30424d"/>
+  <path d="M216 306v22h80v-22m-102 22h124" fill="none" stroke="#e6eef5" stroke-width="14" stroke-linejoin="round"/>
+  <rect x="70" y="339" width="372" height="91" rx="7" fill="#bfc9cf" stroke="#e6eef5" stroke-width="14"/>
+  <rect x="104" y="363" width="122" height="21" fill="#30424d"/>
+  <circle cx="394" cy="384" r="18" fill="#ff6969"/>
+</svg>
