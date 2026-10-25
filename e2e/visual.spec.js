@@ -7,7 +7,6 @@ test.skip(!!process.env.CI, "visual baselines are platform-specific");
 const pages = [
 	["home", "/"],
 	["search", "/search/"],
-	["contact", "/contact/"],
 	["english", "/en/"],
 	["post", "/revisiting-the-layout-and-the-blog-project/"],
 ];

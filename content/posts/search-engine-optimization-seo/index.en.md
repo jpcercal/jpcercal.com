@@ -62,4 +62,4 @@ The figure below illustrates how the SEO process is carried out:
 * Want to increase the number of visits to your website?
 
 > If you're interested, get in touch with us through our
-[contact page]({{< ref "contact/_index.md" >}} "Contact").
+[author page]({{< ref "authors/jpcercal/index.md" >}}).

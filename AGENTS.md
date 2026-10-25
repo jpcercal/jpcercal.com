@@ -37,7 +37,7 @@
   frontmatter, not the folder name, controls published URLs.
   `docs/bilingual-review.md` records the 71 completion
   translations and their individual commits/two review passes.
-  `content/search/`, `content/contact/` (each with
+  `content/search/` (with
   `_index.md` + `_index.en.md`), `content/authors/` (2 authors). The 404
   page is `layouts/404.html` — there is no `content/404.html`.
 - `assets/scss/` (13 files) — app styles (Dart Sass `@use` modules) +
@@ -91,9 +91,8 @@
   description with a requested-path echo via an inline client-side script
   filling `[data-error404-path]` + latest 10 posts via `post-card.html`),
   `alias.html`,
-  `robots.txt` (disallows `/search/`, `/contact/` + `/en/` variants),
-  `posts/single.html`, `authors/single.html`, `contact/list.html` (static
-  links, no form), `search/list.html`, `taxonomy/` + `_default/`
+  `robots.txt` (disallows `/search/` + `/en/` variant),
+  `posts/single.html`, `authors/single.html`, `search/list.html`, `taxonomy/` + `_default/`
   (+`_markup/render-image.html`, `render-table.html` scroll wrapper: article tables scroll in their own box because `.article-content` clips overflow), `design-system/`,
   `shortcodes/ref.html`, `partials/` (18 files: `head.html`,
   `head-assets.html` incl. theme init, `css.html` + `js.html` Hugo Pipes,
@@ -178,7 +177,7 @@
   (`ci.yml` no longer runs on PRs; lint/validators/links/LHCI/e2e run only
   after merge). Only `main` pushes move the `:latest` image tag. Full flow,
   secrets and cleanup: `docs/ci-cd.md`.
-- `e2e/smoke.spec.js` — 19 tests (home/search/contact-static-links/EN +
+- `e2e/smoke.spec.js` — 18 tests (home/search/EN +
   real PT/EN Pagefind results + reciprocal translation/reference navigation +
   9 same-page language-switch tests (post/pager/authors/taxonomy/term/
   contact + search `?q=` carry-over) +
@@ -211,8 +210,8 @@
    waste the 100k req/day free quota; site is fully static).
 7. **No third-party comments; Cloudflare Web Analytics only**: Disqus
    (`cercal-io`) + GA4 removed outright per user scope decision
-   (`giscus` + Zaraz explicitly out of scope). Contact form likewise
-   removed (static links page). The single allowed tracker is the
+   (`giscus` + Zaraz explicitly out of scope). Contact form and
+   contact page likewise removed. The single allowed tracker is the
    cookieless Cloudflare Web Analytics beacon
    (`layouts/partials/analytics-cloudflare.html`, token in
    `config.yaml` params, renders only for the `jpcercal.com` host via
@@ -298,7 +297,7 @@
   All native tools come from the locked flake; `JPEGTRAN` is the exact Nix
   mozjpeg path. Do not replace it with a host libjpeg-turbo binary or add
   cargo/Homebrew/apt installation requirements back into local/CI docs.
-- `e2e/smoke.spec.js` (19 tests) runs in CI; `e2e/visual.spec.js` snapshots
+- `e2e/smoke.spec.js` (18 tests) runs in CI; `e2e/visual.spec.js` snapshots
   are platform-specific and skipped on CI (`test.skip(!!process.env.CI)`)
   — regenerate locally only, from fully-styled builds (`hugo server`
   with pipes). The Playwright webServer serves `public/` via

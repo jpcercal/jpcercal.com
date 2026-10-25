@@ -123,10 +123,6 @@ for bundle in bundles:
             bare = urlsplit(expected).path in ''.join(rendered.text)
             require(linked or bare,
                     f'reference not in {lang}: {url} -> {expected}')
-        if re.search(r'{{<\s*ref\s+"contact/_index\.md"\s*>}}', sources[(bundle.name, lang)]):
-            expected = urljoin(base, 'en/contact/' if lang == 'en' else 'contact/')
-            require(any(urljoin(url, a.get('href', '')) == expected for a in rendered.attrs('a')),
-                    f'contact reference not in {lang}: {url}')
 
 entry = json.loads((root / 'pagefind/pagefind-entry.json').read_text())
 require(set(entry['languages']) == {'pt', 'en'}, 'Pagefind must contain exactly pt and en')

@@ -34,6 +34,6 @@ nível no _ranking_ de busca do Google.
 Nós, desenvolvemos nossos _websites_ buscando atingir os diferentes dispositivos presentes no mercado, aplicando 
 técnicas de [SEO]({{< ref "posts/search-engine-optimization-seo/index.md" >}} "Otimização dos Mecanismos de 
 Busca - SEO"), e uma delas é o desenvolvimento _web_ responsivo. Se tiver interesse entre em contato conosco através 
-da nossa [página de contato]({{< ref "contact/_index.md" >}} "Contato").
+da nossa [página do autor]({{< ref "authors/jpcercal/index.md" >}}).
 
 > Você já tem um website responsivo? Ficou com alguma dúvida? Quer acrescentar alguma informação? Deixe seu comentário.

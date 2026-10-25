@@ -35,4 +35,4 @@ dos clientes, dando as mesmas garantias na compra e muitas vezes com preços men
 Ter sua loja aberta vinte e quatro horas por dia, agora é possível, nós trabalhamos com desenvolvimento de lojas 
 virtuais, o que lhe permite usufruir dos benefícios trazidos por esta nova ferramenta de venda.
 
-> Tem interesse em loja virtual? Fantástico! Entre em contato conosco através da nossa [página de contato]({{< ref "contact/_index.md" >}} "Contato").
+> Tem interesse em loja virtual? Fantástico! Entre em contato conosco através da nossa [página do autor]({{< ref "authors/jpcercal/index.md" >}}).
