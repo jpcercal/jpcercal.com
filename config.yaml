@@ -17,11 +17,6 @@ params:
   # partial so staging/local/e2e builds never emit the beacon.
   cloudflareWebAnalyticsToken: "15a0ea1b52c8410080a89ee3bc64156e"
 
-  # Footer design rendered on every page: compact | columns | centered.
-  # All three live in layouts/partials/footer/ and share their links; the
-  # staging-only design-system/footers page shows them side by side.
-  footerVariant: "compact"
-
 markup:
   highlight:
     style:        "onedark"

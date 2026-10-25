@@ -40,7 +40,6 @@ never raw colors (code blocks stay One Dark in both themes).
 | `--color-credit` | `#ddd` | `rgba(255,255,255,.40)` | footer credit line |
 | `--color-rule` | `#d6d6d6` | `#3d3d3d` | dividers between post blocks |
 | `--color-panel` | `#f6f6f4` | `#242424` | tinted fill for grouped post blocks |
-| `--color-footer-bg` | `#f8f9fa` | `#1f1f1f` | tinted footer band (`columns` variant) |
 | `--color-link` | `#0969da` | `#4493f8` | post body links (GitHub Primer accent; 5.2:1 / 5.7:1 on canvas) |
 | `--color-link-hover` | `#0550ae` | `#79c0ff` | post body link on hover (7.6:1 / 9.0:1) |
 | `--color-link-line` | `rgba(9,105,218,.4)` | `rgba(68,147,248,.5)` | resting baseline rule of post body links |
