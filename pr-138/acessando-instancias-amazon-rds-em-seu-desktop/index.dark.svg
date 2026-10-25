@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Acessando Instâncias Amazon RDS em seu Desktop</title>
+  <desc id="description">Five orange isometric cubes from the supplied Amazon RDS reference</desc>
+  <defs>
+    <g id="cube" stroke="#ffd58e" stroke-width="3" stroke-linejoin="round">
+      <path d="M0 12 34 1l34 11-34 12z" fill="#ffbf57"/>
+      <path d="M0 20 30 31v42L0 62z" fill="#f6a429"/>
+      <path d="M38 31 68 20v42L38 73z" fill="#e98c16"/>
+    </g>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <g transform="translate(-51 -49) scale(1.2)">
+    <use href="#cube" x="130" y="208"/>
+    <use href="#cube" x="204" y="208"/>
+    <use href="#cube" x="167" y="278"/>
+    <use href="#cube" x="241" y="138"/>
+    <use href="#cube" x="315" y="138"/>
+  </g>
+</svg>

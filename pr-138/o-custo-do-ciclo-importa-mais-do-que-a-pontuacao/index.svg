@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">The Cost of the Loop Matters More Than the Score</title>
+  <desc id="description">A centered coral sunburst based on the Claude Opus 5.5 reference image</desc>
+  <circle cx="256" cy="256" r="248" fill="#F8F9FA"/>
+  <path d="M256 110v292M110 256h292M130 329l252-146M183 382l146-252M183 130l146 252M130 183l252 146" fill="none" stroke="#C86548" stroke-width="20" stroke-linecap="square"/>
+</svg>
