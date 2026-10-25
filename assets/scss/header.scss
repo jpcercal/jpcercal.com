@@ -33,6 +33,41 @@ header {
       white-space: nowrap;
     }
 
+    // Narrow phones (320-420px): the brand (24px web font) plus the 68px
+    // toggle and the PT/EN pill do not fit side by side, so the brand
+    // scales with the viewport and the chrome around it is tightened. The
+    // toggle keeps its 44px hit area; its 2px transparent side margins are
+    // reclaimed.
+    @media (max-width: 419.98px) {
+      column-gap: 0;
+
+      > .col {
+        padding-left: 2px;
+        padding-right: 2px;
+      }
+
+      .header-center a.brand {
+        font-size: clamp(18px, 6vw, 24px);
+      }
+
+      .header-end nav {
+        gap: 0;
+      }
+
+      .theme-toggle {
+        margin-inline: -2px;
+      }
+
+      .search .search-link {
+        width: 36px;
+        padding: 0;
+      }
+
+      .locale-list .locale-list-item a {
+        padding: 0 8px;
+      }
+    }
+
     .header-end nav {
       justify-content: flex-end;
     }
