@@ -38,7 +38,7 @@
   `docs/bilingual-review.md` records the 71 completion
   translations and their individual commits/two review passes.
   `content/search/`, `content/contact/` (each with
-  `_index.md` + `_index.en.md`), `content/authors/` (3 authors). The 404
+  `_index.md` + `_index.en.md`), `content/authors/` (2 authors). The 404
   page is `layouts/404.html` — there is no `content/404.html`.
 - `assets/scss/` (13 files) — app styles (Dart Sass `@use` modules) +
   `syntax-highlight.scss` (Chroma onedark tokens verbatim from
