@@ -15,7 +15,7 @@ footer {
   }
 }
 
-// Site footer (three interchangeable designs, see layouts/partials/footer/).
+// Site footer (layouts/partials/footer/).
 // Colors come only from the theme contract (var(--color-*)), so light, dark
 // and the no-JS OS fallback are covered without extra selectors. Text uses
 // --color-ink-soft (>= 7:1 in both themes); --color-muted/--color-faint stay
@@ -55,74 +55,7 @@ body > :has(+ .site-footer) {
   margin-bottom: 48px;
 }
 
-// Variant 1: one quiet line (copyright left, links right).
-.site-footer--compact {
-  padding: 20px 0 28px;
-}
-
-// Variant 2: tinted band with about / explore / connect columns.
-.site-footer--columns {
-  background-color: var(--color-footer-bg);
-  padding: 40px 0 24px;
-
-  .site-footer--grid {
-    display: grid;
-    gap: 32px;
-    grid-template-columns: 1fr;
-  }
-
-  @media (min-width: 640px) {
-    .site-footer--grid {
-      grid-template-columns: 2fr 1fr 1fr;
-    }
-  }
-
-  .site-footer--brand {
-    display: inline-block;
-    margin-bottom: 8px;
-    color: var(--color-ink);
-    font-family: 'Fjalla One', sans-serif;
-    font-size: em(24px, 14);
-
-    &::before {
-      content: '<';
-      color: var(--color-faint);
-    }
-
-    &::after {
-      content: '/>';
-      color: var(--color-faint);
-    }
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  .site-footer--tagline {
-    max-width: 28em;
-  }
-
-  .site-footer--heading {
-    margin: 0 0 12px;
-    color: var(--color-ink);
-    font-size: em(14px, 14);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  li + li {
-    margin-top: 8px;
-  }
-
-  .site-footer--bar {
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid var(--color-border);
-  }
-}
-
-// Variant 3: centered brand, outlined buttons shared with the header
+// Centered brand, outlined buttons shared with the header
 // controls (same border, radius, padding and 32px height as .theme-toggle).
 .site-footer--centered {
   padding: 48px 0 32px;

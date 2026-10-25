@@ -69,15 +69,9 @@ tableScrollRegion:
   other: "Tabela rolável"
 footerNav:
   other: "Navegação do rodapé"
-footerExplore:
-  other: "Explorar"
-footerConnect:
-  other: "Conecte-se"
 footerHome:
   other: "Início"
 footerSearch:
   other: "Buscar"
 footerTags:
   other: "Marcadores"
-footerRss:
-  other: "Feed RSS"

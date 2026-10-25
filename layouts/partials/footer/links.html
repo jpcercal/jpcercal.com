@@ -1,6 +1,5 @@
 {{- /*
-  Single source for every footer variant: the same links and labels in all
-  three designs, localized through i18n and absLangURL (so PT/EN and the
+  Single source for the footer links and labels, localized through i18n and absLangURL (so PT/EN and the
   staging subpaths keep working). Returns a dict; renders nothing.
 */ -}}
 {{- $page := . -}}
@@ -29,7 +28,6 @@
   "nav" $nav
   "social" $social
   "rss" $rss
-  "rssLabel" (i18n "footerRss")
   "source" "https://github.com/jpcercal/jpcercal.com"
   "sourceLabel" (i18n "githubCorner")
   "home" $page.Site.Home.Permalink

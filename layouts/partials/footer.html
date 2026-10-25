@@ -1,6 +1,4 @@
-{{- /* Variant is a site param (config.yaml: params.footerVariant); one of compact, columns, centered. */ -}}
-{{- $variant := site.Params.footerVariant | default "compact" -}}
-{{- partial (printf "footer/%s.html" $variant) . -}}
+{{- partial "footer/centered.html" . -}}
 {{ $theme := resources.Get "js/theme.js" | js.Build (dict "minify" true) | fingerprint }}
 <script src="{{ $theme.RelPermalink }}" defer></script>
 {{- partial "analytics-cloudflare.html" . -}}
