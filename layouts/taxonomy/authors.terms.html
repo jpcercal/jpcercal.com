@@ -28,7 +28,7 @@
                         <span class="counter">{{ .count }}</span>
                     </h2>
                     <ul>
-                        {{ range .pages.ByDate }}
+                        {{ range .pages.ByDate.Reverse }}
                             <li>
                                 <a href="{{ .Permalink }}">{{ .Title }}</a>
                             </li>
