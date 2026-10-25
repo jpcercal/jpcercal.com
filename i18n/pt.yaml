@@ -11,7 +11,7 @@ contact:
 contactInfo:
   other: "Você pode entrar em contato por e-mail ou através de nossos perfis sociais"
 searchFor: 
-  other: "Procurar por"
+  other: "Pesquisar"
 searchForInfo:
   other: "Digite termos como \"PHP\" ou \"Javascript\". Os termos de busca são \"case-insensitive\". Você precisa informar pelo menos 3 caracteres para iniciar uma busca."
 searchForPlaceholder:
