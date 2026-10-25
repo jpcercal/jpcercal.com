@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">How to delete all your Git local branches</title>
+  <desc id="description">Four connected Git branch nodes matching the supplied Git Flow reference</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g transform="translate(34 17) scale(1.65)" fill="none" stroke-width="23" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M73 130c0 21 12 25 28 25 20 0 33 13 33 33" stroke="#46546e"/>
+    <path d="M196 130c0 21-12 25-28 25-20 0-33 13-33 33" stroke="#178c64"/>
+    <path d="M135 91v100" stroke="#0b64ef"/>
+    <path d="M135 179v22" stroke="#168967"/>
+    <circle cx="73" cy="106" r="27" fill="#46546e" stroke="none"/>
+    <circle cx="135" cy="68" r="27" fill="#0b64ef" stroke="none"/>
+    <circle cx="196" cy="106" r="27" fill="#178c64" stroke="none"/>
+    <circle cx="135" cy="221" r="27" fill="#168967" stroke="none"/>
+    <g fill="#f8f9fa" stroke="none">
+      <circle cx="73" cy="106" r="10"/>
+      <circle cx="135" cy="68" r="10"/>
+      <circle cx="196" cy="106" r="10"/>
+      <circle cx="135" cy="221" r="10"/>
+    </g>
+  </g>
+</svg>

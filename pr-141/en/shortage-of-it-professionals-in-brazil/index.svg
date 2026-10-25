@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Déficit de profissionais de TI no Brasil</title>
+  <desc id="description">A tecnologia da informação está em constante crescimento, por conta disso, está causando um grande problema, a falta de profissionais qualificados.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <circle cx="256" cy="256" r="178" fill="#e96153"/>
+<rect x="152" y="140" width="208" height="240" rx="15" fill="#ffffff" stroke="#172c3d" stroke-width="13"/>
+<rect x="216" y="121" width="80" height="40" rx="12" fill="#a66500"/>
+<circle cx="256" cy="141" r="8" fill="#e96153"/>
+<path d="M190 212h132m-132 41h132m-132 41h106m-106 41h87" stroke="#172c3d" stroke-width="15" stroke-linecap="round" opacity=".65"/>
+</svg>
