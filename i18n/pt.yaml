@@ -24,8 +24,6 @@ error404Suggestions:
   other: "Esta página não foi encontrada, mas que tal dar uma olhada nos artigos mais recentes?"
 wordCount:
   other: "{{ .WordCount }} palavras"
-resume:
-  other: "Currículo"
 facebook:
   other: "Facebook"
 linkedin:
