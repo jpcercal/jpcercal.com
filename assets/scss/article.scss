@@ -37,6 +37,10 @@ section {
     }
 
     ul {
+      // Wider gap so the centered separator leaves comfortable room on both
+      // sides; 1rem total, the dot sits at its midpoint.
+      gap: calc(var(--spacing, 0.25rem) * 4);
+
       li {
         position: relative;
       }
@@ -48,7 +52,7 @@ section {
         content: '\00B7';
         color: var(--color-muted);
         position: absolute;
-        left: calc(var(--spacing, 0.25rem) * -1);
+        left: calc(var(--spacing, 0.25rem) * -2);
         transform: translateX(-50%);
       }
 
