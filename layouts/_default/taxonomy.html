@@ -17,7 +17,7 @@
             {{ end }}
 
             {{ if $pages }}
-                {{ range $pages }}
+                {{ range $pages.ByDate.Reverse }}
                     {{ partial "post-card.html" . }}
                 {{ end }}
             {{ else }}

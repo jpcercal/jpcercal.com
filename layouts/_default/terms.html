@@ -30,7 +30,7 @@
                         <span class="counter">{{ $value.Count }}</span>
                     </h2>
                     <ul>
-                        {{ range $value.Pages.ByDate }}
+                        {{ range $value.Pages.ByDate.Reverse }}
                             <li>
                                 <a href="{{ .Permalink }}">{{ .Title }}</a>
                             </li>

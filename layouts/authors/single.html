@@ -35,7 +35,7 @@
             </header>
 
             {{ if $posts }}
-                {{ range $posts }}
+                {{ range $posts.ByDate.Reverse }}
                     {{ partial "post-card.html" . }}
                 {{ end }}
             {{ else }}
