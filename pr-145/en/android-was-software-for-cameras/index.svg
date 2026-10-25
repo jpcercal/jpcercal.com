@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Android camera origins</title>
+  <desc id="description">The green Android robot from the reference recalls its early camera software origins.</desc>
+  <circle cx="256" cy="256" r="248" fill="#f8f9fa"/>
+  <g fill="none" stroke="#649b1e" stroke-width="12" stroke-linecap="round"><path d="m191 141-18-29m148 29 18-29"/></g><path d="M158 190a98 98 0 0 1 196 0Z" fill="#649b1e"/><rect x="154" y="199" width="204" height="151" rx="12" fill="#649b1e"/><rect x="116" y="215" width="25" height="119" rx="13" fill="#649b1e"/><rect x="371" y="215" width="25" height="119" rx="13" fill="#649b1e"/><rect x="192" y="335" width="28" height="62" rx="13" fill="#649b1e"/><rect x="292" y="335" width="28" height="62" rx="13" fill="#649b1e"/><circle cx="214" cy="166" r="7" fill="#ffffff"/><circle cx="298" cy="166" r="7" fill="#ffffff"/>
+</svg>

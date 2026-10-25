@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">WordPress Dica: Como usar Shortcodes</title>
+  <desc id="description">WordPress W between shortcode brackets</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path d="M145 112H92v288h53M367 112h53v288h-53" fill="none" stroke="#d8dce1" stroke-width="21" stroke-linejoin="miter"/>
+  <circle cx="256" cy="256" r="111" fill="none" stroke="#f8f9fa" stroke-width="8"/>
+  <circle cx="256" cy="256" r="97" fill="#f8f9fa"/>
+  <path d="M170 206h42v12h-12l29 102 22-66-11-36h-12v-12h56v12h-11l29 102 24-82c3-12 2-19-4-29-3-5-4-11-2-17 17 13 24 29 24 48 0 11-3 22-7 35l-29 75h-31l-24-76-24 76h-32l-42-132h-5z" fill="#242424"/>
+</svg>
