@@ -11,27 +11,43 @@ header {
   .search {
     display: block;
 
-    // Same chrome as .theme-toggle (rounded outline + glyph); the visible
-    // label is dropped, aria-label/title keep the accessible name.
+    // Same pill as the theme toggle track and the language switch: 36px
+    // tall, 1px ink-soft border, full radius, canvas fill. The glyph and the
+    // label sit together inside it; below `sm` only the glyph is shown (the
+    // aria-label/title keep the accessible name). Hover only recolours, so
+    // the box never shifts.
     .search-link {
+      box-sizing: border-box;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid var(--color-faint);
-      border-radius: 8px;
-      padding: 7px 9px;
-      color: var(--color-locale-idle);
-      text-decoration: none;
+      gap: 8px;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--color-ink-soft);
+      border-radius: 18px;
+      background-color: var(--color-canvas);
+      color: var(--color-ink);
       line-height: 1;
+      text-decoration: none;
+      white-space: nowrap;
 
-      &:hover {
-        color: var(--color-locale-hover);
+      &:focus-visible {
+        outline: 2px solid var(--color-ink);
+        outline-offset: 2px;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--color-border);
+        }
       }
     }
 
-    // The glyph is a mask painted with currentColor, so it follows the
-    // idle/hover colors and both themes without any filter.
+    // The glyph is a mask painted with currentColor, so it follows the ink
+    // color in both themes without any filter.
     .search-icon {
+      flex: none;
       display: block;
       background-color: currentColor;
       -webkit-mask: url("../images/icons/search.svg") center / contain no-repeat;
@@ -270,7 +286,6 @@ header {
 
   // `filter` is not driven by a token, so it needs its own (non-inherited)
   // fade, again only for the click that switches the theme.
-  html[data-theme-transition] header .search .search-icon,
   html[data-theme-transition] header .github-corner img {
     transition: filter 200ms ease;
   }
