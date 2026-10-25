@@ -37,11 +37,32 @@ section {
     }
 
     ul {
+      // Wider gap so the centered separator leaves comfortable room on both
+      // sides; 1rem total, the dot sits at its midpoint.
+      gap: calc(var(--spacing, 0.25rem) * 4);
+
+      li {
+        position: relative;
+      }
+
+      // The list is a flex row with `gap-2`; the separator dot lives in that
+      // gap. Pull it out of the flow and center it on the gap's midpoint
+      // instead of letting it sit against the following item.
       li:not(:first-child)::before {
-        display: inline;
         content: '\00B7';
         color: var(--color-muted);
-        margin-right: 2px;
+        position: absolute;
+        left: calc(var(--spacing, 0.25rem) * -2);
+        transform: translateX(-50%);
+      }
+
+      // Below Tailwind's `sm` breakpoint a leading `hidden sm:inline` item
+      // (the résumé link) is display:none, so the next item is visually first
+      // and must not get a dangling separator.
+      @media (width < 40rem) {
+        li.hidden:first-child + li::before {
+          display: none;
+        }
       }
     }
   }

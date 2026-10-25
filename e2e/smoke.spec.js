@@ -731,3 +731,75 @@ for (const [lang, route] of [
 		await expect(region).toHaveAttribute("aria-label", /.+/);
 	});
 }
+
+test("post meta separators are centered in the gap between items", async ({
+	page,
+}) => {
+	await page.setViewportSize({ width: 1200, height: 900 });
+	await page.goto("/en/");
+	const measured = await page.evaluate(() => {
+		const list = [...document.querySelectorAll("ul.flex.list-none")].find(
+			(ul) => ul.querySelector("time"),
+		);
+		const items = [...list.children].filter(
+			(li) => getComputedStyle(li).display !== "none",
+		);
+		return items.slice(1).map((li, i) => {
+			const prev = items[i].getBoundingClientRect();
+			const cur = li.getBoundingClientRect();
+			const dot = getComputedStyle(li, "::before");
+			// translateX(-50%) resolves to a matrix whose tx is -width / 2.
+			const tx = new DOMMatrix(dot.transform).m41;
+			return {
+				gapMid: (prev.right + cur.left) / 2,
+				center:
+					cur.left + parseFloat(dot.left) + tx + parseFloat(dot.width) / 2,
+				position: dot.position,
+			};
+		});
+	});
+	expect(measured.length).toBeGreaterThan(0);
+	for (const { gapMid, center, position } of measured) {
+		expect(position).toBe("absolute");
+		expect(Math.abs(center - gapMid)).toBeLessThan(0.5);
+	}
+});
+
+for (const [label, width] of [
+	["desktop", 1200],
+	["mobile", 500],
+]) {
+	test(`author link separators are centered, none dangling (${label})`, async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width, height: 900 });
+		await page.goto("/en/authors/jpcercal/");
+		const measured = await page.evaluate(() => {
+			const list = document.querySelector(".author-position ~ ul.flex");
+			const items = [...list.children].filter(
+				(li) => getComputedStyle(li).display !== "none",
+			);
+			return items.map((li, i) => {
+				const dot = getComputedStyle(li, "::before");
+				const shown = dot.content !== "none" && dot.display !== "none";
+				if (i === 0 || !shown) return { shown };
+				const prev = items[i - 1].getBoundingClientRect();
+				const cur = li.getBoundingClientRect();
+				const tx = new DOMMatrix(dot.transform).m41;
+				return {
+					shown,
+					gapMid: (prev.right + cur.left) / 2,
+					center:
+						cur.left + parseFloat(dot.left) + tx + parseFloat(dot.width) / 2,
+				};
+			});
+		});
+		// The first visible item never carries a separator.
+		expect(measured[0].shown).toBe(false);
+		const dots = measured.filter((m) => m.shown);
+		expect(dots.length).toBe(measured.length - 1);
+		for (const { gapMid, center } of dots) {
+			expect(Math.abs(center - gapMid)).toBeLessThan(0.5);
+		}
+	});
+}
