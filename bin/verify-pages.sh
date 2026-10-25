@@ -122,8 +122,8 @@ fi
 echo "-- SEO --"
 ROBOTS="$(curl -fsSL --max-time 20 "$BASE_URL/robots.txt" || true)"
 case "$ROBOTS" in
-*"Disallow: /search/"* | *"Disallow: /contact/"*) pass "robots disallows search/contact" ;;
-*) fail "robots disallows search/contact" ;;
+*"Disallow: /search/"*) pass "robots disallows search" ;;
+*) fail "robots disallows search" ;;
 esac
 case "$ROBOTS" in
 *Sitemap*) pass "robots references sitemap" ;;
@@ -132,10 +132,10 @@ esac
 curl -fsSL --max-time 30 "$BASE_URL/sitemap.xml" -o "$HTML_DIR/sitemap.xml" || fail "fetch sitemap.xml"
 if xmllint --noout "$HTML_DIR/sitemap.xml" 2>/dev/null; then
 	pass "sitemap.xml well-formed"
-	if grep -E '/(search|contact)/' "$HTML_DIR/sitemap.xml" | grep -q '<loc>'; then
-		fail "sitemap excludes search/contact"
+	if grep -E '/search/' "$HTML_DIR/sitemap.xml" | grep -q '<loc>'; then
+		fail "sitemap excludes search"
 	else
-		pass "sitemap excludes search/contact"
+		pass "sitemap excludes search"
 	fi
 else
 	fail "sitemap.xml well-formed"

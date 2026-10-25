@@ -323,9 +323,9 @@ fails the workflow on any missed gate). It asserts, accepting `br` or
 5. Payload budgets (`search.json` → 404, `design-system/` → 404,
    `pagefind/pagefind-entry.json` → 200, Cloudflare beacon present, no
    Disqus/`gtag(`/`googletagmanager`/Formspree/`api.ipify`/Lunr remnants)
-6. SEO (robots disallows `/search/` + `/contact/` and references the
+6. SEO (robots disallows `/search/` and references the
    sitemap, `sitemap.xml` well-formed via `xmllint` and excluding
-   search/contact, `hreflang`, valid JSON-LD)
+   search, `hreflang`, valid JSON-LD)
 7. `lychee` link check + `html-validate` on the live homepage
 8. LHCI performance ≥ 90 and SEO ≥ 90 (blocking; accessibility and
    best-practices ≥ 90 warn) — the live config drops `staticDistDir`

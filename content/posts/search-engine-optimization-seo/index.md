@@ -62,4 +62,4 @@ A figura abaixo exemplifica como é realizado o processo de SEO:
 * Deseja aumentar a quantidade de acessos ao seu website?
 
 > Se tiver interesse, entre em contato conosco através da nossa 
-[página de contato]({{< ref "contact/_index.md" >}} "Contato").
+[página do autor]({{< ref "authors/jpcercal/index.md" >}}).

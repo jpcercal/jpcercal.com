@@ -61,5 +61,5 @@ After a few weeks in the selection process, I received the job offer. The celebr
 One thing many people forget, but which is just as important as the final achievement, is that you should have short, measurable goals so you can celebrate every little step taken, we did this with different beers. Chocolate, orange, wheat, mate, banana, red berries, **always with a different flavor so it would be as unique as the result we'd achieved**.
 
 > Believe in your **dreams** and dedicate yourself, you can do it too. If you come to **Germany**, come have a beer with us and tell us your story.
-> If you have any content suggestions, please get in touch through our [contact page]({{< ref "contact/_index.md" >}}) or our social media profiles.
+> If you have any content suggestions, please get in touch through our [author page]({{< ref "authors/jpcercal/index.md" >}}) or our social media profiles.
 > Auf Wiedersehen.

@@ -34,6 +34,6 @@ level in Google's search _rankings_.
 We develop our _websites_ seeking to reach the different devices present in the market, applying
 [SEO]({{< ref "posts/search-engine-optimization-seo/index.md" >}} "Search Engine
 Optimization - SEO") techniques, and one of them is responsive _web_ development. If you're interested, get in touch with us through
-our [contact page]({{< ref "contact/_index.md" >}} "Contact").
+our [author page]({{< ref "authors/jpcercal/index.md" >}}).
 
 > Do you already have a responsive website? Have any questions? Want to add any information? Leave your comment.

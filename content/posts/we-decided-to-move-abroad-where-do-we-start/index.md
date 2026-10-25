@@ -61,7 +61,7 @@ Depois de algumas semanas no processo seletivo, recebi a oferta de trabalho. A c
 Uma coisa que muita gente esquece, mas que é tão importante quanto a conquista final é de que você deve ter metas curtas e mensuráveis para poder comemorar a cada pequeno passo que fora dado, nós fazíamos isso com cervejas diferentes. Chocolate, laranja, trigo, mate, banana, frutas vermelhas, **sempre com um sabor diferenciado para ser tão única quanto o resultado que fora alcançado**.
 
 > Acredite nos seus **sonhos** e se dedique que você também consegue. Se vier para a **Alemanha** venha tomar uma cerveja conosco e nos contar a sua história.
-> Se você tiver alguma sugestão de conteúdo, por favor entre em contato conosco através da nossa [página de contato]({{< ref "contact/_index.md" >}}) ou através dos nossos perfis nas redes sociais.
+> Se você tiver alguma sugestão de conteúdo, por favor entre em contato conosco através da nossa [página do autor]({{< ref "authors/jpcercal/index.md" >}}) ou através dos nossos perfis nas redes sociais.
 > Auf Wiedersehen.
 
 

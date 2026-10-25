@@ -35,4 +35,4 @@ schedules, providing the same guarantees on purchases and often lower prices.
 Having your store open twenty-four hours a day is now possible, we work with online store
 development, which lets you enjoy the benefits brought by this new sales tool.
 
-> Interested in an online store? Fantastic! Get in touch with us through our [contact page]({{< ref "contact/_index.md" >}} "Contact").
+> Interested in an online store? Fantastic! Get in touch with us through our [author page]({{< ref "authors/jpcercal/index.md" >}}).
