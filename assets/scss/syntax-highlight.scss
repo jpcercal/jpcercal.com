@@ -34,6 +34,11 @@ div.highlight {
 		font-family: "Fira Mono", monospace;
 	}
 
+	code,
+	pre {
+		font-size: 1rem;
+	}
+
 	// article.scss paints inline <code> light (#f8f9fa) with padding; inside
 	// code blocks the container provides the background and the table
 	// cells provide the padding, so opt out of both here (otherwise the
@@ -50,7 +55,6 @@ div.highlight {
 
 	pre {
 		margin-bottom: 0;
-		font-size: 1em;
 	}
 
 	// Gutter parity with the old Pygments block: right-aligned numbers in
