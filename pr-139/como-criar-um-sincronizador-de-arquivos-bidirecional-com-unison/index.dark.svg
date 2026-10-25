@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Unison bidirectional file synchronization</title>
+  <desc id="description">A U-shaped pair of upward arrows, shaded from yellow to orange, based on the supplied Unison icon</desc>
+  <defs>
+    <linearGradient id="unison" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffff00"/>
+      <stop offset=".55" stop-color="#ffdf00"/>
+      <stop offset="1" stop-color="#ff6b00"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <path transform="translate(34 27) scale(1.73)" fill="url(#unison)" d="M69 15 35 49q-3 3 3 3h8v125c0 43 27 67 81 67s83-24 83-67V52h8q6 0 3-3l-34-34-34 34q-3 3 3 3h8v125c0 32-13 49-37 49s-32-17-32-49V52h8q6 0 3-3Z"/>
+</svg>
