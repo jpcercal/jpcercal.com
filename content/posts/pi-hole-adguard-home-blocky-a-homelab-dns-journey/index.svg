@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Pi-hole, AdGuard Home, and Blocky: A Homelab DNS Journey</title>
+  <desc id="description">A prohibition sign drawn over a globe, representing network-wide DNS blocking</desc>
+  <!-- Original line art: a prohibition sign over a globe for network-wide DNS blocking. -->
+  <circle cx="256" cy="256" r="248" fill="#F8F9FA"/>
+  <g fill="none" stroke="#333333" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke-width="22">
+      <circle cx="256" cy="256" r="95"/>
+      <ellipse cx="256" cy="256" rx="38" ry="95"/>
+      <path d="M161 256h190M174 208h164M174 304h164"/>
+    </g>
+    <g stroke-width="24">
+      <circle cx="256" cy="256" r="170"/>
+      <path d="M136 136 376 376"/>
+    </g>
+  </g>
+</svg>
