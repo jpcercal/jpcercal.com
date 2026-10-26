@@ -107,5 +107,19 @@ protection requires `Build`. The Cloudflare Web Analytics token lives in
   workflow is merged fails that job (the script is not on `main` yet).
 - Stale `pr-*` directories from before the cleanup job (and one stray `pr-/`)
   remain on `gh-pages` until swept manually.
-- The bot-dispatched `preview-staging` and the preview `publish` job both push
-  to `gh-pages` without a shared lock; only `publish` retries a rejected push.
+
+## Running the preview build locally
+
+`.github/scripts/build-preview.sh` is the single definition of the staging
+build, used by `pr-preview.yml` (fast/full) and the bot-dispatched
+`ci.yml` `preview-staging` (full), which now also publishes through
+`preview-pages.sh` (same retry on rejected pushes):
+
+```sh
+PR_BASE_URL=https://staging.jpcercal.com/pr-999/ bash .github/scripts/build-preview.sh fast
+```
+
+It validates `PR_BASE_URL`, groups log output, checks the output (index,
+design-system, Pagefind entry, no `CNAME`, canonical on the PR path, no links
+to the production host) and writes a size/page summary to the job summary.
+`npm run build` now fails early when `BASE_URL` is unset.

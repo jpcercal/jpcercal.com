@@ -80,6 +80,26 @@ case "$CSS_URL $JS_URL" in
 *) fail "fingerprinted asset names" ;;
 esac
 
+# 3b. Webfonts immutable; security headers present on the home page.
+echo "-- fonts + security headers --"
+FONT_URL="$(grep -oE '/fonts/[^" >]+\.woff2' "$HTML_DIR/index.html" | head -n1)"
+if [ -n "$FONT_URL" ]; then
+	CC="$(curl -s -o /dev/null -D - --max-time 20 "$BASE_URL${FONT_URL#/}" | grep -i '^cache-control:' | tr -d '\r')"
+	case "$CC" in
+	*immutable*) pass "immutable $FONT_URL" ;;
+	*) fail "immutable $FONT_URL" "got '${CC:-none}'" ;;
+	esac
+else
+	fail "font preload found in home HTML"
+fi
+HDRS="$(curl -s -o /dev/null -D - --max-time 20 "$BASE_URL")"
+for h in strict-transport-security x-content-type-options referrer-policy x-frame-options permissions-policy cross-origin-opener-policy; do
+	if printf '%s' "$HDRS" | grep -qi "^$h:"; then pass "header $h"; else fail "header $h"; fi
+done
+for f in _headers _redirects; do
+	[ "$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$BASE_URL$f")" != "200" ] && pass "$f not served" || fail "$f not served"
+done
+
 # 4. TTFB < 1.0s median over 5 samples.
 echo "-- TTFB --"
 TTFB="$(for _ in 1 2 3 4 5; do curl -s -o /dev/null -w '%{time_starttransfer}\n' --max-time 20 "$BASE_URL"; done | sort -n | sed -n '3p')"
