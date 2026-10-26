@@ -1,0 +1,95 @@
+{
+ "url": "https://jpcercal.com/en/revisiting-the-layout-and-the-blog-project/",
+ "title": "Revisiting the layout and the Blog project | jpcercal.com",
+ "htmlLang": "en",
+ "viewportMeta": "width=device-width,initial-scale=1,shrink-to-fit=no",
+ "skipCandidates": [
+  {
+   "href": "#",
+   "text": "English",
+   "cls": "hidden lg:inline"
+  },
+  {
+   "href": "#",
+   "text": "EN",
+   "cls": "lg:hidden"
+  }
+ ],
+ "headings": [
+  {
+   "lvl": 1,
+   "text": "Revisiting the layout and the Blog project"
+  },
+  {
+   "lvl": 2,
+   "text": "Just in case, it just works!"
+  },
+  {
+   "lvl": 2,
+   "text": "Markdown files"
+  },
+  {
+   "lvl": 2,
+   "text": "Development environment and tests"
+  },
+  {
+   "lvl": 2,
+   "text": "Travis CI"
+  },
+  {
+   "lvl": 2,
+   "text": "Other tools"
+  },
+  {
+   "lvl": 2,
+   "text": "Homepage"
+  },
+  {
+   "lvl": 2,
+   "text": "Next steps"
+  }
+ ],
+ "landmarks": [
+  "header.container",
+  "nav[Language selection].float-right.flex",
+  "header.row",
+  "footer.site-footer.site-footer--centered",
+  "nav[Footer navigation]"
+ ],
+ "imgs": {
+  "total": 6,
+  "noAltAttr": 0,
+  "emptyAlt": 0,
+  "svgTotal": 4,
+  "svgUnlabeled": 0,
+  "pictureCount": 0
+ },
+ "buttons": [
+  {
+   "text": "Switch to dark theme",
+   "ariaLabel": null,
+   "ariaPressed": null,
+   "title": null,
+   "html": "<button type=\"button\" class=\"theme-toggle\" data-theme-toggle=\"\" data-label-to-dark=\"Switch to dark theme\" data-label-to-light=\"Switch to light theme\" data-status-dark=\"Dark theme enabled\" data-status-light=\"Light theme e"
+  }
+ ],
+ "inputs": [],
+ "langSwitch": [
+  {
+   "href": "https://jpcercal.com/revisitando-o-layout-e-o-projeto-do-blog/",
+   "hreflang": "pt",
+   "text": "Portuguese",
+   "aria": null,
+   "cls": "hidden lg:inline"
+  },
+  {
+   "href": "https://jpcercal.com/revisitando-o-layout-e-o-projeto-do-blog/",
+   "hreflang": "pt",
+   "text": "PT",
+   "aria": null,
+   "cls": "lg:hidden"
+  }
+ ],
+ "themeAttr": "light",
+ "iframeCount": 0
+}

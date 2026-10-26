@@ -1,0 +1,217 @@
+{
+ "violations": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+   "tags": [
+    "wcag2aa",
+    "wcag143"
+   ],
+   "count": 41,
+   "nodes": [
+    {
+     "target": [
+      ".lg\\:inline[data-locale-switch=\"\"][href$=\"en/\"]"
+     ],
+     "html": "<a href=\"https://jpcercal.com/en/\" hreflang=\"en\" data-locale-switch=\"\" class=\"hidden lg:inline\">Inglês</a>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.67 (foreground color: #9e9e9e, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "time[datetime=\"2026-10-22\"]"
+     ],
+     "html": "<time datetime=\"2026-10-22\">Oct 22, 2026</time>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "article:nth-child(2) > .flex > header > ul > .sm\\:inline.hidden:nth-child(2) > span"
+     ],
+     "html": "<span>1470 palavras</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "article:nth-child(2) > .flex > header > ul > .sm\\:inline.hidden:nth-child(3) > span"
+     ],
+     "html": "<span>7 min de leitura</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "article:nth-child(2) > .flex > header > .post-card--category.md\\:inline.hidden"
+     ],
+     "html": "<a class=\"post-card--category hidden md:inline\" href=\"https://jpcercal.com/categories/engineering\">Engenharia</a>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "time[datetime=\"2026-10-21\"]"
+     ],
+     "html": "<time datetime=\"2026-10-21\">Oct 21, 2026</time>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "article:nth-child(3) > .flex > header > ul > .sm\\:inline.hidden:nth-child(2) > span"
+     ],
+     "html": "<span>939 palavras</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "article:nth-child(3) > .flex > header > ul > .sm\\:inline.hidden:nth-child(3) > span"
+     ],
+     "html": "<span>5 min de leitura</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "article:nth-child(3) > .flex > header > .post-card--category.md\\:inline.hidden"
+     ],
+     "html": "<a class=\"post-card--category hidden md:inline\" href=\"https://jpcercal.com/categories/engineering\">Engenharia</a>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "time[datetime=\"2026-10-11\"]"
+     ],
+     "html": "<time datetime=\"2026-10-11\">Oct 11, 2026</time>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "article:nth-child(4) > .flex > header > ul > .sm\\:inline.hidden:nth-child(2) > span"
+     ],
+     "html": "<span>924 palavras</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      "article:nth-child(4) > .flex > header > ul > .sm\\:inline.hidden:nth-child(3) > span"
+     ],
+     "html": "<span>5 min de leitura</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "landmark-one-main",
+   "impact": "moderate",
+   "help": "Document should have one main landmark",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
+   "tags": [
+    "best-practice"
+   ],
+   "count": 1,
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html lang=\"pt\" prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#\" itemscope=\"\" itemtype=\"http://schema.org/WebPage\" data-theme=\"light\" style=\"color-scheme: light;\">",
+     "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+    }
+   ]
+  },
+  {
+   "id": "region",
+   "impact": "moderate",
+   "help": "All page content should be contained by landmarks",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+   "tags": [
+    "best-practice"
+   ],
+   "count": 21,
+   "nodes": [
+    {
+     "target": [
+      "h1"
+     ],
+     "html": "<h1 class=\"mb-2\">Últimos Posts</h1>",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(2) > .flex > .m-4.post-card--cover.flex-col > .theme-cover--light"
+     ],
+     "html": "<picture class=\"theme-cover--light\"><img class=\"rounded post-card--icon\" src=\"https://jpcercal.com/um-waf-nao-e-um-patch/index.svg\" alt=\"Um WAF Não É um Patch\" height=\"60\" width=\"60\" loading=\"lazy\" decoding=\"async\">\n</picture>",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(2) > .flex > header"
+     ],
+     "html": "<header class=\"flex-col m-0\">",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(3) > .flex > .m-4.post-card--cover.flex-col > .theme-cover--light"
+     ],
+     "html": "<picture class=\"theme-cover--light\"><img class=\"rounded post-card--icon\" src=\"https://jpcercal.com/php2shell-duas-vulnerabilidades-criticas-no-php/index.svg\" alt=\"PHP2Shell: Duas Vulnerabilidades Críticas no PHP e o Que Fazer Agora\" height=\"60\" width=\"60\" load",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(3) > .flex > header"
+     ],
+     "html": "<header class=\"flex-col m-0\">",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(4) > .flex > .m-4.post-card--cover.flex-col > .theme-cover--light"
+     ],
+     "html": "<picture class=\"theme-cover--light\"><img class=\"rounded post-card--icon\" src=\"https://jpcercal.com/mudar-o-modelo-de-decisao-muda-a-politica/index.svg\" alt=\"Mudar o modelo de decisão muda a política\" height=\"60\" width=\"60\" loading=\"lazy\" decoding=\"async\">\n</pi",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(4) > .flex > header"
+     ],
+     "html": "<header class=\"flex-col m-0\">",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(5) > .flex > .m-4.post-card--cover.flex-col > .theme-cover--light"
+     ],
+     "html": "<picture class=\"theme-cover--light\"><img class=\"rounded post-card--icon\" src=\"https://jpcercal.com/gpt-6-astra-e-um-operador-nao-um-chatbot/index.svg\" alt=\"GPT-6 Astra É um Operador, Não um Chatbot\" height=\"60\" width=\"60\" loading=\"lazy\" decoding=\"async\">\n</pic",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(5) > .flex > header"
+     ],
+     "html": "<header class=\"flex-col m-0\">",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(6) > .flex > .m-4.post-card--cover.flex-col > .theme-cover--light"
+     ],
+     "html": "<picture class=\"theme-cover--light\"><img class=\"rounded post-card--icon\" src=\"https://jpcercal.com/o-custo-do-ciclo-importa-mais-do-que-a-pontuacao/index.svg\" alt=\"O Custo do Ciclo Importa Mais do que a Pontuação\" height=\"60\" width=\"60\" loading=\"lazy\" decoding",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(6) > .flex > header"
+     ],
+     "html": "<header class=\"flex-col m-0\">",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article:nth-child(7) > .flex > .m-4.post-card--cover.flex-col > .theme-cover--light"
+     ],
+     "html": "<picture class=\"theme-cover--light\"><img class=\"rounded post-card--icon\" src=\"https://jpcercal.com/quando-decisoes-de-ia-se-tornam-entradas-de-software/index.svg\" alt=\"Quando Decisões de IA se Tornam Entradas de Software\" height=\"60\" width=\"60\" loading=\"lazy\" ",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    }
+   ]
+  }
+ ],
+ "incompleteContrast": []
+}
