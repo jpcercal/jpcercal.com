@@ -29,6 +29,7 @@ jobs:
   image:
     name: CI image (GHCR)
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     outputs:
       digest: ${{ steps.image.outputs.digest }}
     permissions:
@@ -68,6 +69,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     needs: image
     permissions:
       contents: read
@@ -165,6 +167,7 @@ jobs:
   preview-staging:
     name: Preview on staging (gh-pages, PR path)
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     needs: [build, image]
     # Bot-dispatched PRs only (GITHUB_TOKEN commits do not fire pull_request).
     # Regular PR previews are published by pr-preview.yml. Never touches the
@@ -256,6 +259,13 @@ jobs:
   deploy:
     name: Deploy to Cloudflare Pages (prod)
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Serialize production deploys: a slower older run must never publish over
+    # a newer one. Never cancel a running deploy (half-uploaded is worse); GitHub
+    # keeps only the newest pending run, so the latest commit still wins.
+    concurrency:
+      group: cloudflare-pages-production
+      cancel-in-progress: false
     needs: [build, image]
     # Only deploy from main pushes, never from PRs.
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -285,27 +295,30 @@ jobs:
           name: public
           path: public
 
-      - name: List Pages projects (diagnostic)
-        # Shows which projects CLOUDFLARE_ACCOUNT_ID + API token can see;
-        # deploy below 404s (8000007) when the project is absent here.
-        # NOTE: accountId is required — wrangler 3.90 cannot infer the
-        # default account and calls /accounts//... (7003) without it.
-        # Kept on wrangler v4 (re-verify if the CLI ever infers it).
-        run: wrangler pages project list
-
-      - name: Create Pages project if missing (idempotent)
-        # First deploy from this pipeline: the project may not exist yet
-        # (8000007). Creating it is safe to repeat — when it already
-        # exists this step errors and is ignored, and deploy proceeds.
-        continue-on-error: true
-        run: wrangler pages project create "$CLOUDFLARE_PROJECT_NAME" --production-branch main
-
       - name: Publish with Wrangler (Direct Upload, no build quota)
-        run: wrangler pages deploy public --project-name="$CLOUDFLARE_PROJECT_NAME" --commit-dirty=true
+        # The Pages project must already exist (create it once in the Cloudflare
+        # dashboard or with `wrangler pages project create`). A missing project or
+        # a bad token now fails here with the real Cloudflare error instead of
+        # being hidden by a swallowed "create project" step.
+        # Commit metadata is passed explicitly because the container checkout is
+        # not guaranteed to be readable by Wrangler's git detection; it makes
+        # deployments identifiable (and rollbackable) in the dashboard.
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          test -f public/index.html
+          wrangler pages deploy public \
+            --project-name="$CLOUDFLARE_PROJECT_NAME" \
+            --branch=main \
+            --commit-hash="$COMMIT_SHA" \
+            --commit-message="$(printf '%s' "$COMMIT_MESSAGE" | head -n1 | cut -c1-100)" \
+            --commit-dirty=true
 
   cloudflare-pages:
     name: Verify Cloudflare Pages (prod, blocking)
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     needs: [deploy, image]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:

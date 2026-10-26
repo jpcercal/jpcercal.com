@@ -1,13 +1,32 @@
 # Cloudflare Pages headers (also honored by `hugo server` for local checks).
-# Fingerprinted bundles (css/js) and Pagefind's hashed chunks are immutable.
+# Production only: the GitHub Pages staging host ignores this file.
+# Fingerprinted bundles (css/js), versioned webfonts and Pagefind's hashed
+# chunks never change under the same URL, so they are immutable.
 /css/*
   Cache-Control: public, max-age=31536000, immutable
 /js/*
   Cache-Control: public, max-age=31536000, immutable
-/pagefind/*
+/fonts/*
   Cache-Control: public, max-age=31536000, immutable
+# Pagefind: only the content-hashed subtrees are immutable; pagefind.js,
+# pagefind-entry.json and the wasm keep stable names and rebuild per deploy.
+/pagefind/fragment/*
+  Cache-Control: public, max-age=31536000, immutable
+/pagefind/index/*
+  Cache-Control: public, max-age=31536000, immutable
+/pagefind/filter/*
+  Cache-Control: public, max-age=31536000, immutable
+# Not fingerprinted: one day fresh, then serve stale while revalidating.
 /images/*
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+# Security headers on every response. HSTS deliberately omits
+# includeSubDomains/preload: staging.jpcercal.com is a separate host and
+# preload is irreversible in practice. No CSP yet: inline theme-init, JSON-LD
+# and the analytics snippet need hashes first (see docs/cloudflare-pages.md).
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
