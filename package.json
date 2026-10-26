@@ -19,7 +19,7 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "clean": "rm -rf public",
-    "build": "test -n \"$BASE_URL\" && npm run clean && hugo --minify --printUnusedTemplates --baseURL \"$BASE_URL\"",
+    "build": "test -n \"$BASE_URL\" || { echo 'BASE_URL is required' >&2; exit 1; }; npm run clean && hugo --minify --printUnusedTemplates --baseURL \"$BASE_URL\"",
     "build:hugo": "hugo --minify --printUnusedTemplates",
     "images": "bin/build-images.sh",
     "search:index": "pagefind --site public && rm -f public/pagefind/pagefind-ui.js public/pagefind/pagefind-ui.css public/pagefind/pagefind-component-ui.js public/pagefind/pagefind-component-ui.css public/pagefind/pagefind-modular-ui.js public/pagefind/pagefind-modular-ui.css",

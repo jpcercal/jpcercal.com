@@ -167,19 +167,9 @@ jobs:
         run: ln -s /opt/ci/node_modules node_modules
 
       - name: Build preview site
-        # Hugo Pipes (Dart Sass, Tailwind) finds its binaries via
-        # node_modules/.bin. design-system/ lives outside content/ so prod
-        # never ships it; staging copies it in and builds drafts.
-        # SKIP_IMAGE_OPTIMIZATION keeps asset copying and cover rendering and
-        # drops only the lossless size passes.
-        run: |
-          export PATH="$PWD/node_modules/.bin:$PATH"
-          cp -r design-system content/design-system
-          hugo --buildDrafts --minify --baseURL "$PR_BASE_URL"
-          SKIP_IMAGE_OPTIMIZATION=1 bin/build-images.sh
-          npm run search:index
-          # The prod CNAME (jpcercal.com) must never ship to staging.
-          rm -f public/CNAME
+        # Logic lives in .github/scripts/build-preview.sh so it can be run
+        # and debugged locally and is shared with the full path.
+        run: bash .github/scripts/build-preview.sh fast
 
       - name: Upload preview artifact
         uses: actions/upload-artifact@v7
@@ -232,20 +222,7 @@ jobs:
           hugo version
 
       - name: Build preview site (fully optimized)
-        run: |
-          export PATH="$PWD/node_modules/.bin:$PATH"
-          cp -r design-system content/design-system
-          hugo --buildDrafts --minify --baseURL "$PR_BASE_URL"
-          bin/build-images.sh
-          npm run search:index
-          rm -f public/CNAME
-
-      - name: Staging presence check (non-blocking)
-        continue-on-error: true
-        run: |
-          test -f public/index.html
-          test -f public/design-system/index.html
-          test ! -f public/CNAME
+        run: bash .github/scripts/build-preview.sh full
 
       - name: Upload preview artifact
         uses: actions/upload-artifact@v7
