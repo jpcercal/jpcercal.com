@@ -4,7 +4,7 @@ const { chromium } = require("@playwright/test");
 const { version } = require("playwright-core/package.json");
 
 (async () => {
-	assert.equal(version, "1.63.0");
+	assert.equal(version, "1.64.1");
 	accessSync(process.env.CHROME_PATH, constants.X_OK);
 	const browser = await chromium.launch({ args: ["--no-sandbox"] });
 	try {
