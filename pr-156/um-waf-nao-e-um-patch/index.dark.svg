@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+<title id="title">A WAF Is Not a Patch</title>
+<desc id="description">Half-outlined, half-solid shield icon, traced from the supplied reference image</desc>
+<circle cx="256" cy="256" r="248" fill="#242424"/>
+<path transform="translate(141.2 111) scale(.28)" fill="#f8f9fa" fill-rule="evenodd" d="M410 40L810 160V465C810 720 620 900 410 997C200 900 10 720 10 465V160ZM70 205L410 103V928C230 820 70 650 70 465Z"/>
+</svg>

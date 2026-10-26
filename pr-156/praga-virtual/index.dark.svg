@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Computer virus</title>
+  <desc id="description">A spiked virus silhouette follows the supplied infection icon.</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <g fill="none" stroke="#59e5a0" stroke-width="20" stroke-linecap="round"><path d="M256 94v55m0 214v55M94 256h55m214 0h55M142 142l39 39m150 150 39 39m0-228-39 39M181 331l-39 39"/></g><circle cx="256" cy="256" r="112" fill="#59e5a0"/><circle cx="209" cy="229" r="12" fill="#242424"/><circle cx="282" cy="207" r="17" fill="#242424"/><circle cx="296" cy="284" r="13" fill="#242424"/><circle cx="222" cy="301" r="10" fill="#242424"/>
+</svg>
