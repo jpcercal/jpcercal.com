@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">PHP2Shell</title>
+  <desc id="description">A browser window containing code brackets with a run triangle, redrawn from the supplied executable-program icon</desc>
+  <circle cx="256" cy="256" r="248" fill="#242424"/>
+  <g transform="translate(87.4 83.6) scale(0.62)">
+    <path fill="none" stroke="#F179D2" stroke-width="32" d="M336 431H64a16 16 0 0 1-16-16V94a16 16 0 0 1 16-16h384a16 16 0 0 1 16 16v209M48 174h416M214 254l-49 49 49 49M297 254l49 49-49 49"/>
+    <circle cx="96" cy="128" r="16" fill="#F179D2"/>
+    <circle cx="144" cy="128" r="16" fill="#F179D2"/>
+    <path fill="#F179D2" d="M400 337v158l112-79z"/>
+  </g>
+</svg>
