@@ -2,7 +2,7 @@
   description = "Pinned development and CI toolchain for jpcercal.com";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/c9fe7d12cd78d1adcd12dd15e24432dde5b155a0";
+    nixpkgs.url = "github:NixOS/nixpkgs/3ec636362e1816bc2f0888fa0fa2c69f1bc9e504";
     # Keep the project's exact Node version without rebuilding it from source.
     nodepkgs.url = "github:NixOS/nixpkgs/c7def046b9a883d46974757852106483d741586f";
   };

@@ -138,7 +138,7 @@ let
         export HOME="$TMPDIR/home"
         mkdir -p "$HOME"
         node --version | grep -Fx v26.8.2
-        hugo version | grep 'v0.166.0.*extended'
+        hugo version | grep 'v0.168.0.*extended'
         oxipng --version | grep -F 10.2.1
         oxvg --version | grep -F 0.0.7
         resvg --version | grep -F 0.48.1
@@ -158,7 +158,7 @@ let
       '';
 in
 assert nodejs.version == "26.8.2";
-assert pkgs.playwright-driver.version == "1.63.0";
+assert pkgs.playwright-driver.version == "1.64.1";
 assert pkgs.pagefind.enableExtended;
 {
   inherit
