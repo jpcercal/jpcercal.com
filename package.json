@@ -13,7 +13,7 @@
     "html-validate": "^11.16.2",
     "sass-embedded": "^1.105.1",
     "tailwindcss": "^4.3.3",
-    "wrangler": "4.149.0"
+    "wrangler": "4.152.0"
   },
   "scripts": {
     "lint": "biome check .",
