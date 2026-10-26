@@ -1,0 +1,312 @@
+{
+ "violations": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+   "tags": [
+    "wcag2aa",
+    "wcag143"
+   ],
+   "count": 13,
+   "nodes": [
+    {
+     "target": [
+      ".lg\\:inline[data-locale-switch=\"\"][hreflang=\"en\"]"
+     ],
+     "html": "<a href=\"https://jpcercal.com/en/revisiting-the-layout-and-the-blog-project/\" hreflang=\"en\" data-locale-switch=\"\" class=\"hidden lg:inline\">Inglês</a>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.67 (foreground color: #9e9e9e, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".lnt:nth-child(10)"
+     ],
+     "html": "<span class=\"lnt\">10\n</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.08 between the foreground and shadow color (foreground color: #55595f, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".lnt:nth-child(11)"
+     ],
+     "html": "<span class=\"lnt\">11\n</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.08 between the foreground and shadow color (foreground color: #55595f, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".lnt:nth-child(12)"
+     ],
+     "html": "<span class=\"lnt\">12\n</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.08 between the foreground and shadow color (foreground color: #55595f, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".lnt:nth-child(13)"
+     ],
+     "html": "<span class=\"lnt\">13\n</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.08 between the foreground and shadow color (foreground color: #55595f, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".line:nth-child(3) > .cl > .l"
+     ],
+     "html": "<span class=\"l\">jpcercal@gmail.com</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.8 between the foreground and shadow color (foreground color: #bd4147, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".line:nth-child(4) > .cl > .l"
+     ],
+     "html": "<span class=\"l\">my-slug</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.8 between the foreground and shadow color (foreground color: #bd4147, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".line:nth-child(5) > .cl > .l"
+     ],
+     "html": "<span class=\"l\">My Title</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.8 between the foreground and shadow color (foreground color: #bd4147, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".ld"
+     ],
+     "html": "<span class=\"ld\">2019-03-20T10:08:56</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.8 between the foreground and shadow color (foreground color: #bd4147, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".line:nth-child(7) > .cl > .l"
+     ],
+     "html": "<span class=\"l\">My description</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.8 between the foreground and shadow color (foreground color: #bd4147, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".line:nth-child(9) > .cl > .l"
+     ],
+     "html": "<span class=\"l\">engineering</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.8 between the foreground and shadow color (foreground color: #bd4147, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "target": [
+      ".line:nth-child(11) > .cl > .l"
+     ],
+     "html": "<span class=\"l\">apple</span>",
+     "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.8 between the foreground and shadow color (foreground color: #bd4147, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "landmark-one-main",
+   "impact": "moderate",
+   "help": "Document should have one main landmark",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
+   "tags": [
+    "best-practice"
+   ],
+   "count": 1,
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html lang=\"pt\" prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#\" itemscope=\"\" itemtype=\"http://schema.org/Article\" data-theme=\"light\" style=\"color-scheme: light;\">",
+     "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+    }
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/link-in-text-block?application=axeAPI",
+   "tags": [
+    "wcag2a",
+    "wcag141"
+   ],
+   "count": 15,
+   "nodes": [
+    {
+     "target": [
+      "a[href$=\"wordpress.org/\"]"
+     ],
+     "html": "<a href=\"https://wordpress.org/\">Wordpress</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "p:nth-child(4) > a:nth-child(3)"
+     ],
+     "html": "<a href=\"https://www.ibm.com/cloud/learn/lamp-stack-explained\">LAMP</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "a[href$=\"pages.github.com/\"]"
+     ],
+     "html": "<a href=\"https://pages.github.com/\">Git Pages</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "li:nth-child(7) > a"
+     ],
+     "html": "<a href=\"https://www.cloudflare.com/learning/ssl/what-is-ssl/\">SSL</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "a[href$=\"mysql.com/\"]"
+     ],
+     "html": "<a href=\"https://www.mysql.com/\">MySQL</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "a[href$=\"docker.com/\"]"
+     ],
+     "html": "<a href=\"https://www.docker.com/\">Docker</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "a[href$=\"git-scm.com/\"]"
+     ],
+     "html": "<a href=\"https://git-scm.com/\">git</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "p:nth-child(25) > a"
+     ],
+     "html": "<a href=\"https://docs.travis-ci.com/user/for-beginners/\">Travis CI</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "p:nth-child(27) > a"
+     ],
+     "html": "<a href=\"https://github.com/jpcercal/jpcercal.com/blob/main/.travis.yml\">.travis.yml</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "ul:nth-child(28) > li:nth-child(4) > a"
+     ],
+     "html": "<a href=\"https://developers.google.com/speed/pagespeed/insights/\">Google Page Speed</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "p:nth-child(30) > a:nth-child(1)"
+     ],
+     "html": "<a href=\"https://www.cloudflare.com/learning/dns/what-is-dns/\">DNS</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "target": [
+      "a[href$=\"cloudflare.com/\"]"
+     ],
+     "html": "<a href=\"https://www.cloudflare.com/\">Cloudflare</a>",
+     "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.8:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0969da, surrounding text: #292929)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+    }
+   ]
+  },
+  {
+   "id": "region",
+   "impact": "moderate",
+   "help": "All page content should be contained by landmarks",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+   "tags": [
+    "best-practice"
+   ],
+   "count": 4,
+   "nodes": [
+    {
+     "target": [
+      ".post-masthead > header"
+     ],
+     "html": "<header class=\"row\">",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "h1"
+     ],
+     "html": "<h1 class=\"font-size-h1 mt-2 mb-4\" data-pagefind-meta=\"title\">Revisitando o layout e o projeto do Blog</h1>",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      ".article-share-buttons"
+     ],
+     "html": "<ul class=\"article-share-buttons mt-1 mb-4 list-none flex gap-2\">",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    },
+    {
+     "target": [
+      "article > .row"
+     ],
+     "html": "<div class=\"row\">",
+     "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+    }
+   ]
+  }
+ ],
+ "incompleteContrast": [
+  {
+   "count": 12,
+   "nodes": [
+    {
+     "target": [
+      "p:nth-child(11)"
+     ],
+     "html": "<p>Uma desvantagem, mas nem tanto, é que não há como fazer <em>queries</em> num servidor e possibilitar buscas em um banco de dados de conteúdo, então caso algum visitante queira buscar algo no site o"
+    },
+    {
+     "target": [
+      "blockquote:nth-child(23) > p"
+     ],
+     "html": "<p>Você pode encontrar mais detalhes sobre o processo de instalação e o guia de utilização do serviço no repositório <a href=\"https://github.com/jpcercal/jpcercal.com/\">jpcercal/jpcercal.com</a>.</p>"
+    },
+    {
+     "target": [
+      "blockquote:nth-child(26) > p"
+     ],
+     "html": "<p>Se você estiver curioso sobre como a <em>pipeline</em> funciona a cada <em>commit</em> ou <em>pull-request</em>, não deixe de dar uma passada no <a href=\"https://travis-ci.org/jpcercal/jpcercal.com"
+    },
+    {
+     "target": [
+      ".lnt:nth-child(1)"
+     ],
+     "html": "<span class=\"lnt\"> 1\n</span>"
+    },
+    {
+     "target": [
+      ".lnt:nth-child(2)"
+     ],
+     "html": "<span class=\"lnt\"> 2\n</span>"
+    },
+    {
+     "target": [
+      ".lnt:nth-child(3)"
+     ],
+     "html": "<span class=\"lnt\"> 3\n</span>"
+    },
+    {
+     "target": [
+      ".lnt:nth-child(4)"
+     ],
+     "html": "<span class=\"lnt\"> 4\n</span>"
+    },
+    {
+     "target": [
+      ".lnt:nth-child(5)"
+     ],
+     "html": "<span class=\"lnt\"> 5\n</span>"
+    }
+   ]
+  }
+ ]
+}

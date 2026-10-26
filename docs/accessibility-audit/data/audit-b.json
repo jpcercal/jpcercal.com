@@ -1,0 +1,698 @@
+{
+ "axe-dark-home": {
+  "th": "dark",
+  "v": [
+   {
+    "id": "landmark-one-main",
+    "impact": "moderate",
+    "count": 1,
+    "nodes": [
+     {
+      "t": "html",
+      "h": "<html lang=\"en\" prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#\" itemscope=\"\" itemtype=\"http://schema.org/WebPage\" data-theme=\"dark\" style=\"color-scheme:",
+      "s": "  Document does not have a main landmark"
+     }
+    ]
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "count": 21,
+    "nodes": [
+     {
+      "t": "h1",
+      "h": "<h1 class=\"mb-2\">Latest Posts</h1>",
+      "s": "  Some page content is not contained by landmarks"
+     },
+     {
+      "t": "article:nth-child(2) > .flex > .m-4.post-card--cover.flex-col > .theme-cover--dark",
+      "h": "<picture class=\"theme-cover--dark\"><img class=\"rounded post-card--icon\" src=\"https://jpcercal.com/en/a-waf-is-not-a-patch/index.dark.svg\" alt=\"A WAF Is Not a Pa",
+      "s": "  Some page content is not contained by landmarks"
+     },
+     {
+      "t": "article:nth-child(2) > .flex > header",
+      "h": "<header class=\"flex-col m-0\">",
+      "s": "  Some page content is not contained by landmarks"
+     },
+     {
+      "t": "article:nth-child(3) > .flex > .m-4.post-card--cover.flex-col > .theme-cover--dark",
+      "h": "<picture class=\"theme-cover--dark\"><img class=\"rounded post-card--icon\" src=\"https://jpcercal.com/en/php2shell-two-critical-php-vulnerabilities/index.dark.svg\" ",
+      "s": "  Some page content is not contained by landmarks"
+     },
+     {
+      "t": "article:nth-child(3) > .flex > header",
+      "h": "<header class=\"flex-col m-0\">",
+      "s": "  Some page content is not contained by landmarks"
+     }
+    ]
+   }
+  ]
+ },
+ "axe-dark-post": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "count": 4,
+   "nodes": [
+    {
+     "t": ".lnt:nth-child(10)",
+     "h": "<span class=\"lnt\">10\n</span>",
+     "s": "  Element has insufficient color contrast of 2.08 between the foreground and shadow color (foreground color: #55595f, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": ".lnt:nth-child(11)",
+     "h": "<span class=\"lnt\">11\n</span>",
+     "s": "  Element has insufficient color contrast of 2.08 between the foreground and shadow color (foreground color: #55595f, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": ".lnt:nth-child(12)",
+     "h": "<span class=\"lnt\">12\n</span>",
+     "s": "  Element has insufficient color contrast of 2.08 between the foreground and shadow color (foreground color: #55595f, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": ".lnt:nth-child(13)",
+     "h": "<span class=\"lnt\">13\n</span>",
+     "s": "  Element has insufficient color contrast of 2.08 between the foreground and shadow color (foreground color: #55595f, text-shadow color: #252930, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "landmark-one-main",
+   "impact": "moderate",
+   "count": 1,
+   "nodes": [
+    {
+     "t": "html",
+     "h": "<html lang=\"en\" prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#\" itemscope=\"\" itemtype=\"http://schema.org/Article\" data-theme=\"dark\" style=\"color-scheme:",
+     "s": "  Document does not have a main landmark"
+    }
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "count": 15,
+   "nodes": [
+    {
+     "t": "a[href$=\"wordpress.org/\"]",
+     "h": "<a href=\"https://wordpress.org/\">Wordpress</a>",
+     "s": "  The link has insufficient color contrast of 2.64:1 with the surrounding text. (Minimum contrast is 3:1, link text: #4493f8, surrounding text: #ededed)   The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "t": "p:nth-child(4) > a:nth-child(2)",
+     "h": "<a href=\"https://www.ibm.com/cloud/learn/lamp-stack-explained\">LAMP</a>",
+     "s": "  The link has insufficient color contrast of 2.64:1 with the surrounding text. (Minimum contrast is 3:1, link text: #4493f8, surrounding text: #ededed)   The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "t": "a[href$=\"pages.github.com/\"]",
+     "h": "<a href=\"https://pages.github.com/\">Git Pages</a>",
+     "s": "  The link has insufficient color contrast of 2.64:1 with the surrounding text. (Minimum contrast is 3:1, link text: #4493f8, surrounding text: #ededed)   The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "t": "li:nth-child(7) > a",
+     "h": "<a href=\"https://www.cloudflare.com/learning/ssl/what-is-ssl/\">SSL</a>",
+     "s": "  The link has insufficient color contrast of 2.64:1 with the surrounding text. (Minimum contrast is 3:1, link text: #4493f8, surrounding text: #ededed)   The link has no styling (such as underline) to distinguish it from the surrounding text"
+    },
+    {
+     "t": "a[href$=\"mysql.com/\"]",
+     "h": "<a href=\"https://www.mysql.com/\">MySQL</a>",
+     "s": "  The link has insufficient color contrast of 2.64:1 with the surrounding text. (Minimum contrast is 3:1, link text: #4493f8, surrounding text: #ededed)   The link has no styling (such as underline) to distinguish it from the surrounding text"
+    }
+   ]
+  },
+  {
+   "id": "region",
+   "impact": "moderate",
+   "count": 4,
+   "nodes": [
+    {
+     "t": ".post-masthead > header",
+     "h": "<header class=\"row\">",
+     "s": "  Some page content is not contained by landmarks"
+    },
+    {
+     "t": "h1",
+     "h": "<h1 class=\"font-size-h1 mt-2 mb-4\" data-pagefind-meta=\"title\">Revisiting the layout and the Blog project</h1>",
+     "s": "  Some page content is not contained by landmarks"
+    },
+    {
+     "t": ".article-share-buttons",
+     "h": "<ul class=\"article-share-buttons mt-1 mb-4 list-none flex gap-2\">",
+     "s": "  Some page content is not contained by landmarks"
+    },
+    {
+     "t": "article > .row",
+     "h": "<div class=\"row\">",
+     "s": "  Some page content is not contained by landmarks"
+    }
+   ]
+  }
+ ],
+ "axe-search": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "count": 4,
+   "nodes": [
+    {
+     "t": ".lg\\:inline[data-locale-switch=\"\"][hreflang=\"en\"]",
+     "h": "<a href=\"https://jpcercal.com/en/search/\" hreflang=\"en\" data-locale-switch=\"\" class=\"hidden lg:inline\">Inglês</a>",
+     "s": "  Element has insufficient color contrast of 2.67 (foreground color: #9e9e9e, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": ".search-info > li:nth-child(1)",
+     "h": "<li>Digite termos como \"PHP\" ou \"Javascript\"</li>",
+     "s": "  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": ".search-info > li:nth-child(2)",
+     "h": "<li>Os termos de busca são \"case-insensitive\"</li>",
+     "s": "  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": ".search-info > li:nth-child(3)",
+     "h": "<li>Você precisa informar pelo menos 3 caracteres para iniciar uma busca</li>",
+     "s": "  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "landmark-one-main",
+   "impact": "moderate",
+   "count": 1,
+   "nodes": [
+    {
+     "t": "html",
+     "h": "<html lang=\"pt\" prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#\" itemscope=\"\" itemtype=\"http://schema.org/WebPage\" data-theme=\"light\" style=\"color-scheme",
+     "s": "  Document does not have a main landmark"
+    }
+   ]
+  },
+  {
+   "id": "region",
+   "impact": "moderate",
+   "count": 1,
+   "nodes": [
+    {
+     "t": "section",
+     "h": "<section class=\"container\">",
+     "s": "  Some page content is not contained by landmarks"
+    }
+   ]
+  }
+ ],
+ "axe-contact": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "count": 1,
+   "nodes": [
+    {
+     "t": ".lg\\:inline.hidden[href=\"https://jpcercal.com/en\"]",
+     "h": "<a href=\"https://jpcercal.com/en\" class=\"hidden lg:inline\">Inglês</a>",
+     "s": "  Element has insufficient color contrast of 2.67 (foreground color: #9e9e9e, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "landmark-one-main",
+   "impact": "moderate",
+   "count": 1,
+   "nodes": [
+    {
+     "t": "html",
+     "h": "<html lang=\"pt\" prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#\" itemscope=\"\" itemtype=\"http://schema.org/WebPage\" data-theme=\"light\" style=\"color-scheme",
+     "s": "  Document does not have a main landmark"
+    }
+   ]
+  },
+  {
+   "id": "region",
+   "impact": "moderate",
+   "count": 1,
+   "nodes": [
+    {
+     "t": "section",
+     "h": "<section class=\"container\">",
+     "s": "  Some page content is not contained by landmarks"
+    }
+   ]
+  }
+ ],
+ "axe-404": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "count": 41,
+   "nodes": [
+    {
+     "t": ".lg\\:inline[href$=\"en/\"][data-locale-switch=\"\"]",
+     "h": "<a href=\"https://jpcercal.com/en/\" hreflang=\"en\" data-locale-switch=\"\" class=\"hidden lg:inline\">Inglês</a>",
+     "s": "  Element has insufficient color contrast of 2.67 (foreground color: #9e9e9e, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": "time[datetime=\"2026-10-22\"]",
+     "h": "<time datetime=\"2026-10-22\">Oct 22, 2026</time>",
+     "s": "  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": "article:nth-child(4) > .flex > header > ul > .sm\\:inline.hidden:nth-child(2) > span",
+     "h": "<span>1470 palavras</span>",
+     "s": "  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": "article:nth-child(4) > .flex > header > ul > .sm\\:inline.hidden:nth-child(3) > span",
+     "h": "<span>7 min de leitura</span>",
+     "s": "  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    },
+    {
+     "t": "article:nth-child(4) > .flex > header > .post-card--category.md\\:inline.hidden",
+     "h": "<a class=\"post-card--category hidden md:inline\" href=\"https://jpcercal.com/categories/engineering\">Engenharia</a>",
+     "s": "  Element has insufficient color contrast of 3.03 (foreground color: #949494, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "landmark-one-main",
+   "impact": "moderate",
+   "count": 1,
+   "nodes": [
+    {
+     "t": "html",
+     "h": "<html lang=\"pt\" prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#\" itemscope=\"\" itemtype=\"http://schema.org/WebPage\" data-theme=\"light\" style=\"color-scheme",
+     "s": "  Document does not have a main landmark"
+    }
+   ]
+  },
+  {
+   "id": "region",
+   "impact": "moderate",
+   "count": 23,
+   "nodes": [
+    {
+     "t": "h1",
+     "h": "<h1 class=\"mb-2\">Erro 404 - Página Não Encontrada</h1>",
+     "s": "  Some page content is not contained by landmarks"
+    },
+    {
+     "t": ".italic",
+     "h": "<p class=\"mb-6 italic\">O endereço <code class=\"error404--path\" data-error404-path=\"\">/404</code> que você tentou acessar não foi encontrado em nossos servidores",
+     "s": "  Some page content is not contained by landmarks"
+    },
+    {
+     "t": ".offset-lg-1.offset-xl-2.col-lg-10 > h2",
+     "h": "<h2 class=\"mb-6\">Esta página não foi encontrada, mas que tal dar uma olhada nos artigos mais recentes?</h2>",
+     "s": "  Some page content is not contained by landmarks"
+    },
+    {
+     "t": "article:nth-child(4) > .flex > .m-4.post-card--cover.flex-col > .theme-cover--light",
+     "h": "<picture class=\"theme-cover--light\"><img class=\"rounded post-card--icon\" src=\"https://jpcercal.com/um-waf-nao-e-um-patch/index.svg\" alt=\"Um WAF Não É um Patch\" ",
+     "s": "  Some page content is not contained by landmarks"
+    },
+    {
+     "t": "article:nth-child(4) > .flex > header",
+     "h": "<header class=\"flex-col m-0\">",
+     "s": "  Some page content is not contained by landmarks"
+    }
+   ]
+  }
+ ],
+ "axe-authors": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "count": 1,
+   "nodes": [
+    {
+     "t": ".lg\\:inline[data-locale-switch=\"\"][hreflang=\"en\"]",
+     "h": "<a href=\"https://jpcercal.com/en/authors/\" hreflang=\"en\" data-locale-switch=\"\" class=\"hidden lg:inline\">Inglês</a>",
+     "s": "  Element has insufficient color contrast of 2.67 (foreground color: #9e9e9e, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ]
+  },
+  {
+   "id": "landmark-one-main",
+   "impact": "moderate",
+   "count": 1,
+   "nodes": [
+    {
+     "t": "html",
+     "h": "<html lang=\"pt\" prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#\" itemscope=\"\" itemtype=\"http://schema.org/WebPage\" data-theme=\"light\" style=\"color-scheme",
+     "s": "  Document does not have a main landmark"
+    }
+   ]
+  },
+  {
+   "id": "region",
+   "impact": "moderate",
+   "count": 1,
+   "nodes": [
+    {
+     "t": "section",
+     "h": "<section class=\"container post-list\">",
+     "s": "  Some page content is not contained by landmarks"
+    }
+   ]
+  }
+ ],
+ "tab-home": {
+  "st": [
+   {
+    "tag": "A",
+    "txt": "Search for",
+    "href": "https://jpcercal.com/en/search",
+    "outline": "solid 2px rgba(0, 0, 0, 0.84)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 122,
+    "h": 36
+   },
+   {
+    "tag": "A",
+    "txt": "jpcercal.com",
+    "href": "https://jpcercal.com/en/",
+    "outline": "auto 1px rgb(0, 95, 204)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 141,
+    "h": 19
+   },
+   {
+    "tag": "BUTTON",
+    "txt": "Switch to dark theme",
+    "href": null,
+    "outline": "solid 2px rgba(0, 0, 0, 0)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 68,
+    "h": 44
+   },
+   {
+    "tag": "A",
+    "txt": "Portuguese",
+    "href": "https://jpcercal.com/",
+    "outline": "solid 2px rgba(0, 0, 0, 0.84)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 104,
+    "h": 28
+   },
+   {
+    "tag": "A",
+    "txt": "English",
+    "href": "#",
+    "outline": "solid 2px rgba(0, 0, 0, 0.84)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 77,
+    "h": 28
+   },
+   {
+    "tag": "A",
+    "txt": "",
+    "href": "https://github.com/jpcercal/jpcercal.com",
+    "outline": "auto 1px rgb(0, 95, 204)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 80,
+    "h": 80
+   },
+   {
+    "tag": "A",
+    "txt": "A WAF Is Not a Patch",
+    "href": "https://jpcercal.com/en/a-waf-is-not-a-patch/",
+    "outline": "auto 1px rgb(0, 95, 204)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 735,
+    "h": 30
+   },
+   {
+    "tag": "A",
+    "txt": "Engineering",
+    "href": "https://jpcercal.com/en/categories/engineering",
+    "outline": "auto 1px rgb(0, 95, 204)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 96,
+    "h": 34
+   },
+   {
+    "tag": "A",
+    "txt": "PHP2Shell: Two Critical PHP Vulnerabilit",
+    "href": "https://jpcercal.com/en/php2shell-two-critical-php-vulnerabilities/",
+    "outline": "auto 1px rgb(0, 95, 204)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 735,
+    "h": 30
+   },
+   {
+    "tag": "A",
+    "txt": "Engineering",
+    "href": "https://jpcercal.com/en/categories/engineering",
+    "outline": "auto 1px rgb(0, 95, 204)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 96,
+    "h": 34
+   },
+   {
+    "tag": "A",
+    "txt": "Changing the Decision Model Changes the ",
+    "href": "https://jpcercal.com/en/changing-the-decision-model-changes-the-policy/",
+    "outline": "auto 1px rgb(0, 95, 204)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 735,
+    "h": 30
+   },
+   {
+    "tag": "A",
+    "txt": "Engineering",
+    "href": "https://jpcercal.com/en/categories/engineering",
+    "outline": "auto 1px rgb(0, 95, 204)",
+    "shadow": "none",
+    "fv": true,
+    "vis": true,
+    "w": 96,
+    "h": 34
+   }
+  ],
+  "skip": [
+   "https://jpcercal.com/en/search|Search for",
+   "https://jpcercal.com/en/|jpcercal.com",
+   "https://jpcercal.com/|Portuguese"
+  ],
+  "main": false,
+  "ids": []
+ },
+ "post-misc": {
+  "links": [
+   {
+    "t": "João Paulo Cercal",
+    "td": "none",
+    "col": "rgba(0, 0, 0, 0.84)",
+    "pcol": "rgba(0, 0, 0, 0.84)"
+   },
+   {
+    "t": "Engineering",
+    "td": "underline",
+    "col": "rgba(51, 51, 51, 0.84)",
+    "pcol": "rgba(0, 0, 0, 0.84)"
+   },
+   {
+    "t": "",
+    "td": "none",
+    "col": "rgba(0, 0, 0, 0.84)",
+    "pcol": "rgba(0, 0, 0, 0.84)"
+   },
+   {
+    "t": "",
+    "td": "none",
+    "col": "rgba(0, 0, 0, 0.84)",
+    "pcol": "rgba(0, 0, 0, 0.84)"
+   },
+   {
+    "t": "",
+    "td": "none",
+    "col": "rgba(0, 0, 0, 0.84)",
+    "pcol": "rgba(0, 0, 0, 0.84)"
+   },
+   {
+    "t": "repository link",
+    "td": "none",
+    "col": "rgb(9, 105, 218)",
+    "pcol": "rgba(51, 51, 51, 0.84)"
+   },
+   {
+    "t": "Wordpress",
+    "td": "none",
+    "col": "rgb(9, 105, 218)",
+    "pcol": "rgba(0, 0, 0, 0.84)"
+   },
+   {
+    "t": "LAMP",
+    "td": "none",
+    "col": "rgb(9, 105, 218)",
+    "pcol": "rgba(0, 0, 0, 0.84)"
+   }
+  ],
+  "small": [
+   {
+    "t": "jpcercal.com",
+    "w": 141,
+    "h": 19
+   },
+   {
+    "t": "João Paulo Cercal",
+    "w": 112,
+    "h": 22
+   },
+   {
+    "t": "Engineering",
+    "w": 65,
+    "h": 19
+   }
+  ],
+  "share": [
+   {
+    "href": "https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fj",
+    "aria": null,
+    "txt": "",
+    "target": "_blank",
+    "rel": ""
+   },
+   {
+    "href": "https://twitter.com/intent/tweet?source=https%3a%2f%2fjpcerc",
+    "aria": null,
+    "txt": "",
+    "target": "_blank",
+    "rel": ""
+   },
+   {
+    "href": "http://www.linkedin.com/shareArticle?mini=true&url=https%3a%",
+    "aria": null,
+    "txt": "",
+    "target": "_blank",
+    "rel": ""
+   }
+  ],
+  "pre": [
+   {
+    "tab": 0,
+    "scroll": false,
+    "role": null,
+    "lbl": null
+   },
+   {
+    "tab": 0,
+    "scroll": false,
+    "role": null,
+    "lbl": null
+   }
+  ],
+  "lnt": 13,
+  "tables": 1,
+  "thNoScope": 0,
+  "hasMain": false,
+  "articleCount": 1,
+  "imgs": [
+   {
+    "alt": "View source on GitHub",
+    "src": "com/images/icons/github-corner-right.svg"
+   },
+   {
+    "alt": "João Paulo Cercal",
+    "src": "ercal.com/authors/jpcercal/thumbnail.jpg"
+   },
+   {
+    "alt": "Share on Facebook",
+    "src": "/images/icons/share-buttons/facebook.svg"
+   },
+   {
+    "alt": "Share on Twitter",
+    "src": "m/images/icons/share-buttons/twitter.svg"
+   },
+   {
+    "alt": "Share on LinkedIn",
+    "src": "/images/icons/share-buttons/linkedin.svg"
+   },
+   {
+    "alt": "Homepage",
+    "src": "out-and-the-blog-project/homepage.en.png"
+   }
+  ],
+  "motion": false,
+  "reducedMotionCss": null
+ },
+ "mobile": {
+  "sw": 320,
+  "cw": 320,
+  "wide": [],
+  "vp": "width=device-width,initial-scale=1,shrink-to-fit=no",
+  "post": {
+   "sw": 320,
+   "wide": [
+    "A.",
+    "A.",
+    "A.",
+    "A.",
+    "TABLE.lntable",
+    "TBODY."
+   ]
+  }
+ },
+ "search": {
+  "inputs": [
+   "<input id=\"search\" class=\"font-size-h6 search-input-field\" type=\"search\" autofocus=\"\" placeholder=\"Example &quot;PHP&quot; or &quot;Javascript&quot;.\">"
+  ],
+  "labels": [],
+  "live": [
+   "<span class=\"sr-only\" role=\"status\" aria-live=\"polite\" data-theme-toggle-status=\"\"></span>"
+  ],
+  "h": [
+   "Search for"
+  ],
+  "form": [
+   "<form onsubmit=\"return!1\"><ul class=\"search-info mt-6 mb-6\"><li>Type terms like \"PHP\" or \"Javascript\"</li><li>The terms that you'll type are \"case-insensitive\"</li><li>You must type at least 3 charact"
+  ],
+  "after": {
+   "live": [
+    "<span class=\"sr-only\" role=\"status\" aria-live=\"polite\" data-theme-toggle-status=\"\"></span>"
+   ],
+   "html": 12361,
+   "links": 2,
+   "resultsEl": [
+    "DIV#search-results.mt-6 mb-4 role=null live=null"
+   ]
+  }
+ },
+ "toggle": {
+  "html": "<button type=\"button\" class=\"theme-toggle\" data-theme-toggle=\"\" data-label-to-dark=\"Switch to dark theme\" data-label-to-light=\"Switch to light theme\" data-status-dark=\"Dark theme enabled\" data-status-light=\"Light theme enabled\">\n<span class=\"theme-toggle--icon\" aria-hidden=\"true\"><svg class=\"theme-toggle__svg theme-toggle__svg--sun\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M12 2v2\"></path><path d=\"M12 20v2\"></path><path d=\"m4.93 4.93 1.41 1.41\"></path><path d=\"m17.66 17.66 1.41 1.41\"></path><path d=\"M2 12h2\"></path><path d=\"M20 12h2\"></path><path d=\"m6.34 17.66-1.41 1.41\"></path><path d=\"m19.07 4.93-1.41 1",
+  "after": {
+   "theme": "dark",
+   "btn": "<button type=\"button\" class=\"theme-toggle\" data-theme-toggle=\"\" data-label-to-dark=\"Switch to dark theme\" data-label-to-light=\"Switch to light theme\" data-status-dark=\"Dark theme enabled\" data-status-light=\"Light theme enabled\">\n<span class=\"theme-toggle--icon\" aria-hidden=\"true\"><svg class=\"theme-toggle__svg theme-toggle__svg--sun\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M12 2v2\"></path><path d=\"M12 20v2\"></",
+   "status": [
+    "<span class=\"sr-only\" role=\"status\" aria-live=\"polite\" data-theme-toggle-status=\"\">Dark theme enabled</span>"
+   ]
+  },
+  "box": {
+   "x": 797.671875,
+   "y": 5,
+   "width": 68,
+   "height": 44
+  }
+ }
+}

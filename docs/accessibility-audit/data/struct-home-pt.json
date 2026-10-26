@@ -1,0 +1,117 @@
+{
+ "url": "https://jpcercal.com/",
+ "title": "jpcercal.com",
+ "htmlLang": "pt",
+ "viewportMeta": "width=device-width,initial-scale=1,shrink-to-fit=no",
+ "skipCandidates": [
+  {
+   "href": "#",
+   "text": "Português",
+   "cls": "hidden lg:inline"
+  },
+  {
+   "href": "#",
+   "text": "PT",
+   "cls": "lg:hidden"
+  }
+ ],
+ "headings": [
+  {
+   "lvl": 1,
+   "text": "Últimos Posts"
+  },
+  {
+   "lvl": 2,
+   "text": "Um WAF Não É um Patch"
+  },
+  {
+   "lvl": 2,
+   "text": "PHP2Shell: Duas Vulnerabilidades Críticas no PHP e o Que Fazer Agora"
+  },
+  {
+   "lvl": 2,
+   "text": "Mudar o modelo de decisão muda a política"
+  },
+  {
+   "lvl": 2,
+   "text": "GPT-6 Astra É um Operador, Não um Chatbot"
+  },
+  {
+   "lvl": 2,
+   "text": "O Custo do Ciclo Importa Mais do que a Pontuação"
+  },
+  {
+   "lvl": 2,
+   "text": "Quando Decisões de IA se Tornam Entradas de Software"
+  },
+  {
+   "lvl": 2,
+   "text": "O que uma Sessão com IA Pode Ensinar à Próxima"
+  },
+  {
+   "lvl": 2,
+   "text": "Trabalhando com Agentes de IA: Supervisione o Ciclo"
+  },
+  {
+   "lvl": 2,
+   "text": "Entenda o Sistema Antes de Mudá-lo"
+  },
+  {
+   "lvl": 2,
+   "text": "Como Criar um Sincronizador de Arquivos Bidirecional com Unison"
+  }
+ ],
+ "landmarks": [
+  "header.container",
+  "nav[Seleção de idioma].float-right.flex",
+  "header.flex-col.m-0",
+  "header.flex-col.m-0",
+  "header.flex-col.m-0",
+  "header.flex-col.m-0",
+  "header.flex-col.m-0",
+  "header.flex-col.m-0",
+  "header.flex-col.m-0",
+  "header.flex-col.m-0",
+  "header.flex-col.m-0",
+  "header.flex-col.m-0",
+  "nav[Paginação de posts].flex.mt-2",
+  "footer.site-footer.site-footer--centered",
+  "nav[Navegação do rodapé]"
+ ],
+ "imgs": {
+  "total": 21,
+  "noAltAttr": 0,
+  "emptyAlt": 0,
+  "svgTotal": 4,
+  "svgUnlabeled": 0,
+  "pictureCount": 20
+ },
+ "buttons": [
+  {
+   "text": "Mudar para o tema escuro",
+   "ariaLabel": null,
+   "ariaPressed": null,
+   "title": null,
+   "html": "<button type=\"button\" class=\"theme-toggle\" data-theme-toggle=\"\" data-label-to-dark=\"Mudar para o tema escuro\" data-label-to-light=\"Mudar para o tema claro\" data-status-dark=\"Tema escuro ativado\" data-status-light=\"Tema c"
+  }
+ ],
+ "inputs": [],
+ "langSwitch": [
+  {
+   "href": "https://jpcercal.com/en/",
+   "hreflang": "en",
+   "text": "Inglês",
+   "aria": null,
+   "cls": "hidden lg:inline"
+  },
+  {
+   "href": "https://jpcercal.com/en/",
+   "hreflang": "en",
+   "text": "EN",
+   "aria": null,
+   "cls": "lg:hidden"
+  }
+ ],
+ "themeAttr": "light",
+ "iframeCount": 0
+}

@@ -1,0 +1,95 @@
+{
+ "url": "https://jpcercal.com/revisitando-o-layout-e-o-projeto-do-blog/",
+ "title": "Revisitando o layout e o projeto do Blog | jpcercal.com",
+ "htmlLang": "pt",
+ "viewportMeta": "width=device-width,initial-scale=1,shrink-to-fit=no",
+ "skipCandidates": [
+  {
+   "href": "#",
+   "text": "Português",
+   "cls": "hidden lg:inline"
+  },
+  {
+   "href": "#",
+   "text": "PT",
+   "cls": "lg:hidden"
+  }
+ ],
+ "headings": [
+  {
+   "lvl": 1,
+   "text": "Revisitando o layout e o projeto do Blog"
+  },
+  {
+   "lvl": 2,
+   "text": "Just in case, it just works!"
+  },
+  {
+   "lvl": 2,
+   "text": "Arquivos Markdown"
+  },
+  {
+   "lvl": 2,
+   "text": "Ambiente de desenvolvimento e testes"
+  },
+  {
+   "lvl": 2,
+   "text": "Travis CI"
+  },
+  {
+   "lvl": 2,
+   "text": "Outras ferramentas"
+  },
+  {
+   "lvl": 2,
+   "text": "Homepage"
+  },
+  {
+   "lvl": 2,
+   "text": "Pontos a serem revisitados"
+  }
+ ],
+ "landmarks": [
+  "header.container",
+  "nav[Seleção de idioma].float-right.flex",
+  "header.row",
+  "footer.site-footer.site-footer--centered",
+  "nav[Navegação do rodapé]"
+ ],
+ "imgs": {
+  "total": 6,
+  "noAltAttr": 0,
+  "emptyAlt": 0,
+  "svgTotal": 4,
+  "svgUnlabeled": 0,
+  "pictureCount": 0
+ },
+ "buttons": [
+  {
+   "text": "Mudar para o tema escuro",
+   "ariaLabel": null,
+   "ariaPressed": null,
+   "title": null,
+   "html": "<button type=\"button\" class=\"theme-toggle\" data-theme-toggle=\"\" data-label-to-dark=\"Mudar para o tema escuro\" data-label-to-light=\"Mudar para o tema claro\" data-status-dark=\"Tema escuro ativado\" data-status-light=\"Tema c"
+  }
+ ],
+ "inputs": [],
+ "langSwitch": [
+  {
+   "href": "https://jpcercal.com/en/revisiting-the-layout-and-the-blog-project/",
+   "hreflang": "en",
+   "text": "Inglês",
+   "aria": null,
+   "cls": "hidden lg:inline"
+  },
+  {
+   "href": "https://jpcercal.com/en/revisiting-the-layout-and-the-blog-project/",
+   "hreflang": "en",
+   "text": "EN",
+   "aria": null,
+   "cls": "lg:hidden"
+  }
+ ],
+ "themeAttr": "light",
+ "iframeCount": 0
+}
