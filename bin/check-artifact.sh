@@ -50,6 +50,22 @@ for path in Path('public').rglob('*.html'):
         raise SystemExit(f'artifact: forbidden active resource in {path}')
 PY
 
+# lychee 0.24.2 reads "<" directly followed by a letter inside an inline
+# <script> (e.g. `i<n.length`) as a tag start and silently stops extracting
+# links for the rest of the page, so the links gate would skip every post body
+# link. Fail the build instead of letting the gate go blind.
+python3 - <<'PY'
+from pathlib import Path
+import re
+
+script = re.compile(r'<script(?![^>]*\bsrc=)(?![^>]*ld\+json)[^>]*>(.*?)</script>', re.S | re.I)
+bad = re.compile(r'<[A-Za-z!/]')
+for path in Path('public').rglob('index.html'):
+    for body in script.findall(path.read_text()):
+        if bad.search(body):
+            raise SystemExit(f'artifact: inline script in {path} has "<" before a letter; lychee would stop extracting links (write n.length>i instead of i<n.length)')
+PY
+
 python3 bin/check-bilingual.py
 
 echo "artifact: production isolation checks passed"
