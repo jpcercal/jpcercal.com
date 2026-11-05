@@ -17,7 +17,7 @@ RUN --mount=type=cache,target=/root/.cache/nix,sharing=locked \
 
 # Debian supplies compatibility for GitHub Actions' own Node executables.
 # Project tools and their libraries all come from the pinned Nix closure.
-FROM debian:trixie-slim@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f
+FROM debian:trixie-slim@sha256:f6b08b09a05725f9431502d3b5714f5c4576e82c1a84fa1debe0c24a7e0c3ec4
 COPY --from=nix-builder /export/ /
 ENV PATH="/opt/ci/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
     BASH_ENV="/etc/profile.d/blog.sh" \
