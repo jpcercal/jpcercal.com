@@ -2,7 +2,7 @@
 # Optional packaging adapter: flake.nix/flake.lock own every project dependency.
 # BuildKit caches the build layer; the final image contains only the runtime
 # closure, not Nix, compilers, npm caches, or browser-install machinery.
-FROM nixos/nix:2.35.3@sha256:ff480dbb23511aa1c10710aa068ceea5b93fed9bfce5f5379f3a6b07282cbc7b AS nix-builder
+FROM nixos/nix:2.36.0@sha256:746280551ddc1c72177d1a597c05eacac86dfaa18d5d649bf86411278bcd5470 AS nix-builder
 WORKDIR /srv/toolchain
 COPY flake.nix flake.lock package.json package-lock.json ./
 COPY nix/ ./nix/
